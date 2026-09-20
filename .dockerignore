@@ -1,0 +1,13 @@
+# 构建上下文里不需要的东西：体积、密钥、本机数据
+node_modules
+dist
+data
+.git
+.gitignore
+docs
+test
+scripts
+*.log
+.env
+.env.*
+!.env.server.example

@@ -1,0 +1,41 @@
+name: cookbook
+
+services:
+  app:
+    image: cookbook:server
+    build:
+      # 在服务器上源码位于 /srv/app/cookbook/source，构建上下文即该目录
+      context: "${COOKBOOK_BUILD_CONTEXT:-.}"
+      dockerfile: Dockerfile
+    container_name: cookbook
+    restart: unless-stopped
+    init: true
+    # 只绑定局域网地址，不监听 0.0.0.0
+    ports:
+      - "${COOKBOOK_BIND:-192.168.1.2}:${COOKBOOK_PORT:-18081}:${COOKBOOK_INTERNAL_PORT:-8080}"
+    environment:
+      NODE_ENV: production
+      COOKBOOK_HOST: 0.0.0.0
+      COOKBOOK_PORT: "${COOKBOOK_INTERNAL_PORT:-8080}"
+      COOKBOOK_DATA_DIR: /data
+    volumes:
+      # 菜谱与图片是唯一持久化数据；当前只读，M5 做网页编辑时再改为可写
+      - type: bind
+        source: "${COOKBOOK_DATA_DIR:-/srv/data/cookbook}"
+        target: /data
+        read_only: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 256m
+    stop_grace_period: 10s
+    logging:
+      driver: local
+      options:
+        max-size: 10m
+        max-file: "3"

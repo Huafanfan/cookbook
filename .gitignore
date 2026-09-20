@@ -1,0 +1,25 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.tsbuildinfo
+
+# 环境变量（含服务器配置，绝不入库）
+.env
+.env.*
+# 但示例文件要入库：DEPLOYMENT 的 `cp .env.server.example .env.server` 依赖它
+!.env.example
+!.env.server.example
+
+# 日志与临时文件
+*.log
+npm-debug.log*
+.DS_Store
+*.swp
+
+# 本地数据快照（正式数据只放 data/，随仓库版本化的是菜谱 JSON 与图片）
+data/**/*.tmp
+data/backup/
+
+# 编辑器
+.vscode/
+.idea/

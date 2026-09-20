@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.server.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["test/**/*.test.ts", "scripts/**/*.ts", "src/**/*.ts"]
+}

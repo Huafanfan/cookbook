@@ -1,0 +1,120 @@
+{
+  "id": "ke-le-ji-chi",
+  "name": "可乐鸡翅",
+  "aliases": [
+    "可乐鸡翅中",
+    "Coke Chicken Wings"
+  ],
+  "category": "家常菜",
+  "tags": [
+    "宴客",
+    "下饭",
+    "新手友好"
+  ],
+  "summary": "零失败的甜咸口，靠可乐自然上色收汁，厨房新手也能做好。",
+  "difficulty": 1,
+  "servings": 2,
+  "prepMinutes": 15,
+  "cookMinutes": 20,
+  "equipmentAlternatives": [
+    [
+      "炒锅",
+      "平底锅",
+      "汤锅"
+    ]
+  ],
+  "ingredients": [
+    {
+      "name": "鸡翅中",
+      "amount": 500,
+      "unit": "g",
+      "group": "主料",
+      "note": "两面各划两刀更入味"
+    },
+    {
+      "name": "可乐",
+      "amount": 330,
+      "unit": "ml",
+      "group": "主料",
+      "note": "含糖原味可乐，不要无糖"
+    },
+    {
+      "name": "姜",
+      "amount": 4,
+      "unit": "片",
+      "group": "腌料"
+    },
+    {
+      "name": "料酒",
+      "amount": 15,
+      "unit": "ml",
+      "group": "腌料"
+    },
+    {
+      "name": "生抽",
+      "amount": 20,
+      "unit": "ml",
+      "group": "调料"
+    },
+    {
+      "name": "老抽",
+      "amount": 5,
+      "unit": "ml",
+      "group": "调料",
+      "note": "只用来上色，别多放"
+    },
+    {
+      "name": "盐",
+      "amount": 2,
+      "unit": "g",
+      "group": "调料"
+    },
+    {
+      "name": "食用油",
+      "amount": 10,
+      "unit": "ml",
+      "group": "调料"
+    }
+  ],
+  "steps": [
+    {
+      "text": "鸡翅两面各划两刀，加姜片、料酒抓匀腌 10 分钟。",
+      "title": "腌制",
+      "minutes": 10
+    },
+    {
+      "text": "鸡翅冷水下锅，烧开后焯 2 分钟，撇去浮沫，捞出沥干水分。",
+      "title": "焯水",
+      "heat": "大火",
+      "minutes": 2
+    },
+    {
+      "text": "热锅倒油，鸡翅表面擦干后下锅，中小火煎至两面金黄。",
+      "title": "煎香",
+      "heat": "中小火",
+      "minutes": 5,
+      "tip": "带水下锅会溅油，下锅前用厨房纸擦干。"
+    },
+    {
+      "text": "倒入可乐、生抽、老抽、盐，大火烧开转中小火焖 12 分钟。",
+      "title": "焖煮",
+      "heat": "中小火",
+      "minutes": 12,
+      "tip": "液面没过鸡翅三分之二即可，不够加热水。"
+    },
+    {
+      "text": "开盖转大火收汁，汤汁变浓稠裹住鸡翅即可关火。",
+      "title": "收汁",
+      "heat": "大火",
+      "minutes": 3,
+      "tip": "最后 1 分钟不停翻动，糖分高容易糊底。"
+    }
+  ],
+  "tips": [
+    "收汁到「挂勺」状态最好吃，太稀像汤，太干会发苦。",
+    "想带点辣味，煎香时加两根干辣椒。"
+  ],
+  "source": "家常做法",
+  "createdAt": "2026-09-19",
+  "updatedAt": "2026-09-19"
+}
