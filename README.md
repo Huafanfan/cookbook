@@ -158,3 +158,6 @@ cookbook/
 | GET | `/api/recipes/:id` | 详情（完整食材与步骤） |
 | GET | `/api/meta` | 分类、标签、总数（筛选器数据源） |
 | GET | `/api/health` | 健康检查（容器用） |
+| GET | `/api/user-state` | 点赞/收藏全量状态 |
+| POST | `/api/recipes/:id/like` | 点赞 `{ delta: 1 \| -1 }`（**写操作**） |
+| POST | `/api/recipes/:id/favorite` | 收藏 `{ favorite: boolean }`（**写操作**） |

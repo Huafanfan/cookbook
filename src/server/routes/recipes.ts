@@ -1,8 +1,9 @@
 import type { FastifyInstance } from "fastify";
 
 import type { RecipeListResponse, SearchParams } from "../../shared/types.js";
+import type { UserStateStore } from "../services/user-state-store.js";
 import type { RecipeRepository } from "../services/recipe-repository.js";
-import { searchRecipes, toSummary } from "../services/search.js";
+import { searchRecipes, sortByUserPreference, toSummary } from "../services/search.js";
 
 interface RecipeQuery {
   q?: string;
@@ -18,7 +19,11 @@ function readParams(query: RecipeQuery): SearchParams {
   };
 }
 
-export function registerRecipeRoutes(app: FastifyInstance, repository: RecipeRepository): void {
+export function registerRecipeRoutes(
+  app: FastifyInstance,
+  repository: RecipeRepository,
+  userState: UserStateStore
+): void {
   app.get("/api/health", async () => ({
     status: "ok" as const,
     recipes: repository.list().length
@@ -30,9 +35,12 @@ export function registerRecipeRoutes(app: FastifyInstance, repository: RecipeRep
     const params = readParams(request.query);
     const matched = searchRecipes(repository.list(), params);
 
+    const summaries = matched.map((recipe) => toSummary(recipe, userState.get(recipe.id)));
+
     const response: RecipeListResponse = {
-      total: matched.length,
-      items: matched.map(toSummary),
+      total: summaries.length,
+      // 只有"没有搜索词"时才按收藏/点赞排；搜索时仍按相关度（CB-005 §8）
+      items: params.q ? summaries : sortByUserPreference(summaries),
       skipped: repository.failures().map((failure) => failure.file)
     };
 

@@ -17,6 +17,7 @@ import {
   writeStored
 } from "../lib/storage";
 import { useMeta } from "../lib/use-meta";
+import { useFavorite, useLike, useLoadUserState, useUserState, userStateOf } from "../lib/user-state";
 import { useMyKitchen } from "../lib/use-kitchen";
 import { useWakeLock, type WakeLockStatus } from "../lib/wake-lock";
 
@@ -66,6 +67,13 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
   /** 人数档位；null = 用菜谱基准份量 */
   const [servingsChoice, setServingsChoice] = useState<number | null>(null);
   const { meta, failed: metaFailed } = useMeta();
+
+  // 点赞/收藏：hooks 必须在提前 return 之前调用（id 来自 props，始终可用）
+  useLoadUserState();
+  const map = useUserState();
+  const like = useLike(id);
+  const favorite = useFavorite(id);
+  const [actionError, setActionError] = useState<string | null>(null);
   const kitchen = useMyKitchen({
     available: meta?.equipment ?? NO_TOOLS,
     defaultOwned: meta?.defaultOwned ?? NO_TOOLS
@@ -148,6 +156,7 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
   }
 
   const servings = servingsChoice ?? recipe.servings;
+  const state = userStateOf(map, recipe.id);
   const timeText = minutesText(recipe.prepMinutes, recipe.cookMinutes);
 
   return (
@@ -229,6 +238,50 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
         {recipe.aliases && recipe.aliases.length > 0 && (
           <p className="recipe-aliases">也叫：{recipe.aliases.join("、")}</p>
         )}
+
+        <div className="action-row">
+          <button
+            type="button"
+            className={`chip${state.favorite ? " chip-active" : ""}`}
+            aria-pressed={state.favorite}
+            onClick={() => {
+              void favorite(!state.favorite).then((result) => {
+                setActionError(result.ok ? null : "收藏没能保存，请重试");
+              });
+            }}
+          >
+            {state.favorite ? "★ 已收藏" : "☆ 收藏"}
+          </button>
+
+          <button
+            type="button"
+            className="chip"
+            aria-label="点赞"
+            onClick={() => {
+              void like(1).then((result) => {
+                setActionError(result.ok ? null : "点赞没能保存，请重试");
+              });
+            }}
+          >
+            👍 {state.likes}
+          </button>
+
+          {state.likes > 0 && (
+            <button
+              type="button"
+              className="link-button link-button-sm"
+              onClick={() => {
+                void like(-1).then((result) => {
+                  setActionError(result.ok ? null : "点赞没能保存，请重试");
+                });
+              }}
+            >
+              取消点赞
+            </button>
+          )}
+        </div>
+
+        {actionError && <p className="notice notice-error">{actionError}</p>}
       </header>
 
       <IngredientList

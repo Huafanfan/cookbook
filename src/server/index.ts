@@ -6,7 +6,9 @@ import { join } from "node:path";
 import { formatContentIssues, lintRecipeContent } from "./lib/content-lint.js";
 import { loadConfig, type CookbookConfig } from "./lib/config.js";
 import { registerRecipeRoutes } from "./routes/recipes.js";
+import { registerUserStateRoutes } from "./routes/user-state.js";
 import { RecipeRepository } from "./services/recipe-repository.js";
+import { UserStateStore } from "./services/user-state-store.js";
 
 /** 组装应用（不监听端口），便于测试与复用 */
 export async function createApp(config: CookbookConfig): Promise<FastifyInstance> {
@@ -32,7 +34,11 @@ export async function createApp(config: CookbookConfig): Promise<FastifyInstance
     }
   }
 
-  registerRecipeRoutes(app, repository);
+  const { store: userState, warnings: userStateWarnings } = await UserStateStore.load(config.dataDir);
+  for (const warning of userStateWarnings) app.log.warn(warning);
+
+  registerRecipeRoutes(app, repository, userState);
+  registerUserStateRoutes(app, repository, userState);
 
   if (config.webDir) {
     const indexFile = join(config.webDir, "index.html");

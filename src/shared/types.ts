@@ -75,6 +75,23 @@ export interface RecipeSummary {
   equipmentAlternatives: string[][];
   /** M4 图片功能：封面图 URL；当前恒为 null，客户端显示占位图 */
   coverImage: string | null;
+  /** 点赞数（服务端用户状态，CB-005） */
+  likes: number;
+  /** 是否收藏（服务端用户状态，CB-005） */
+  favorite: boolean;
+}
+
+/** 单道菜的用户状态 */
+export interface RecipeUserState {
+  likes: number;
+  favorite: boolean;
+  /** 最后一次变更时间（ISO） */
+  updatedAt?: string;
+}
+
+/** `GET /api/user-state` 的响应 */
+export interface UserStateResponse {
+  recipes: Record<string, RecipeUserState>;
 }
 
 export interface RecipeListResponse {

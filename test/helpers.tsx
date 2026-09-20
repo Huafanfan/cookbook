@@ -18,7 +18,7 @@ export function makeRecipe(overrides: Partial<Recipe> = {}): Recipe {
 
 export function makeSummary(overrides: Partial<RecipeSummary> = {}): RecipeSummary {
   const recipe = makeRecipe();
-  return {
+  const base: RecipeSummary = {
     id: recipe.id,
     name: recipe.name,
     category: recipe.category,
@@ -29,8 +29,12 @@ export function makeSummary(overrides: Partial<RecipeSummary> = {}): RecipeSumma
     equipment: [],
     equipmentAlternatives: recipe.equipmentAlternatives ?? [],
     coverImage: null,
-    ...overrides
+    likes: 0,
+    favorite: false
   };
+
+  // Partial 会把可选字段展宽成 `T | undefined`，所以这两个字段显式兜底
+  return { ...base, ...overrides, likes: overrides.likes ?? 0, favorite: overrides.favorite ?? false };
 }
 
 /** jsdom 没有实现 scrollIntoView，测试里需要打桩 */

@@ -10,7 +10,10 @@ export function totalMinutes(recipe: Recipe): number | undefined {
   return total > 0 ? total : undefined;
 }
 
-export function toSummary(recipe: Recipe): RecipeSummary {
+export function toSummary(
+  recipe: Recipe,
+  userState: { likes: number; favorite: boolean } = { likes: 0, favorite: false }
+): RecipeSummary {
   return {
     id: recipe.id,
     name: recipe.name,
@@ -24,7 +27,9 @@ export function toSummary(recipe: Recipe): RecipeSummary {
     equipment: recipe.equipment ?? [],
     equipmentAlternatives: recipe.equipmentAlternatives ?? [],
     // M4 实现图片扫描后改为实际封面地址
-    coverImage: null
+    coverImage: null,
+    likes: userState.likes,
+    favorite: userState.favorite
   };
 }
 
@@ -84,4 +89,18 @@ export function searchRecipes(recipes: Recipe[], params: SearchParams): Recipe[]
   });
 
   return scored.map((entry) => entry.recipe);
+}
+
+/**
+ * 按用户偏好排序：**收藏优先 → 点赞降序 → 名称**。
+ *
+ * 只在**没有搜索词**时使用（CB-005 §8 风险 3）：搜索时仍按相关度，
+ * 否则"搜特定菜"的结果顺序会变得意外。
+ */
+export function sortByUserPreference(items: RecipeSummary[]): RecipeSummary[] {
+  return [...items].sort((a, b) => {
+    if (a.favorite !== b.favorite) return a.favorite ? -1 : 1;
+    if (a.likes !== b.likes) return b.likes - a.likes;
+    return a.name.localeCompare(b.name, "zh");
+  });
 }

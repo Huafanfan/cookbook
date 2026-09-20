@@ -797,6 +797,22 @@ button {
   font-size: 14px;
 }
 
+/* ---------- 点赞 / 收藏（CB-005） ---------- */
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.badge-favorite {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 /* ---------- 厨具行（CB-002） ---------- */
 
 .equipment-row {

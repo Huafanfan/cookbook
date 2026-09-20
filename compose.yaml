@@ -19,11 +19,12 @@ services:
       COOKBOOK_PORT: "${COOKBOOK_INTERNAL_PORT:-8080}"
       COOKBOOK_DATA_DIR: /data
     volumes:
-      # 菜谱与图片是唯一持久化数据；当前只读，M5 做网页编辑时再改为可写
+      # 数据目录**需要可写**：用户状态（点赞/收藏）由应用运行期写入
+      # `data/user-state.json`（见 docs/decisions/ADR-0003-write-operations-user-state.md）。
+      # 菜谱内容运行期仍只读（应用不会改写 recipes/），容器根文件系统也仍是 read_only。
       - type: bind
         source: "${COOKBOOK_DATA_DIR:-/srv/data/cookbook}"
         target: /data
-        read_only: true
     read_only: true
     tmpfs:
       - /tmp:size=16m,mode=1777

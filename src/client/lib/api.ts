@@ -2,7 +2,9 @@ import type {
   Recipe,
   RecipeListResponse,
   RecipeMetaResponse,
-  SearchParams
+  RecipeUserState,
+  SearchParams,
+  UserStateResponse
 } from "../../shared/types";
 
 /** 带 HTTP 状态码的错误，便于页面区分 404 与一般故障 */
@@ -51,4 +53,30 @@ export function fetchRecipe(id: string, signal?: AbortSignal): Promise<Recipe> {
 
 export function fetchMeta(signal?: AbortSignal): Promise<RecipeMetaResponse> {
   return getJson<RecipeMetaResponse>("/api/meta", signal);
+}
+
+/** 写操作（本项目唯一的三个）：失败时抛 ApiError，由调用方回滚界面 */
+async function postJson<T>(url: string, body: unknown): Promise<T> {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) throw new ApiError(response.status);
+  return (await response.json()) as T;
+}
+
+export function fetchUserState(signal?: AbortSignal): Promise<UserStateResponse> {
+  return getJson<UserStateResponse>("/api/user-state", signal);
+}
+
+export function postLike(id: string, delta: 1 | -1): Promise<RecipeUserState> {
+  return postJson<RecipeUserState>(`/api/recipes/${encodeURIComponent(id)}/like`, { delta });
+}
+
+export function postFavorite(id: string, favorite: boolean): Promise<RecipeUserState> {
+  return postJson<RecipeUserState>(`/api/recipes/${encodeURIComponent(id)}/favorite`, {
+    favorite
+  });
 }

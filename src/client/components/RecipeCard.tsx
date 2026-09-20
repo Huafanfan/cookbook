@@ -47,6 +47,9 @@ export function RecipeCard({
 
           <span className="recipe-card-meta">
             <span className="badge badge-category">{recipe.category}</span>
+            {/* 只在"已收藏 / 有点赞"时显示，不制造噪音 */}
+            {recipe.favorite && <span className="badge badge-favorite">★ 已收藏</span>}
+            {recipe.likes > 0 && <span className="badge">👍 {recipe.likes}</span>}
             {kitchenLabel && (
               <span className={`badge badge-kitchen badge-kitchen-${verdict}`}>{kitchenLabel}</span>
             )}
