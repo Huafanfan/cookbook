@@ -11,6 +11,7 @@
 - **内容来源**：HowToCook 为 Unlicense（公有领域）可自由使用；老乡鸡的 CookLikeHOC **无 LICENSE** 故不使用其内容。见 [DATA_MODEL §8](DATA_MODEL.md)
 - **独立复核已完成（2026-09-20）**：[overall-review/AUDIT.md](verification/overall-review/AUDIT.md) —— 结论 `OK with notes`：**P0 无、P1 × 7、P2 × 12**；CB-001/CB-002 的验收清单**全未勾选**，故两份规格保持 `implemented`，**不得称 `verified`**
 - **稳定化第一轮已完成（2026-09-20）**：[FIXES.md](verification/overall-review/FIXES.md) —— P1 × 7 全部修完并逐条实测，P2 × 12 修完 12 条；两份规格仍为 `implemented`
+- **点赞/收藏已完成（2026-09-20）**：[CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md) —— 本项目**第一个写操作**（服务端共享、原子替换、失败回滚）；排序＝收藏优先→点赞降序（无搜索词时）
 - **tag 与时间提取已完成（2026-09-20）**：[CB-006](features/CB-006-tags.md) —— 14 个受控 tag（`data/tags.json`）+ LLM 逐道分类 371/371，筛选栏每个 tag 都有菜；36 条"多个时间"由 LLM 判定补 `minutes`（内容警告 52→19）
 - **份量档位已实现（2026-09-20）**：[CB-004](features/CB-004-serving-scale.md) —— 多一人多 0.5 倍（2/3/4/5 人），非基准档位时提示"步骤用量按基准写"
 - **菜单已丰富（2026-09-20）**：从 HowToCook 导入 371 道菜（[CB-003](features/CB-003-howtocook-import.md)，`implemented`）；解析器 33 个单测

@@ -80,7 +80,10 @@ src/
 1. 前端**不直接读文件**，全部经 API。
 2. 文件系统访问只有 4 处，且各有明确职责：`server/services/recipe-repository.ts`（读菜谱）、
    `server/lib/equipment.ts`（读厨具词表）、`server/lib/config.ts`（探测构建产物目录）、`server/index.ts`（读 index.html 做 SPA 兜底）。
-   **不得新增第 5 处**；数据读取一律经 repository。
+   外加第 5 处：`server/services/user-state-store.ts`（用户状态的读写，见 ADR-0003）。
+   **不得新增第 6 处**；菜谱数据读取一律经 repository。
+2b. **写操作只有一处**：`user-state-store` 写 `data/user-state.json`（原子替换 + 串行队列）；
+   菜谱内容运行期只读，应用不会改写 `data/recipes/`。
 3. **类型**的唯一来源是 `src/shared/types.ts`，**运行时校验**的唯一来源是 `src/server/lib/schema.ts`（zod）。两边字段必须同步，改一处就要改另一处。
 
 ## 5. 备选方案与取舍

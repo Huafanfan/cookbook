@@ -5,7 +5,7 @@
 | 字段 | 内容 |
 | --- | --- |
 | 编号 | `CB-005` |
-| 状态 | `accepted` |
+| 状态 | `implemented` |
 | 变更等级 | `T2`（引入写操作，见 [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md)） |
 | 创建日期 | 2026-09-20 |
 | 最后文档复核 | 2026-09-20 |
@@ -127,12 +127,24 @@
 
 | 项目 | 证据 |
 | --- | --- |
-| 实现路径 / 测试 / 数据校验 | 待填 |
-| 双设备验证 | 待填 |
-| 写失败回滚 | 待填 |
+| 实现路径 | `server/services/user-state-store.ts`（原子替换 + 串行队列 + 失败回滚内存）、`server/routes/user-state.ts`（3 个接口）、`server/index.ts`、`server/services/search.ts`（`sortByUserPreference`）、`client/lib/user-state.ts`（乐观更新 + 回滚）、`client/lib/api.ts`、`components/RecipeCard.tsx`、`pages/RecipePage.tsx`、`compose.yaml`（数据目录改可写） |
+| 接口实测（本机 HTTP） | 点赞 `+1 → 1`、`+1 → 2`、`-1 → 1`；收藏 `true`；错误码：不存在 id → **404**、非法 delta → **400**、非法 favorite → **400** |
+| 落盘 | `data/user-state.json` 内容为 `{"version":1,"recipes":{"ke-le-ji-chi":{"likes":1,"favorite":true,...}}}` |
+| 排序 | 修复实测：收藏且点赞 1 的「可乐鸡翅」排**第一**，其余按名称；**有搜索词时仍按相关度**（搜「红烧肉」前 3 不变） |
+| 测试 | `user-state.test.ts` 12 例：点赞下限 0、收藏切换、原子落盘可解析、重载保持、**并发 10 次 +1 = 10**（串行队列）、文件损坏另存 `.broken`、`normalizeState` 容错、排序三例（含不改动原数组） |
+| 门禁 | `typecheck` exit 0；`npm test` **190 passed**；`check:data` exit 0；`build` exit 0 |
+| 双设备验证 | **待你做**（这是本功能的核心价值：一台收藏，另一台也看到） |
+| 写失败回滚 | 代码路径已实现（失败 → 回滚内存 + 前端回滚提示）；**未在真机/只读挂载下实测** |
+
+### 实现过程中修掉的一个真 bug
+
+路由里**漏了排序调用**：`items: matched.map(...)` 直接返回，`sortByUserPreference` 没被调用 →
+收藏的菜不会排到最前。原因是早先一次批量替换的**锚点没匹配上而静默失败**（无失败校验）。
+已补上并复验；同时给后续所有批量替换加了锚点校验（不匹配就报错退出，不再静默）
 
 ## 12. 复核记录
 
 | 日期 | 变更 | 阅读和复核的文档 | 结论 |
 | --- | --- | --- | --- |
 | 2026-09-20 | 建立规格（用户选定服务端存储；ADR-0003 已立） | START-HERE、AGENTS、DATA_MODEL、ADR-0002/0003、CB-003/004 | `accepted` |
+| 2026-09-20 | 实现完成（存储/接口/界面/排序/容器）；本机 HTTP 逐项实测 | ARCHITECTURE、DATA_MODEL、DEPLOYMENT、ADR-0003 | `implemented`（待双设备验收） |

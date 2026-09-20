@@ -23,7 +23,7 @@
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
 | 丰富菜单（导入） | ✅ 已完成 | [CB-003](features/CB-003-howtocook-import.md)：从公有领域的 HowToCook 导入 **371 道**（解析 371/371 成功） |
 | 份量档位 | ✅ 已完成 | [CB-004](features/CB-004-serving-scale.md)（`implemented`）：多一人多 0.5 倍 |
-| 点赞/收藏/排序 | 📝 规格待你确认 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)（引入写操作） |
+| 点赞/收藏/排序 | ✅ 已完成 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)：服务端共享、失败回滚；待双设备验收 |
 | tag 词表与分类 | ✅ 已完成 | [CB-006](features/CB-006-tags.md)：14 个受控 tag，LLM 逐道分类 371/371 |
 | 导入内容的时间提取 | ✅ 已完成 | 36 条交 LLM 判定：填入 34、判定不填 2；内容警告从 52 条降到 19 条 |
 | M4 图片 | ⬜ 待做（规格未写） | 开工前先立 `CB-004` 规格 |
@@ -33,7 +33,7 @@
 
 ```bash
 npm run typecheck   # 0 错误（前端 / 后端 / 测试 三套 tsconfig）
-npm test            # 178 passed
+npm test            # 190 passed
 npm run check:data  # 2 个样例菜谱校验通过
 npm run build && npm start   # 生产构建启动，HTTP 接口与页面均返回 200
 ```

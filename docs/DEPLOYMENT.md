@@ -18,7 +18,7 @@
 | 已运行容器 | `pt-media-assistant`（4178，host 网络）、`pt-media-assistant-prowlarr`、`lan-smoke-test`（18080） |
 | 已占用端口 | 22、53、80、443、3038、4178、5037、8125、9696、18080、18333、19290、19999、55555、Tailscale 的 8080–8088 |
 | **本项目端口** | **18081**（已确认空闲） |
-| 本项目数据目录 | `/srv/data/cookbook/{recipes,images}` |
+| 本项目数据目录 | `/srv/data/cookbook/`（`recipes/`、`images/`、`equipment.json`、`tags.json`、**`user-state.json`**） |
 | 本项目厨具词表 | `/srv/data/cookbook/equipment.json`（13 件，默认勾选 5 件） |
 | 本项目源码目录 | `/srv/app/cookbook/source/` |
 
@@ -175,6 +175,9 @@ ssh root@192.168.1.2 "tar xzf /srv/backup/cookbook-2026-09-19.tar.gz -C /srv/dat
 ```
 
 建议把备份命令加入现有定时任务（服务器上已有 `/srv/backup` 目录与既有备份流程）。
+
+> `data/` 里现在包含**可变**的 `user-state.json`（点赞/收藏）——它也在同一个备份里，无需单独处理。
+> 容器挂载已改为**可写**（见 compose.yaml 注释与 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)）；容器根文件系统仍是只读。
 
 ---
 

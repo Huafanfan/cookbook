@@ -10,7 +10,7 @@
 | CB-002 | [厨具匹配](CB-002-kitchen-tools.md) | `implemented` | 厨具受控词表（`data/equipment.json`）、勾选我的厨具、缺件标记、替代方案——待真机验收 |
 | CB-003 | [从 HowToCook 导入菜谱](CB-003-howtocook-import.md) | `implemented` | 从公有领域的 HowToCook 导入 371 道；含来源与许可裁定、9 个解析缺口修复——待你翻一遍菜单质量 |
 | CB-004 | [份量档位（按人数线性缩放）](CB-004-serving-scale.md) | `implemented` | 多一人多 0.5 倍（2/3/4/5 人 → 1.0/1.5/2.0/2.5×）；非基准档位提示"步骤用量按基准写" |
-| CB-005 | [点赞、收藏与排序](CB-005-likes-favorites.md) | `accepted` | 服务端存储（两人共享）、收藏优先排序；**本项目第一个写操作** → [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) |
+| CB-005 | [点赞、收藏与排序](CB-005-likes-favorites.md) | `implemented` | 服务端存储（两人共享）、收藏优先排序；**本项目第一个写操作** → [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) |
 | CB-006 | [tag 受控词表与逐道分类](CB-006-tags.md) | `implemented` | 14 个受控 tag（`data/tags.json`）+ LLM 逐道判定，**371/371 全覆盖**，筛选栏不再有空 tab |
 
 ## 待建规格（来自 ROADMAP）

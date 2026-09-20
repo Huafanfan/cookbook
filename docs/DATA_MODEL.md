@@ -190,6 +190,19 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 详情页的**缩放在显示层**做，按用户授权口径：**多一个人多 0.5 倍**（见 [CB-004](features/CB-004-serving-scale.md)）；
 基准档位下显示与文件原文完全一致。
 
+### 用户状态（点赞、收藏）
+
+与菜谱内容**分开放**，由应用运行期写入（唯一的写操作，见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)）：
+
+```json
+// data/user-state.json
+{ "version": 1, "recipes": { "hong-shao-rou": { "likes": 3, "favorite": true, "updatedAt": "..." } } }
+```
+
+- 点赞是**计数增减**（下限 0），收藏是开关；写入为**原子替换**（临时文件 → rename）+ 串行队列。
+- 文件损坏 → 另存 `.broken` 后用空状态启动；写入失败 → 接口 503、前端回滚。
+- 排序：**收藏优先 → 点赞降序 → 名称**，且只在**没有搜索词**时生效（搜索仍按相关度）。
+
 ### 菜品图片
 
 - 约定路径仍是 `data/images/<recipe-id>/cover.jpg`。
