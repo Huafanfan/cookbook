@@ -31,7 +31,7 @@ npm start            # http://127.0.0.1:3000
 
 ```bash
 npm run typecheck    # 前端 / 后端 / 测试 三套 tsconfig 全过
-npm test             # 82 个用例（纯函数为主；组件层无自动化测试）
+npm test             # 110 个用例（90 纯函数 + 20 组件；组件层用 jsdom + Testing Library）
 npm run check:data   # 校验 data/recipes/*.json
 ```
 

@@ -20,7 +20,8 @@ export default defineConfig({
     }
   },
   test: {
+    // 纯逻辑测试跑 node；组件测试在文件顶部用 `// @vitest-environment jsdom` 单独切换
     environment: "node",
-    include: ["test/**/*.test.ts"]
+    include: ["test/**/*.test.{ts,tsx}"]
   }
 });
