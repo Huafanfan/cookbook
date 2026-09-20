@@ -40,22 +40,53 @@ export async function createApp(config: CookbookConfig): Promise<FastifyInstance
   registerRecipeRoutes(app, repository, userState);
   registerUserStateRoutes(app, repository, userState);
 
+  // API 数据小且会变：**一律不缓存**，否则改了菜谱/状态后界面看不到
+  app.addHook("onSend", async (request, reply, payload) => {
+    if (request.url.startsWith("/api/")) reply.header("cache-control", "no-store");
+    return payload;
+  });
+
   if (config.webDir) {
     const indexFile = join(config.webDir, "index.html");
 
+    /**
+     * 缓存策略 —— 目标是"发了新版，用户刷新就能拿到，不需要清缓存"。
+     *
+     * | 资源 | 策略 | 为什么 |
+     * | --- | --- | --- |
+     * | `index.html` | `no-cache`（每次回服务器确认，ETag 让重验证只是 304） | 它指向带内容哈希的资源；它被缓存住就会一直用旧前端 |
+     * | `/assets/*`（Vite 产物，文件名含内容哈希） | `public, max-age=31536000, immutable` | 内容变了文件名就变，可以放心永久缓存 |
+     * | `/api/*` | `no-store` | 数据会变，必须每次拿新的 |
+     *
+     * 之前三者都没有显式头，浏览器按启发式自己猜 → 出现"改完必须手动清缓存"。
+     */
     await app.register(fastifyStatic, {
       root: config.webDir,
       prefix: "/",
-      index: ["index.html"]
+      index: ["index.html"],
+      // 注意：这里的第一个参数是 Fastify 的 reply（不是裸 ServerResponse），
+      // 所以用 .header()；写成 .setHeader() 会在请求时抛 TypeError。
+      setHeaders: (reply, filePath) => {
+        if (filePath.endsWith("index.html")) {
+          reply.header("cache-control", "no-cache");
+          return;
+        }
+        if (/[\\/]assets[\\/]/.test(filePath)) {
+          reply.header("cache-control", "public, max-age=31536000, immutable");
+        }
+      }
     });
 
     // 前端使用 History 路由：/recipe/xxx 这类路径交给 index.html 处理
     app.setNotFoundHandler(async (request, reply) => {
-      if (request.method !== "GET" || request.url.startsWith("/api/")) {
+      // HEAD 也交给兜底（Fastify 会复用 GET 处理并丢弃响应体）；
+      // 否则 HEAD /recipe/xxx 会 404 而 GET 返回 200，语义不一致
+      const isPageRequest = request.method === "GET" || request.method === "HEAD";
+      if (!isPageRequest || request.url.startsWith("/api/")) {
         return reply.code(404).send({ error: "not_found" });
       }
       const html = await readFile(indexFile, "utf8");
-      return reply.type("text/html; charset=utf-8").send(html);
+      return reply.type("text/html; charset=utf-8").header("cache-control", "no-cache").send(html);
     });
   } else {
     app.log.warn("未找到前端构建产物（dist/client），仅提供 API；开发模式请用 npm run dev");

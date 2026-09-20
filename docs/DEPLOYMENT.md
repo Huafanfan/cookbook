@@ -120,6 +120,30 @@ ssh root@192.168.1.2 "cd /srv/app/cookbook/source && docker compose --env-file .
 
 ---
 
+## 2b. 缓存策略（为什么不需要清缓存）
+
+浏览器"看到旧界面"是这类局域网应用最常见的抱怨。根因是**没设显式缓存头时浏览器会按启发式自己猜**。
+现在三类资源的策略是明确的（实现在 `src/server/index.ts`）：
+
+| 资源 | 响应头 | 为什么 |
+| --- | --- | --- |
+| `index.html`（含 SPA 兜底 `/recipe/xxx`） | `cache-control: no-cache` + ETag | 它指向带内容哈希的资源文件；**它被缓存住就会一直用旧前端**。`no-cache` 不是不缓存，而是每次回服务器确认——有 ETag 时通常只是一个 304，开销极小 |
+| `/assets/*`（Vite 产物，文件名含内容哈希） | `public, max-age=31536000, immutable` | 内容变了文件名就变，可以放心永久缓存 |
+| `/api/*` | `no-store` | 菜谱、标签、点赞收藏都会变，必须每次拿新的 |
+
+**效果**：部署新版本后，用户**正常刷新（或重新打开页面）就能拿到新版**，不需要清缓存、不需要无痕窗口。
+
+实测（本机）：
+
+```bash
+curl -s -D - -o /dev/null http://192.168.1.2:18081/ | grep -i cache-control          # no-cache
+curl -sI http://192.168.1.2:18081/api/recipes | grep -i cache-control               # no-store
+curl -sI http://192.168.1.2:18081/assets/index-xxxx.js | grep -i cache-control      # immutable
+```
+
+> 注意：查 SPA 兜底路径要用 **GET**（`curl -s -D -`），`curl -I` 发的是 HEAD。
+> 兜底现在同时接受 GET 与 HEAD（原先只接受 GET，会出现"HEAD 404 而 GET 200"的不一致）。
+
 ## 3. 局域网访问验证
 
 | # | 检查 | 预期 |

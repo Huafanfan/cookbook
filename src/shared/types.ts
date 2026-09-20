@@ -81,7 +81,12 @@ export interface RecipeSummary {
   favorite: boolean;
 }
 
-/** 单道菜的用户状态 */
+/**
+ * 单道菜的用户状态（点赞、收藏）。
+ *
+ * **这是用户数据，不是菜谱内容**：存在 `data/user-state.json`（与菜谱文件分开），
+ * 由应用运行期写入 —— 本项目唯一的写操作，边界见 ADR-0003。
+ */
 export interface RecipeUserState {
   likes: number;
   favorite: boolean;

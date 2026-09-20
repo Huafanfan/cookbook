@@ -93,6 +93,7 @@ export function searchRecipes(recipes: Recipe[], params: SearchParams): Recipe[]
 
 /**
  * 按用户偏好排序：**收藏优先 → 点赞降序 → 名称**。
+ * （用户状态来自 UserStateStore，`RecipeSummary.likes` / `.favorite` 由 route 注入）
  *
  * 只在**没有搜索词**时使用（CB-005 §8 风险 3）：搜索时仍按相关度，
  * 否则"搜特定菜"的结果顺序会变得意外。

@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 
+// 覆盖：写操作（点赞/收藏）的持久化与排序 —— 见 docs/features/CB-005-likes-favorites.md
 import { normalizeState, UserStateStore, USER_STATE_FILE_NAME } from "../src/server/services/user-state-store.js";
 import { sortByUserPreference } from "../src/server/services/search.js";
 import type { RecipeSummary } from "../src/shared/types.js";
