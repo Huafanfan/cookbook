@@ -21,7 +21,8 @@
 | M3++ 厨具匹配 | ✅ 已完成，待真机验收 | [CB-002](features/CB-002-kitchen-tools.md)（`implemented`）：厨具受控词表、勾选我的厨具、缺件标记、替代方案 |
 | 组件层测试基础设施 | ✅ 已完成 | jsdom + Testing Library；20 个组件测试覆盖到点提醒、索引清洗、保存失败、词表未载入 |
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
-| M4 图片 | ⬜ 待做（规格未写） | 开工前先立 `CB-003` 规格 |
+| 丰富菜单（导入） | 📝 规格待你确认 | [CB-003](features/CB-003-howtocook-import.md)：从公有领域的 HowToCook 导入 372 道菜 |
+| M4 图片 | ⬜ 待做（规格未写） | 开工前先立 `CB-004` 规格 |
 | M5 增值 | ⬜ 待做（规格未写） | 网页录入属 T2，需 ADR |
 
 已跑通的验证命令（截至 2026-09-19）：
@@ -132,7 +133,7 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 
 ## M4 · 图片（约 2–3 小时）
 
-> 开工前先立规格：`docs/features/CB-003-<slug>.md`（从[模板](templates/feature-spec.md)复制；`CB-002` 已被厨具占用）。
+> 开工前先立规格：`docs/features/CB-004-<slug>.md`（从[模板](templates/feature-spec.md)复制；`CB-002` 已被厨具占用）。
 > 下面是要写进规格的要点草稿，不是已批准的方案。
 
 做什么：
