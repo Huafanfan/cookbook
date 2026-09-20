@@ -138,6 +138,7 @@ data/images/<recipe-id>/
 | 待定项 | 权威位置 |
 | --- | --- |
 | 分类（`category`）允许值清单 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) Q3 |
+| tag 词表（14 个受控值） | [`data/tags.json`](../../data/tags.json) + [CB-006](features/CB-006-tags.md) |
 | `unit` 是否做成枚举 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) Q2 |
 | 别名是否支持拼音搜索 | [ROADMAP.md](ROADMAP.md) M5 |
 | 份量缩放（暂不做，要做得先立规格） | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) |
