@@ -28,6 +28,19 @@ docs/verification/
 - 截图保留原始分辨率，不做美化处理；文件名用英文小写连字符。
 - 不要把密钥、内网凭据、私人内容放进证据文件（本项目目前没有密钥，但仍遵守这条）。
 
+## 自动化测试的两层与环境注意
+
+| 层 | 环境 | 覆盖 |
+| --- | --- | --- |
+| 纯逻辑 | `node`（默认） | `scale/format`、`timer`、`kitchen`、`equipment`、`content-lint`、`schema`、`search`、`repository` |
+| 组件/交互 | `jsdom`（文件顶部 `// @vitest-environment jsdom`） | `StepList`（到点提醒保持、索引清洗）、`KitchenToolsPanel`（保存失败、空词表）、`EquipmentRow`（三态 + 未载入）、`RecipeCard`（标记与不标记） |
+
+> **环境坑（2026-09-20 实测）**：Node 22+ 自带实验性 `localStorage` 全局，在没有 `--localstorage-file` 时求值为 `undefined`，
+> 并且**盖住了 jsdom 的实现**（`window.localStorage` 同样 undefined；`sessionStorage` 不受影响）。
+> 因此组件测试里用 `test/helpers.tsx` 的 `ensureLocalStorage()` 装一个内存实现。
+> 顺带验证了一件事：`storage.ts` 在这种环境下**优雅降级**（`writeStored` 返回 `false` 而不是抛错），
+> 与"隐私模式下不静默失败"的设计一致。
+
 ## 与规格的关系
 
 规格第 11 节「实现与验证证据」只写**结论与链接**，具体材料和命令输出放这里，避免规格文件变成流水账。

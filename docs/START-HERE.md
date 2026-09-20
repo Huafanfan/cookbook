@@ -10,6 +10,7 @@
 - 数据：`data/recipes/` 下 2 道样例菜 + `data/equipment.json`（厨具权威词表 13 件，默认勾选 5 件：炒锅、砂锅、空气炸锅、烤箱、电饭锅）
 - **独立复核已完成（2026-09-20）**：[overall-review/AUDIT.md](verification/overall-review/AUDIT.md) —— 结论 `OK with notes`：**P0 无、P1 × 7、P2 × 12**；CB-001/CB-002 的验收清单**全未勾选**，故两份规格保持 `implemented`，**不得称 `verified`**
 - **稳定化第一轮已完成（2026-09-20）**：[FIXES.md](verification/overall-review/FIXES.md) —— P1 × 7 全部修完并逐条实测，P2 × 12 修完 12 条；两份规格仍为 `implemented`
+- **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **110**（90 纯函数 + 20 组件）
 - 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；之后才是部署（T3，需授权）｜ 图片（M4，规格编号 `CB-003`）
 
 ## 新 session 的阅读路径

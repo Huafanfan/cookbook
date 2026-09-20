@@ -19,6 +19,7 @@
 | M3 详情页 | ✅ 完成 | 食材分组、步骤打勾、进度条、字号调节均实测通过 |
 | M3+ 做菜顺手 | ✅ 已完成，待真机试做 | [CB-001](features/CB-001-cooking-mode.md)（`implemented`）：一键计时与到点提醒、吸顶回位、屏幕常亮；折叠与份量换算均按反馈**移除** |
 | M3++ 厨具匹配 | ✅ 已完成，待真机验收 | [CB-002](features/CB-002-kitchen-tools.md)（`implemented`）：厨具受控词表、勾选我的厨具、缺件标记、替代方案 |
+| 组件层测试基础设施 | ✅ 已完成 | jsdom + Testing Library；20 个组件测试覆盖到点提醒、索引清洗、保存失败、词表未载入 |
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
 | M4 图片 | ⬜ 待做（规格未写） | 开工前先立 `CB-003` 规格 |
 | M5 增值 | ⬜ 待做（规格未写） | 网页录入属 T2，需 ADR |
@@ -27,7 +28,7 @@
 
 ```bash
 npm run typecheck   # 0 错误（前端 / 后端 / 测试 三套 tsconfig）
-npm test            # 90 passed
+npm test            # 110 passed（90 纯函数 + 20 组件）
 npm run check:data  # 2 个样例菜谱校验通过
 npm run build && npm start   # 生产构建启动，HTTP 接口与页面均返回 200
 ```
