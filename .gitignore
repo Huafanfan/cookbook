@@ -24,6 +24,12 @@ data/backup/
 # 备份靠打包 data/ 目录（见 docs/DEPLOYMENT.md），不靠 git
 data/images/
 
+# 用户状态（点赞/收藏）：运行期每次操作都会变，入库只会制造噪音
+# 它同样是"数据"而不是"内容"，随 data/ 一起备份即可（见 ADR-0003）
+data/user-state.json
+data/user-state.json.tmp
+data/user-state.json.broken
+
 # 编辑器
 .vscode/
 .idea/
