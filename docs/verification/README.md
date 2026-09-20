@@ -41,6 +41,15 @@ docs/verification/
 > 顺带验证了一件事：`storage.ts` 在这种环境下**优雅降级**（`writeStored` 返回 `false` 而不是抛错），
 > 与"隐私模式下不静默失败"的设计一致。
 
+## 已知的工具误报（不要追）
+
+| 现象 | 根因 | 怎么核实 |
+| --- | --- | --- |
+| ~~LSP 报 `test/**` 里"模块没有导出成员 xxx"~~ **已修（2026-09-20）** | 根 `tsconfig.json` 的 `include` 只有 `src/client`/`src/shared`，LSP 给 `test/**` 挑了它 → 看不到 `src/server` 的导出。已把根配置的 `include` 放宽为 `["src", "test", "vite.config.ts"]` 并补上 `node` 类型 | 修复后复检：`npm run typecheck`/`test`/`check:data`/`build` 四个门禁仍 exit 0 |
+| LSP 对刚编辑过的文件给出过期结论 | 索引滞后 | 以 `tsc` 与实际测试运行为准 |
+
+**规矩**：门禁以**命令退出码**为准（`npm run typecheck`/`npm test`/`npm run check:data`/`npm run build`），不以编辑器内联诊断为准。
+
 ## 与规格的关系
 
 规格第 11 节「实现与验证证据」只写**结论与链接**，具体材料和命令输出放这里，避免规格文件变成流水账。

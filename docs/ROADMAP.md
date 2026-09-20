@@ -22,6 +22,10 @@
 | 组件层测试基础设施 | ✅ 已完成 | jsdom + Testing Library；20 个组件测试覆盖到点提醒、索引清洗、保存失败、词表未载入 |
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
 | 丰富菜单（导入） | ✅ 已完成 | [CB-003](features/CB-003-howtocook-import.md)：从公有领域的 HowToCook 导入 **371 道**（解析 371/371 成功） |
+| 份量档位 | 📝 规格待你确认 | [CB-004](features/CB-004-serving-scale.md)：按人数线性缩放（你给的 0.5 倍口径） |
+| 点赞/收藏/排序 | 📝 规格待你确认 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)（引入写操作） |
+| tag 词表与分类 | 📝 待立规格 | 14 个受控 tag + 让 LLM 逐道分类（371 道） |
+| 导入内容的时间提取 | 📝 待做 | 35 条"同一步骤多个时间"交 LLM 判定，只补 `minutes` 不改原文 |
 | M4 图片 | ⬜ 待做（规格未写） | 开工前先立 `CB-004` 规格 |
 | M5 增值 | ⬜ 待做（规格未写） | 网页录入属 T2，需 ADR |
 
