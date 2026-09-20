@@ -50,11 +50,16 @@
     },
     {
       "text": "把乳鸽放到高压缩或者瓦罐中、倒入的水要没过乳鸽，放入生姜 20 g，玉米 200 g、菌菇 100 g 注意：高压锅 30 分钟，瓦罐需在水烧开后转小火慢炖 40-60 分钟",
-      "heat": "小火"
+      "heat": "小火",
+      "minutes": 40
     },
     {
       "text": "时间到了，盛到碗中，加入 3~5g 盐 即可 ![菌菇炖乳鸽-预览图-1](./菌菇炖乳鸽.jpg)"
     }
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "清淡",
+    "一锅出"
+  ]
 }

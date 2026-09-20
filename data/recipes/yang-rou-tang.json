@@ -76,7 +76,8 @@
       "heat": "大火"
     },
     {
-      "text": "5 分钟后，加入白胡椒粉、盐，继续煮沸 5 分钟"
+      "text": "5 分钟后，加入白胡椒粉、盐，继续煮沸 5 分钟",
+      "minutes": 5
     },
     {
       "text": "出锅之后，加入香菜、孜然粉，搅拌均匀"
@@ -85,5 +86,8 @@
   "tips": [
     "加入开水时，注意要开大火，使油脂与汤汁更好的融合"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "清淡"
+  ]
 }

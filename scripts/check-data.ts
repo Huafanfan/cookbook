@@ -10,6 +10,7 @@ import {
   lintRecipeContent
 } from "../src/server/lib/content-lint.js";
 import { loadEquipmentList } from "../src/server/lib/equipment.js";
+import { loadTagVocabulary } from "../src/server/lib/tags.js";
 import { loadRecipesFromDir } from "../src/server/services/recipe-repository.js";
 
 const dataDir = new URL("../data/", import.meta.url).pathname;
@@ -26,7 +27,16 @@ if (catalogBroken) {
   for (const warning of equipment.warnings) console.error(`! ${warning}`);
 }
 
-const { recipes, failures } = await loadRecipesFromDir(recipesDir, equipment.tools);
+const tagVocabulary = await loadTagVocabulary(dataDir);
+const tagCatalogBroken = tagVocabulary.problem !== null;
+if (tagCatalogBroken) console.error(`✗ ${tagVocabulary.problem}`);
+else console.log(`tag 词表：${tagVocabulary.names.length} 个`);
+
+const { recipes, failures } = await loadRecipesFromDir(
+  recipesDir,
+  equipment.tools,
+  tagVocabulary.names
+);
 
 const contentIssues: string[] = [];
 const blockingIssues: string[] = [];
@@ -59,4 +69,6 @@ for (const failure of failures) {
 
 console.log(`\n共 ${recipes.length} 个文件通过，${failures.length} 个失败。`);
 
-process.exit(catalogBroken || failures.length > 0 || blockingIssues.length > 0 ? 1 : 0);
+process.exit(
+  catalogBroken || tagCatalogBroken || failures.length > 0 || blockingIssues.length > 0 ? 1 : 0
+);

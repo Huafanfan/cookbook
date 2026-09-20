@@ -64,16 +64,41 @@ export interface RecipeSchemaOptions {
    * 不提供（词表未载入）时：跳过这项校验，避免因配置文件缺失误杀所有菜谱。
    */
   allowedTools?: readonly string[];
+  /**
+   * tag 词表。
+   *
+   * 提供时：菜谱写词表外的 tag → 校验失败（提示可选值）。
+   * 不提供（词表未载入）时：跳过这项校验。
+   */
+  allowedTags?: readonly string[];
 }
 
 export function createRecipeSchema(options: RecipeSchemaOptions = {}) {
   const allowedTools = options.allowedTools;
-  if (!allowedTools || allowedTools.length === 0) return baseRecipeSchema;
+  const allowedTags = options.allowedTags;
 
-  const allowed = new Set(allowedTools.map(normalizeToolName));
-  const hint = `可选：${allowedTools.join("、")}`;
+  const hasTools = Boolean(allowedTools && allowedTools.length > 0);
+  const hasTags = Boolean(allowedTags && allowedTags.length > 0);
+  if (!hasTools && !hasTags) return baseRecipeSchema;
+
+  const allowed = new Set((allowedTools ?? []).map(normalizeToolName));
+  const tagSet = new Set(allowedTags ?? []);
 
   return baseRecipeSchema.superRefine((recipe, ctx) => {
+    if (hasTags) {
+      (recipe.tags ?? []).forEach((tag, index) => {
+        if (tagSet.has(tag)) return;
+        ctx.addIssue({
+          code: "custom",
+          path: ["tags", index],
+          message: `tag"${tag}"不在词表里，可选：${(allowedTags ?? []).join("、")}`
+        });
+      });
+    }
+
+    if (!hasTools) return;
+
+    const hint = `可选：${(allowedTools ?? []).join("、")}`;
     const check = (tool: string, path: (string | number)[]): void => {
       if (allowed.has(normalizeToolName(tool))) return;
       ctx.addIssue({

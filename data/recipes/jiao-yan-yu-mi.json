@@ -36,7 +36,8 @@
   ],
   "steps": [
     {
-      "text": "玉米粒都是剥好的，直接解冻即可，温水泡 15 分钟或者灶上开水煮 5 分钟。"
+      "text": "玉米粒都是剥好的，直接解冻即可，温水泡 15 分钟或者灶上开水煮 5 分钟。",
+      "minutes": 15
     },
     {
       "text": "拿出一个簸箕，将其假设为 BoxA，垫上吸油纸，倒进解冻好的玉米粒。"
@@ -80,5 +81,9 @@
       "text": "香喷喷的”椒盐玉米“就做好了"
     }
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "重口",
+    "宵夜"
+  ]
 }

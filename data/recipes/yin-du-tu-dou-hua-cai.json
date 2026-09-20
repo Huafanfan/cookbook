@@ -134,7 +134,7 @@
     },
     {
       "text": "盖上锅盖，转中小火，**焖 12-15 分钟**，期间每 3-4 分钟打开翻炒一次防止粘锅",
-      "minutes": 3,
+      "minutes": 12,
       "heat": "中小火"
     },
     {
@@ -155,5 +155,9 @@
     "Aloo Gobi 因 2001 年的英国喜剧电影\"Bend It Like Beckham\"（像贝克汉姆一样踢球）而在西方世界广为人知。",
     "这道菜可以搭配印度烤饼(Naan)、印度薄饼(Roti)或米饭食用。"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
+  "tags": [
+    "辣",
+    "重口"
+  ]
 }

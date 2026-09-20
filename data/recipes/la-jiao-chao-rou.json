@@ -80,7 +80,8 @@
       "heat": "大火"
     },
     {
-      "text": "加入腌制好的`猪肉`倒入锅内翻炒 2 分钟，再加入干煸过的`青椒`翻炒 1 分钟。"
+      "text": "加入腌制好的`猪肉`倒入锅内翻炒 2 分钟，再加入干煸过的`青椒`翻炒 1 分钟。",
+      "minutes": 2
     },
     {
       "text": "根据个人口味喜好加入`豆豉`，最后加入`酱油`，继续翻炒 30s。"
@@ -89,5 +90,9 @@
       "text": "出锅，盛盘。"
     }
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
+  "tags": [
+    "下饭",
+    "辣"
+  ]
 }

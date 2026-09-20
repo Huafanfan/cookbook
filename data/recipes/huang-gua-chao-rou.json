@@ -89,5 +89,10 @@
       "tip": "如果无法保证大火，可能会有点生。可以考虑增加到 50 秒。"
     }
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
+  "tags": [
+    "快手",
+    "新手友好",
+    "辣"
+  ]
 }

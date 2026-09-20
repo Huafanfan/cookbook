@@ -81,7 +81,8 @@
     },
     {
       "text": "再开火，中火，高压锅上汽再炖 10 分钟，普通锅盖盖再炖 20 分钟",
-      "heat": "中火"
+      "heat": "中火",
+      "minutes": 20
     },
     {
       "text": "关火，盛盘"
@@ -90,5 +91,9 @@
   "tips": [
     "操作时，需要注意观察沸腾的水位线，如发现低于 2/3 的食材应加热水至没过食材。"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "一锅出",
+    "清淡"
+  ]
 }

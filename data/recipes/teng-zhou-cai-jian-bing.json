@@ -113,7 +113,8 @@
     },
     {
       "text": "开中小火加热 2 分钟至底部微黄，用锅铲将整张菜煎饼翻面，继续加热 2 分钟至另一面微黄、油润",
-      "heat": "中小火"
+      "heat": "中小火",
+      "minutes": 2
     },
     {
       "text": "转最小火继续加热 1 分钟，至两面均呈金黄色、蔬菜熟透（可用筷子插入中心，确认无生蔬菜的阻力）",
@@ -131,5 +132,8 @@
     "白面煎饼可市购；也可用面粉 100 g 加饮用水 150 ml 调成稀面糊，在平底锅上摊制",
     "参考资料：[滕州菜煎饼 - 百度百科](https://baike.baidu.com/item/滕州菜煎饼/2512643)"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
+  "tags": [
+    "一锅出"
+  ]
 }

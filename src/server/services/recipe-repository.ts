@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 import type { Recipe, RecipeMetaResponse } from "../../shared/types.js";
 import { loadEquipmentList, type EquipmentList } from "../lib/equipment.js";
+import { loadTagVocabulary, EMPTY_TAG_VOCABULARY, type TagVocabulary } from "../lib/tags.js";
 import { createRecipeSchema, formatIssues } from "../lib/schema.js";
 
 export interface LoadFailure {
@@ -27,9 +28,10 @@ export interface LoadResult {
  */
 export async function loadRecipesFromDir(
   recipesDir: string,
-  allowedTools?: readonly string[]
+  allowedTools?: readonly string[],
+  allowedTags?: readonly string[]
 ): Promise<LoadResult> {
-  const schema = createRecipeSchema({ allowedTools });
+  const schema = createRecipeSchema({ allowedTools, allowedTags });
   let fileNames: string[];
   try {
     fileNames = await readdir(recipesDir);
@@ -101,34 +103,45 @@ export class RecipeRepository {
   readonly #byId: Map<string, Recipe>;
   readonly #failures: LoadFailure[];
   readonly #equipment: EquipmentList;
+  readonly #tagVocabulary: TagVocabulary;
 
-  private constructor(recipes: Recipe[], failures: LoadFailure[], equipment: EquipmentList) {
+  private constructor(
+    recipes: Recipe[],
+    failures: LoadFailure[],
+    equipment: EquipmentList,
+    tagVocabulary: TagVocabulary
+  ) {
     this.#recipes = recipes;
     this.#failures = failures;
     this.#equipment = equipment;
+    this.#tagVocabulary = tagVocabulary;
     this.#byId = new Map(recipes.map((recipe) => [recipe.id, recipe]));
   }
 
   static async load(dataDir: string): Promise<RecipeRepository> {
-    // 先读厨具词表：菜谱的厨具字段要按它校验
+    // 先读两份词表：菜谱的厨具与 tag 都要按它们校验
     const equipment = await loadEquipmentList(dataDir);
+    const tagVocabulary = await loadTagVocabulary(dataDir);
     const { recipes, failures } = await loadRecipesFromDir(
       join(dataDir, "recipes"),
-      equipment.tools
+      equipment.tools,
+      tagVocabulary.names
     );
-    return new RecipeRepository(recipes, failures, equipment);
+    return new RecipeRepository(recipes, failures, equipment, tagVocabulary);
   }
 
   /** 仅供测试：用内存数据构造仓库 */
   static fromRecipes(
     recipes: Recipe[],
     failures: LoadFailure[] = [],
-    equipment: EquipmentList | null = null
+    equipment: EquipmentList | null = null,
+    tagVocabulary: TagVocabulary | null = null
   ): RecipeRepository {
     return new RecipeRepository(
       recipes,
       failures,
-      equipment ?? { tools: [], defaultOwned: [], problem: null, warnings: [] }
+      equipment ?? { tools: [], defaultOwned: [], problem: null, warnings: [] },
+      tagVocabulary ?? EMPTY_TAG_VOCABULARY
     );
   }
 
@@ -148,6 +161,10 @@ export class RecipeRepository {
     return this.#equipment;
   }
 
+  tags(): TagVocabulary {
+    return this.#tagVocabulary;
+  }
+
   meta(): RecipeMetaResponse {
     const categories = new Set<string>();
     const tags = new Set<string>();
@@ -157,9 +174,14 @@ export class RecipeRepository {
       for (const tag of recipe.tags ?? []) tags.add(tag);
     }
 
+    // tag 顺序跟词表走（而不是字母序），并且只列出真的有菜在用的
+    const tagNames = this.#tagVocabulary.names.length > 0
+      ? this.#tagVocabulary.names.filter((name) => tags.has(name))
+      : [...tags].sort((a, b) => a.localeCompare(b, "zh"));
+
     return {
       categories: [...categories].sort((a, b) => a.localeCompare(b, "zh")),
-      tags: [...tags].sort((a, b) => a.localeCompare(b, "zh")),
+      tags: tagNames,
       total: this.#recipes.length,
       equipment: this.#equipment.tools,
       defaultOwned: this.#equipment.defaultOwned,

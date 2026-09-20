@@ -84,11 +84,17 @@
       "heat": "小火"
     },
     {
-      "text": "加盖中火煮沸，转小火慢顿 30 分钟，慢炖期间，间隔 10 分钟搅拌一次防止粘锅"
+      "text": "加盖中火煮沸，转小火慢顿 30 分钟，慢炖期间，间隔 10 分钟搅拌一次防止粘锅",
+      "minutes": 30
     },
     {
       "text": "小火慢炖汤汁剩三分之一的时，调成中火收汁出锅。"
     }
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "重口"
+  ]
 }

@@ -167,7 +167,8 @@
       "text": "调好味道后便可以把牛腩先捞出"
     },
     {
-      "text": "如果要吃萝卜土豆，则削皮切成 2cm 厚片倒入锅中煮 10 - 15 分钟（或煮至想要吃的口感），如果是高压锅则在加压煮 5 分钟 ![土豆切片](./土豆切片.jpeg)"
+      "text": "如果要吃萝卜土豆，则削皮切成 2cm 厚片倒入锅中煮 10 - 15 分钟（或煮至想要吃的口感），如果是高压锅则在加压煮 5 分钟 ![土豆切片](./土豆切片.jpeg)",
+      "minutes": 10
     },
     {
       "text": "煮好后捞出萝卜土豆和牛腩放一起"
@@ -180,5 +181,9 @@
     "参考: [柱候牛腩+茅根马蹄竹蔗水教程](https://www.bilibili.com/video/BV12C4y1W7ox)",
     "操作高压锅要注意安全哦！"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "重口",
+    "下饭"
+  ]
 }

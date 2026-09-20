@@ -49,14 +49,22 @@ describe("lintRecipeContent · 步骤时间", () => {
     expect(issues[0].path).toBe("steps[0].minutes");
   });
 
-  it("同一步骤出现两个不相连的分钟数 → 警告（无法计时，但不是错误）", () => {
+  it("多个时间 + 已填 minutes → 通过（那是明确挑了一个）", () => {
     const issues = lintRecipeContent(
-      makeRecipe({ steps: [{ text: "焯 2 分钟，再焖 5 分钟。", minutes: 2 }] })
+      makeRecipe({ steps: [{ text: "焯 2 分钟，再焖 5 分钟。", minutes: 5 }] })
+    );
+
+    expect(issues).toEqual([]);
+  });
+
+  it("多个时间 + 没填 minutes → 警告（该步没有计时入口）", () => {
+    const issues = lintRecipeContent(
+      makeRecipe({ steps: [{ text: "焯 2 分钟，再焖 5 分钟。" }] })
     );
 
     expect(issues).toHaveLength(1);
     expect(issues[0].severity).toBe("warning");
-    expect(issues[0].message).toContain("多个时间");
+    expect(issues[0].message).toContain("未填 minutes");
   });
 
   it("时间段（15-20 分钟）+ minutes 落在范围内 → 通过", () => {

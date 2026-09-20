@@ -102,15 +102,19 @@ function checkStepTime(stepMinutes: number | undefined, text: string): ContentIs
     return [];
   }
 
-  // 混在一起（同一步里出现多个不相连的时间）：无法确定计时多久，但不算错误
   const all = [
     ...singles.map((value) => `${value} 分钟`),
     ...ranges.map(([from, to]) => `${from}-${to} 分钟`)
   ];
+
+  // 多个时间 + **已填 minutes** = 有人（作者或 LLM 判定）明确挑了一个，不再多嘴
+  if (stepMinutes !== undefined) return [];
+
+  // 多个时间且没填：该步没有计时入口，提示一下
   return [
     {
       path: "minutes",
-      message: `同一步骤里出现多个时间（${all.join("、")}），无法确定计时多久；该步不会显示计时入口`,
+      message: `同一步骤里出现多个时间（${all.join("、")}），未填 minutes：该步不会显示计时入口`,
       severity: "warning"
     }
   ];

@@ -79,7 +79,8 @@
     },
     {
       "text": "大火煮 30 分钟，加入老抽上色，再煮 10 分钟",
-      "heat": "大火"
+      "heat": "大火",
+      "minutes": 30
     },
     {
       "text": "起锅摆盘 ![酱排骨-预览图-1](./1.jpeg) ![酱排骨-预览图-2](./2.jpeg)"
@@ -90,5 +91,9 @@
     "大火煮时间可以根据每个人情况做调整",
     "煮排骨期间，可以顺道放入 2-3 个 鸡蛋一起煮，做成简易版卤蛋"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "下饭",
+    "重口"
+  ]
 }

@@ -83,7 +83,8 @@
     },
     {
       "text": "锅中加入 30 ml 食用油，倒入包菜翻炒，大火翻炒 1 分钟 后，加入 3 g 盐 ，继续翻炒 2 分钟 后取出备用",
-      "heat": "大火"
+      "heat": "大火",
+      "minutes": 2
     },
     {
       "text": "锅中加入 30 ml 食用油，倒入五花肉，大火翻炒 1 分钟",
@@ -105,5 +106,10 @@
     "步骤五中，加盐的作用是锁住包菜水分的同时，给包菜上一点味道",
     "最后一个步骤中，翻炒时间根据实际情况和个人口感做灵活调整"
   ],
-  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
+  "tags": [
+    "下饭",
+    "辣",
+    "快手"
+  ]
 }
