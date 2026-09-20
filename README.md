@@ -35,6 +35,18 @@ npm test             # 110 个用例（90 纯函数 + 20 组件；组件层用 j
 npm run check:data   # 校验 data/recipes/*.json
 ```
 
+## 菜谱从哪来
+
+| 来源 | 数量 | 说明 |
+| --- | --- | --- |
+| 自建 | 2 | `source: 家常做法` |
+| [HowToCook](https://github.com/Anduin2017/HowToCook)（程序员做饭指南） | 371 | **Unlicense（公有领域）**，可自由使用；`source` 字段标注出处 |
+
+> 老乡鸡的 [CookLikeHOC](https://github.com/Gar-b-age/CookLikeHOC) **没有 LICENSE**，默认保留所有权利，
+> 因此本项目**不使用其内容**（只参考了"按烹饪工艺分类"的组织方式）。导入规则见 [docs/features/CB-003](docs/features/CB-003-howtocook-import.md)。
+>
+> 用法：`npx tsx scripts/import-howtocook.ts --source <HowToCook 仓库目录> [--dry-run] [--limit N] [--no-images]`
+
 ## 怎么加一道菜
 
 在 `data/recipes/` 新建一个 JSON 文件（文件名必须等于 `id`），照抄现有样例的字段即可：
@@ -86,7 +98,7 @@ npm run check:data   # 校验通过后重启服务即可看到
 | [docs/START-HERE.md](docs/START-HERE.md) | **当前状态与阅读路径** + 每条事实的权威位置 |
 | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | 需求对齐：做什么、不做什么、验收标准 |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 技术选型与理由、代码职责、备选方案取舍 |
-| [docs/DATA_MODEL.md](docs/DATA_MODEL.md) | 一道菜的数据长什么样（含真实样例） |
+| [docs/DATA_MODEL.md](docs/DATA_MODEL.md) | 一道菜的数据长什么样、**内容来源与许可** |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | 里程碑拆分与进度（含每一步的真实验证结果） |
 | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | 逐步部署：本地 → 服务器 → 局域网 → 备份 |
 | [docs/features/](docs/features/README.md) | 功能规格目录（CB-001 …）与[试做反馈表](docs/features/CB-001-cooking-feedback.md) |

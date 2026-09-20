@@ -16,9 +16,13 @@ npm-debug.log*
 .DS_Store
 *.swp
 
-# 本地数据快照（正式数据只放 data/，随仓库版本化的是菜谱 JSON 与图片）
+# 本地数据快照（正式数据只放 data/，随仓库版本化的是菜谱 JSON）
 data/**/*.tmp
 data/backup/
+
+# 菜品图片：约 60MB 二进制，进 git 会让仓库变重且无意义
+# 备份靠打包 data/ 目录（见 docs/DEPLOYMENT.md），不靠 git
+data/images/
 
 # 编辑器
 .vscode/
