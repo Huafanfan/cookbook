@@ -1,4 +1,4 @@
-import type { Recipe, RecipeSummary, SearchParams } from "../../shared/types.js";
+import type { Recipe, RecipeMedia, RecipeSummary, SearchParams } from "../../shared/types.js";
 
 /** 归一化：去空白 + 转小写，让"西红柿 炒蛋"与"西红柿炒蛋"等价 */
 export function normalize(value: string): string {
@@ -12,7 +12,9 @@ export function totalMinutes(recipe: Recipe): number | undefined {
 
 export function toSummary(
   recipe: Recipe,
-  userState: { likes: number; favorite: boolean } = { likes: 0, favorite: false }
+  userState: { likes: number; favorite: boolean } = { likes: 0, favorite: false },
+  /** 图片信息（CB-007）；没有图片时传 null */
+  media: RecipeMedia | null = null
 ): RecipeSummary {
   return {
     id: recipe.id,
@@ -26,8 +28,8 @@ export function toSummary(
     ingredientNames: recipe.ingredients.map((ingredient) => ingredient.name),
     equipment: recipe.equipment ?? [],
     equipmentAlternatives: recipe.equipmentAlternatives ?? [],
-    // M4 实现图片扫描后改为实际封面地址
-    coverImage: null,
+    // 图片 URL 由服务端扫描 data/images/ 得出，不来自菜谱文件（ADR-0002/ADR-0004）
+    coverImage: media?.coverImage ?? null,
     likes: userState.likes,
     favorite: userState.favorite
   };

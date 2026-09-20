@@ -73,13 +73,27 @@ export interface RecipeSummary {
   equipment: string[];
   /** 可替代厨具组；缺省为空数组 */
   equipmentAlternatives: string[][];
-  /** M4 图片功能：封面图 URL；当前恒为 null，客户端显示占位图 */
+  /** 封面图 URL；无图时为 null，客户端显示占位图（CB-007） */
   coverImage: string | null;
   /** 点赞数（服务端用户状态，CB-005） */
   likes: number;
   /** 是否收藏（服务端用户状态，CB-005） */
   favorite: boolean;
 }
+
+/**
+ * 图片信息（CB-007）：由服务端扫描 `data/images/<recipe-id>/` **推导**得出，
+ * 不来自菜谱 JSON（图片不写进 JSON，见 docs/DATA_MODEL.md §4 与 ADR-0002/ADR-0004）。
+ */
+export interface RecipeMedia {
+  /** 封面图 URL（`/images/<id>/cover.jpg`）；无图时 null */
+  coverImage: string | null;
+  /** 与 `steps` **等长**：下标 i 是第 i+1 步的配图 URL，无图那项为 null */
+  stepImages: (string | null)[];
+}
+
+/** 详情接口返回：菜谱文件字段 + 图片信息 */
+export interface RecipeDetail extends Recipe, RecipeMedia {}
 
 /**
  * 单道菜的用户状态（点赞、收藏）。

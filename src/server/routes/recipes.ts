@@ -35,7 +35,9 @@ export function registerRecipeRoutes(
     const params = readParams(request.query);
     const matched = searchRecipes(repository.list(), params);
 
-    const summaries = matched.map((recipe) => toSummary(recipe, userState.get(recipe.id)));
+    const summaries = matched.map((recipe) =>
+      toSummary(recipe, userState.get(recipe.id), repository.media(recipe.id))
+    );
 
     const response: RecipeListResponse = {
       total: summaries.length,
@@ -48,7 +50,8 @@ export function registerRecipeRoutes(
   });
 
   app.get<{ Params: { id: string } }>("/api/recipes/:id", async (request, reply) => {
-    const recipe = repository.get(request.params.id);
+    // 详情 = 菜谱文件字段 + 图片信息（CB-007）
+    const recipe = repository.detail(request.params.id);
     if (!recipe) {
       return reply.code(404).send({ error: "recipe_not_found", id: request.params.id });
     }

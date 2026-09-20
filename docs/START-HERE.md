@@ -6,17 +6,18 @@
 
 **M0–M3 与 CB-001（做菜顺手）、CB-002（厨具匹配）已完成**，本机浏览器（手机视口）实测通过，**尚未真机验收**，**尚未部署到服务器**。
 
-- 能用的：浏览、搜索（菜名/别名/食材/标签）、分类与标签筛选、详情页（食材分组、**厨具匹配与缺件标记**、步骤打勾、一键计时与到点提醒、吸顶回位、字号调节、屏幕常亮）；份量按原文显示，不做换算
-- 数据：**373 道菜**（自建 2 + 从 HowToCook 导入 371）+ `data/equipment.json`（厨具权威词表 13 件）；179 道有成品图（`data/images/`，60MB，不进 git）
+- 能用的：浏览、搜索（菜名/别名/食材/标签）、分类与标签筛选、详情页（食材分组、**厨具匹配与缺件标记**、步骤打勾、一键计时与到点提醒、吸顶回位、字号调节、屏幕常亮）、**图片（列表封面、详情头图、步骤配图；无图不破图）**；份量按原文显示，不做换算
+- 数据：**371 道菜**（自建 2 + 从 HowToCook 导入 369）+ `data/equipment.json`（厨具权威词表 13 件）；179 道有成品图（`data/images/`，56MB，不进 git）
 - **内容来源**：HowToCook 为 Unlicense（公有领域）可自由使用；老乡鸡的 CookLikeHOC **无 LICENSE** 故不使用其内容。见 [DATA_MODEL §8](DATA_MODEL.md)
 - **独立复核已完成（2026-09-20）**：[overall-review/AUDIT.md](verification/overall-review/AUDIT.md) —— 结论 `OK with notes`：**P0 无、P1 × 7、P2 × 12**；CB-001/CB-002 的验收清单**全未勾选**，故两份规格保持 `implemented`，**不得称 `verified`**
 - **稳定化第一轮已完成（2026-09-20）**：[FIXES.md](verification/overall-review/FIXES.md) —— P1 × 7 全部修完并逐条实测，P2 × 12 修完 12 条；两份规格仍为 `implemented`
 - **点赞/收藏已完成（2026-09-20）**：[CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md) —— 本项目**第一个写操作**（服务端共享、原子替换、失败回滚）；排序＝收藏优先→点赞降序（无搜索词时）
 - **tag 与时间提取已完成（2026-09-20）**：[CB-006](features/CB-006-tags.md) —— 14 个受控 tag（`data/tags.json`）+ LLM 逐道分类 371/371，筛选栏每个 tag 都有菜；36 条"多个时间"由 LLM 判定补 `minutes`（内容警告 52→19）
 - **份量档位已实现（2026-09-20）**：[CB-004](features/CB-004-serving-scale.md) —— 多一人多 0.5 倍（2/3/4/5 人），非基准档位时提示"步骤用量按基准写"
-- **菜单已丰富（2026-09-20）**：从 HowToCook 导入 371 道菜（[CB-003](features/CB-003-howtocook-import.md)，`implemented`）；解析器 33 个单测
-- **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **110**（90 纯函数 + 20 组件）
-- 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；之后才是部署（T3，需授权）｜ 图片（M4，规格编号 `CB-003`）
+- **菜单已丰富（2026-09-20）**：从 HowToCook 导入 369 道菜，菜单从 2 道扩到 371 道（[CB-003](features/CB-003-howtocook-import.md)，`implemented`）；解析器 33 个单测
+- **图片已完成（2026-09-20）**：[CB-007](features/CB-007-images.md) + [ADR-0004](decisions/ADR-0004-image-static-hosting.md)，`implemented`：启动扫描 `data/images/<id>/`（179/371 道菜有封面）、`/images/*` 只提供扫描认下的文件、`no-cache` + ETag；列表懒加载、详情限高头图、步骤图在完成按钮之外。验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md)（**待真机**）；首版**不做缩略图**（已批准）
+- **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **223**（含 CB-007 的 33 个新用例：图片文件名解析、启动扫描、图片路由与缓存/安全边界、封面降级）
+- 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；真机顺便看图片（滚动是否卡）｜ M4 图片已实现（[CB-007](features/CB-007-images.md) `implemented`）｜ 之后才是部署（T3，需授权）
 
 ## 新 session 的阅读路径
 

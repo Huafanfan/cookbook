@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-import type { Recipe } from "../../shared/types";
+import type { RecipeDetail } from "../../shared/types";
 import { EquipmentRow } from "../components/EquipmentRow";
 import { IngredientList } from "../components/IngredientList";
 import { KitchenToolsPanel } from "../components/KitchenToolsPanel";
+import { RecipeCover } from "../components/RecipeCover";
 import { StepList } from "../components/StepList";
 import { ApiError, fetchRecipe } from "../lib/api";
 import { difficultyText, minutesText } from "../lib/format";
@@ -53,7 +54,7 @@ function wakeLockExplanation(status: WakeLockStatus): string | null {
 }
 
 export function RecipePage({ id }: { id: string }): React.JSX.Element {
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [recipe, setRecipe] = useState<RecipeDetail | null>(null);
   const [error, setError] = useState<ApiError | Error | null>(null);
   const [loading, setLoading] = useState(true);
   const [fontIndex, setFontIndex] = useState(initialFontIndex);
@@ -204,6 +205,9 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
 
       {hint && <p className="notice notice-warn">{hint}</p>}
 
+      {/* 头图放在状态提示之后：提示（如常亮不可用）比图片更需要被先看到 */}
+      <RecipeCover variant="hero" src={recipe.coverImage} name={recipe.name} />
+
       <header className="recipe-header">
         <h1 className="recipe-title">{recipe.name}</h1>
         {recipe.summary && <p className="recipe-summary">{recipe.summary}</p>}
@@ -299,6 +303,7 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
       <StepList
         recipeId={recipe.id}
         steps={recipe.steps}
+        stepImages={recipe.stepImages}
         portionNotice={servingNotice(recipe.servings, servings)}
       />
 

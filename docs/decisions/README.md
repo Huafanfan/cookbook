@@ -6,6 +6,8 @@
 | --- | --- | --- |
 | [ADR-0001](ADR-0001-documentation-driven-development.md) | 采用文档驱动的规格先行开发 | 已接受 |
 | [ADR-0002](ADR-0002-json-files-as-source-of-truth.md) | 菜谱数据以 JSON 文件为唯一数据源 | 已接受 |
+| [ADR-0003](ADR-0003-write-operations-user-state.md) | 引入写操作：用户状态（点赞/收藏）存服务端 | 已接受 |
+| [ADR-0004](ADR-0004-image-static-hosting.md) | 从数据目录托管菜谱图片（`/images/*`） | 已接受 |
 
 ## 什么时候要写 ADR
 

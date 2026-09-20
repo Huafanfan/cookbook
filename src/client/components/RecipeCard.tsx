@@ -4,6 +4,7 @@ import { Highlight } from "../lib/highlight";
 import { checkEquipment, kitchenVerdict, shortEquipmentLabel } from "../lib/kitchen";
 import { navigate } from "../lib/router";
 import { STORAGE_KEYS, writeStored } from "../lib/storage";
+import { RecipeCover } from "./RecipeCover";
 
 interface RecipeCardProps {
   recipe: RecipeSummary;
@@ -34,9 +35,11 @@ export function RecipeCard({
   return (
     <li className="recipe-card">
       <button type="button" className="recipe-card-button" onClick={open}>
-        <span className="recipe-card-cover" aria-hidden="true">
-          {recipe.name.slice(0, 1)}
-        </span>
+        <RecipeCover
+          src={recipe.coverImage}
+          name={recipe.name}
+          className="recipe-card-cover"
+        />
 
         <span className="recipe-card-body">
           <span className="recipe-card-name">

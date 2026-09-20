@@ -3,10 +3,11 @@
 一个自用的菜谱网站：**浏览或搜索 → 选中一道菜 → 看简单明了的做法步骤**。
 部署在本地服务器（iStoreOS `192.168.1.2`）的 Docker 里，局域网内任何设备打开浏览器即可访问。
 
-> 当前状态：**M0–M3 与 CB-001（做菜顺手）、CB-002（厨具匹配）已完成**，本机浏览器实测通过，**待真机验收**，**尚未部署**。
-> 详情页现在有：**厨具匹配（缺什么一目了然，可用替代工具会说出来）**、步骤一键计时与到点提醒、吸顶回位、屏幕常亮。
+> 当前状态：**M0–M4 已完成**（含 CB-001 做菜顺手、CB-002 厨具匹配、**CB-007 图片**），本机浏览器（手机视口 + 桌面）实测通过，**待真机验收**，**尚未部署**。
+> 列表卡片会显示成品图（没图就显示首字色块，**永不破图**）；详情页有封面头图（限高，不把食材挤出首屏）与步骤配图（有图才显示）。
+> 详情页还有：**厨具匹配（缺什么一目了然，可用替代工具会说出来）**、步骤一键计时与到点提醒、吸顶回位、屏幕常亮。
 > 份量按菜谱原文显示（`servings: 2` 是家庭基准，**不做自动换算**）。
-> 下一步：真机试做并回填[试做反馈](docs/features/CB-001-cooking-feedback.md) ｜ Astra 复核 ｜ 部署 ｜ 图片（M4）。
+> 下一步：真机试做并回填[试做反馈](docs/features/CB-001-cooking-feedback.md) ｜ 真机看图片 ｜ 部署（T3，需明确授权）。
 > 入口：[`docs/START-HERE.md`](docs/START-HERE.md)（当前状态与阅读路径）。
 
 ## 目标（一句话）
@@ -31,7 +32,7 @@ npm start            # http://127.0.0.1:3000
 
 ```bash
 npm run typecheck    # 前端 / 后端 / 测试 三套 tsconfig 全过
-npm test             # 110 个用例（90 纯函数 + 20 组件；组件层用 jsdom + Testing Library）
+npm test             # 223 个用例（纯函数 + 组件/集成；组件层用 jsdom + Testing Library）
 npm run check:data   # 校验 data/recipes/*.json
 ```
 
@@ -40,7 +41,9 @@ npm run check:data   # 校验 data/recipes/*.json
 | 来源 | 数量 | 说明 |
 | --- | --- | --- |
 | 自建 | 2 | `source: 家常做法` |
-| [HowToCook](https://github.com/Anduin2017/HowToCook)（程序员做饭指南） | 371 | **Unlicense（公有领域）**，可自由使用；`source` 字段标注出处 |
+| [HowToCook](https://github.com/Anduin2017/HowToCook)（程序员做饭指南） | 369 | **Unlicense（公有领域）**，可自由使用；`source` 字段标注出处 |
+
+（合计 **371 道菜**：自建 2 + 导入 369。）
 
 > 老乡鸡的 [CookLikeHOC](https://github.com/Gar-b-age/CookLikeHOC) **没有 LICENSE**，默认保留所有权利，
 > 因此本项目**不使用其内容**（只参考了"按烹饪工艺分类"的组织方式）。导入规则见 [docs/features/CB-003](docs/features/CB-003-howtocook-import.md)。
@@ -55,6 +58,18 @@ npm run check:data   # 校验 data/recipes/*.json
 cp data/recipes/xi-hong-shi-chao-ji-dan.json data/recipes/wo-de-xin-cai.json
 npm run check:data   # 校验通过后重启服务即可看到
 ```
+
+### 加成品图（可选）
+
+把照片放到 `data/images/<菜谱id>/cover.jpg`（步骤配图用 `step-1.jpg`、`step-2.jpg`…），**重启服务**即可：
+
+```bash
+mkdir -p data/images/wo-de-xin-cai
+cp ~/照片/成品.jpg data/images/wo-de-xin-cai/cover.jpg
+```
+
+只认 `cover.jpg` 与 `step-<N>.jpg`（严格小写 `.jpg`；`cover.png`、HEIC 都不认，启动日志会告警）；没图就显示首字色块。
+菜谱 JSON **不用改**；图片接入与缓存语义见 [docs/DATA_MODEL.md](docs/DATA_MODEL.md) §4。
 
 字段说明见 [docs/DATA_MODEL.md](docs/DATA_MODEL.md)。要点：
 
@@ -124,17 +139,17 @@ cookbook/
 ├── data/                  # 数据（部署时挂载到服务器，不进镜像）
 │   ├── recipes/           #   一道菜一个 JSON 文件 = 唯一数据源
 │   ├── equipment.json     #   厨具权威词表（菜谱只能引用这里的名字）
-│   └── images/            #   M4：菜品图片，data/images/<id>/01.jpg
+│   └── images/            #   菜品图片：data/images/<id>/cover.jpg（见 DATA_MODEL §4）
 ├── src/
 │   ├── client/            # 前端（React）
 │   │   ├── pages/         #   HomePage 列表+搜索、RecipePage 详情
-│   │   ├── components/    #   RecipeCard / SearchBar / FilterBar / IngredientList / StepList
+│   │   ├── components/    #   RecipeCard / RecipeCover / SearchBar / FilterBar / IngredientList / StepList
 │   │   ├── lib/           #   api、router、format、highlight、storage
 │   │   └── styles/        #   global.css（手机优先，含深色模式）
 │   ├── server/            # 后端（Fastify）
 │   │   ├── main.ts        #   入口
 │   │   ├── index.ts       #   组装应用：路由 + 静态资源 + SPA 兜底
-│   │   ├── routes/        #   /api/recipes、/api/meta、/api/health
+│   │   ├── routes/        #   /api/recipes、/api/meta、/api/health、/images/*
 │   │   ├── services/      #   recipe-repository（唯一读文件处）、search
 │   │   └── lib/           #   config、schema（zod 校验）
 │   └── shared/            # 前后端共享的类型定义
@@ -158,6 +173,7 @@ cookbook/
 | GET | `/api/recipes/:id` | 详情（完整食材与步骤） |
 | GET | `/api/meta` | 分类、标签、总数（筛选器数据源） |
 | GET | `/api/health` | 健康检查（容器用） |
+| GET | `/images/<菜谱id>/cover.jpg` 或 `step-<N>.jpg` | 菜品图片（白名单：只提供扫描认下的文件；`no-cache` + ETag） |
 | GET | `/api/user-state` | 点赞/收藏全量状态 |
 | POST | `/api/recipes/:id/like` | 点赞 `{ delta: 1 \| -1 }`（**写操作**） |
 | POST | `/api/recipes/:id/favorite` | 收藏 `{ favorite: boolean }`（**写操作**） |

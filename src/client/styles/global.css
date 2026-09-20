@@ -296,8 +296,46 @@ button {
   border-radius: var(--radius-sm);
   background: linear-gradient(160deg, var(--color-accent), #f59e0b);
   color: #fff;
+}
+
+/* ---------- 封面图（CB-007） ---------- */
+
+/* 首字色块在图片下层：加载中显示色块，加载完被盖住，失败时重新露出（永不破图） */
+.cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.cover-letter {
   font-size: 24px;
   font-weight: 600;
+}
+
+.cover-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+ * 详情页头图。限高是硬要求：手机首屏要能同时看到菜名与食材开头，
+ * 图片再好看也不能把操作信息挤下去（CB-007 §3.2）。
+ * 比例写死 + 背景色 = 加载过程中不产生布局跳动。
+ */
+.recipe-hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: min(38vh, 320px);
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--color-border);
+  margin-bottom: 12px;
 }
 
 .recipe-card-body {
@@ -692,6 +730,36 @@ button {
   align-items: center;
   gap: 8px;
   padding: 0 10px 2px 52px;
+}
+
+/*
+ * 步骤配图（CB-007 §3.3）：固定 4:3 区域防跳动，object-fit: contain 不裁切
+ * （步骤图的价值就在操作细节，裁掉就白拍了）。
+ */
+.step-image {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  margin: 0 10px 8px;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--color-border);
+}
+
+.step-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.step-image-hint {
+  margin: 0;
+  padding: 0 12px;
+  color: var(--color-muted);
+  font-size: 13px;
+  text-align: center;
 }
 
 /* ---------- 计时按钮 ---------- */

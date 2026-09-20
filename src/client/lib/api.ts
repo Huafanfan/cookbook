@@ -1,5 +1,5 @@
 import type {
-  Recipe,
+  RecipeDetail,
   RecipeListResponse,
   RecipeMetaResponse,
   RecipeUserState,
@@ -47,8 +47,9 @@ export function fetchRecipes(
   return getJson<RecipeListResponse>(`/api/recipes${buildQuery(params)}`, signal);
 }
 
-export function fetchRecipe(id: string, signal?: AbortSignal): Promise<Recipe> {
-  return getJson<Recipe>(`/api/recipes/${encodeURIComponent(id)}`, signal);
+/** 详情 = 菜谱文件字段 + 图片信息（CB-007） */
+export function fetchRecipe(id: string, signal?: AbortSignal): Promise<RecipeDetail> {
+  return getJson<RecipeDetail>(`/api/recipes/${encodeURIComponent(id)}`, signal);
 }
 
 export function fetchMeta(signal?: AbortSignal): Promise<RecipeMetaResponse> {

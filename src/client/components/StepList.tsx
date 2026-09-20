@@ -9,6 +9,8 @@ import { StepCard, type StepTimerState } from "./StepCard";
 interface StepListProps {
   recipeId: string;
   steps: Step[];
+  /** 步骤配图（CB-007）：与 steps 等长，无图那项为 null；缺省视为全无图 */
+  stepImages?: (string | null)[];
   /** 非基准份量时的提示（步骤文案里的用量是按基准写的） */
   portionNotice?: string | null;
 }
@@ -36,7 +38,12 @@ function readDoneSteps(recipeId: string, stepCount: number): number[] {
   }
 }
 
-export function StepList({ recipeId, steps, portionNotice }: StepListProps): React.JSX.Element {
+export function StepList({
+  recipeId,
+  steps,
+  stepImages,
+  portionNotice
+}: StepListProps): React.JSX.Element {
   const [done, setDone] = useState<number[]>(() => readDoneSteps(recipeId, steps.length));
   const [timer, setTimer] = useState<RunningTimer | null>(null);
   const [now, setNow] = useState(() => Date.now());
@@ -156,6 +163,7 @@ export function StepList({ recipeId, steps, portionNotice }: StepListProps): Rea
             <StepCard
               step={step}
               index={index}
+              image={stepImages?.[index] ?? null}
               isDone={done.includes(index)}
               timerState={timerStateFor(index)}
               remaining={remaining}

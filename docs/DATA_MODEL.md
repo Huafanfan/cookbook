@@ -103,19 +103,22 @@
 - `data/recipes/xi-hong-shi-chao-ji-dan.json`（3 步，快手菜，含调料与技巧）
 - `data/recipes/ke-le-ji-chi.json`（4 步，含腌制与收汁）
 
-## 4. 图片约定（第二阶段）
+## 4. 图片约定（已实现，CB-007）
 
 ```text
 data/images/<recipe-id>/
 ├── cover.jpg        # 封面图（列表卡片 + 详情页头图）
-├── step-1.jpg       # 第 1 步配图（可选，按步骤顺序）
+├── step-1.jpg       # 第 1 步配图（可选，允许跳号）
 ├── step-2.jpg
 └── ...
 ```
 
-- 服务端启动时扫描目录，把存在的图片匹配到对应菜谱；**JSON 里不用写路径**。
-- 缺 `cover.jpg` 时用占位图（纯色块 + 菜名首字），永远不出现破图。
-- 建议尺寸：封面长边 1200–1600px，步骤图长边 800–1200px，JPEG 质量 80。
+- **文件名是受控的**：只认 `cover.jpg` 与 `step-<N>.jpg`（严格小写 `.jpg`）。`cover.png` / `cover.jpeg` / `IMG_1234.jpg` / HEIC 都不认，启动时告警而不是猜；步骤号从 1 开始，**允许跳号**（只有 step-1、step-3 是合法的），超过步骤数的 `step-N` 被忽略并告警。
+- 服务端**启动时**扫描目录，把存在的图片匹配到对应菜谱；**JSON 里不写路径**（改名/换图不需要动菜谱文件）。所以：加了图片要**重启服务**才生效。
+- 接口上的**派生字段**（不来自 JSON）：列表 `coverImage`；详情 `coverImage` + `stepImages`（与 `steps` **等长**，下标 i 是第 i+1 步，无图那项为 `null`）。
+- 图片 URL 形如 `/images/<recipe-id>/cover.jpg`；服务端只提供**扫描认下的那些文件**（白名单），关闭目录列表，缺失返回真 404；响应头 `no-cache` + ETag（换图后刷新即见，见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md)）。
+- 缺 `cover.jpg` 时用占位图（纯色块 + 菜名首字），图片加载失败也回落到它，**永远不出现破图**。
+- 建议尺寸：封面长边 1200–1600px，步骤图长边 800–1200px，JPEG 质量 80。**首版不生成缩略图**（列表直接用原图 + 懒加载），口径与代价见 [CB-007 §1](features/CB-007-images.md)。
 - 图片目录与菜谱目录同级，备份 `data/` 即备份全部内容。
 
 ## 5. 校验规则

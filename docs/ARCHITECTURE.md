@@ -13,7 +13,7 @@
 | 搜索 | 内存索引 + 简单匹配（后续可换 Fuse.js 支持模糊/拼音） | 千条数据量下 O(n) 足够，不引入依赖 |
 | 样式 | 原生 CSS（含 CSS 变量 + media query） | 页面少，不引入 UI 框架；避免构建与升级负担 |
 | 部署 | **Docker（linux/amd64）+ docker compose**，绑定 `192.168.1.2:18081` | 与 iStoreOS 服务器现有部署方式一致 |
-| 图片 | 静态文件放 `data/images/`，由后端 `@fastify/static` 提供（M4） | 图片不进镜像、不进 Git，可单独备份 |
+| 图片 | 静态文件放 `data/images/`，由后端 `@fastify/static` 提供（**已实现**，CB-007：文件名白名单 + `no-cache`，见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md)） | 图片不进镜像、不进 Git，可单独备份 |
 
 一句话：**一个 Node 服务 = 前端静态页 + 后端 API + 图片托管**，单容器，无外部依赖。
 
@@ -38,7 +38,7 @@
 │   GET /api/recipes          列表（支持 q / category / tag 查询参数）           │
 │   GET /api/recipes/:id      详情                                             │
 │   GET /api/meta             分类、标签、统计（供筛选器渲染）                    │
-│   GET /images/*             图片静态托管（第二阶段）                            │
+│   GET /images/*             菜品图片（白名单：cover.jpg / step-N.jpg）        │
 │   GET /*                    前端构建产物（SPA，index.html 兜底）                │
 │                                                                              │
 │   启动时：读取 /data/recipes/*.json → 校验 → 建内存索引                        │
@@ -66,11 +66,13 @@ src/
 │   ├── main.ts                #   进程入口（唯一的非纯函数入口）
 │   ├── index.ts               #   组装应用：路由 + 静态托管 + SPA 兜底 + 优雅退出
 │   ├── routes/recipes.ts      #   /api/recipes、/api/recipes/:id、/api/meta、/api/health
+│   ├── routes/images.ts       #   /images/*（白名单 + no-cache，见 ADR-0004）
 │   ├── services/
-│   │   ├── recipe-repository.ts  # 唯一的数据访问入口（读文件、校验、建索引）
+│   │   ├── recipe-repository.ts  # 唯一的数据访问入口（读菜谱、扫描图片、建索引）
 │   │   └── search.ts             # 搜索、筛选与排序
 │   └── lib/
 │       ├── config.ts          #   端口与数据目录（环境变量）
+│       ├── image-media.ts     #   图片文件名 → 槽位的纯函数（CB-007）
 │       └── schema.ts          #   zod 运行时校验
 └── shared/types.ts            # 前后端共享的类型定义
 ```
@@ -78,10 +80,11 @@ src/
 规则：
 
 1. 前端**不直接读文件**，全部经 API。
-2. 文件系统访问只有 4 处，且各有明确职责：`server/services/recipe-repository.ts`（读菜谱）、
+2. 文件系统访问只有 4 处，且各有明确职责：`server/services/recipe-repository.ts`（读菜谱 + **扫描图片目录**）、
    `server/lib/equipment.ts`（读厨具词表）、`server/lib/config.ts`（探测构建产物目录）、`server/index.ts`（读 index.html 做 SPA 兜底）。
    外加第 5 处：`server/services/user-state-store.ts`（用户状态的读写，见 ADR-0003）。
    **不得新增第 6 处**；菜谱数据读取一律经 repository。
+   图片**字节**不经过我们的模块：由 `@fastify/static` 插件按 `routes/images.ts` 给出的白名单与缓存头提供。
 2b. **写操作只有一处**：`user-state-store` 写 `data/user-state.json`（原子替换 + 串行队列）；
    菜谱内容运行期只读，应用不会改写 `data/recipes/`。
 3. **类型**的唯一来源是 `src/shared/types.ts`，**运行时校验**的唯一来源是 `src/server/lib/schema.ts`（zod）。两边字段必须同步，改一处就要改另一处。
@@ -103,7 +106,7 @@ src/
 | D1 | 数据源 = JSON 文件，非数据库（[ADR-0002](decisions/ADR-0002-json-files-as-source-of-truth.md)） | 换库时只需重写 repository 层 |
 | D2 | 前端构建产物由后端托管 | 单容器、单端口；不需要反向代理 |
 | D3 | 端口使用高位端口（`18081`，已确认服务器上空闲） | 避开路由器管理页 80/443 与已占用端口 |
-| D4 | 容器 `read_only: true`，数据目录也**只读**挂载 | 当前功能只读数据；M5 引入写操作时要开 ADR 并单独放开 |
+| D4 | 容器 `read_only: true`；数据目录可写，但只允许应用写 `user-state.json` | 其余内容（菜谱、图片）运行期只读；写操作边界见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)，图片托管见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md) |
 | D5 | 镜像**在服务器上**构建（x86_64） | `docker compose up -d --build` 在服务器执行，不需要 buildx |
 | D6 | 中文内容、英文标识符 | 代码可读性与中文可维护性兼顾 |
 
@@ -112,7 +115,7 @@ src/
 | 风险 | 应对 |
 | --- | --- |
 | 手写 JSON 出错导致服务启动失败 | zod 校验 + 启动时跳过并告警坏文件，不影响其他菜谱；`npm run check:data` 提供离线校验 |
-| 图片体积膨胀 | 上传时压缩到长边 1600px / 质量 80；列表用缩略图（M4 规格待写） |
+| 图片体积膨胀 | 首版按**原图 + 懒加载**（不生成缩略图）：单张中位数 230 KiB、最大 1 MiB，滚动看完现有 179 张累计约 56 MiB；真机着卡再另立规格做缩略图（口径见 [CB-007](features/CB-007-images.md)）；将来做网页上传时在上传环节压缩 |
 | 服务器磁盘/分区未就绪 | 部署前确认数据目录可用空间（见 `DEPLOYMENT.md` 的前置检查） |
 | 端口冲突 | 部署前 `netstat -ltn` 检查；端口写进 `.env.server` 便于改 |
 | 后续想公网访问 | 明确不在本期范围；如需要，用 Tailscale 而非端口映射（另开 ADR 评估） |

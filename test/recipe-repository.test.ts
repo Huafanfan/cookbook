@@ -1,9 +1,10 @@
-import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { loadRecipesFromDir } from "../src/server/services/recipe-repository.js";
+import type { Recipe } from "../src/shared/types.js";
+import { loadRecipesFromDir, scanRecipeImages } from "../src/server/services/recipe-repository.js";
 
 const VALID = JSON.stringify({
   id: "good-dish",
@@ -109,5 +110,97 @@ describe("loadRecipesFromDir", () => {
 
     expect(recipes).toHaveLength(0);
     expect(failures[0].reason).toBe("菜谱目录不存在");
+  });
+});
+
+function makeRecipe(id: string, stepCount = 2): Recipe {
+  return {
+    id,
+    name: id,
+    category: "家常菜",
+    difficulty: 1,
+    servings: 2,
+    ingredients: [{ name: "盐" }],
+    steps: Array.from({ length: stepCount }, (_, index) => ({ text: `第 ${index + 1} 步` }))
+  };
+}
+
+/** 建临时目录：images/<id>/<文件名>，内容随便（扫描只看文件名） */
+async function setupImages(files: Record<string, string[]>): Promise<string> {
+  tempDir = await mkdtemp(join(tmpdir(), "cookbook-images-test-"));
+  const imagesDir = join(tempDir, "images");
+  await mkdir(imagesDir, { recursive: true });
+
+  for (const [id, names] of Object.entries(files)) {
+    const dir = join(imagesDir, id);
+    await mkdir(dir, { recursive: true });
+    for (const name of names) await writeFile(join(dir, name), "jpeg-bytes");
+  }
+
+  return imagesDir;
+}
+
+describe("scanRecipeImages", () => {
+  it("把封面与步骤图匹配到菜谱（即使只有部分步骤有图）", async () => {
+    const imagesDir = await setupImages({ "ke-le-ji-chi": ["cover.jpg", "step-2.jpg"] });
+
+    const result = await scanRecipeImages(imagesDir, [makeRecipe("ke-le-ji-chi", 3)]);
+
+    expect(result.missing).toBe(false);
+    expect(result.warnings).toEqual([]);
+    expect(result.media.get("ke-le-ji-chi")).toEqual({
+      coverImage: "/images/ke-le-ji-chi/cover.jpg",
+      stepImages: [null, "/images/ke-le-ji-chi/step-2.jpg", null]
+    });
+  });
+
+  it("图片目录不存在时返回 missing（不是错误，也不影响菜谱）", async () => {
+    const result = await scanRecipeImages("/definitely/not/here", [makeRecipe("a")]);
+
+    expect(result).toEqual({ media: new Map(), admitted: new Set(), warnings: [], missing: true });
+  });
+
+  it("目录名没有对应菜谱、文件名认不出、步骤号越界：都只告警", async () => {
+    const imagesDir = await setupImages({
+      "ke-le-ji-chi": ["IMG_0001.jpg", "step-9.jpg"],
+      "wrong-name": ["cover.jpg"]
+    });
+
+    const result = await scanRecipeImages(imagesDir, [makeRecipe("ke-le-ji-chi", 2)]);
+    const warnings = result.warnings.join("\n");
+
+    expect(warnings).toContain("images/wrong-name/：没有对应的菜谱 id");
+    expect(warnings).toContain("IMG_0001.jpg：无法识别的文件名");
+    expect(warnings).toContain("第 9 步不存在");
+    // 认不出的名字与越界的步骤图都不产生 URL，也不进白名单
+    expect(result.media.has("ke-le-ji-chi")).toBe(false);
+    expect(result.admitted.has("ke-le-ji-chi/IMG_0001.jpg")).toBe(false);
+    expect(result.admitted.has("ke-le-ji-chi/step-9.jpg")).toBe(false);
+    expect(result.admitted.has("wrong-name/cover.jpg")).toBe(false);
+  });
+
+  it("顶层的隐藏文件按约定忽略（.gitkeep 不该刷告警）", async () => {
+    const imagesDir = await setupImages({ "ke-le-ji-chi": ["cover.jpg"] });
+    await writeFile(join(imagesDir, ".gitkeep"), "");
+
+    const result = await scanRecipeImages(imagesDir, [makeRecipe("ke-le-ji-chi")]);
+
+    expect(result.warnings).toEqual([]);
+    expect(result.media.get("ke-le-ji-chi")?.coverImage).toBe(
+      "/images/ke-le-ji-chi/cover.jpg"
+    );
+  });
+
+  it("图片是符号链接时也认（指向图片的链接是合理用法）", async () => {
+    const imagesDir = await setupImages({ "ke-le-ji-chi": [] });
+    const outside = join(tempDir as string, "outside.jpg");
+    await writeFile(outside, "jpeg-bytes");
+    await symlink(outside, join(imagesDir, "ke-le-ji-chi", "cover.jpg"));
+
+    const result = await scanRecipeImages(imagesDir, [makeRecipe("ke-le-ji-chi")]);
+
+    expect(result.media.get("ke-le-ji-chi")?.coverImage).toBe(
+      "/images/ke-le-ji-chi/cover.jpg"
+    );
   });
 });

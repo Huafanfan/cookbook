@@ -114,9 +114,13 @@ docker logs --tail 50 cookbook
 ```bash
 # Mac → 服务器
 rsync -av ~/Workspace/cookbook/data/recipes/ root@192.168.1.2:/srv/data/cookbook/recipes/
+rsync -av ~/Workspace/cookbook/data/images/ root@192.168.1.2:/srv/data/cookbook/images/     # 菜品图片（约 56 MiB，不在镜像里）
 rsync -av ~/Workspace/cookbook/data/equipment.json root@192.168.1.2:/srv/data/cookbook/   # 厨具词表改过才需要
 ssh root@192.168.1.2 "cd /srv/app/cookbook/source && docker compose --env-file .env.server -f compose.yaml restart"
 ```
+
+> **图片扫描在启动时**：改完图片必须重启（`docker restart cookbook`）才会生效；没重启时旧图照常显示。
+> 启动日志会给出扫描结果：`图片扫描完成：179/371 道菜有封面，0 张步骤图`；文件名不合约定时会有 `图片检查 …` 告警。
 
 ---
 
@@ -130,6 +134,7 @@ ssh root@192.168.1.2 "cd /srv/app/cookbook/source && docker compose --env-file .
 | `index.html`（含 SPA 兜底 `/recipe/xxx`） | `cache-control: no-cache` + ETag | 它指向带内容哈希的资源文件；**它被缓存住就会一直用旧前端**。`no-cache` 不是不缓存，而是每次回服务器确认——有 ETag 时通常只是一个 304，开销极小 |
 | `/assets/*`（Vite 产物，文件名含内容哈希） | `public, max-age=31536000, immutable` | 内容变了文件名就变，可以放心永久缓存 |
 | `/api/*` | `no-store` | 菜谱、标签、点赞收藏都会变，必须每次拿新的 |
+| `/images/*` | `no-cache` + ETag（每次重验证，内容未变就是 304） | 图片文件名是固定的（`cover.jpg`），内容却会换 —— 用 `immutable` 会让"换了照片却还显示旧的"变成必须清缓存 |
 
 **效果**：部署新版本后，用户**正常刷新（或重新打开页面）就能拿到新版**，不需要清缓存、不需要无痕窗口。
 
@@ -215,7 +220,8 @@ ssh root@192.168.1.2 "tar xzf /srv/backup/cookbook-2026-09-19.tar.gz -C /srv/dat
 | 厨具显示“清单未载入” | `/srv/data/cookbook/equipment.json` 缺失或格式错；`docker logs cookbook` 会给出原因 |
 | 菜谱提示“厨具不在清单里” | 菜谱里的厨具名不在词表内；错误信息会列出全部可选值（词表在 `data/equipment.json`） |
 | 端口冲突 | 改 `.env.server` 的 `COOKBOOK_PORT`，重新 `up -d` |
-| 图片 404 | 确认目录名与菜谱 `id` 完全一致（大小写敏感） |
+| 图片不显示 / 图片 404 | 确认 `data/images/<菜谱id>/cover.jpg`：目录名要与 `id` **完全一致**（大小写敏感）、文件名必须是 `cover.jpg` 或 `step-<N>.jpg`（小写 `.jpg`，`cover.png`/HEIC 不认）；加/换图后要**重启**；看启动日志 `图片扫描完成：X/Y 道菜有封面` 与 `图片检查 …` 告警 |
+| 图片换了但还看到旧的 | 浏览器缓存是按 `no-cache` 重验证的，正常刷新即可；若确认没变，检查是否真的重启了（扫描在启动时）、文件是否放到了另一个目录 |
 | 容器起不来（磁盘） | `df -h /srv`；Overlay 只有 1.9G，Docker 数据必须留在 `/srv/docker` |
 
 ---

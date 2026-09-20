@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import type { Step } from "../../shared/types";
 import { formatClock, timerProgress } from "../lib/timer";
 
@@ -7,6 +9,8 @@ interface StepCardProps {
   step: Step;
   /** 0 基序号，显示时 +1 */
   index: number;
+  /** 该步骤的配图 URL（CB-007）；没有图时传 null */
+  image?: string | null;
   isDone: boolean;
   timerState: StepTimerState;
   /** 计时剩余秒数（仅 running 时有意义） */
@@ -28,6 +32,7 @@ interface StepCardProps {
 export function StepCard({
   step,
   index,
+  image,
   isDone,
   timerState,
   remaining,
@@ -49,6 +54,9 @@ export function StepCard({
           {isDone ? "已做" : ""}
         </span>
       </button>
+
+      {/* 步骤图刻意放在完成按钮**之外**：点图片不该把步骤标成完成 */}
+      <StepImage src={image ?? null} index={index} />
 
       {(step.heat || timable) && (
         <div className="step-actions">
@@ -85,6 +93,33 @@ export function StepCard({
       )}
 
       {step.tip && <p className="step-tip">小提醒：{step.tip}</p>}
+    </div>
+  );
+}
+
+/**
+ * 步骤配图（CB-007 §3.3）。
+ *
+ * 加载失败**不折叠**这块区域（固定 4:3 已占位，抽掉会让页面跳动），只把图换成一行提示；
+ * 与打勾、计时完全无关，失败也不会影响它们。
+ */
+function StepImage({ src, index }: { src: string | null; index: number }): React.JSX.Element | null {
+  const [failed, setFailed] = useState(false);
+
+  // 换了图片地址要允许重新尝试（失败状态不能"粘"住下一张图）
+  useEffect(() => {
+    setFailed(false);
+  }, [src]);
+
+  if (!src) return null;
+
+  return (
+    <div className="step-image">
+      {failed ? (
+        <p className="step-image-hint">第 {index + 1} 步的配图加载失败</p>
+      ) : (
+        <img src={src} alt="" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+      )}
     </div>
   );
 }
