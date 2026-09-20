@@ -31,6 +31,11 @@ export const STORAGE_KEYS = {
     key: `cookbook:steps:${recipeId}`,
     kind: "session"
   }),
+  /** 某道菜选定的人数档位（长期；未设置=用菜谱基准份量） */
+  servings: (recipeId: string): StorageSlot => ({
+    key: `cookbook:servings:${recipeId}`,
+    kind: "local"
+  }),
 } as const satisfies Record<string, StorageSlot | ((id: string) => StorageSlot)>;
 
 function getArea(kind: StorageKind): Storage | null {
@@ -59,6 +64,19 @@ export function writeStored(slot: StorageSlot, value: string): boolean {
 
   try {
     area.setItem(slot.key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** 删除一条记录（例如切回基准份量时清掉选择） */
+export function removeStored(slot: StorageSlot): boolean {
+  const area = getArea(slot.kind);
+  if (!area) return false;
+
+  try {
+    area.removeItem(slot.key);
     return true;
   } catch {
     return false;

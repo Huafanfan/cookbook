@@ -1,40 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  amountText,
-  difficultyStars,
-  difficultyText,
-  ingredientAmountText,
-  minutesText
-} from "../src/client/lib/format.js";
-
-describe("amountText（唯一权威的用量显示：原样输出，不换算）", () => {
-  it("数值 + 单位原样输出", () => {
-    expect(amountText(2, "个")).toBe("2个");
-    expect(amountText(500, "g")).toBe("500g");
-    expect(amountText(20, "ml")).toBe("20ml");
-  });
-
-  it("小数原样输出，不做取整", () => {
-    expect(amountText(1.5, "勺")).toBe("1.5勺");
-    expect(amountText(0.5, "个")).toBe("0.5个");
-  });
-
-  it("字符串用量原样输出", () => {
-    expect(amountText("适量")).toBe("适量");
-    expect(amountText("少许", "勺")).toBe("少许勺");
-  });
-
-  it("缺 amount 时有单位给占位、无单位给「适量」", () => {
-    expect(amountText(undefined, "g")).toBe("— g");
-    expect(amountText(undefined)).toBe("适量");
-  });
-
-  it("直接作用于食材对象", () => {
-    expect(ingredientAmountText({ name: "盐", amount: 3, unit: "g" })).toBe("3g");
-    expect(ingredientAmountText({ name: "葱" })).toBe("适量");
-  });
-});
+import { difficultyStars, difficultyText, minutesText } from "../src/client/lib/format.js";
 
 describe("difficultyText / difficultyStars", () => {
   it("三档文案", () => {

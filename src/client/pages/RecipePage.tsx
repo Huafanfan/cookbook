@@ -8,7 +8,14 @@ import { StepList } from "../components/StepList";
 import { ApiError, fetchRecipe } from "../lib/api";
 import { difficultyText, minutesText } from "../lib/format";
 import { navigate } from "../lib/router";
-import { readFlag, readStored, STORAGE_KEYS, writeStored } from "../lib/storage";
+import { servingNotice } from "../lib/scale";
+import {
+  readFlag,
+  readStored,
+  removeStored,
+  STORAGE_KEYS,
+  writeStored
+} from "../lib/storage";
 import { useMeta } from "../lib/use-meta";
 import { useMyKitchen } from "../lib/use-kitchen";
 import { useWakeLock, type WakeLockStatus } from "../lib/wake-lock";
@@ -56,6 +63,8 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
   );
   const [hint, setHint] = useState<string | null>(null);
   const [kitchenPanelOpen, setKitchenPanelOpen] = useState(false);
+  /** 人数档位；null = 用菜谱基准份量 */
+  const [servingsChoice, setServingsChoice] = useState<number | null>(null);
   const { meta, failed: metaFailed } = useMeta();
   const kitchen = useMyKitchen({
     available: meta?.equipment ?? NO_TOOLS,
@@ -88,6 +97,13 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
   useEffect(() => {
     writeStored(STORAGE_KEYS.fontScale, String(FONT_SCALES[fontIndex]));
   }, [fontIndex]);
+
+  // 人数档位按菜谱记住
+  useEffect(() => {
+    if (!recipe) return;
+    const stored = Number(readStored(STORAGE_KEYS.servings(recipe.id)) ?? "");
+    setServingsChoice(Number.isFinite(stored) && stored > 0 ? stored : null);
+  }, [recipe]);
 
   // 只要开着常亮且能力不可用，就给出原因；状态一变就更新（避免"第一次点没反应"）
   useEffect(() => {
@@ -131,6 +147,7 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
     );
   }
 
+  const servings = servingsChoice ?? recipe.servings;
   const timeText = minutesText(recipe.prepMinutes, recipe.cookMinutes);
 
   return (
@@ -214,9 +231,23 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
         )}
       </header>
 
-      <IngredientList ingredients={recipe.ingredients} servings={recipe.servings} />
+      <IngredientList
+        ingredients={recipe.ingredients}
+        baseServings={recipe.servings}
+        servings={servings}
+        onServingsChange={(next) => {
+          setServingsChoice(next === recipe.servings ? null : next);
+          // 切回基准档位就清掉记录，不留"等于基准的选择"
+          if (next === recipe.servings) removeStored(STORAGE_KEYS.servings(recipe.id));
+          else writeStored(STORAGE_KEYS.servings(recipe.id), String(next));
+        }}
+      />
 
-      <StepList recipeId={recipe.id} steps={recipe.steps} />
+      <StepList
+        recipeId={recipe.id}
+        steps={recipe.steps}
+        portionNotice={servingNotice(recipe.servings, servings)}
+      />
 
       {recipe.tips && recipe.tips.length > 0 && (
         <section className="section" aria-labelledby="tips-title">

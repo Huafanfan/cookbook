@@ -8,7 +8,10 @@ import { analyzeTimeMentions } from "./content-lint.js";
  * 设计原则（见 docs/features/CB-003-howtocook-import.md）：
  * 1. **忠实于原文**：不重写用量、不改写步骤、不臆造字段。
  * 2. **不猜**：只有原文明确写出的厨具才进 `equipment`；火候只有唯一写法时才填。
- * 3. 来源的「每份」官方定义是"够 2 个人吃"，与本项目家庭基准一致 → `servings: 2`，用量原样。
+ * 3. 份量按原文逐文件读（`parseServings`）；原文没写时按官方模板约定记 2 人份并注明。
+ *
+ * 导出清单：mapDifficulty / mapCategory / matchTools / toNumber / parseIngredientLine /
+ * parseServings / extractHeat / extractMinutes / parseSteps / parseHowToCookMarkdown。
  */
 
 /** 能被本项目厨具词表识别的写法（key 是原文里可能出现的词，value 是词表里的规范名） */

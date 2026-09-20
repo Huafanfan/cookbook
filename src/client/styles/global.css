@@ -519,6 +519,25 @@ button {
   font-size: 13px;
 }
 
+/* 换算后高亮一次，提示"用量变了"；按基准份量显示时不动画 */
+.ingredient-list[data-scaled="true"] .ingredient-amount {
+  animation: amount-pop 260ms ease-out;
+}
+
+@keyframes amount-pop {
+  from {
+    background: var(--color-accent-soft);
+  }
+  to {
+    background: transparent;
+  }
+}
+
+/* 步骤区的份量提示：与吸顶条留出间距 */
+.portion-notice {
+  margin: 0 0 10px;
+}
+
 /* ---------- 步骤 ---------- */
 
 .progress {
