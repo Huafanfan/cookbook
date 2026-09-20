@@ -168,6 +168,14 @@ button {
   margin-top: 8px;
 }
 
+/* 两行筛选的文字标签：让"分类"和"标签"一眼能分清 */
+.filter-label {
+  align-self: center;
+  margin-right: 2px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
 .chip {
   min-height: 40px;
   padding: 6px 14px;
