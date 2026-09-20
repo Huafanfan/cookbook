@@ -1,0 +1,35 @@
+{
+  "id": "you-su",
+  "name": "油酥",
+  "category": "调料",
+  "summary": "这是一道中式面点配料，常用于烙饼，能让成品层次分明、外酥里软。主要提供碳水化合物和脂肪，为身体补充能量。做法十分简单，新手友好，预计只需 3 分钟就能调好。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 3,
+  "ingredients": [
+    {
+      "name": "油",
+      "note": "要烙饼的张数 * 10ml"
+    },
+    {
+      "name": "盐 = g",
+      "note": "要烙饼的张数 / 2"
+    },
+    {
+      "name": "面粉 = g",
+      "note": "要烙饼的张数 / 0.13"
+    }
+  ],
+  "steps": [
+    {
+      "text": "面粉盛小碗里，加入盐"
+    },
+    {
+      "text": "加入 200 度的热油"
+    },
+    {
+      "text": "用筷子将其搅拌成无固状物体的糊状。"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

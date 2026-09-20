@@ -28,7 +28,7 @@ export async function createApp(config: CookbookConfig): Promise<FastifyInstance
   // 内容检查只告警：内容问题不该让服务起不来，但要让人看得见
   for (const recipe of repository.list()) {
     for (const issue of formatContentIssues(recipe.id, lintRecipeContent(recipe))) {
-      app.log.warn(`内容检查：${issue}`);
+      app.log.warn(`内容检查 ${issue}`);
     }
   }
 

@@ -1,0 +1,78 @@
+{
+  "id": "chao-qing-cai",
+  "name": "炒青菜",
+  "category": "家常菜",
+  "summary": "这是一道清爽可口的家常素菜，口感脆嫩、咸鲜回甘。青菜富含维生素与膳食纤维，有助于促进消化。做法非常简单，零基础也能轻松驾驭，从备菜到出锅大约只需 10 分钟。",
+  "difficulty": 1,
+  "servings": 1,
+  "cookMinutes": 10,
+  "ingredients": [
+    {
+      "name": "青菜",
+      "amount": 100,
+      "unit": "g",
+      "note": "份数"
+    },
+    {
+      "name": "蒜瓣",
+      "amount": 2,
+      "unit": "粒",
+      "note": "份数"
+    },
+    {
+      "name": "食用油",
+      "amount": "10-15",
+      "unit": "ml",
+      "note": "覆盖锅底即可"
+    },
+    {
+      "name": "食盐",
+      "amount": 2,
+      "unit": "g",
+      "note": "份数"
+    },
+    {
+      "name": "饮用水",
+      "amount": 70,
+      "unit": "ml",
+      "note": "份数"
+    },
+    {
+      "name": "白糖",
+      "amount": 5,
+      "unit": "g",
+      "note": "份数"
+    }
+  ],
+  "steps": [
+    {
+      "text": "青菜掰成小瓣，用清水洗净，备用。"
+    },
+    {
+      "text": "将蒜瓣剁碎，备用"
+    },
+    {
+      "text": "中火或大火热锅后，锅内放入 10-15ml 食用油。再等待 30 秒让油温升高。"
+    },
+    {
+      "text": "将准备好的青菜倒入锅中，翻炒至青菜变软（约 1 分钟）。",
+      "minutes": 1
+    },
+    {
+      "text": "放入剁碎的蒜瓣"
+    },
+    {
+      "text": "倒入计算好的清水，水位应当完全浸润或即将没过青菜，加入食盐 （2g * 份数），继续翻炒约 1 分钟。",
+      "minutes": 1
+    },
+    {
+      "text": "最后加入白糖小火加热 2 分钟，加热时盖上锅盖。",
+      "minutes": 2,
+      "heat": "小火"
+    },
+    {
+      "text": "盛盘。"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+}

@@ -1,0 +1,102 @@
+{
+  "id": "ma-la-jian-zhi-qiao-mai-mian",
+  "name": "麻辣减脂荞麦面",
+  "category": "主食",
+  "summary": "麻辣汤底融合了火锅底料与花生酱、牛奶，口感浓郁顺滑，带有鲜明麻辣风味。搭配高纤维荞麦面与新鲜蔬菜，低卡饱腹，适合减脂期享用。做法毫无难度，无需厨艺基础，全程约 20 分钟即可端锅开吃。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 20,
+  "ingredients": [
+    {
+      "name": "半干荞麦面",
+      "amount": 100,
+      "unit": "g"
+    },
+    {
+      "name": "娃娃菜",
+      "amount": 8,
+      "unit": "片",
+      "note": "共 150g"
+    },
+    {
+      "name": "生菜",
+      "amount": 6,
+      "unit": "片",
+      "note": "共 80g"
+    },
+    {
+      "name": "火锅底料",
+      "amount": 25,
+      "unit": "g"
+    },
+    {
+      "name": "花生酱",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "name": "全脂牛奶",
+      "amount": 150,
+      "unit": "ml"
+    },
+    {
+      "name": "生抽",
+      "amount": 6,
+      "unit": "ml"
+    },
+    {
+      "name": "辣椒油",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "醋",
+      "amount": 20,
+      "unit": "ml"
+    },
+    {
+      "name": "花椒油",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "水",
+      "amount": 500,
+      "unit": "ml"
+    },
+    {
+      "name": "洗菜盆、直径",
+      "amount": 18,
+      "unit": "cm",
+      "note": "的小锅"
+    }
+  ],
+  "steps": [
+    {
+      "text": "娃娃菜、生菜洗好，备用"
+    },
+    {
+      "text": "锅内倒入 500ml 水，开大火，将荞麦面和娃娃菜放进去，等待水沸腾",
+      "heat": "大火"
+    },
+    {
+      "text": "水沸腾后，转小火，加入火锅底料、花生酱、牛奶、生抽、辣椒油，水开后煮 5 分钟",
+      "minutes": 5,
+      "heat": "小火"
+    },
+    {
+      "text": "加入生菜，再煮 2 分钟",
+      "minutes": 2
+    },
+    {
+      "text": "加入醋、花椒油，关火，直接端着小锅开吃。"
+    }
+  ],
+  "tips": [
+    "一定要选半干荞麦面，口感最好",
+    "可以随意添加其他东西，比如火锅丸、蛋饺等",
+    "火锅底料、花生酱、牛奶一定要加，口味三大巨头",
+    "如果不能吃酸，可以不加醋"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

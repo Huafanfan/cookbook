@@ -49,13 +49,39 @@ describe("lintRecipeContent · 步骤时间", () => {
     expect(issues[0].path).toBe("steps[0].minutes");
   });
 
-  it("同一步骤出现两个不同的分钟数 → 报错（不知道计时多久）", () => {
+  it("同一步骤出现两个不相连的分钟数 → 警告（无法计时，但不是错误）", () => {
     const issues = lintRecipeContent(
       makeRecipe({ steps: [{ text: "焯 2 分钟，再焖 5 分钟。", minutes: 2 }] })
     );
 
     expect(issues).toHaveLength(1);
-    expect(issues[0].message).toContain("多个分钟数");
+    expect(issues[0].severity).toBe("warning");
+    expect(issues[0].message).toContain("多个时间");
+  });
+
+  it("时间段（15-20 分钟）+ minutes 落在范围内 → 通过", () => {
+    const issues = lintRecipeContent(
+      makeRecipe({ steps: [{ text: "中小火焖 15-20 分钟。", minutes: 15 }] })
+    );
+
+    expect(issues).toEqual([]);
+  });
+
+  it("时间段 + minutes 落在范围外 → 错误", () => {
+    const issues = lintRecipeContent(
+      makeRecipe({ steps: [{ text: "中小火焖 15-20 分钟。", minutes: 30 }] })
+    );
+
+    expect(issues).toHaveLength(1);
+    expect(issues[0].severity).toBe("error");
+    expect(issues[0].message).toContain("不在文案的时间段");
+  });
+
+  it("时间段但没有 minutes → 警告（不是错误）", () => {
+    const issues = lintRecipeContent(makeRecipe({ steps: [{ text: "焖 15-20 分钟。" }] }));
+
+    expect(issues).toHaveLength(1);
+    expect(issues[0].severity).toBe("warning");
   });
 
   it("tip 里的分钟数不参与检查（提示可以写更细的子时间）", () => {
@@ -70,7 +96,7 @@ describe("lintRecipeContent · 步骤时间", () => {
 });
 
 describe("lintRecipeContent · 食材", () => {
-  it("同组同名重复 → 报错", () => {
+  it("同组同名重复 → 警告（原文可能是分阶段使用）", () => {
     const issues = lintRecipeContent(
       makeRecipe({
         ingredients: [
@@ -81,6 +107,7 @@ describe("lintRecipeContent · 食材", () => {
     );
 
     expect(issues).toHaveLength(1);
+    expect(issues[0].severity).toBe("warning");
     expect(issues[0].path).toBe("ingredients[1].name");
   });
 

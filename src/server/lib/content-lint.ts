@@ -3,69 +3,147 @@ import type { Recipe } from "../../shared/types.js";
 /**
  * 菜谱**内容**检查（不是字段格式检查）。
  *
- * 这里只放能"无歧义自动判定"的规则；语义判断（比如某条提醒是不是服务于本步骤）
- * 无法自动化，写在 data/DATA_MODEL 的人工自检清单里。
+ * 只放能"无歧义自动判定"的规则；语义判断（比如某条提醒是不是服务于本步骤）
+ * 无法自动化，写在 docs/DATA_MODEL.md 的人工自检清单里。
  *
  * 起因：用户发现"焯水"步骤挂着"否则煎的时候会溅油"的提醒 —— 提醒放错了步骤；
  * 同一次还暴露出 `minutes` 与文案里的分钟数关系没定义清楚。
+ *
+ * 2026-09-20（CB-003 导入）：来源文本大量使用**时间段**（"焖 15-20 分钟"），
+ * 因此区分 错误（阻止门禁）与 警告（只提示），并支持范围。
  */
 
-/** 匹配"3 分钟""12 分钟"这类表述 */
-const MINUTE_PATTERN = /(\d+(?:\.\d+)?)\s*分钟/g;
+export type IssueSeverity = "error" | "warning";
 
 export interface ContentIssue {
   /** 出问题的位置，例如 `steps[2].text` */
   path: string;
   message: string;
+  severity: IssueSeverity;
+}
+
+/** "15 - 20 分钟" 这类时间段 */
+const RANGE_PATTERN = /(\d+(?:\.\d+)?)\s*[-–—~至到]\s*(\d+(?:\.\d+)?)\s*分钟/g;
+/** "12 分钟" 这类单个时间 */
+const SINGLE_PATTERN = /(\d+(?:\.\d+)?)\s*分钟/g;
+
+interface TimeMentions {
+  singles: number[];
+  ranges: [number, number][];
+}
+
+/** 先摘掉时间段，再从剩余文本里找单值，避免把范围里的数字重复算成单值 */
+export function analyzeTimeMentions(text: string): TimeMentions {
+  const ranges: [number, number][] = [];
+  const withoutRanges = text.replace(RANGE_PATTERN, (_match, from: string, to: string) => {
+    ranges.push([Number.parseFloat(from), Number.parseFloat(to)]);
+    return " ";
+  });
+
+  const singles = [...withoutRanges.matchAll(SINGLE_PATTERN)].map((match) =>
+    Number.parseFloat(match[1])
+  );
+
+  return { singles, ranges };
+}
+
+function checkStepTime(stepMinutes: number | undefined, text: string): ContentIssue[] {
+  const { singles, ranges } = analyzeTimeMentions(text);
+  if (singles.length === 0 && ranges.length === 0) return [];
+
+  // 只有一个单值：必须与 minutes 一致
+  if (singles.length === 1 && ranges.length === 0) {
+    const mentioned = singles[0];
+    if (stepMinutes === undefined) {
+      return [
+        {
+          path: "minutes",
+          message: `文案写了「${mentioned} 分钟」但没有填 minutes（该步无法一键计时）`,
+          severity: "error"
+        }
+      ];
+    }
+    if (stepMinutes !== mentioned) {
+      return [
+        {
+          path: "minutes",
+          message: `minutes 是 ${stepMinutes}，文案里写的是 ${mentioned} 分钟 —— 两处必须一致`,
+          severity: "error"
+        }
+      ];
+    }
+    return [];
+  }
+
+  // 只有时间段：minutes 若填了就必须落在某个范围内；没填只提示（不是错误）
+  if (singles.length === 0 && ranges.length >= 1) {
+    if (stepMinutes === undefined) {
+      return [
+        {
+          path: "minutes",
+          message: `文案是时间段（${ranges.map(([a, b]) => `${a}-${b}`).join("、")} 分钟），未填 minutes：这一步没有计时入口`,
+          severity: "warning"
+        }
+      ];
+    }
+
+    const inside = ranges.some(([from, to]) => stepMinutes >= from && stepMinutes <= to);
+    if (!inside) {
+      return [
+        {
+          path: "minutes",
+          message: `minutes 是 ${stepMinutes}，不在文案的时间段（${ranges
+            .map(([a, b]) => `${a}-${b}`)
+            .join("、")} 分钟）之内`,
+          severity: "error"
+        }
+      ];
+    }
+    return [];
+  }
+
+  // 混在一起（同一步里出现多个不相连的时间）：无法确定计时多久，但不算错误
+  const all = [
+    ...singles.map((value) => `${value} 分钟`),
+    ...ranges.map(([from, to]) => `${from}-${to} 分钟`)
+  ];
+  return [
+    {
+      path: "minutes",
+      message: `同一步骤里出现多个时间（${all.join("、")}），无法确定计时多久；该步不会显示计时入口`,
+      severity: "warning"
+    }
+  ];
 }
 
 export function lintRecipeContent(recipe: Recipe): ContentIssue[] {
   const issues: ContentIssue[] = [];
 
-  // ① 文案里的分钟数必须与 minutes 一致（minutes 是这一步的计时默认值）
   recipe.steps.forEach((step, index) => {
-    const mentioned = [...step.text.matchAll(MINUTE_PATTERN)].map((match) =>
-      Number.parseFloat(match[1])
-    );
-
-    if (mentioned.length === 0) return;
-
-    const unique = [...new Set(mentioned)];
-    if (unique.length > 1) {
-      issues.push({
-        path: `steps[${index}].text`,
-        message: `同一步骤里出现多个分钟数（${unique.join("、")}），无法确定该计时多久`
-      });
-      return;
-    }
-
-    if (step.minutes === undefined) {
-      issues.push({
-        path: `steps[${index}].minutes`,
-        message: `文案写了「${unique[0]} 分钟」但没有填 minutes（该步将无法一键计时）`
-      });
-      return;
-    }
-
-    if (step.minutes !== unique[0]) {
-      issues.push({
-        path: `steps[${index}].minutes`,
-        message: `minutes 是 ${step.minutes}，文案里写的是 ${unique[0]} 分钟 —— 两处必须一致`
-      });
+    for (const issue of checkStepTime(step.minutes, step.text)) {
+      issues.push({ ...issue, path: `steps[${index}].${issue.path}` });
     }
   });
 
-  // ② 同组同名的食材不应重复（重复会让用量看起来自相矛盾）
-  const seen = new Set<string>();
+  // 同组同名重复：**警告**（不是错误）
+  //
+  // 原文里这常常是分阶段的正常写法（腌料里 2g 盐 + 调味里 1g 盐），
+  // 但也可能是真的重复录入，所以提示出来让人看一眼。
+  const seen = new Map<string, number>();
   recipe.ingredients.forEach((ingredient, index) => {
     const key = `${ingredient.group ?? "主料"}::${ingredient.name}`;
-    if (seen.has(key)) {
+    const first = seen.get(key);
+    if (first !== undefined) {
       issues.push({
         path: `ingredients[${index}].name`,
-        message: `「${ingredient.group ?? "主料"}」里重复出现「${ingredient.name}」`
+        message: `「${ingredient.group ?? "主料"}」里「${ingredient.name}」出现第 ${index + 1} 次（第 ${
+          first + 1
+        } 项同名）：若是分阶段使用可忽略，否则请合并`,
+        severity: "warning"
       });
+    } else {
+      seen.set(key, index);
     }
-    seen.add(key);
   });
 
   return issues;
@@ -73,5 +151,13 @@ export function lintRecipeContent(recipe: Recipe): ContentIssue[] {
 
 /** 把问题整理成一行行可读文本 */
 export function formatContentIssues(recipeId: string, issues: ContentIssue[]): string[] {
-  return issues.map((issue) => `${recipeId} ${issue.path}: ${issue.message}`);
+  return issues.map((issue) => {
+    const mark = issue.severity === "error" ? "✗" : "⚠";
+    return `${mark} ${recipeId} ${issue.path}: ${issue.message}`;
+  });
+}
+
+/** 是否有会阻止门禁的错误（警告不算） */
+export function hasBlockingIssues(issues: ContentIssue[]): boolean {
+  return issues.some((issue) => issue.severity === "error");
 }

@@ -1,0 +1,33 @@
+{
+  "id": "zhe-tang-tang-jiang",
+  "name": "蔗糖糖浆",
+  "category": "调料",
+  "summary": "自制饮料糖浆，按 1：1 比例将白砂糖与水混合溶解，方便控制冷饮甜度，是调饮的基础配方。富含碳水化合物，能快速补充能量。做法极其简单，对新手非常友好，仅需几分钟即可完成，冷藏可保存一周。",
+  "difficulty": 1,
+  "servings": 2,
+  "ingredients": [
+    {
+      "name": "水",
+      "amount": 100,
+      "unit": "克"
+    },
+    {
+      "name": "白砂糖",
+      "amount": 100,
+      "unit": "克"
+    },
+    {
+      "name": "可密封容器",
+      "note": "建议使用高硼硅试剂瓶，便宜"
+    }
+  ],
+  "steps": [
+    {
+      "text": "将称好的白砂糖的饮用水于容器混匀"
+    },
+    {
+      "text": "容器封盖放冰箱冷藏"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

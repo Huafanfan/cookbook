@@ -1,0 +1,51 @@
+{
+  "id": "suan-xiang-jiang-you",
+  "name": "蒜香酱油",
+  "category": "调料",
+  "summary": "蒜香酱油是一道蒜香浓郁、咸鲜油润的家常蘸料，常用于白切鸡、饺子等菜肴的提味。大蒜和芝麻分别具有抗菌和补充不饱和脂肪酸的作用。做法极其简单，对新手非常友好，全程只需大约 5 分钟即可完成。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 5,
+  "ingredients": [
+    {
+      "name": "蒜头",
+      "amount": 2,
+      "unit": "瓣"
+    },
+    {
+      "name": "白芝麻",
+      "amount": 5,
+      "unit": "克"
+    },
+    {
+      "name": "花生油",
+      "amount": 15,
+      "unit": "毫升"
+    },
+    {
+      "name": "酱油",
+      "amount": 30,
+      "unit": "毫升"
+    },
+    {
+      "name": "蘸料碟",
+      "amount": 1,
+      "unit": "个"
+    }
+  ],
+  "steps": [
+    {
+      "text": "拍碎蒜头"
+    },
+    {
+      "text": "往蘸料碟中加入酱油"
+    },
+    {
+      "text": "起锅，加入花生油，等到油温滚烫后加入拍好的蒜头，炸半分钟"
+    },
+    {
+      "text": "半分钟后，关火，把热油倒入蘸料碟，用筷子搅拌即可"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

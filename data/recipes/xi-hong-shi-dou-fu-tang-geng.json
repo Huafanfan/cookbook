@@ -1,0 +1,79 @@
+{
+  "id": "xi-hong-shi-dou-fu-tang-geng",
+  "name": "西红柿豆腐汤羹",
+  "category": "家常菜",
+  "summary": "一道清淡鲜美的家常汤羹，酸甜开胃，口感嫩滑。西红柿富含维生素 C 和番茄红素，搭配鸡蛋与豆腐，能补充优质蛋白，营养均衡易吸收。做法简单，只需切配翻炒和煮制，新手也能轻松掌握，从准备到出锅大约 15 分钟即可完成。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 15,
+  "ingredients": [
+    {
+      "name": "西红柿",
+      "amount": 1,
+      "unit": "个"
+    },
+    {
+      "name": "鸡蛋",
+      "amount": 1,
+      "unit": "个"
+    },
+    {
+      "name": "豆腐",
+      "amount": 100,
+      "unit": "g"
+    },
+    {
+      "name": "食用油",
+      "amount": 5,
+      "unit": "ml"
+    },
+    {
+      "name": "盐",
+      "amount": 2,
+      "unit": "g"
+    },
+    {
+      "name": "淀粉",
+      "amount": 5,
+      "unit": "g"
+    },
+    {
+      "name": "鸡精",
+      "amount": 2,
+      "unit": "g"
+    },
+    {
+      "name": "香葱",
+      "amount": 0.5,
+      "unit": "根"
+    },
+    {
+      "name": "姜",
+      "amount": 1,
+      "unit": "片"
+    },
+    {
+      "name": "开水",
+      "amount": 350,
+      "unit": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "text": "西红柿切成小丁、鸡蛋打入碗中搅拌、豆腐切块备用"
+    },
+    {
+      "text": "起锅烧油，放入姜片 5 S 后倒入入西红柿翻炒 30 S"
+    },
+    {
+      "text": "锅中加入开水，汤水烧开，60 S 后到入鸡蛋液、豆腐块"
+    },
+    {
+      "text": "汤水重新烧开后，加入水淀粉，沿一个方向搅拌 2 圈"
+    },
+    {
+      "text": "加入鸡精、盐、香葱，30 S 后起锅 ![西红柿豆腐汤羹-预览图-1](./1.jpeg)"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

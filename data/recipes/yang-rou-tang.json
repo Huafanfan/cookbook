@@ -1,0 +1,89 @@
+{
+  "id": "yang-rou-tang",
+  "name": "羊肉汤",
+  "category": "汤羹",
+  "summary": "羊肉汤是一道家常暖身汤品，汤色乳白，肉质鲜嫩，带有大葱和白胡椒的清香与微辛。富含蛋白质、钙、铁等营养成分，有温补脾胃、抵御寒冷的功效。制作步骤简单，新手也能轻松掌握，整个烹饪过程大约需要 30 分钟。",
+  "difficulty": 2,
+  "servings": 2,
+  "cookMinutes": 30,
+  "ingredients": [
+    {
+      "name": "羊肉",
+      "amount": 300,
+      "unit": "g"
+    },
+    {
+      "name": "食用油",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "料酒",
+      "amount": 20,
+      "unit": "ml"
+    },
+    {
+      "name": "大葱",
+      "amount": 50,
+      "unit": "g"
+    },
+    {
+      "name": "开水",
+      "amount": 1000,
+      "unit": "ml"
+    },
+    {
+      "name": "白胡椒粉",
+      "amount": 1,
+      "unit": "g"
+    },
+    {
+      "name": "食用盐",
+      "amount": 5,
+      "unit": "g"
+    },
+    {
+      "name": "孜然粉",
+      "amount": 1,
+      "unit": "g"
+    },
+    {
+      "name": "香菜",
+      "amount": 20,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "text": "羊肉切成长 5cm 宽 0.5cm 的块"
+    },
+    {
+      "text": "大葱切成小段"
+    },
+    {
+      "text": "羊肉放入锅中，加入 1000ml 常温水，加入料酒、大葱"
+    },
+    {
+      "text": "煮沸 2 分钟后，捞出羊肉，使用常温水洗净，沥干水分",
+      "minutes": 2
+    },
+    {
+      "text": "热锅加入食用油，加入羊肉，翻炒 2 分钟至羊肉表面微黄",
+      "minutes": 2
+    },
+    {
+      "text": "加入开水，开到大火档位",
+      "heat": "大火"
+    },
+    {
+      "text": "5 分钟后，加入白胡椒粉、盐，继续煮沸 5 分钟"
+    },
+    {
+      "text": "出锅之后，加入香菜、孜然粉，搅拌均匀"
+    }
+  ],
+  "tips": [
+    "加入开水时，注意要开大火，使油脂与汤汁更好的融合"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

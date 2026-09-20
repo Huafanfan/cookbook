@@ -4,7 +4,11 @@
  *
  * 复用后端同一份 zod 校验规则，避免"文档一套、代码一套"。
  */
-import { formatContentIssues, lintRecipeContent } from "../src/server/lib/content-lint.js";
+import {
+  formatContentIssues,
+  hasBlockingIssues,
+  lintRecipeContent
+} from "../src/server/lib/content-lint.js";
 import { loadEquipmentList } from "../src/server/lib/equipment.js";
 import { loadRecipesFromDir } from "../src/server/services/recipe-repository.js";
 
@@ -25,21 +29,29 @@ if (catalogBroken) {
 const { recipes, failures } = await loadRecipesFromDir(recipesDir, equipment.tools);
 
 const contentIssues: string[] = [];
+const blockingIssues: string[] = [];
+let warned = 0;
 
 for (const recipe of recipes) {
   const steps = recipe.steps.length;
   const ingredients = recipe.ingredients.length;
   const issues = lintRecipeContent(recipe);
-  contentIssues.push(...formatContentIssues(recipe.id, issues));
+  const lines = formatContentIssues(recipe.id, issues);
+  contentIssues.push(...lines);
 
-  const mark = issues.length > 0 ? "!" : "✓";
+  if (hasBlockingIssues(issues)) blockingIssues.push(...lines);
+  else if (issues.length > 0) warned += 1;
+
+  const mark = hasBlockingIssues(issues) ? "✗" : issues.length > 0 ? "⚠" : "✓";
   console.log(`${mark} ${recipe.id.padEnd(28)} ${recipe.name}  （${ingredients} 项食材 / ${steps} 步）`);
 }
 
 if (contentIssues.length > 0) {
-  console.error("\n内容检查未通过：");
-  for (const issue of contentIssues) console.error(`  ! ${issue}`);
+  const label = blockingIssues.length > 0 ? "内容检查未通过" : "内容检查有提示（不阻止）";
+  console.error(`\n${label}：`);
+  for (const issue of contentIssues) console.error(`  ${issue}`);
 }
+if (warned > 0) console.error(`\n（${warned} 道菜只有警告，没有阻止性问题）`);
 
 for (const failure of failures) {
   console.error(`✗ ${failure.file}\n    ${failure.reason}`);
@@ -47,4 +59,4 @@ for (const failure of failures) {
 
 console.log(`\n共 ${recipes.length} 个文件通过，${failures.length} 个失败。`);
 
-process.exit(catalogBroken || failures.length > 0 || contentIssues.length > 0 ? 1 : 0);
+process.exit(catalogBroken || failures.length > 0 || blockingIssues.length > 0 ? 1 : 0);

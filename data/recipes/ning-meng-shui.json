@@ -1,0 +1,61 @@
+{
+  "id": "ning-meng-shui",
+  "name": "柠檬水",
+  "category": "饮品",
+  "summary": "这道饮品以新鲜柠檬为主角，搭配果蜜调和，酸甜平衡，冰镇后更感清凉解暑。柠檬富含维生素 C，经常饮用有助于补充营养、提神美白。制作步骤极简，只需捶打、加料、摇晃，新手也能在三五分钟内完成。",
+  "difficulty": 1,
+  "servings": 2,
+  "ingredients": [
+    {
+      "name": "柠檬",
+      "amount": "40~45",
+      "unit": "克"
+    },
+    {
+      "name": "果蜜",
+      "amount": "40~45",
+      "unit": "克"
+    },
+    {
+      "name": "冰几块",
+      "note": "可选"
+    },
+    {
+      "name": "原料"
+    },
+    {
+      "name": "- 冰",
+      "note": "可选"
+    },
+    {
+      "name": "工具"
+    },
+    {
+      "name": "- 雪克杯"
+    }
+  ],
+  "steps": [
+    {
+      "text": "称 40~45 克柠檬，放入雪克杯中"
+    },
+    {
+      "text": "雪克杯盖盖子锤大约 10 次"
+    },
+    {
+      "text": "加入果蜜 40~45 克"
+    },
+    {
+      "text": "补水"
+    },
+    {
+      "text": "摇晃均匀"
+    },
+    {
+      "text": "最后根据喜好加冰"
+    }
+  ],
+  "tips": [
+    "参考资料：[柠檬水教程](https://v.douyin.com/TVNTcXDi46I)"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}
