@@ -7,7 +7,7 @@
 **M0–M3 与 CB-001（做菜顺手）、CB-002（厨具匹配）已完成**，本机浏览器（手机视口）实测通过，**尚未真机验收**，**尚未部署到服务器**。
 
 - 能用的：浏览、搜索（菜名/别名/食材/标签）、分类与标签筛选、详情页（食材分组、**厨具匹配与缺件标记**、步骤打勾、一键计时与到点提醒、吸顶回位、字号调节、屏幕常亮）、**图片（列表封面、详情头图、步骤配图；无图不破图）**；份量按原文显示，不做换算
-- **我的厨具存服务端**（[CB-008](features/CB-008-kitchen-tools-server.md) `implemented`）：与点赞/收藏同一份 `data/user-state.json`，两口子共用一份；升级时会把浏览器里的旧值自动上传一次
+- **我的厨具存服务端**（[CB-008](features/CB-008-kitchen-tools-server.md) `implemented`）：与点赞/收藏同一份 `data/user-state.json`，两口子共用一份；升级时会把浏览器里的旧值自动上传一次（走 `POST /api/kitchen/init`，服务端原子判定）。独立复核后已修掉并发保存与迁移竞态，见 [verification/current-review/REVIEW.md](verification/current-review/REVIEW.md)
 - 数据：**371 道菜**（自建 2 + 从 HowToCook 导入 369）+ `data/equipment.json`（厨具权威词表 13 件）；179 道有成品图（`data/images/`，56MB，不进 git）
 - **内容来源**：HowToCook 为 Unlicense（公有领域）可自由使用；老乡鸡的 CookLikeHOC **无 LICENSE** 故不使用其内容。见 [DATA_MODEL §8](DATA_MODEL.md)
 - **独立复核已完成（2026-09-20）**：[overall-review/AUDIT.md](verification/overall-review/AUDIT.md) —— 结论 `OK with notes`：**P0 无、P1 × 7、P2 × 12**；CB-001/CB-002 的验收清单**全未勾选**，故两份规格保持 `implemented`，**不得称 `verified`**
