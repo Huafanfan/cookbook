@@ -1,6 +1,7 @@
 import type { FastifyInstance, FastifyReply } from "fastify";
 
 import { normalizeToolName } from "../../shared/equipment.js";
+import { kitchenWriteBodySchema } from "../lib/schema.js";
 import type { RecipeRepository } from "../services/recipe-repository.js";
 import type { UserStateStore } from "../services/user-state-store.js";
 
@@ -33,23 +34,20 @@ type KitchenCheck =
 /**
  * 严格读 body：只允许恰好 `{ tools }`。
  *
- * 多一个键就是 400 —— [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) §4
- * 明确要求"未知字段拒绝"，不靠"多传的字段反正不看"。
+ * **形状与取值都由 `lib/schema.ts` 的 `kitchenWriteBodySchema` 定义**（运行时校验的唯一来源），
+ * 这里额外读一次键名，只为把 400 的错误码分清楚：
+ * 形状不对（多个键 / 缺键 / 不是对象）→ `invalid_body`；形状对但 `tools` 不合法 → `invalid_tools`。
  */
 function readToolsBody(
   body: unknown
 ): { tools: string[] } | { problem: "invalid_body" | "invalid_tools" } {
-  if (typeof body !== "object" || body === null) return { problem: "invalid_body" };
-
-  const keys = Object.keys(body as Record<string, unknown>);
+  const keys = typeof body === "object" && body !== null ? Object.keys(body) : [];
   if (keys.length !== 1 || keys[0] !== "tools") return { problem: "invalid_body" };
 
-  const tools = (body as { tools?: unknown }).tools;
-  if (!Array.isArray(tools) || tools.some((tool) => typeof tool !== "string")) {
-    return { problem: "invalid_tools" };
-  }
+  const parsed = kitchenWriteBodySchema.safeParse(body);
+  if (!parsed.success) return { problem: "invalid_tools" };
 
-  return { tools: tools as string[] };
+  return { tools: parsed.data.tools };
 }
 
 /** 按厨具词表校验并归一化（去重 + 顺序按词表 —— 存储字节稳定，便于 diff/备份比较） */

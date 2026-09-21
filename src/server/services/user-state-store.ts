@@ -2,6 +2,7 @@ import { readFile, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import type { KitchenState, RecipeUserState, UserStateResponse } from "../../shared/types.js";
+import { kitchenStateSchema } from "../lib/schema.js";
 
 /**
  * 用户状态（点赞、收藏）的持久化。
@@ -28,24 +29,32 @@ function emptyRecipeState(): RecipeUserState {
   return { likes: 0, favorite: false };
 }
 
-/** 归一化「我的厨具」：只收字符串、去重、保留顺序；`tools: []` 是合法值（明确全不选） */
+/**
+ * 归一化「我的厨具」。
+ *
+ * 两步，顺序有意为之：
+ * 1. **条目级清洗**：坏条目丢掉，而不是让整份配置作废（与 `recipes` 的容错口径一致）；
+ * 2. **结构校验**交给 `lib/schema.ts` 的 `kitchenStateSchema`（运行时校验的唯一来源）：
+ *    不是对象 / `tools` 不是数组 / `updatedAt` 类型不对 → 当作"从没设置过"。
+ */
 function normalizeKitchen(raw: unknown): KitchenState | undefined {
   if (typeof raw !== "object" || raw === null) return undefined;
 
-  const tools = (raw as { tools?: unknown }).tools;
-  if (!Array.isArray(tools)) return undefined;
+  const source = raw as { tools?: unknown; updatedAt?: unknown };
+  if (!Array.isArray(source.tools)) return undefined;
 
-  const cleaned = [
-    ...new Set(
-      tools
-        .filter((tool): tool is string => typeof tool === "string")
-        .map((tool) => tool.trim())
-        .filter(Boolean)
-    )
-  ];
-  const updatedAt = (raw as { updatedAt?: unknown }).updatedAt;
+  const parsed = kitchenStateSchema.safeParse({
+    tools: source.tools.filter((tool): tool is string => typeof tool === "string"),
+    ...(source.updatedAt !== undefined ? { updatedAt: source.updatedAt } : {})
+  });
+  if (!parsed.success) return undefined;
 
-  return { tools: cleaned, ...(typeof updatedAt === "string" ? { updatedAt } : {}) };
+  const cleaned = [...new Set(parsed.data.tools.map((tool) => tool.trim()).filter(Boolean))];
+
+  return {
+    tools: cleaned,
+    ...(parsed.data.updatedAt ? { updatedAt: parsed.data.updatedAt } : {})
+  };
 }
 
 export function normalizeState(raw: unknown): UserStateFile {

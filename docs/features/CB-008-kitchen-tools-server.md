@@ -89,6 +89,15 @@
 
 **请求体严格校验**：只接受恰好一个键 `tools`，多一个键或键名不对 → 400 `invalid_body`（[ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) §4 "未知字段拒绝"）。
 
+**校验的位置**（[ARCHITECTURE §4](../ARCHITECTURE.md) 的规矩：运行时校验的唯一来源是 `src/server/lib/schema.ts`）：
+
+| 对象 | schema |
+| --- | --- |
+| 写接口请求体 | `kitchenWriteBodySchema`（`z.strictObject`） |
+| `user-state.json` 的 `kitchen` 字段 | `kitchenStateSchema`（结构不对 → 当作"从没设置过"） |
+
+类型定义（`KitchenState`）在 `src/shared/types.ts`；**条目级清洗**（丢非字符串、去重、去空白）在 store，**结构校验**在 schema。
+
 错误码（与既有写接口一致）：
 
 | 情形 | 状态码 |
@@ -136,7 +145,8 @@
 
 | 层级 | 用例 |
 | --- | --- |
-| 单元（store） | `setKitchen` 落盘并可重载；去重 + 按词表顺序归一化；`[]` 与缺省区分；快照包含 `kitchen`；旧文件（无 `kitchen`）→ `null`；写失败回滚内存；串行队列（并发 10 次只留最后一次） |
+| 单元（store） | `setKitchen` 落盘并可重载；去重 + 按词表顺序归一化；`[]` 与缺省区分；快照包含 `kitchen`；旧文件（无 `kitchen`）→ `null`；写失败回滚内存；串行队列（并发 10 次只留最后一次）；`initializeKitchen` 仅在未设置时创建 + 已存在时不写盘（文件字节不变）+ 与 `setKitchen` 并发 |
+| 单元（schema，`lib/schema.ts`） | `kitchenWriteBodySchema` 接受恰好 `{tools}`、**拒绝未知字段**、拒绝非字符串数组；`kitchenStateSchema` 接受 `tools: []` 与可选 `updatedAt`、拒绝坏结构 |
 | 单元（路由，`app.inject`） | 200 + 归一化返回值；非数组/非字符串 → 400；词表外 → 400；词表未载入 → 503；写盘失败（只读目录）→ 503；`GET /api/user-state` 带出 `kitchen` |
 | 组件/Hook（jsdom） | 乐观更新 + 失败回滚（注入失败 API）；`defaultOwned` 兜底；服务端无值 + 本地有值 → 迁移只上传一次并删本地键；服务端有值 + 本地有值 → 不上传；读失败 → 提示"没同步上" |
 | 手工/双设备 | 手机改 → 电脑看；换网址看；清缓存看；重启服务看；迁移路径（先用旧版勾，再升级） |
@@ -185,3 +195,4 @@
 | 2026-09-21 | 建立规格（用户选定服务端存储；迁移策略与覆盖语义明确） | START-HERE、AGENTS、DATA_MODEL、ADR-0002/0003、CB-002/005 | `accepted`（开始实现） |
 | 2026-09-21 | 实现完成（存储/接口/前端/迁移）+ 本机验收（迁移、跨 origin 共用、重启保持、失败回滚）；文档回填 | DATA_MODEL §7、ADR-0003 扩展记录、README、CB-002、START-HERE、ROADMAP、CHECK.md | `implemented`（真机双设备待做） |
 | 2026-09-21 | **独立复核后修复**（[REVIEW.md](../verification/current-review/REVIEW.md) P1-1/P1-2）：客户端单一写队列 + 已确认值 + 陈旧拉取丢弃；服务端**原子初始化** `POST /api/kitchen/init`；请求体**严格拒绝未知字段**；抽出可独立实例化的同步器并补 deferred-promise 时序测试；同步器/证据口径按复核意见修订 | 本规格 §4/§5/§6/§7、ADR-0003、CB-007 CHECK、CB-002 §11 | `implemented`（真机双设备待做） |
+| 2026-09-21 | 按 Astra 要求收口 P2-4：厨具的请求体与文件字段校验进 `lib/schema.ts`（`kitchenWriteBodySchema` / `kitchenStateSchema`），route/store 改为调用；补 schema 测试 6 例 | 本规格 §4/§7、ARCHITECTURE §4、REVIEW.md P2-4 | `implemented` |

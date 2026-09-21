@@ -12,7 +12,7 @@
 | P1-1 客户端并发保存会与磁盘不一致 | **已修** | `src/client/lib/kitchen-sync.ts`（新）+ `test/kitchen-sync.test.ts`（7 例，deferred 控制时序）+ `user-state.ts` 改适配层 + `__resetUserStateForTests()` |
 | P1-2 迁移会覆盖另一台设备的配置 | **已修** | `UserStateStore.initializeKitchen`（队列内原子）+ `POST /api/kitchen/init` + 迁移改走 init + `migrateFailed` 提示 |
 | P1-3 测试写了真实用户数据；根因未确认 | **接受**（已停止 + 记录事实 + 改口径） | `CB-008/CHECK.md §4`（事实记录）；`CB-002 §11 第 5 条` 改为"机制已复现、用户那次途径未确认"；此后验证全走隔离目录 |
-| P2-4 运行时校验位置 | **部分接受** | 已做：严格拒绝未知字段（两个接口）；未做：搬进 `lib/schema.ts`（那里是菜谱文件规则，like/favorite 也在 route 校验）——**留给用户裁决**，理由见下文 |
+| P2-4 运行时校验位置 | **已修**（按 Astra 要求收口） | 新增 `kitchenStateSchema` / `kitchenWriteBodySchema` 到 `src/server/lib/schema.ts`；route 与 store 改为调用它们；类型仍在 `src/shared/types.ts`；**只动本次新增部分**（like/favorite 未动）；补 6 例 schema 测试 |
 | P2-5 测试与验收记录夸大 | **已修**（逐项） | deferred 时序测试；真实退出码（0/0/0/0，20 files·256 passed）；`curl --path-as-is` 403 证据；符号链接 200 如实记录；删除未验证表述；CB-007 §6 恢复原始验收项、真机保持未勾选；CB-007 CHECK 修错链与用例数 |
 | P2-6 图片/端口结论边界 | **已修** | ADR-0004 与 CB-007 CHECK 改口径（路径级白名单 ≠ realpath）；`start:lan` 显式固定 host/port + README 写明 `0.0.0.0` 含义 |
 
@@ -58,14 +58,17 @@
 - 口径修正：CB-002 §11 第 5 条与 CB-008 相关表述改为"复现出机制（同 origin 正常 / 跨 origin 隔离），**用户那次的具体途径未确认**"。
 - 后续所有新增验证走临时目录 + 临时实例（本条修正后新增的证据全部如此）。
 
-## P2-4 运行时校验位置 —— 部分接受（说明理由）
+## P2-4 运行时校验位置 —— 已修（收口到 schema.ts）
 
-**意见**：厨房请求/文件字段的校验应集中在 `src/server/lib/schema.ts`（zod），不要散在 route/store；严格拒绝未知请求字段。
+**意见**：厨房请求/文件字段的校验应集中在 `src/server/lib/schema.ts`（zod），不要散在 route/store；严格拒绝未知请求字段；新增类型放 `src/shared/types.ts`；仅修本次新增部分。
 
-**处置**：
-- **接受"严格拒绝未知字段"**：这本来就是 [ADR-0003 §4](../../decisions/ADR-0003-write-operations-user-state.md) 的明确约定（"body 严格校验（未知字段拒绝）"），原实现漏了。已补：`/api/kitchen` 与 `/api/kitchen/init` 只接受 `{ tools }`，多一个键即 400。
-- **暂不搬进 `schema.ts`**（记录为待你裁决的解释分歧）：`src/server/lib/schema.ts` 目前是**菜谱文件**的 zod 规则（`createRecipeSchema` / `ingredientSchema` / `stepSchema`），`ARCHITECTURE §4` 把它的职责写作"运行期校验（菜谱字段）"。CB-005 的 `like/favorite` 也是 route 内校验，本次沿用同一先例。若要把**用户状态**的校验也收进去，那是一次跨模块重构（涉及 like/favorite/kitchen 三处 + 测试），建议单独立项，不夹在本次修复里。
-- 注：`like/favorite` 同样**没有**拒绝未知字段（早于本次改动），属于既有偏差，本次只修自己新增的部分（按复核意见"仅修本次新增部分"）。
+**处置**（用户 2026-09-21 明确"按 Astra 的要求走"，所以 P2-4 不再留待裁决）：
+- **已搬进 `schema.ts`**：`kitchenStateSchema`（`user-state.json` 的 `kitchen` 字段结构）与 `kitchenWriteBodySchema`（`strictObject`，写接口请求体）—— 运行时校验现在只有一个权威位置；类型 `KitchenState` 已经在 `shared/types.ts`。
+- **严格拒绝未知字段**：本来就是 [ADR-0003 §4](../../decisions/adr-0003-write-operations-user-state.md) 的约定（原实现漏了），现在由 `strictObject` 强制。
+- **边界的容错分工**：文件侧的“坏一个条目”仍然只丢那个条目（与 `recipes` 同一口径），
+  结构不对才当作"从没设置过"；也就是说：**清洗在 store，结构校验在 schema**。
+- **没有顺手重构**：`like/favorite` 的 body 校验仍在 route（既有的同类偏差，早于本次改动），要收需单独立项。
+- 补了 6 例 schema 测试（`test/schema.test.ts`：接受合法值、拒绝未知字段、拒绝非字符串数组、拒绝坏结构）。
 
 ## P2-5 测试与验收记录夸大 —— 已修（逐项）
 

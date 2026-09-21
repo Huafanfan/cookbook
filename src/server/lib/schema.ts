@@ -129,3 +129,26 @@ export function formatIssues(error: z.ZodError): string {
     })
     .join("; ");
 }
+
+/* ---------- 用户状态（`data/user-state.json`）与它的写接口：CB-008 ---------- */
+
+/**
+ * `user-state.json` 里「我的厨具」字段（[CB-008](../../docs/features/CB-008-kitchen-tools-server.md)）。
+ *
+ * **宽松**：结构不对就当"从没设置过"（调用方拿到 `undefined`），不让一个坏字段影响启动——
+ * 与菜谱文件的处理一致（坏数据降级 + 告警，而不是让服务起不来）。
+ * 去重、去空白、按词表排序这些**归一化**在 store/route 里做，这里只管结构。
+ */
+export const kitchenStateSchema = z.object({
+  tools: z.array(z.string()),
+  updatedAt: z.string().min(1).optional()
+});
+
+/**
+ * 「我的厨具」写接口的请求体：**严格**——只接受恰好 `{ tools }`。
+ *
+ * ADR-0003 §4 要求"未知字段拒绝"，所以用 `strictObject` 而不是 `object`（后者会默默丢掉多余的键）。
+ */
+export const kitchenWriteBodySchema = z.strictObject({
+  tools: z.array(z.string())
+});
