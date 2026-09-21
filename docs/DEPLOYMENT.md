@@ -195,6 +195,8 @@ ssh root@192.168.1.2 "docker restart cookbook"     # 或等 M5 做热重载，�
 
 ### 备份（数据只有 `data/`，备份它就等于备份了一切）
 
+另外：**同步上游用的克隆在 `~/Workspace/HowToCook`**（不在 `data/` 里，也不进备份 —— 丢了重新 `git clone` 即可）。跑同步/回填脚本前先在那里 `git pull`。
+
 `data/` 里现在包含：`recipes/`（菜谱正文）、`history/recipes/`（**每次保存的修改记录**）、`images/`、
 `equipment.json`、`tags.json`、`user-state.json`（点赞/收藏/我的厨具），以及（CB-010 之后）`baselines/` 与 `sync-proposals/`。
 

@@ -170,7 +170,7 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 - **风险 4（误落地）**：`--apply` 是显式动作 + 二次哈希校验 + 默认拒绝未决冲突。
 - **风险 5（密钥）**：`IVAN_ONLINE_API_KEY` 只从环境变量读，不写文件、不进日志（日志里出现 `Bearer` 一律打码）。
 - **回滚**：删掉两个脚本与 `data/sync-proposals/` 即可；菜谱文件里的 `sourceRef` 是无害的可选字段（也可手工删）。
-- **依赖**：CB-009（历史快照与写路径）、CB-003（解析器）、一个本地 HowToCook 克隆、`IVAN_ONLINE_*` 环境变量。
+- **依赖**：CB-009（历史快照与写路径）、CB-003（解析器）、一个**完整的**本地 HowToCook 克隆（`~/Workspace/HowToCook`，用 `git pull` 更新）、`IVAN_ONLINE_*` 环境变量。
 
 ## 9. 实施拆解与顺序
 
