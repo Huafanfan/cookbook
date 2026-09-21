@@ -34,9 +34,13 @@ npm install
 npm run dev          # 前端 Vite + 后端 tsx watch 并发启动
 ```
 
-- 前端开发地址：`http://localhost:5173`（Vite 代理 `/api` 到后端）
-- 后端：`http://localhost:3000`
+- 前端开发地址：`http://localhost:5173`（Vite 代理 `/api` 与 `/images` 到后端；**端口固定**——`vite.config.ts` 设了 `strictPort`，被占用会直接报错而不是改用 5174）
+- 后端：`http://localhost:3000`（仅本机；手机要用 `npm run start:lan` 监听 `0.0.0.0`）
 - 手机真机联调：手机连同一 Wi-Fi，访问 `http://<Mac 局域网 IP>:5173`（Vite 已配 `--host 0.0.0.0`）
+
+> **让手机固定用一个网址。** 浏览器本地设置（字号、常亮、我的厨具）**按网址隔离**：
+> 换端口、换 IP（`.4` / `.5`）、`localhost` 与 `127.0.0.1` 之间互不相通 ——
+> 看到"设置丢了"先确认是不是换了网址，而不是没保存。
 
 自检：
 

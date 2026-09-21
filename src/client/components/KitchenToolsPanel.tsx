@@ -39,6 +39,10 @@ export function KitchenToolsPanel({
         <p className="kitchen-panel-note">
           勾选你有的厨具。菜谱只能使用这份清单里的名字，所以不用担心对不上。
         </p>
+        {/* 存储范围要说清楚：它是浏览器本地的，而浏览器存储**按网址隔离** —— 用户发现"改了又没了"多半是换了网址/端口/设备 */}
+        <p className="kitchen-panel-note">
+          这份清单存在这台设备的浏览器里：换网址（含换端口）、换手机、清缓存，都要重新勾选。
+        </p>
       </div>
 
       {problem && <p className="notice notice-warn">{problem}</p>}

@@ -14,6 +14,12 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5173,
+    /**
+     * 端口**不许漂**：Vite 默认在 5173 被占时会自动改用 5174，而浏览器里
+     * "我的厨具 / 字号 / 常亮"这些设置是**按网址隔离**的 —— 端口一变，看起来就像"设置丢了"。
+     * 所以宁可启动失败并把原因打出来（Port 5173 is already in use）。
+     */
+    strictPort: true,
     proxy: {
       "/api": `http://127.0.0.1:${DEV_SERVER_PORT}`,
       "/images": `http://127.0.0.1:${DEV_SERVER_PORT}`
