@@ -205,9 +205,18 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 | 顺手修的一处过期前提 | CB-009 的"未知字段不被丢掉"用例原本拿 `sourceRef` 当未知字段——它现在是**受校验的真字段**（缺 `baselineStatus` 会被拒）。已改为用真未知字段（`futureField`）并补一条"合法 `sourceRef` 保存后也保留" |
 | 待做 | 回填脚本（匹配 + 验证 + 写 `sourceRef`）、三方比较四档、LLM 提案与 `--apply` |
 
+### 已完成部分：回填脚本（2026-09-21）
+
+| 项目 | 证据 |
+| --- | --- |
+| 实现路径 | `scripts/backfill-source-ref.ts`（默认 **dry-run**，`--apply` 才写；匹配 → `matched`；内容能证明基线的 → `verified` + `data/baselines/<id>.json` + `index.json`；写盘前过同一份 zod；原子替换）；`scripts/lib/howtocook-source.ts`（共享的上游读取规则：id→路径索引、`matchUpstream` 不猜、取 commit）+ `scripts/lib/recipe-id.ts` |
+| 真实运行（临时数据目录，25 道随机抽样） | `--source ~/Workspace/HowToCook`（commit `c2063eb7`）**dry-run**：基线已验证 **21**、只匹配到来源 **3**、匹配不唯一 **1**、找不到 **0**、失败 **0**；确认**没有写任何文件**（0 个 sourceRef、无 `baselines/`） |
+| 写盘验证（同一临时目录） | `--apply --limit 5`：写入 5 道 — 4 道 `verified`（各带 `data/baselines/<id>.json`，`index.json` 4 条）+ 1 道 `matched`（**不给基线快照**，因为它证明不了）；真实 `data/` 零改动（`git status data/` 空、0 个 sourceRef、无 `data/baselines/`） |
+| 值得记的发现 | ① **21/25 能标 verified** 印证了字段所有权那条决定（tag/厨具不参与比较，否则全部会退化成 matched）；② `chen-pi-pai-gu-tang-2` 命中了上游**同一道菜的两份文件**（`soup/陈皮排骨汤.md` 与 `soup/陈皮排骨汤/陈皮排骨汤.md`）→ 脚本列为"匹配不唯一"**不猜**，正是设计要的行为 |
+
 ### 尚未实现（本规格剩余部分）
 
-- `scripts/backfill-source-ref.ts`（来源匹配 → `matched`；能证明基线的 → `verified` + `data/baselines/`）
+- 三方比较四档（不调 LLM 的部分）与报告脚本
 - 三方比较四档（不调 LLM 的部分）与报告
 - LLM 提案生成 + 人工逐项审阅 + `--apply`
 - 真实克隆 + 真实 `gpt-5.6-luna` 跑通一次

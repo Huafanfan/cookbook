@@ -4,6 +4,8 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 
 import { mapCategory, parseHowToCookMarkdown } from "../../src/server/lib/howtocook-parse.js";
+import { formatIssueList, recipeSchema } from "../../src/server/lib/schema.js";
+import type { Recipe } from "../../src/shared/types.js";
 import { toRecipeId } from "./recipe-id.js";
 
 /**
@@ -105,19 +107,25 @@ export async function readUpstreamFile(
   return readFileText(join(sourceDir, relativePath));
 }
 
-/** 从上游 markdown 解析出菜谱（与导入器同一套参数） */
+/** 从上游 markdown 解析出菜谱（与导入器同一套参数），并过一遍结构校验 */
 export function parseUpstreamRecipe(
   markdown: string,
   relativePath: string,
   id: string
-): { dish: Record<string, unknown>; issues: string[] } | { dish: null; issues: string[] } {
+): { dish: Recipe | null; issues: string[] } {
   const categoryDir = relativePath.split("/")[1] ?? "";
   const outcome = parseHowToCookMarkdown(markdown, {
     category: mapCategory(categoryDir),
     source: SOURCE_LABEL
   });
   if (!outcome.dish) return { dish: null, issues: outcome.issues };
-  return { dish: { id, ...outcome.dish }, issues: outcome.issues };
+
+  // 结构校验用**同一份** schema（这里不带词表：词表相关的校验由导入器/回填脚本自己做）——
+  // 这样返回的就是 `Recipe`，调用方不需要类型断言
+  const parsed = recipeSchema.safeParse({ id, ...outcome.dish });
+  if (!parsed.success) return { dish: null, issues: formatIssueList(parsed.error) };
+
+  return { dish: parsed.data, issues: outcome.issues };
 }
 
 async function readFileText(path: string): Promise<string> {
