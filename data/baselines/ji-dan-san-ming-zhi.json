@@ -1,0 +1,74 @@
+{
+  "id": "ji-dan-san-ming-zhi",
+  "name": "鸡蛋三明治",
+  "category": "早餐",
+  "tags": [
+    "快手",
+    "便当"
+  ],
+  "summary": "这是一道简单快手的西式简餐，吐司夹着绵密的鸡蛋酱和咸香培根，口感软嫩又带着焦香。鸡蛋富含优质蛋白，搭配培根和黄油能快速补充能量。操作非常友好，厨房新手也能轻松驾驭，全程只需 大约 10 分钟即可完成。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 10,
+  "ingredients": [
+    {
+      "name": "鸡蛋",
+      "amount": 1,
+      "unit": "个"
+    },
+    {
+      "name": "吐司",
+      "amount": 2,
+      "unit": "片"
+    },
+    {
+      "name": "培根",
+      "amount": 2,
+      "unit": "片"
+    },
+    {
+      "name": "黄油",
+      "amount": 10,
+      "unit": "g"
+    },
+    {
+      "name": "蛋黄酱",
+      "amount": 20,
+      "unit": "g"
+    },
+    {
+      "name": "盐",
+      "amount": 1,
+      "unit": "g"
+    },
+    {
+      "name": "黑胡椒",
+      "amount": 2,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "text": "吐司切去四边，备用"
+    },
+    {
+      "text": "鸡蛋煮熟，捣碎"
+    },
+    {
+      "text": "混合鸡蛋、蛋黄酱、盐、黑胡椒"
+    },
+    {
+      "text": "锅中加入黄油，煎熟培根"
+    },
+    {
+      "text": "组装吐司，在两片吐司间加入制作好的鸡蛋酱及培根"
+    },
+    {
+      "text": "四边形吐司切成三角形装盘"
+    }
+  ],
+  "tips": [
+    "也可加入芝士、酸黄瓜等食材"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

@@ -2,6 +2,9 @@
   "id": "jiu-cai-chao-dan",
   "name": "韭菜炒蛋",
   "category": "家常菜",
+  "tags": [
+    "快手"
+  ],
   "summary": "韭菜炒蛋是一道经典的家常菜，韭菜香气浓郁，鸡蛋嫩滑鲜美，简单易做，营养丰富。韭菜含有丰富的维生素和纤维素，鸡蛋提供优质蛋白质。这道菜制作简单，原材料易得，特别适合厨房新手入门，从头备菜到盛盘出锅大约只需 10 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -67,7 +70,13 @@
     "如果喜欢韭菜更软烂，可以适当延长翻炒时间"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/韭菜炒蛋/韭菜炒蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:6906b489d8242b01fba1cd660755fe9df3be36be41cc12dd5f1c1bf9b8e8589a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "lan-cai-rou-mo-si-ji-dou",
   "name": "榄菜肉末四季豆",
   "category": "家常菜",
+  "tags": [
+    "下饭"
+  ],
   "summary": "榄菜肉末四季豆是潮汕风味浓厚的家常小炒，口感咸香脆嫩，十分下饭。四季豆富含膳食纤维与维生素，搭配肉末能提供优质蛋白，橄榄菜则带来独特的鲜咸风味。这道菜步骤清晰，新手也能较快上手，只需注意将四季豆彻底炒熟。从备料到出锅，大约三十分钟即可完成。",
   "difficulty": 2,
   "servings": 2,
@@ -71,7 +74,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/榄菜肉末四季豆/榄菜肉末四季豆.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:1ae5d8d4192b78d256ea1b9bdb09033cda4083d1d8b72681d298cfd244a5f22d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

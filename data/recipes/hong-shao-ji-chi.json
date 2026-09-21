@@ -2,6 +2,10 @@
   "id": "hong-shao-ji-chi",
   "name": "红烧鸡翅",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出"
+  ],
   "summary": "红烧鸡翅是一道家常下饭菜，咸鲜带甜、色泽红亮，肉质嫩滑易脱骨。鸡翅富含优质蛋白质与胶原蛋白，营养好吸收。制作难度适中，新手按步骤操作也能顺利掌握，从备料到出锅大约需要 40 分钟。",
   "difficulty": 2,
   "servings": 3,
@@ -161,8 +165,13 @@
     "如果闻着有腥味，可以增加一倍香料用量。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/红烧鸡翅.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:39df9fa63b573fdd108e5a144f704c6297e1383d35f97319f770930a43ea03ac",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

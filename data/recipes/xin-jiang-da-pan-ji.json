@@ -2,6 +2,11 @@
   "id": "xin-jiang-da-pan-ji",
   "name": "新疆大盘鸡",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口",
+    "宴客"
+  ],
   "summary": "新疆大盘鸡是一道风味浓郁、色彩鲜艳的新疆家常菜，鸡肉鲜嫩不柴，土豆软糯吸汁，麻辣中带着微甜回甘。富含优质蛋白质和碳水化合物，搭配彩椒还能补充维生素 C。制作过程需要炒糖色和掌握收汁火候，对新手有一定挑战，但跟随步骤细心操作并不难，整体大约 1 小时可以完成。",
   "difficulty": 3,
   "servings": 2,
@@ -80,9 +85,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/新疆大盘鸡/新疆大盘鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:91fde26ae78bd2772d3777f756bf9bbec19c9c4a5d47a7d4d4bd65ac14403e8e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

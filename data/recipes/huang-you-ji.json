@@ -2,6 +2,10 @@
   "id": "huang-you-ji",
   "name": "黄油鸡",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "下饭"
+  ],
   "summary": "这是一道源自印度的经典咖喱菜肴，以烤制后再炖煮的鸡腿肉搭配番茄、黄油和奶油制成的酱汁，口感醇厚丝滑，酸甜微辣，带有独特的香料复合香气。鸡肉、酸奶和腰果提供了丰富的蛋白质与健康脂肪，番茄和香料也带来一定的维生素与抗氧化物。制作有一定挑战，需要掌握火候和香料的平衡，加上腌制时间共约 1 小时 45 分钟方可完成。",
   "difficulty": 3,
   "servings": 3,
@@ -225,8 +229,13 @@
     "黄油鸡被认为是印度对世界美食最大的贡献之一，在全球各地的印度餐厅菜单上几乎都名列前茅。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/黄油鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:687c6d51d2d869536db0a27aa03c4e780ecb6c0fbf830c086ea1a76264578844",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

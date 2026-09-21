@@ -2,6 +2,11 @@
   "id": "jian-jiao-niu-wa",
   "name": "尖叫牛蛙",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭",
+    "重口"
+  ],
   "summary": "这道菜鲜辣开胃，蛙肉滑嫩弹牙，是一道典型的川味家常菜。牛蛙本身高蛋白、低脂肪，搭配泡姜泡椒等发酵食材，有助于促进食欲。做法相对直接，但油温控制和调味比例需要稍加留意，一般初学者也能在 1 到 2 小时内完成。",
   "difficulty": 3,
   "servings": 2,
@@ -137,9 +142,13 @@
     "生粉抓揉的时候要均匀覆盖蛙肉"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/尖叫牛蛙/尖叫牛蛙.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:23b2160ff3cdc2e6af5ac9012ac633f1d06b98e4551b27d5442e551d0300a404",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

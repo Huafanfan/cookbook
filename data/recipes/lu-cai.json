@@ -2,6 +2,10 @@
   "id": "lu-cai",
   "name": "卤菜",
   "category": "家常菜",
+  "tags": [
+    "重口",
+    "便当"
+  ],
   "summary": "这是一道经典中式卤味，肉质鲜嫩入味，香气浓郁，卤汁可反复使用、越陈越香，适合做凉菜、下酒或搭配主食。菜品富含优质蛋白和多种维生素，营养均衡。制作需要一点耐心，但步骤清晰，对新手比较友好。提前浸泡去血水、熬糖色和高压卤制约需 1 小时，再浸泡过夜让风味充分渗入，第二天取出切片即可享用。",
   "difficulty": 2,
   "servings": 2,
@@ -170,8 +174,13 @@
     "卤水可另取一部分做牛肉面，作为白水面条的汤底，再加上自己喜欢的蔬菜，味道极佳。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/卤菜/卤菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9233013194e20b04322e6b14486dd32093bf52e31e1f42092ab0672baea5b438",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

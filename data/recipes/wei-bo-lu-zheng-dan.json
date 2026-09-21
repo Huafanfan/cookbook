@@ -2,6 +2,10 @@
   "id": "wei-bo-lu-zheng-dan",
   "name": "微波炉蒸蛋",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "一道用微波炉快速制作的嫩滑蒸蛋，口感细腻如布丁，属于家常快手菜。富含优质蛋白，易于消化吸收，很适合作为早餐或轻食。制作非常简单，新手也能轻松上手，全程约 10 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -71,8 +75,13 @@
     "若表面鼓泡或出水，说明加热过头，下次缩短时间即可。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/微波炉蒸蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3db724b9edf74e5d49be26f2f9f2c5eb46d0df5ca069bdb7142744f8b49cac81",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

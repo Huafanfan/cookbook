@@ -2,6 +2,7 @@
   "id": "zhi-ma-shao-bing",
   "name": "芝麻烧饼",
   "category": "主食",
+  "tags": [],
   "summary": "芝麻烧饼是北方家喻户晓的面点，外皮沾满芝麻酥香可口，内层层次分明、松软适口。面粉提供充足的碳水化合物，芝麻含有丰富的钙和不饱和脂肪酸。制作过程虽然包含揉面、做油酥等步骤，但操作并不复杂，初学者也能跟着做出来。从备料到出锅大约需要 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -47,5 +48,13 @@
     "芝麻如果没有也可不用，一样好吃"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": []
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/烧饼/芝麻烧饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9d347fed84575c031e87676f641466f30a066d26e0f58be469b11e4439a18072",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

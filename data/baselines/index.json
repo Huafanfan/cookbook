@@ -1,0 +1,2347 @@
+{
+  "ang-ci-yu-dou-fu-tang": {
+    "path": "dishes/soup/昂刺鱼豆腐汤/昂刺鱼豆腐汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7cf5f526eb12a320db0af860b18bef3b472bc8f576795b5ebf14f02073e95155",
+    "at": "2026-09-21"
+  },
+  "ao-er-liang-feng-wei-kao-ji-tui": {
+    "path": "dishes/meat_dish/奥尔良风味烤鸡腿/奥尔良风味烤鸡腿.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:01a0ccc620b29519283d4f1939ac28e7f56b30786952d9dbe097a13bf82bce6a",
+    "at": "2026-09-21"
+  },
+  "ao-li-ao-bing-qi-lin": {
+    "path": "dishes/dessert/奥利奥冰淇淋/奥利奥冰淇淋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d59d72172925c26a197c88ba68895b0048293a33f4357143fafce829d34cd601",
+    "at": "2026-09-21"
+  },
+  "ao-men-shi-ban-mian-zhi-niu-rou-fan": {
+    "path": "dishes/meat_dish/澳门湿版免治牛肉饭/澳门湿版免治牛肉饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e600b7f0fa37b78dc234dddd7a4de4df258038b8c84baf20bdd20df740111a2e",
+    "at": "2026-09-21"
+  },
+  "b-5-2-hong-zha-ji": {
+    "path": "dishes/drink/B52轰炸机.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:42c6b0d9050a9ba31d94d3948a9b896b71179d7c53dd82d334baa165c1fa5af8",
+    "at": "2026-09-21"
+  },
+  "ba-ji-si-tan-niu-rou-ka-li": {
+    "path": "dishes/meat_dish/巴基斯坦牛肉咖喱/巴基斯坦牛肉咖喱.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:92c07ad87998f192ad92a600378649ad299b14bb1c64d4de57ecf1f7dfa82acd",
+    "at": "2026-09-21"
+  },
+  "ba-si-tu-dou": {
+    "path": "dishes/vegetable_dish/拔丝土豆/拔丝土豆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:aa23829e59d2342b9176221d0195089f53928ee2b9c29a397af68dea3022c6f1",
+    "at": "2026-09-21"
+  },
+  "bai-cai-zhu-rou-dun-fen-tiao": {
+    "path": "dishes/meat_dish/白菜猪肉炖粉条.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:486112fe1cdf4feab7ffa8f3bd77451cea8cea9a32a6bccafefae1dd1a483b33",
+    "at": "2026-09-21"
+  },
+  "bai-xiang-guo-cheng-zi-te-tiao": {
+    "path": "dishes/drink/百香果橙子特调/百香果橙子特调.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f8c475aa242c8f6f371f7efbfc8dac00adaf9ccaa09b82b39f5dd6a35c623fe2",
+    "at": "2026-09-21"
+  },
+  "ban-cheng-pin-yi-mian": {
+    "path": "dishes/semi-finished/半成品意面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8344851c25aa982351391e1041443d1d94a4cddc51fdcfecd744fbe042af3c50",
+    "at": "2026-09-21"
+  },
+  "bao-cai-chao-ji-dan-fen-si": {
+    "path": "dishes/vegetable_dish/包菜炒鸡蛋粉丝/包菜炒鸡蛋粉丝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:72a93732568348c0b17dc8fa087ca57494ff1d43bfe79b348c878d5d95bac969",
+    "at": "2026-09-21"
+  },
+  "bian-yu-dun-dou-fu": {
+    "path": "dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4392976b795f7ec313cc2dcdaf26ed1070e148118f17a68bd43d338b062ab168",
+    "at": "2026-09-21"
+  },
+  "bing-fen": {
+    "path": "dishes/drink/冰粉/冰粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:84e53f8f3c758e18014d626d2aff99b23d7ce4cf84c62ac9969bea810b807869",
+    "at": "2026-09-21"
+  },
+  "bo-cai-chao-ji-dan": {
+    "path": "dishes/vegetable_dish/菠菜炒鸡蛋/菠菜炒鸡蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d0345a17a67d3800204d8a0e243d13418f99dd31fe7dae16fef5b639a5b0a962",
+    "at": "2026-09-21"
+  },
+  "bo-luo-ka-fei-te-tiao": {
+    "path": "dishes/drink/菠萝咖啡特调/菠萝咖啡特调.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0b2075d317422e3726d81cda5669902a1a798bb761943203d68d00ba1287c7de",
+    "at": "2026-09-21"
+  },
+  "cao-mei-bing-qi-lin": {
+    "path": "dishes/dessert/草莓冰淇淋/草莓冰淇淋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:aeb44f80ac0431b81b41007362bcf19752de3c0fc7caea6bce9582bca883c5b4",
+    "at": "2026-09-21"
+  },
+  "cao-mei-jiang": {
+    "path": "dishes/condiment/草莓酱/草莓酱.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7d585de99e9f1262887fdb7976555527f77689c2bb6f81c4558bf198e2b188da",
+    "at": "2026-09-21"
+  },
+  "chang-dao-bing-cha": {
+    "path": "dishes/drink/长岛冰茶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d1ce0c921a45e12f8df81e4b1d8889fd24cbf799b21aeaebc0c1e675a0ff9758",
+    "at": "2026-09-21"
+  },
+  "chao-fang-bian-mian": {
+    "path": "dishes/staple/炒方便面/炒方便面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:fec932b20e64dd6445313c6326d58a5e891045b66f6db338d047bb199fdb0013",
+    "at": "2026-09-21"
+  },
+  "chao-he-fen": {
+    "path": "dishes/staple/炒河粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:955fc8ab145a7c4c37f970c098f479ae15fc3214225e2821f9a582e0dea2ef7f",
+    "at": "2026-09-21"
+  },
+  "chao-hua-dan": {
+    "path": "dishes/vegetable_dish/炒滑蛋/炒滑蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:581d35e8606fe920ae17928c314d440948849e585aa0a29322645a11e329bac2",
+    "at": "2026-09-21"
+  },
+  "chao-liang-fen": {
+    "path": "dishes/staple/炒凉粉/炒凉粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:26d23ef7acdcf340b201f2e4955cafb1195c510dc2f74607424e17564942773e",
+    "at": "2026-09-21"
+  },
+  "chao-mo": {
+    "path": "dishes/staple/炒馍.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:935ed19d9456444ac48c6e32a134c5ab3ea722ec0aa40acf6f349f59550068c9",
+    "at": "2026-09-21"
+  },
+  "chao-nian-gao": {
+    "path": "dishes/staple/炒年糕.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:75e2faf410b30c6cf085c4d227ad2698ad8f09b9a353fe6ed04e1b470640d031",
+    "at": "2026-09-21"
+  },
+  "chao-qie-zi": {
+    "path": "dishes/vegetable_dish/炒茄子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2c23e0bbbd66e19167e2d22eca4b8e6bfa108754ba5eb919f21ab7ffc348bb04",
+    "at": "2026-09-21"
+  },
+  "chao-qing-cai": {
+    "path": "dishes/vegetable_dish/炒青菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b28cdb02268d5cc71b7caef783f1581d7f4a57a57fca10af2567124c33980e17",
+    "at": "2026-09-21"
+  },
+  "chao-yi-da-li-mian": {
+    "path": "dishes/staple/炒意大利面/炒意大利面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:17bacb0e0f13b1fe2801abc00ee6ce6d42b792ee760280e265e4ac257eda6b7f",
+    "at": "2026-09-21"
+  },
+  "cheng-bao-dan": {
+    "path": "dishes/aquatic/蛏抱蛋/蛏抱蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:33a3530ac744097b75c0da3341548ae33000b07f8eb8a90929da4e182cf7ee0c",
+    "at": "2026-09-21"
+  },
+  "chi-zhi-pai-gu": {
+    "path": "dishes/meat_dish/豉汁排骨.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e7aeaca237298113a8f556e506af97e062dccf992feb727230a1745ede885145",
+    "at": "2026-09-21"
+  },
+  "chi-zhi-zheng-bai-shan": {
+    "path": "dishes/meat_dish/豉汁蒸白鱔/豉汁蒸白鱔.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9bd84bc38135ce969876d87d68ed936bec1226627ae3c19bc644f789e7741910",
+    "at": "2026-09-21"
+  },
+  "cong-jian-dou-fu": {
+    "path": "dishes/vegetable_dish/葱煎豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0407795fa0b7f19752a8e3251afb9f61fe0feb1efb4fdb4acb391b98b28f695e",
+    "at": "2026-09-21"
+  },
+  "cong-shao-hai-shen": {
+    "path": "dishes/aquatic/葱烧海参/葱烧海参.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2c71386490f9e2282e73784f983e008df5a71c0d3421268c6af6598577e91322",
+    "at": "2026-09-21"
+  },
+  "cong-shao-ji-tui": {
+    "path": "dishes/meat_dish/葱烧鸡腿.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a526b15ef6c719190e7d2dd1807ebbed1cf08bd1913a8c1161684da815902bf0",
+    "at": "2026-09-21"
+  },
+  "cong-you-ban-mian": {
+    "path": "dishes/staple/葱油拌面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1482004a5ceaf6d00b6b3a907f8780126eef1d5bfaaa321c7a203db2c7dddeca",
+    "at": "2026-09-21"
+  },
+  "cong-you-gui-yu": {
+    "path": "dishes/aquatic/葱油桂鱼/葱油桂鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ebd41ce9c672d1a650b122fe48c4c77d7f28d6dd2141313d66525c53d4b14b79",
+    "at": "2026-09-21"
+  },
+  "cong-you": {
+    "path": "dishes/condiment/葱油.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:bd4ebf3f83d2274cd406d44d5596c2cb01964ed266a50ae5e64a50d59960ef93",
+    "at": "2026-09-21"
+  },
+  "cui-pi-dou-fu": {
+    "path": "dishes/vegetable_dish/脆皮豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:776fc6e98da08dbe1c353e4da8312746a4bc36a7e7741d4de5f9b4c176a53083",
+    "at": "2026-09-21"
+  },
+  "dai-ba-zhou-zi": {
+    "path": "dishes/meat_dish/带把肘子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3139c1a00707368d1e84487f63cd30f08c58f33107dfd31c5e325efcf0f18cd8",
+    "at": "2026-09-21"
+  },
+  "dan-chao-fan": {
+    "path": "dishes/staple/蛋炒饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8dacd0e257f73c189b40d7a002945d1d6190c9497600f233e9d7f66d9073c627",
+    "at": "2026-09-21"
+  },
+  "dan-jian-ci-ba": {
+    "path": "dishes/breakfast/蛋煎糍粑.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d2d2e55888279f09d329122de6cc427c46ffffe3d17d10caaf8af2b709581f81",
+    "at": "2026-09-21"
+  },
+  "di-san-xian": {
+    "path": "dishes/vegetable_dish/地三鲜/地三鲜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0abfdf9bb0379fb964d8c2971801b3308b4bde1cfd16bb4eb511aeca30051fcb",
+    "at": "2026-09-21"
+  },
+  "dian-fan-bao-san-wen-yu-chui-fan": {
+    "path": "dishes/staple/电饭煲三文鱼炊饭/电饭煲三文鱼炊饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5c4e5f231cdf44807a7fead2eeb0fb8d03f68d945fc1584f4e9e49f3c1f2a4ff",
+    "at": "2026-09-21"
+  },
+  "dian-fan-bao-zheng-mi-fan": {
+    "path": "dishes/staple/米饭/电饭煲蒸米饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ae9a2bc97a008cc7a044ce87c489f7fbaa1354a1155d8591eebd4eea27be6d71",
+    "at": "2026-09-21"
+  },
+  "dong-gua-cha": {
+    "path": "dishes/drink/冬瓜茶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c0954c1dde007869c27a2c367f725c0268946b9e1a3e34856f53e9f8f0af81aa",
+    "at": "2026-09-21"
+  },
+  "dong-gua-niang-rou": {
+    "path": "dishes/meat_dish/冬瓜酿肉/冬瓜酿肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b98a35af6ddea6e80adcf69c223d017b9c67ce36a0eaf779dbecbd954564da8f",
+    "at": "2026-09-21"
+  },
+  "dong-gua-sang-na-ji": {
+    "path": "dishes/meat_dish/冬瓜桑拿鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f86af7f7c7f74dc01e49fa326085b3b35152b61e9121bd6c972dc8a1093b8278",
+    "at": "2026-09-21"
+  },
+  "dou-chi-ling-yu-you-mai-cai": {
+    "path": "dishes/meat_dish/豆豉鲮鱼油麦菜/豆豉鲮鱼油麦菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:70fef0e3cc553e2081120225eb73e31f94a6be0548bdf7b6e9b87d4939dd280a",
+    "at": "2026-09-21"
+  },
+  "dou-jiao-men-mian": {
+    "path": "dishes/staple/豆角焖面/豆角焖面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9435fc9c72130fd32bf2adc45b1be06e13cbd5098ead88a386ebe7a589126164",
+    "at": "2026-09-21"
+  },
+  "fan-qie-hong-jiang": {
+    "path": "dishes/meat_dish/番茄红酱.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f6c299758c8c65cf741fe4fdb2b0d3446db76e71c55215cb780ec0ad0651ad0b",
+    "at": "2026-09-21"
+  },
+  "fan-qie-niu-rou-dan-hua-tang": {
+    "path": "dishes/soup/番茄牛肉蛋花汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b448fe148e52203f17f9df8a2b550a7f8c0bbbef86960b59e238e6adf83dea55",
+    "at": "2026-09-21"
+  },
+  "fan-sha-yu-tou": {
+    "path": "dishes/dessert/反沙芋头/反沙芋头.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f512ac64e69d2df2c152dfb477c6d447b1bff3c22083227dab0c10ff0e77f729",
+    "at": "2026-09-21"
+  },
+  "fen-zheng-rou": {
+    "path": "dishes/meat_dish/粉蒸肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:361615bbaab3953c7cad07ea1feba7b6ba92b3d34183cba4d9a5300152bd31fe",
+    "at": "2026-09-21"
+  },
+  "fu-ru-rou": {
+    "path": "dishes/meat_dish/腐乳肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ba1831e45b1ff46f911df29715225d7b8a048007915dd4a370a8064eac4a930f",
+    "at": "2026-09-21"
+  },
+  "gan-bian-zai-ji": {
+    "path": "dishes/meat_dish/干煸仔鸡/干煸仔鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d29a0276fadd6dea56fb83199c40a9a62000a98e1ae88d3a064bbe520881b296",
+    "at": "2026-09-21"
+  },
+  "gan-guo-hua-cai": {
+    "path": "dishes/vegetable_dish/干锅花菜/干锅花菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1f1eb902d7dbb19349f028954a1897153952a0a1ac44a48f90095e48d9b253fe",
+    "at": "2026-09-21"
+  },
+  "gan-jian-a-gen-ting-hong-xia": {
+    "path": "dishes/aquatic/干煎阿根廷红虾/干煎阿根廷红虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5227ce94a55448c44d1ed4be740121c77ebb9a5fe0b80ba10247f220e7a406de",
+    "at": "2026-09-21"
+  },
+  "gong-bao-ji-ding": {
+    "path": "dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ed6353e9149c76c6aeba0a57999e3eadcabf0c887e317bebe32948e8fb13122a",
+    "at": "2026-09-21"
+  },
+  "gou-qian-xiang-gu-tang": {
+    "path": "dishes/soup/勾芡香菇汤/勾芡香菇汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:896c892f9954e94824e24dc8c7ddf1b5052b06e3d86961c2f9f2801bce591bb4",
+    "at": "2026-09-21"
+  },
+  "gu-lu-rou": {
+    "path": "dishes/meat_dish/咕噜肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e07bc7afeca69c7b3016eba8aeb47050b57acab9a9d274992e4dac0952512f46",
+    "at": "2026-09-21"
+  },
+  "guang-shi-luo-bo-niu-nan": {
+    "path": "dishes/meat_dish/广式萝卜牛腩/广式萝卜牛腩.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:14cdc3896eec686f7b98b8e670e970b5052f809b84b0628fad742d56efd2e5d1",
+    "at": "2026-09-21"
+  },
+  "gui-lin-shi-ba-niang": {
+    "path": "dishes/meat_dish/桂林十八酿/桂林十八酿.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4bb82d19ba4b2974258d7c614ddb0f747e29659514b221fd30a34b7dbad25539",
+    "at": "2026-09-21"
+  },
+  "gui-ling-gao": {
+    "path": "dishes/dessert/龟苓膏/龟苓膏.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e216e0f54998d28aff9a78a24adae7f6809237e288babd1d95b6763988c62645",
+    "at": "2026-09-21"
+  },
+  "gui-yuan-hong-zao-zhou": {
+    "path": "dishes/breakfast/桂圆红枣粥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d2c05fd21985e66f37f80dd813609e751a5017c1349ff558efb8196e322e4e4d",
+    "at": "2026-09-21"
+  },
+  "gui-zhou-la-zi-ji": {
+    "path": "dishes/meat_dish/贵州辣子鸡/贵州辣子鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d8a9db37e316d7152eca8ada198052a1125d2108f922e8d06bbe81d29ff2887f",
+    "at": "2026-09-21"
+  },
+  "hai-bian-luo-ri": {
+    "path": "dishes/drink/海边落日/海边落日.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:108d56f2ccdb670b838174280e50da25ee0afb9e5d9c796d9663241663e77ea7",
+    "at": "2026-09-21"
+  },
+  "han-guo-ma-yao-ji-dan": {
+    "path": "dishes/breakfast/韩国麻药鸡蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:153727a2423cc61fb48346f37f835de318467ddaa9e9f154759ef3ec5db4741a",
+    "at": "2026-09-21"
+  },
+  "han-shi-ban-fan": {
+    "path": "dishes/staple/韩式拌饭/韩式拌饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c5eeaf40fc93fe7967e56483290f9336673a0a61ec9a05ffa1fd1978f3513e41",
+    "at": "2026-09-21"
+  },
+  "hao-you-san-xian-gu": {
+    "path": "dishes/vegetable_dish/蚝油三鲜菇/蚝油三鲜菇.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:63544d64cc9d0160d8a3f3e5ce64e2cfed20fa3362b8f77b6272803bc1aa13c0",
+    "at": "2026-09-21"
+  },
+  "hao-you-sheng-cai": {
+    "path": "dishes/vegetable_dish/蚝油生菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ed65013873ea15d2b3ee6f26208a08764aefbb69a8400548d4541e2ba179affd",
+    "at": "2026-09-21"
+  },
+  "he-lan-dou-chao-la-chang": {
+    "path": "dishes/meat_dish/荷兰豆炒腊肠/荷兰豆炒腊肠.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:12d26be22b1fc82ecc06bfb3f2ce71fd83667d43066fcfb34a066f732f9f4ef5",
+    "at": "2026-09-21"
+  },
+  "he-nan-zheng-mian-tiao": {
+    "path": "dishes/staple/河南蒸面条/河南蒸面条.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0ca4b313db50d9bf826247458063f0c4df0f3d08a1a42176007a76e35e3029d1",
+    "at": "2026-09-21"
+  },
+  "hei-jiao-niu-liu": {
+    "path": "dishes/meat_dish/黑椒牛柳/黑椒牛柳.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4851448627a1feaf12220a4d201afa369b9e6143e20a90e7795ba3f69c380975",
+    "at": "2026-09-21"
+  },
+  "hong-shao-dong-gua": {
+    "path": "dishes/vegetable_dish/红烧冬瓜/红烧冬瓜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:fbfc2941f3a19804002d041c844c996486c1c016e869d1dfd0975988fce0caad",
+    "at": "2026-09-21"
+  },
+  "hong-shao-ji-chi": {
+    "path": "dishes/meat_dish/红烧鸡翅.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:39df9fa63b573fdd108e5a144f704c6297e1383d35f97319f770930a43ea03ac",
+    "at": "2026-09-21"
+  },
+  "hong-shao-li-yu": {
+    "path": "dishes/aquatic/红烧鲤鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:310193735519265f346bc5c3e02451c50a59ea2d15d336304798d09994c0667d",
+    "at": "2026-09-21"
+  },
+  "hong-shao-qie-zi": {
+    "path": "dishes/vegetable_dish/红烧茄子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1fa702e42a76dfb883496669b9bfe8074898aadea9e9a72803a7f8f6c43e6897",
+    "at": "2026-09-21"
+  },
+  "hong-shao-yu-tou": {
+    "path": "dishes/aquatic/红烧鱼头.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:76a10e2a7e8d9c5f2540b9f22a7a776e27d986141343d36878cccc076916590d",
+    "at": "2026-09-21"
+  },
+  "hong-shao-yu": {
+    "path": "dishes/aquatic/红烧鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:08a7276bc343753db9ebb70a1473155340aca4517443bbc5ae6268017a028ac8",
+    "at": "2026-09-21"
+  },
+  "hong-shao-zhu-ti": {
+    "path": "dishes/meat_dish/红烧猪蹄/红烧猪蹄.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0c09efb0757a7c38ffe43031dc23643e74c640bee107da1c601ad52aa2308efb",
+    "at": "2026-09-21"
+  },
+  "hong-you-dan-gao": {
+    "path": "dishes/dessert/红柚蛋糕/红柚蛋糕.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:de3a3a92a743a7428170ade8ed82fd6c2a7af78dfc29327b9ab971d255a716a0",
+    "at": "2026-09-21"
+  },
+  "hong-yun-dou-ban-fan": {
+    "path": "dishes/staple/红芸豆拌饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:636eac67f3d5491d669d19f587be78b58a20dd6de7c47032b18be81cde13f2c4",
+    "at": "2026-09-21"
+  },
+  "hu-luo-bo-tian-gao": {
+    "path": "dishes/dessert/胡萝卜甜糕.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:89bcd8c3b9b4d0681a98b006642548d98886369d83288316cb9373535813b176",
+    "at": "2026-09-21"
+  },
+  "hu-pi-qing-jiao": {
+    "path": "dishes/vegetable_dish/虎皮青椒/虎皮青椒.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:cfbf81df860fde77962794bef41bf1a5adcdd1528bb724cbcd8aa79c7da2fd57",
+    "at": "2026-09-21"
+  },
+  "hu-pi-zhou-zi": {
+    "path": "dishes/meat_dish/虎皮肘子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ec867c5985009e58adff3dc287cfb86d3cd30aa92f32ae05e561b6cf4abf30a1",
+    "at": "2026-09-21"
+  },
+  "hua-mei-zhu-mao-dou": {
+    "path": "dishes/vegetable_dish/话梅煮毛豆/话梅煮毛豆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f9ed665459f308c86d45e96de24bd257a2cd0ccb88ad29a7d9d1736008185dd6",
+    "at": "2026-09-21"
+  },
+  "huang-gua-chao-rou": {
+    "path": "dishes/meat_dish/黄瓜炒肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:44ec7b3210256453466fdf7500bd0bb9489fcb7d67cffcda4a67dbbae31e5aa2",
+    "at": "2026-09-21"
+  },
+  "huang-gua-pi-dan-tang": {
+    "path": "dishes/soup/黄瓜皮蛋汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4a408d18513d2299f838551f6aff699d40cc39fb21ab3fe4acb6b8044dbd2536",
+    "at": "2026-09-21"
+  },
+  "huang-men-ji": {
+    "path": "dishes/meat_dish/黄焖鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:75bcb90d87e21b2647ee45aa6308218e542c915ef8bebe5904ce17a01405ab6e",
+    "at": "2026-09-21"
+  },
+  "huang-you-ji": {
+    "path": "dishes/meat_dish/黄油鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:687c6d51d2d869536db0a27aa03c4e780ecb6c0fbf830c086ea1a76264578844",
+    "at": "2026-09-21"
+  },
+  "huang-you-jian-xia": {
+    "path": "dishes/aquatic/黄油煎虾/黄油煎虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:79f1393635b81be57ebebd3a2a90fff6b05934ff2ad4f6d732a18ab300f10bae",
+    "at": "2026-09-21"
+  },
+  "hui-guo-rou": {
+    "path": "dishes/meat_dish/回锅肉/回锅肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d0cb825c5d9098f2c59e497f85722953fcf16f8b1d56e4d3decda63dad5ca0a5",
+    "at": "2026-09-21"
+  },
+  "huo-tui-fan-tuan": {
+    "path": "dishes/staple/火腿饭团/火腿饭团.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6dc805186aed239e8448179d1c33e9a5a46b558e069377bb89a68f758a8271e0",
+    "at": "2026-09-21"
+  },
+  "ji-chu-niu-nai-mian-bao": {
+    "path": "dishes/staple/基础牛奶面包/基础牛奶面包.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7b36f07db3741813641f6205881481f4f0c11a513b81a7268bf19e0f2797e85c",
+    "at": "2026-09-21"
+  },
+  "ji-dan-hua": {
+    "path": "dishes/vegetable_dish/鸡蛋花/鸡蛋花.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c7eae441a123c32a2e50c33d3ec87725cf70fea4c9f7252e4d8ecd6d9e221de1",
+    "at": "2026-09-21"
+  },
+  "ji-dan-huo-tui-chao-huang-gua": {
+    "path": "dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:037d1813bb1824874d4f1c4b5ea488c719d54f2317b61f2d6508580e303b5d61",
+    "at": "2026-09-21"
+  },
+  "ji-dan-san-ming-zhi": {
+    "path": "dishes/breakfast/鸡蛋三明治.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d1c665086e1aeb9af867766b4f248a9e25a57bf4aa7e7d06bbfa5af93e5e2814",
+    "at": "2026-09-21"
+  },
+  "jia-chang-ri-ben-dou-fu": {
+    "path": "dishes/vegetable_dish/家常日本豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:46b944c15a460e5ee2873dbe9f7dfbaacce46d24c02d614f62d0303bd1137f9c",
+    "at": "2026-09-21"
+  },
+  "jian-jiao-chao-niu-rou": {
+    "path": "dishes/meat_dish/尖椒炒牛肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ba2a9deb8b9cee53c7c2b4dd0165dad95cf22d160f7309e74ed95453f8e65d57",
+    "at": "2026-09-21"
+  },
+  "jian-jiao-niu-wa": {
+    "path": "dishes/meat_dish/尖叫牛蛙/尖叫牛蛙.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:23b2160ff3cdc2e6af5ac9012ac633f1d06b98e4551b27d5442e551d0300a404",
+    "at": "2026-09-21"
+  },
+  "jian-jiao": {
+    "path": "dishes/breakfast/煎饺.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:df53dd80014a5047929d9eb81e1f98e42925055a1c73033c4e84772d9d49e60a",
+    "at": "2026-09-21"
+  },
+  "jian-yi-ban-chao-tang-se": {
+    "path": "dishes/condiment/简易版炒糖色.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:dc572accd4526da23edf63607cc5b242ceb505af047f1edaf167beb54c80cc63",
+    "at": "2026-09-21"
+  },
+  "jian-yi-hong-shao-rou": {
+    "path": "dishes/meat_dish/红烧肉/简易红烧肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5aaff3f486c6033f7c71df71cb6ec425cfb21aa615ef5505cef5c56df596f151",
+    "at": "2026-09-21"
+  },
+  "jian-yu-hai-tai-yu-mi-fan": {
+    "path": "dishes/staple/鲣鱼海苔玉米饭/鲣鱼海苔玉米饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a431f8ea6e8b4b7da84a4a44419120e8dcc4ff4633a54f15d4a9cc1b15fe0554",
+    "at": "2026-09-21"
+  },
+  "jiang-ban-qiao-mai-mian": {
+    "path": "dishes/staple/酱拌荞麦面/酱拌荞麦面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8411442762ca08e406684bb2fe2200cdce38fd7dfff8ff03d852e8f4a9f052d8",
+    "at": "2026-09-21"
+  },
+  "jiang-chao-ji": {
+    "path": "dishes/meat_dish/姜炒鸡/姜炒鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:efea4f9681c358813e5b6c045cf0d2d77652cb8f1952630821b0d7df1139bec3",
+    "at": "2026-09-21"
+  },
+  "jiang-cong-lao-ji": {
+    "path": "dishes/meat_dish/姜葱捞鸡/姜葱捞鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:532c35ff598e28b700a49d68b7b4471f8acdd8c54f6f383a2d9f26171925eb47",
+    "at": "2026-09-21"
+  },
+  "jiang-dun-xie": {
+    "path": "dishes/aquatic/酱炖蟹.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0ba499fcaf214647e7c4f4b5fb8295946b7b92b838852347a53ec3539863c249",
+    "at": "2026-09-21"
+  },
+  "jiao-bai-chao-rou": {
+    "path": "dishes/meat_dish/茭白炒肉/茭白炒肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5a86374d569719e3837e27af23e3c337b1494213a1287f48c3c2bae4787abe7a",
+    "at": "2026-09-21"
+  },
+  "jiao-yan-pai-tiao": {
+    "path": "dishes/meat_dish/椒盐排条.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:17edfcaf42e76e46a3152985d20af9d484437423596eab9041e346563341067a",
+    "at": "2026-09-21"
+  },
+  "jie-mo-huang-you-luo-shi-xia": {
+    "path": "dishes/aquatic/芥末黄油罗氏虾/芥末黄油罗氏虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2c2dcde52f78d7e9514ca6cf742603e54fb71b4b67493a259012d589ccceecf5",
+    "at": "2026-09-21"
+  },
+  "jie-mo-luo-shi-xia": {
+    "path": "dishes/meat_dish/芥末罗氏虾/芥末罗氏虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:be7b82f5d552dde02b7cd8fe174268f32733d0bd5ae6b8f74639f27df8d6d352",
+    "at": "2026-09-21"
+  },
+  "jin-fei-shi": {
+    "path": "dishes/drink/金菲士/金菲士.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ee64e2aa3ed0697c87d9f74bab43534d4a4e3b5f711875e60b1ab9f6789f77ae",
+    "at": "2026-09-21"
+  },
+  "jin-qian-dan": {
+    "path": "dishes/vegetable_dish/金钱蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b983228fd22badc606f07b960db14c8eef5adc47fb6dfd716059c6dedcd18e55",
+    "at": "2026-09-21"
+  },
+  "jin-qiang-yu-jiang-san-ming-zhi": {
+    "path": "dishes/breakfast/金枪鱼酱三明治.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:184b966fe0bde2cadd92aa258dcf7050c4093e84307bf885b3c7dfe1eaec210d",
+    "at": "2026-09-21"
+  },
+  "jin-tang-li": {
+    "path": "dishes/drink/金汤力/金汤力.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c048cab9e953192159074abab96303e805fef3f3afb3406ad47270cacef9d36d",
+    "at": "2026-09-21"
+  },
+  "jin-zhen-gu-ri-ben-dou-fu-bao": {
+    "path": "dishes/vegetable_dish/金针菇日本豆腐煲.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c4e3fefa44e9baa10381c3b1eb71a2b7f671e3e30b5f6777fd4bc3681f4cec17",
+    "at": "2026-09-21"
+  },
+  "jin-zhen-gu-tang": {
+    "path": "dishes/soup/金针菇汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:84fbf7a49c53fdf1a72e496480ec28dd39bf3cfb5eae85db43825a03990e08ca",
+    "at": "2026-09-21"
+  },
+  "jiu-cai-chao-dan": {
+    "path": "dishes/vegetable_dish/韭菜炒蛋/韭菜炒蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6906b489d8242b01fba1cd660755fe9df3be36be41cc12dd5f1c1bf9b8e8589a",
+    "at": "2026-09-21"
+  },
+  "jiu-cai-he-zi": {
+    "path": "dishes/staple/韭菜盒子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:748a5e629bd2b347fb61ceb1d11021d0904466fe353281bd167089c3d51b09c4",
+    "at": "2026-09-21"
+  },
+  "ka-fei-ye-nai-dong": {
+    "path": "dishes/dessert/咖啡椰奶冻/咖啡椰奶冻.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4940dc5f0025f576d93bc3a6382c9445d998dc5e3f8cb305ccacaedf21ec3ca1",
+    "at": "2026-09-21"
+  },
+  "ka-li-chao-xie": {
+    "path": "dishes/aquatic/咖喱炒蟹.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:923a2543522511ce8769138422a7b7259b8207e3a0d071c637da764eff169de4",
+    "at": "2026-09-21"
+  },
+  "ka-li-fei-niu": {
+    "path": "dishes/meat_dish/咖喱肥牛/咖喱肥牛.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0bef41cbce8c06eedaa88947d69268a8eaa47b1c04ad3051777ae25b65870b1b",
+    "at": "2026-09-21"
+  },
+  "kao-dan-ta": {
+    "path": "dishes/dessert/烤蛋挞/烤蛋挞.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:fa1793fd4e0c0951215048627c63a3046b1b325585ecaa7e54803ef4d7b8db74",
+    "at": "2026-09-21"
+  },
+  "kao-ji-chi": {
+    "path": "dishes/meat_dish/烤鸡翅.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c1933f5f71dc2e182d553df99b90dc74b17029b508562ff4513ac1ca66696c1e",
+    "at": "2026-09-21"
+  },
+  "kao-qie-zi": {
+    "path": "dishes/vegetable_dish/烤茄子/烤茄子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:30f348de0f4e6823863fa69c637a3548482fb3f330ae61fc95d85ae144bcaa77",
+    "at": "2026-09-21"
+  },
+  "kao-yu": {
+    "path": "dishes/aquatic/混合烤鱼/烤鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b28cc5696b6c94be46ca7b8903e100bbef8fb100801a0dd9d11d5f911d118fcb",
+    "at": "2026-09-21"
+  },
+  "ke-le-chao-fan": {
+    "path": "dishes/staple/可乐炒饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ca7fcab9a4d5181916e17e00bd319ce33d10a7669dd0a3f23bfb6de8a7a7bec9",
+    "at": "2026-09-21"
+  },
+  "ke-le-tong": {
+    "path": "dishes/drink/可乐桶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b046b88bef479279c2ff7d3c93951910cbaa0f245cda12e7ca9453c22fe59e5d",
+    "at": "2026-09-21"
+  },
+  "kong-qi-zha-guo-ji-chi-zhong": {
+    "path": "dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3ce1ab1b27c5ad4b4582551ca15a90218fa79eaee63421c19643c28ceb16b370",
+    "at": "2026-09-21"
+  },
+  "kong-qi-zha-guo-mian-bao-pian": {
+    "path": "dishes/breakfast/空气炸锅面包片.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:479a967a55399927163cf1e9a73e8c442578248d05acb0cf302324c5bda0653a",
+    "at": "2026-09-21"
+  },
+  "kong-qi-zha-guo-yang-pai": {
+    "path": "dishes/semi-finished/空气炸锅羊排/空气炸锅羊排.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ca42f40d88fdef110f1e9b74af570037c02b1bae44346399dae5124a111c4ba2",
+    "at": "2026-09-21"
+  },
+  "kong-qi-zha-guo-zhao-shao-ji-fan": {
+    "path": "dishes/staple/空气炸锅照烧鸡饭/空气炸锅照烧鸡饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:fd57c514b7952796c79d4be5f1ac424d88dd1959e4a384cb1968974d0debefaf",
+    "at": "2026-09-21"
+  },
+  "kou-shui-ji": {
+    "path": "dishes/meat_dish/口水鸡/口水鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a759dfae83ab5dd0bfe5612083dd22c19c11e1eece526c3ef654975145bde701",
+    "at": "2026-09-21"
+  },
+  "la-ba-zhou": {
+    "path": "dishes/soup/腊八粥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:251fc4eb7c285c6fb0e68d6aba60a37b4346f94b5b66cbeb094029821934b1c2",
+    "at": "2026-09-21"
+  },
+  "lan-cai-rou-mo-si-ji-dou": {
+    "path": "dishes/vegetable_dish/榄菜肉末四季豆/榄菜肉末四季豆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1ae5d8d4192b78d256ea1b9bdb09033cda4083d1d8b72681d298cfd244a5f22d",
+    "at": "2026-09-21"
+  },
+  "lan-ren-dan-ta": {
+    "path": "dishes/semi-finished/懒人蛋挞/懒人蛋挞.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:782b17870131b569b184c981d0e97f4b10c934666d4b2434b0a4d45f36115f10",
+    "at": "2026-09-21"
+  },
+  "lao-bing": {
+    "path": "dishes/staple/烙饼/烙饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:698bc9216c3050a4218a36409462502a244b61e4a2e3efdca823df09eff0c479",
+    "at": "2026-09-21"
+  },
+  "lao-gan-ma-ban-mian": {
+    "path": "dishes/staple/老干妈拌面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6ebf42bcd3d495153f0531e75599d2ae8ff53f88ca1c8b818e0bf6c085265ed4",
+    "at": "2026-09-21"
+  },
+  "lao-ma-ti-hua": {
+    "path": "dishes/meat_dish/老妈蹄花/老妈蹄花.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:69eac0eba8ad25e8f1cc85f06d114c1ad857fcea850097e03b5b7ff46c9e6adc",
+    "at": "2026-09-21"
+  },
+  "lao-shi-guo-bao-rou": {
+    "path": "dishes/meat_dish/老式锅包肉/老式锅包肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6a1d6b59ac75ffc71f843597b3d13a9baedde4d5e2ac28ae42050e377eb28845",
+    "at": "2026-09-21"
+  },
+  "lao-you-zhu-rou-fen": {
+    "path": "dishes/staple/老友猪肉粉/老友猪肉粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f226550d3aa0947f7e73fa8e55abe180b1280873a791361e9bce93598e15ddec",
+    "at": "2026-09-21"
+  },
+  "lao-zao-xiao-tang-yuan": {
+    "path": "dishes/staple/醪糟小汤圆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b4587d821cf2adaf64d482e16ed2e2e1c2dde9761310fe2fe72883651b7b858a",
+    "at": "2026-09-21"
+  },
+  "lei-jiao-pi-dan": {
+    "path": "dishes/vegetable_dish/雷椒皮蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:65c849c4c92c1c010d1f9246a6019c660fffb278d0ddfdb38cdaa833f9c72acf",
+    "at": "2026-09-21"
+  },
+  "leng-chi-tu": {
+    "path": "dishes/meat_dish/冷吃兔.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0c779e4bf630c557444f9af6487c67027f1a103afb64654ed3e7eb8c2174f999",
+    "at": "2026-09-21"
+  },
+  "li-ti-qiao-ka": {
+    "path": "dishes/staple/利提巧卡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a97b05d7a728a49e28d2412aee4f352bdaa3b0dbd6a8ce672cab44ce3b11b911",
+    "at": "2026-09-21"
+  },
+  "li-yu-dun-bai-cai": {
+    "path": "dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:bc52438ca183661e7c275a0935683db9e1c831ade71973a3492137313f31bbe0",
+    "at": "2026-09-21"
+  },
+  "li-zhi-rou": {
+    "path": "dishes/meat_dish/荔枝肉/荔枝肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8256552cf2753d822945a0f7bbe5c8579c21c3a2518d99e42f6f22e0322d07fb",
+    "at": "2026-09-21"
+  },
+  "liang-ban-dou-fu": {
+    "path": "dishes/vegetable_dish/凉拌豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d4f7e376ab1dd43208f19b6c28ccdbb0f3e0372821e25d7ca6239040d0159de5",
+    "at": "2026-09-21"
+  },
+  "liang-ban-huang-gua": {
+    "path": "dishes/vegetable_dish/凉拌黄瓜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:df0edc252038a06bc096e635093076b832d3bdb473948ad92861924fbd28f7a1",
+    "at": "2026-09-21"
+  },
+  "liang-ban-jin-zhen-gu": {
+    "path": "dishes/vegetable_dish/凉拌金针菇.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:bba69bc0234d110df394f81271fcdfa26393a4a3a1aaa8647387244cb460a43f",
+    "at": "2026-09-21"
+  },
+  "liang-ban-mu-er": {
+    "path": "dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e2bc7626219229755471b4b62d222086f3629e10715752c79ba8d197decc5d9f",
+    "at": "2026-09-21"
+  },
+  "liang-ban-wo-sun": {
+    "path": "dishes/vegetable_dish/凉拌莴笋/凉拌莴笋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6ddd1466648ba8ca0fcff20655573ff2eae0281a3a48ca9ddef1ba945b5fc8fa",
+    "at": "2026-09-21"
+  },
+  "liang-ban-you-mai-cai": {
+    "path": "dishes/vegetable_dish/凉拌油麦菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7205bd5e77330fc0139a1573ac720da7b3285cbb5f9e1f05063d310f26ebbc5c",
+    "at": "2026-09-21"
+  },
+  "liang-fen": {
+    "path": "dishes/staple/凉粉/凉粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:92c51f8512ab7cd9f4034c67a540a0c5779ef9072003b5bf1af8647ef1bc81d5",
+    "at": "2026-09-21"
+  },
+  "liang-pi": {
+    "path": "dishes/semi-finished/凉皮.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3002095162c147864739e5eee984226034e5651d30b9961885a3b743316cbb16",
+    "at": "2026-09-21"
+  },
+  "lu-cai": {
+    "path": "dishes/meat_dish/卤菜/卤菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9233013194e20b04322e6b14486dd32093bf52e31e1f42092ab0672baea5b438",
+    "at": "2026-09-21"
+  },
+  "luo-si-fen": {
+    "path": "dishes/staple/螺蛳粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:771708a51f531a64630717dc4ee8190af3851b01b0f1e8686614ed312f064f51",
+    "at": "2026-09-21"
+  },
+  "luo-song-tang": {
+    "path": "dishes/soup/罗宋汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:159f028c8e9303ab59c4128edb5707d94a05d39a25b1c8c49664bd10e435f89b",
+    "at": "2026-09-21"
+  },
+  "m-o-j-i-t-o-mo-ji-tuo": {
+    "path": "dishes/drink/Mojito莫吉托.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e861a11dddce83b6367a476a8974e3d51da2726a86fd6c12931468e77459daf2",
+    "at": "2026-09-21"
+  },
+  "ma-ge-li-te-bing-gan": {
+    "path": "dishes/dessert/玛格丽特饼干/玛格丽特饼干.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c48d9d8c6353c39d754c8c9e09bad41dbb6c5330918028dc1167bd96353869d7",
+    "at": "2026-09-21"
+  },
+  "ma-la-jian-zhi-qiao-mai-mian": {
+    "path": "dishes/staple/麻辣减脂荞麦面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8a46c53f880113e6b4f9b8ff778b4df0704efe3a85d841538a2feb05a5d4e479",
+    "at": "2026-09-21"
+  },
+  "ma-la-xiang-guo": {
+    "path": "dishes/meat_dish/麻辣香锅.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f34a0d3d10691cb7e1f3ee1f3f8830154ceaedbcfcdf09dffe1f46ba1a78f04f",
+    "at": "2026-09-21"
+  },
+  "ma-po-dou-fu": {
+    "path": "dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:34700530e7f39704f882f2a9d662672d7d51fbece9df5fbef24d99964c80483a",
+    "at": "2026-09-21"
+  },
+  "ma-yi-shang-shu": {
+    "path": "dishes/meat_dish/蚂蚁上树.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:63114cec86e1aa388e1571187b2a4fba6819ceb2d7cd2906938508cdb5d326ae",
+    "at": "2026-09-21"
+  },
+  "ma-you-ban-mian": {
+    "path": "dishes/staple/麻油拌面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:cfb04b18c0275242b024b5569583107c4055017a3325e7c49587427b314625b1",
+    "at": "2026-09-21"
+  },
+  "mei-cai-kou-rou": {
+    "path": "dishes/meat_dish/梅菜扣肉/梅菜扣肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:dd414991abba1337efaf8d7e4b61e80228a02f384b95c28fbe0803398ae3df09",
+    "at": "2026-09-21"
+  },
+  "mei-shi-chao-dan": {
+    "path": "dishes/breakfast/美式炒蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0c33dc1ee53723b3910ec72c5cfcc56ce1c76278fb47f44261643a75b11496b4",
+    "at": "2026-09-21"
+  },
+  "mi-zhou": {
+    "path": "dishes/soup/米粥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:17b546c35e445c803237ae9cd169ed47c7d6fe9eca18ddf8078be53653b60de1",
+    "at": "2026-09-21"
+  },
+  "mo-yu-dan-gao": {
+    "path": "dishes/dessert/魔芋蛋糕/魔芋蛋糕.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1290d1b99ea7480f54ee444b4202acaa74e67d7de166d56ae0c12bfa782a239d",
+    "at": "2026-09-21"
+  },
+  "nai-cha": {
+    "path": "dishes/drink/奶茶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f433143e3e9e0498c8a5aaea9ab7d5b50aabfa950ddbe42a6a2f334f8e01bcda",
+    "at": "2026-09-21"
+  },
+  "nai-lao-pei-gen-tong-xin-fen": {
+    "path": "dishes/meat_dish/奶酪培根通心粉/奶酪培根通心粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e4134a4a9e50fb9cd295b90f12fb104e297fc97d5c62a754e818fbe9a5547d76",
+    "at": "2026-09-21"
+  },
+  "nai-you-mo-gu-tang": {
+    "path": "dishes/soup/奶油蘑菇汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4e2f192fea85f42e5efe24e7a703c0029650c4898ee2dc5712f7920fbd1c91d8",
+    "at": "2026-09-21"
+  },
+  "ning-meng-shui": {
+    "path": "dishes/drink/柠檬水/柠檬水.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3a756c1c237869d8494fea08a4340dcace012b5f5cc16041feecc1ce25e4a4cb",
+    "at": "2026-09-21"
+  },
+  "niu-nai-yan-mai": {
+    "path": "dishes/breakfast/牛奶燕麦.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ad3a668914186052314c9602574b5c42de817b0a003c2e3c294c17ffe86df95c",
+    "at": "2026-09-21"
+  },
+  "niu-you-guo-la-xi": {
+    "path": "dishes/drink/牛油果拉西.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0e8f758ffa4ed6b1ed650f63a695f9d62eaf1cc2e85905f22082625d4a4a67f5",
+    "at": "2026-09-21"
+  },
+  "niu-you-huo-guo-di-liao": {
+    "path": "dishes/semi-finished/牛油火锅底料.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:73aa96a6f3098b4f868b4d469d4422f5567998e56ca1ab50ad9926c43f0564b0",
+    "at": "2026-09-21"
+  },
+  "nong-jia-yi-wan-xiang": {
+    "path": "dishes/meat_dish/农家一碗香/农家一碗香.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4ec7b75075f70fdde21bab48786bc25fb0bbc6d5246531b1215c0cdcf24d4d80",
+    "at": "2026-09-21"
+  },
+  "pa-pa-gan-cha": {
+    "path": "dishes/drink/耙耙柑茶/耙耙柑茶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2ee7173f83e7ac1b1396338f009d86e4e2b602c477f81eac6bacf0347d3d69e4",
+    "at": "2026-09-21"
+  },
+  "pai-gu-ku-gua-tang": {
+    "path": "dishes/soup/排骨苦瓜汤/排骨苦瓜汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7c9e11d724523a7471826b318aa91d079ee731c9588f2149a3ff984f791ada78",
+    "at": "2026-09-21"
+  },
+  "pai-gu-shan-yao-yu-mi-tang": {
+    "path": "dishes/soup/排骨山药玉米汤/排骨山药玉米汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:89e4f1890be057ff14fdcc0aa1e11ad44f8feb5fd0031973cd09b2cccaf38f03",
+    "at": "2026-09-21"
+  },
+  "pi-dan-dou-fu": {
+    "path": "dishes/vegetable_dish/皮蛋豆腐.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:73348ae211e26910f351dd3b5a7f1c990b0466279eed5dbc236d370483edfeef",
+    "at": "2026-09-21"
+  },
+  "pi-dan-shou-rou-zhou": {
+    "path": "dishes/soup/皮蛋瘦肉粥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:008d21b0c7475ea02fd363c39da1e4f4d26f70b0f2c87e7a5d9ee16cfe5ba37d",
+    "at": "2026-09-21"
+  },
+  "pi-sa-bing-pi": {
+    "path": "dishes/staple/披萨饼皮/披萨饼皮.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e709be09749510479c38850c02d250c68b4d1fb24893a1ac8e2a1ca167cd1122",
+    "at": "2026-09-21"
+  },
+  "pu-shao-qie-zi": {
+    "path": "dishes/vegetable_dish/蒲烧茄子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3f5a6a8dd2672175de4652848aacfc3b6fdee8b755c9d1b3bffe9abe942f516c",
+    "at": "2026-09-21"
+  },
+  "qi-feng-dan-gao": {
+    "path": "dishes/dessert/戚风蛋糕/戚风蛋糕.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:17807ef33d4bd4a2e36c4d35474ddc62d626772712a2c44d2135f17a92bd87e3",
+    "at": "2026-09-21"
+  },
+  "qi-yi-guo-bo-cai-te-tiao": {
+    "path": "dishes/drink/奇异果菠菜特调/奇异果菠菜特调.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:573645ee01ca882cd90ad03730ab70df4e3a244629b4bca533761643d7292bc0",
+    "at": "2026-09-21"
+  },
+  "qian-long-bai-cai": {
+    "path": "dishes/vegetable_dish/乾隆白菜/乾隆白菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:94cc29fe80910c62bfabef9e96de98b83fb1ce560aa9d93b90a2085c6ad3dba9",
+    "at": "2026-09-21"
+  },
+  "qian-shi-la-chang-wa-wa-cai": {
+    "path": "dishes/meat_dish/黔式腊肠娃娃菜/黔式腊肠娃娃菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0f871ab67c664aab617f3ec87cf70edaa7f888b7a3b1268fcd08d98b68ce220f",
+    "at": "2026-09-21"
+  },
+  "qie-zi-dun-tu-dou": {
+    "path": "dishes/vegetable_dish/茄子炖土豆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2176511f2b4fdb548757ef2aaacb859c1715d1f2e192d1372d3e5daafa10ca84",
+    "at": "2026-09-21"
+  },
+  "qie-zi-rou-jian-bing": {
+    "path": "dishes/staple/茄子肉煎饼/茄子肉煎饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a35fbd187afd14b67d3dcb1e75c28abe55359830dc09192116de40bf40f22536",
+    "at": "2026-09-21"
+  },
+  "qin-cai-ban-cha-shu-gu": {
+    "path": "dishes/vegetable_dish/芹菜拌茶树菇/芹菜拌茶树菇.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:67cc917ef595b20f1605462074d5e361db652a67bba601a1abfbffe35535e999",
+    "at": "2026-09-21"
+  },
+  "qing-chao-hua-cai": {
+    "path": "dishes/vegetable_dish/清炒花菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8f8a534ee34e95a518e688f78267910cc08587c4b961beb9e437006e5ae2aada",
+    "at": "2026-09-21"
+  },
+  "qing-jiao-niang": {
+    "path": "dishes/meat_dish/青椒酿/青椒酿.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7f30ea5009dadff69ebf9be61a27cecddbac69fa355f637d11873056a251d89d",
+    "at": "2026-09-21"
+  },
+  "qing-jiao-tu-dou-chao-rou": {
+    "path": "dishes/meat_dish/青椒土豆炒肉/青椒土豆炒肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ef2008c3e534f40fcd963e911f950b1afb139dc0da0fd2383aefd9c0ca93e40d",
+    "at": "2026-09-21"
+  },
+  "qing-zheng-jue-yu": {
+    "path": "dishes/meat_dish/清蒸鳜鱼/清蒸鳜鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b57d895e42f8287eb9088bc5b67777f72cbfbe3ad4e5a341d31628758a6bfb0f",
+    "at": "2026-09-21"
+  },
+  "qing-zheng-lu-yu": {
+    "path": "dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a2bb17e2b2a37e27fdf9fc514e3b1785d0e9c4da6a7caf5a9652094d3f9975ea",
+    "at": "2026-09-21"
+  },
+  "qing-zheng-nan-gua": {
+    "path": "dishes/vegetable_dish/清蒸南瓜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ab0fbb195bf49d70aae9d86f6c8e13f818e02f7dbe9db17fcd9c1580cc3537e0",
+    "at": "2026-09-21"
+  },
+  "qing-zheng-sheng-hao": {
+    "path": "dishes/aquatic/清蒸生蚝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:100388562ab069303ea4b00358caee839c3581d0fc622533270b3fad78324ec3",
+    "at": "2026-09-21"
+  },
+  "re-gan-mian": {
+    "path": "dishes/staple/热干面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:74d50c5c67804e1f77e4a3c3a0b74806803b5ec8e889d2b4f21cac8eb9a0f809",
+    "at": "2026-09-21"
+  },
+  "ri-shi-fei-niu-jing-fan": {
+    "path": "dishes/staple/日式肥牛丼饭/日式肥牛丼饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:cd9718e9c55f9088fa95718c0b39e696d285087fee3bf988cf76c714c2dfa61d",
+    "at": "2026-09-21"
+  },
+  "ri-shi-ka-li-fan": {
+    "path": "dishes/staple/日式咖喱饭/日式咖喱饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e43ef8d7c1bb349fae7f99e8b8e2659c3231101c2be380040b8c637f7fb8f536",
+    "at": "2026-09-21"
+  },
+  "rou-bing-dun-dan": {
+    "path": "dishes/meat_dish/肉饼炖蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:419615b2512ecc9087031757ce86c825350c7d53c577b100dcf3dd7b1328b2d5",
+    "at": "2026-09-21"
+  },
+  "rou-dan-gai-fan": {
+    "path": "dishes/staple/肉蛋盖饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:821df4244fbe1caa16a2dbafcbb7886d4b3cfe9323d05676946d146d47b817e1",
+    "at": "2026-09-21"
+  },
+  "rou-xie-bao": {
+    "path": "dishes/aquatic/肉蟹煲.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:708555a65c5d0c8bb6f349ade964a1340748dd41cd6ff7038f21823f4bc2f267",
+    "at": "2026-09-21"
+  },
+  "sha-tang-ye-zi-bing-sha": {
+    "path": "dishes/drink/砂糖椰子冰沙/砂糖椰子冰沙.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e6ed074040ef089e33ad6c1ca06ecc9cc6861575e8c5d78feb02be3e458e2611",
+    "at": "2026-09-21"
+  },
+  "sha-zhu-cai": {
+    "path": "dishes/meat_dish/杀猪菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ae3f0fdba7f248676d4028365d3d5ee12cfc29c1cd260c6cfaa91ae194df747b",
+    "at": "2026-09-21"
+  },
+  "shan-bei-ao-dou-jiao": {
+    "path": "dishes/vegetable_dish/陕北熬豆角.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:461c5f6b80bf6afca7a1329cc9c7912825888820260174bc49b7ceabf7fa253c",
+    "at": "2026-09-21"
+  },
+  "shan-xi-guo-you-rou": {
+    "path": "dishes/meat_dish/山西过油肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f15a9d1014b15b738f3ee557137963b18d3fe0de23eaeb5bdcc122ae3f644ee6",
+    "at": "2026-09-21"
+  },
+  "shan-xi-you-po-mian": {
+    "path": "dishes/staple/陕西油泼面/陕西油泼面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:53fecfa4e052c5b3060436eaa1271d65b05637ac58c18fe537cf71d46fb42439",
+    "at": "2026-09-21"
+  },
+  "shan-yao-nan-gua-dun-ji-tang": {
+    "path": "dishes/soup/山药南瓜炖鸡汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:500ccfd1bc2d18c432332b040a6e91b89edea999c1fe79ecc83f145d00009ab3",
+    "at": "2026-09-21"
+  },
+  "shang-tang-wa-wa-cai": {
+    "path": "dishes/vegetable_dish/上汤娃娃菜/上汤娃娃菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c690159a4bc7f1570865a0eb2e812f61c8ada95d25baf3e81124cbc86a5885d0",
+    "at": "2026-09-21"
+  },
+  "shang-zhi-rou": {
+    "path": "dishes/meat_dish/商芝肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e44887da220a71ab47ad4421ec583a2c57a8f882cd6dd5edc71c44fdad21e12d",
+    "at": "2026-09-21"
+  },
+  "sheng-cuan-wan-zi-tang": {
+    "path": "dishes/soup/生汆丸子汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:07d21b228dfa943532f6fdbeab3ad779663f1b19b3c52bcd2c3d2ab352e0fb28",
+    "at": "2026-09-21"
+  },
+  "shou-gong-shui-jiao": {
+    "path": "dishes/staple/手工水饺.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9c187e87f0a08ff52bc99eaebcb95511406bbf6d74ee2d21d21d9215feec72ec",
+    "at": "2026-09-21"
+  },
+  "shou-rou-tu-dou-pian": {
+    "path": "dishes/meat_dish/瘦肉土豆片/瘦肉土豆片.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d8eb695a3674475eede770a0644cfecb14a2fcc205f309cf4f85c1cc48379c9b",
+    "at": "2026-09-21"
+  },
+  "shou-zhua-bing": {
+    "path": "dishes/breakfast/手抓饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:71b5aa86a8d74ff2db2345553ce8eb5d656ec36834834dd1aef4efd88e308d56",
+    "at": "2026-09-21"
+  },
+  "shui-you-men-shu-cai": {
+    "path": "dishes/vegetable_dish/水油焖蔬菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:cb7a682ca9b65a227684ed0987e5f44abe11e12140d2ca4858ff32e2d2fce724",
+    "at": "2026-09-21"
+  },
+  "shui-zhu-niu-rou": {
+    "path": "dishes/meat_dish/水煮牛肉/水煮牛肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:60520cc242d209b187c1837b1fc3d2ea3b653e8d46a1d7d5514e5e6f0c9d8658",
+    "at": "2026-09-21"
+  },
+  "shui-zhu-rou-pian": {
+    "path": "dishes/meat_dish/水煮肉片.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e487bf88a31f500f2a3cdadf4a29cb4de3e5cadb20a7493ada9b18bce7af1e6a",
+    "at": "2026-09-21"
+  },
+  "shui-zhu-yu-mi": {
+    "path": "dishes/breakfast/水煮玉米.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:104c3ccb91ac8b51b56dd91b3b790b0daed74c8e221289b47081cab9be4ab373",
+    "at": "2026-09-21"
+  },
+  "shui-zhu-yu": {
+    "path": "dishes/aquatic/水煮鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:624dc05af548c46f62d76a0a1a9308a5a6ff58c4499a44c2b9338ae7404d10ca",
+    "at": "2026-09-21"
+  },
+  "song-ren-yu-mi": {
+    "path": "dishes/vegetable_dish/松仁玉米.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4b65aeb0b7ac956053ff818cb8cf5b425b7a8e732ec469e53751ae9db6c75275",
+    "at": "2026-09-21"
+  },
+  "su-chao-dou-jiao": {
+    "path": "dishes/vegetable_dish/素炒豆角.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b4e7bbc8fa3455ecc3bb94c628cb03448d13d332152c410bd980295b196f801e",
+    "at": "2026-09-21"
+  },
+  "su-dong-hun-tun": {
+    "path": "dishes/semi-finished/速冻馄饨.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:97d2beaad8011c3861d98fa14364e38a999a8a589321caa6a942eb71e9a6cb7e",
+    "at": "2026-09-21"
+  },
+  "su-dong-shui-jiao": {
+    "path": "dishes/semi-finished/速冻水饺.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7142a47d8beadd9e094e9df805646fc4f501cd7202b466ec03860789227252e0",
+    "at": "2026-09-21"
+  },
+  "su-dong-tang-yuan": {
+    "path": "dishes/semi-finished/速冻汤圆/速冻汤圆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:be888e803af68e9b7de3dd7e8b2ca6971ce237083a925c36c9406cc9fb6a7a7c",
+    "at": "2026-09-21"
+  },
+  "su-ge-lan-dan": {
+    "path": "dishes/breakfast/苏格兰蛋/苏格兰蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6054cb7d5f902db4f75350fa52d243dae64a67708b32c15cfc52edf33b51ea45",
+    "at": "2026-09-21"
+  },
+  "suan-la-jue-gen-fen": {
+    "path": "dishes/staple/酸辣蕨根粉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:07922e90af83328fd1032e5604204eaec813b9249756f36e23ba13bd042aaeb8",
+    "at": "2026-09-21"
+  },
+  "suan-la-tu-dou-si": {
+    "path": "dishes/vegetable_dish/酸辣土豆丝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:093bb3a55ad322f31f992cf616182e17efa1a39883983dc29f8fba00ee3bd11a",
+    "at": "2026-09-21"
+  },
+  "suan-mei-tang-ban-cheng-pin-jia-gong": {
+    "path": "dishes/drink/酸梅汤（半成品加工）.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f755b8f60e47772b42feec05395482d7384f37196de993960cd67f46d2261916",
+    "at": "2026-09-21"
+  },
+  "suan-mei-tang": {
+    "path": "dishes/drink/酸梅汤/酸梅汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5288e7a8da2dfc3bacae54e1c9219243e903eec35d93e2ae4027c154f90d8389",
+    "at": "2026-09-21"
+  },
+  "suan-nai-yi-shi-nai-dong": {
+    "path": "dishes/dessert/酸奶意式奶冻/酸奶意式奶冻.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:65fce1d84570ec9c514ea301fc38b108c8e9f579068a85c4db16faebce369a65",
+    "at": "2026-09-21"
+  },
+  "suan-rong-chao-qin-cai": {
+    "path": "dishes/vegetable_dish/蒜蓉炒芹菜/蒜蓉炒芹菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:117dedb9ab2fb29c34c27ee0392d132b524f7bef0df2947a3c9dcbe2ca1eb123",
+    "at": "2026-09-21"
+  },
+  "suan-rong-kong-xin-cai": {
+    "path": "dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:08254a7686efd5f8847bdf753ec3021182005d8f63a8061520123b860fa7e868",
+    "at": "2026-09-21"
+  },
+  "suan-rong-xi-lan-hua": {
+    "path": "dishes/vegetable_dish/蒜蓉西兰花.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8fddbc8a3e01c0e56f834d3a57a366bb79c7d962b7bdfea1fd0271fe02542219",
+    "at": "2026-09-21"
+  },
+  "suan-rong-xia": {
+    "path": "dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:fc52a7dbda893092084b04ca2c9dbf9cef809b8df7264ad3f2b2f7e2f4deb68d",
+    "at": "2026-09-21"
+  },
+  "suan-tai-chao-rou-mo": {
+    "path": "dishes/meat_dish/蒜苔炒肉末.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:58592267c5af5c49967c05fba14c3ab2963a5a3679de2f4e8e4d2d59c8851c75",
+    "at": "2026-09-21"
+  },
+  "suan-xiang-huang-you-xia": {
+    "path": "dishes/aquatic/蒜香黄油虾/蒜香黄油虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0568f143a252a549fbb433eb19df143643c71ebe8153979bb9a1032894d68195",
+    "at": "2026-09-21"
+  },
+  "suan-xiang-jiang-you": {
+    "path": "dishes/condiment/蒜香酱油.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8b9d5a7a9a8ec3aa0a1f6abba6b1b529c82dd6302f49bb0b5ea4b3f79084bd15",
+    "at": "2026-09-21"
+  },
+  "tai-guo-shou-biao-hong-cha": {
+    "path": "dishes/drink/泰国手标红茶/泰国手标红茶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:753caf07982d4f18f6baa060fd26bd1f1100c369d7582560ac387d0e76c2896f",
+    "at": "2026-09-21"
+  },
+  "tai-shi-lu-rou-fan": {
+    "path": "dishes/meat_dish/台式卤肉饭/台式卤肉饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:044df019d317cde968a89df5c167b94b1a5da3ff65f2f0b97171f73dfef48b99",
+    "at": "2026-09-21"
+  },
+  "tai-yang-dan": {
+    "path": "dishes/breakfast/太阳蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a03bb05feac3fbd37a3e9e95e9d5b67ec21f3ed83896fd95bca328cd35c450d0",
+    "at": "2026-09-21"
+  },
+  "tang-ban-xi-hong-shi": {
+    "path": "dishes/vegetable_dish/糖拌西红柿/糖拌西红柿.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:55b897cf2e7f6df64bf931f873aab35015fb6b9969e896b8bba89d8f2b40911e",
+    "at": "2026-09-21"
+  },
+  "tang-cu-li-ji": {
+    "path": "dishes/meat_dish/糖醋里脊.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:bbb06fa7489f034b5a0af1d14faaf9e13e3cf2616815c8eed0610eef5e52bf7d",
+    "at": "2026-09-21"
+  },
+  "tang-cu-li-yu": {
+    "path": "dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6bbb858e5e271978beeb4f76723d67dff0713767a21b221e04f8feeb0985a3ee",
+    "at": "2026-09-21"
+  },
+  "tang-cu-zhi": {
+    "path": "dishes/condiment/糖醋汁.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1f7d8572e178ffe06a65a47fba24eb614787749c471867f040280d6b81f8e1d6",
+    "at": "2026-09-21"
+  },
+  "tang-xin-dan": {
+    "path": "dishes/breakfast/溏心蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:dd128ff095b4af0a405507dc41b0798648d5d3eb0b4d4400c5f8b70b930bb719",
+    "at": "2026-09-21"
+  },
+  "ti-la-mi-su": {
+    "path": "dishes/dessert/提拉米苏/提拉米苏.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ed7789e1ae569857378cbe332b0f3477efb5922a53a5a5ed588548143254039d",
+    "at": "2026-09-21"
+  },
+  "tian-la-kao-quan-chi": {
+    "path": "dishes/meat_dish/甜辣烤全翅.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:60d4d84b26528961f359b6ecc6a0137f931c0197368a4a335fc3944f224d23fc",
+    "at": "2026-09-21"
+  },
+  "tian-luo-niang": {
+    "path": "dishes/meat_dish/田螺酿/田螺酿.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:baa1b2bb0b7ef94bdfd324baf9fe71bacaea5112d884b9db748fa84ceb112ffc",
+    "at": "2026-09-21"
+  },
+  "tu-si-guo-jiang": {
+    "path": "dishes/breakfast/吐司果酱.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5d698290a047d76edf54e68e4b3b28d538a713ceceb649847bc6509a4165b5b8",
+    "at": "2026-09-21"
+  },
+  "wan-mei-shui-zhu-dan": {
+    "path": "dishes/breakfast/完美水煮蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2113fdcedea1d3f1cbc56f95d2c29851bd166482f6828d642cb01a1a75647dd1",
+    "at": "2026-09-21"
+  },
+  "wei-bo-cong-jiang-hei-xue-yu": {
+    "path": "dishes/aquatic/微波葱姜黑鳕鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7d0a9394b96dc4573365f0f2dc3533047546bc4e07d3bd0bcd36d3eb5abc0b3c",
+    "at": "2026-09-21"
+  },
+  "wei-bo-lu-dan-gao": {
+    "path": "dishes/breakfast/微波炉蛋糕.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b388a0a6e9192adfca2340565dfeb093633703655b333d449b496b4fe48d4582",
+    "at": "2026-09-21"
+  },
+  "wei-bo-lu-he-bao-dan": {
+    "path": "dishes/breakfast/微波炉荷包蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:28d4739f1e3b20d576881ef1a99c4f54184a0178172426abb0caef31465a228b",
+    "at": "2026-09-21"
+  },
+  "wei-bo-lu-ji-dan-geng": {
+    "path": "dishes/vegetable_dish/鸡蛋羹/微波炉鸡蛋羹.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:86a2aa414d6338a1a715daa450dd2e80b8a3ab0adc800f3d220275cf4fac71b3",
+    "at": "2026-09-21"
+  },
+  "wei-bo-lu-la-chang-bao-zai-fan": {
+    "path": "dishes/staple/微波炉腊肠煲仔饭/微波炉腊肠煲仔饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:488aae9e7177411bdd42e01a3d6bc12ccc8d622c049634e378fe61a8fa9931ba",
+    "at": "2026-09-21"
+  },
+  "wei-bo-lu-zheng-dan": {
+    "path": "dishes/breakfast/微波炉蒸蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3db724b9edf74e5d49be26f2f9f2c5eb46d0df5ca069bdb7142744f8b49cac81",
+    "at": "2026-09-21"
+  },
+  "wen-quan-dan": {
+    "path": "dishes/breakfast/温泉蛋/温泉蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:68d1d2fd150bba05389e7f8c8c42b7e49ae30fd0bbc90d3876e4a7a5642e445f",
+    "at": "2026-09-21"
+  },
+  "wo-sun-ye-jian-bing": {
+    "path": "dishes/vegetable_dish/莴笋叶煎饼/莴笋叶煎饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:bd4de948830d87cd206109596543e40e6a45cec65c2bd56543761398ae75fed9",
+    "at": "2026-09-21"
+  },
+  "wu-chu-shi-ji-feng-mi-mian-bao": {
+    "path": "dishes/dessert/无厨师机蜂蜜面包/无厨师机蜂蜜面包.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c0458d17f54315848ff8c05acd5ff51e041ad346f32449aac070601e5d6c9d77",
+    "at": "2026-09-21"
+  },
+  "wu-gu-ji-zhua": {
+    "path": "dishes/meat_dish/无骨鸡爪/无骨鸡爪.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:16773e6ab6ecbf6d60602515a5b7d595cdab7d0ab38b0b659ada620ca37d77e6",
+    "at": "2026-09-21"
+  },
+  "xi-hong-shi-dou-fu-tang-geng": {
+    "path": "dishes/vegetable_dish/西红柿豆腐汤羹/西红柿豆腐汤羹.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0d72c0499cabd5d18c5ff70046d0650e1def72c185c3d4055397deaaaa83fcdd",
+    "at": "2026-09-21"
+  },
+  "xi-hong-shi-ji-dan-gua-mian": {
+    "path": "dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:dbc7e3c4d97c298307c21c822dccd973d56a3a49967228b7258ebce5cadad386",
+    "at": "2026-09-21"
+  },
+  "xi-hong-shi-ji-dan-tang": {
+    "path": "dishes/soup/西红柿鸡蛋汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ac89a0557017f5c071692c30df9cf00aa2281240bf123038c6c85fb69a2efde3",
+    "at": "2026-09-21"
+  },
+  "xi-hong-shi-niu-nan": {
+    "path": "dishes/meat_dish/西红柿牛腩/西红柿牛腩.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9bf42e962af781e41b63da5d8db68d669267a540dc88cddcd9c9a4a12e0adc8f",
+    "at": "2026-09-21"
+  },
+  "xi-hong-shi-tu-dou-dun-niu-rou": {
+    "path": "dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e8e0172cf96f40e2fcb50cc978029ef35e7cf9b3f2a0ad29ef0ebc853a75a35d",
+    "at": "2026-09-21"
+  },
+  "xi-hu-lu-chao-ji-dan": {
+    "path": "dishes/vegetable_dish/西葫芦炒鸡蛋/西葫芦炒鸡蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:578e36782790fd618ee093717c8bde30252d2a9e5c2b3708ad4f6fbab27e1fe1",
+    "at": "2026-09-21"
+  },
+  "xian-rou-cai-fan": {
+    "path": "dishes/staple/咸肉菜饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:bb9dd6b7370c590d17cb7f2d597986ce709fbe60e6ba4a2ee06541651335df70",
+    "at": "2026-09-21"
+  },
+  "xian-rou-shao-mai": {
+    "path": "dishes/staple/鲜肉烧卖.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:72712327bc5f3f316cef9495ae26d44360af9f04debbb2fc49f2afca11a39abe",
+    "at": "2026-09-21"
+  },
+  "xiang-cun-pi-jiu-ya": {
+    "path": "dishes/meat_dish/乡村啤酒鸭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e06f38e235033315aaaf00a853ecdde0d53cf56f98ca14a6195135d6e2b6831c",
+    "at": "2026-09-21"
+  },
+  "xiang-gan-qin-cai-chao-rou": {
+    "path": "dishes/meat_dish/香干芹菜炒肉/香干芹菜炒肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:07c4ffe588e26d21e240a02ac1d70a45058db2574fd557af74202f331ff5fe32",
+    "at": "2026-09-21"
+  },
+  "xiang-gan-rou-si": {
+    "path": "dishes/meat_dish/香干肉丝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ab71e107b5ff2cb618b1e5a1dfd5d3a17453d05b6ea5f0331da19345c6f199d2",
+    "at": "2026-09-21"
+  },
+  "xiang-gu-hua-ji": {
+    "path": "dishes/meat_dish/香菇滑鸡/香菇滑鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a1aa85e6d2d129e2c4d6bc9a151b9a23ef352ef62a8013a6e2eabba0995a20fc",
+    "at": "2026-09-21"
+  },
+  "xiang-jian-wu-hua-rou": {
+    "path": "dishes/meat_dish/香煎五花肉/香煎五花肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2590d501cbda4b36daf2b95ce8df76cf4bdc30fe6722bcb91668d4a219cf1a65",
+    "at": "2026-09-21"
+  },
+  "xiang-la-ji-zhua-bao": {
+    "path": "dishes/meat_dish/香辣鸡爪煲/香辣鸡爪煲.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b3077c7c05bce83b8ce384e7673b734619ab9087cc1d283d93066d68e010199d",
+    "at": "2026-09-21"
+  },
+  "xiang-qi-mi-fu-ya": {
+    "path": "dishes/meat_dish/湘祁米夫鸭/湘祁米夫鸭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:fb086b1d2a3d251ceaf906014a7714dcd8308525970e68c68dd2e95297698c0d",
+    "at": "2026-09-21"
+  },
+  "xiang-you-shan-si": {
+    "path": "dishes/aquatic/响油鳝丝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:63695ad463bc1da798645f5db5ffd8806bad9943256c0b8afcd5df953b082d96",
+    "at": "2026-09-21"
+  },
+  "xiao-chao-huang-niu-rou": {
+    "path": "dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:a42179cb757aa148793f2e7eef75f11549c23310c972f7a9bdc87011a1ee3b34",
+    "at": "2026-09-21"
+  },
+  "xiao-chao-ji-gan": {
+    "path": "dishes/meat_dish/小炒鸡肝/小炒鸡肝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9c51124436ac2310d147b6048bde474b3559f0c7b982f63ae0710bd2746f4842",
+    "at": "2026-09-21"
+  },
+  "xiao-chao-ou-ding": {
+    "path": "dishes/vegetable_dish/小炒藕丁/小炒藕丁.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:529f5357dc6c35603baeb1e5a759367299cda5d77e18479a5e8e75d965dd4724",
+    "at": "2026-09-21"
+  },
+  "xiao-chao-rou": {
+    "path": "dishes/meat_dish/小炒肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9f480a5b4fc3ff94bb8f9c71b976367cd6ec23126a61e77a5dbe90ac3d0b7677",
+    "at": "2026-09-21"
+  },
+  "xiao-long-xia": {
+    "path": "dishes/aquatic/小龙虾/小龙虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f8a3e9fcc0c58b30e7a4a4cb2099f2a97e8831fbb1fe9eff80a4ab95366d82c5",
+    "at": "2026-09-21"
+  },
+  "xiao-mi-la-chao-rou": {
+    "path": "dishes/meat_dish/小米辣炒肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:5587c7a2ce8643fd719fc4e1a9dc20ebe36875ce3420729528b593686e11ae68",
+    "at": "2026-09-21"
+  },
+  "xiao-mi-zhou": {
+    "path": "dishes/soup/小米粥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:469762dfc077842758b82840fc0d7131bf2ef08b9ab70856728a9aa2b6eec65b",
+    "at": "2026-09-21"
+  },
+  "xiao-su-rou": {
+    "path": "dishes/meat_dish/小酥肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9cff36c208f1fdb080bdd23d413d971cb4f63f27b9ea6df3b445fe4f1adbabe9",
+    "at": "2026-09-21"
+  },
+  "xin-jiang-da-pan-ji": {
+    "path": "dishes/meat_dish/新疆大盘鸡/新疆大盘鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:91fde26ae78bd2772d3777f756bf9bbec19c9c4a5d47a7d4d4bd65ac14403e8e",
+    "at": "2026-09-21"
+  },
+  "xue-hua-su": {
+    "path": "dishes/dessert/雪花酥/雪花酥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:7e195538c6a4872fa83d820ad24aa0e9ff54e953f502497f0bd2fb309b26eff6",
+    "at": "2026-09-21"
+  },
+  "xue-jiang-ya": {
+    "path": "dishes/meat_dish/血浆鸭/血浆鸭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:d788d6535a264e13d4debfc1ec73b157b9436bf03179fc30cf6bfb71ebc70909",
+    "at": "2026-09-21"
+  },
+  "yan-mai-ji-dan-bing": {
+    "path": "dishes/breakfast/燕麦鸡蛋饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b344280987def6389220899ff1b66e68512772f306601357bc4da3dad4cfea86",
+    "at": "2026-09-21"
+  },
+  "yang-cong-chao-ji-dan": {
+    "path": "dishes/vegetable_dish/洋葱炒鸡蛋/洋葱炒鸡蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f26ebcca84ef406ac012507c7e73ddce12a355a07c09826f46d12f78c9cb88fb",
+    "at": "2026-09-21"
+  },
+  "yang-cong-chao-zhu-rou": {
+    "path": "dishes/meat_dish/洋葱炒猪肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3f32084373cf7851d277ab9ec93a7f6e40798e829eab5ae7f47550686557f8ea",
+    "at": "2026-09-21"
+  },
+  "yang-shuo-pi-jiu-yu": {
+    "path": "dishes/aquatic/阳朔啤酒鱼/阳朔啤酒鱼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:1b047b788c6a1ff593f4417f808c27be2cb07ce5d99045099bd8aee52c242065",
+    "at": "2026-09-21"
+  },
+  "yang-zhi-gan-lu": {
+    "path": "dishes/drink/杨枝甘露.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:cfbf634cac11d2824e2a0a9a03819598f9982fad6f7492f2e0935b62642a78f0",
+    "at": "2026-09-21"
+  },
+  "yang-zhou-chao-fan": {
+    "path": "dishes/staple/扬州炒饭/扬州炒饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:de8d6b2e65d4b85653be89b49d52ee51c0f59359a82e3df0be355b22609a8000",
+    "at": "2026-09-21"
+  },
+  "yi-shi-kao-ji": {
+    "path": "dishes/meat_dish/意式烤鸡.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:122adb7a89fcc5d486633dfb479998756dad9d2130f8f5799ce9fb2a8a5179de",
+    "at": "2026-09-21"
+  },
+  "yi-shi-rou-jiang-mian": {
+    "path": "dishes/staple/意式肉酱面/意式肉酱面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:33d1d87e00b1b752589003d7f3fb1f08347fb66a5486aff436f3c2ba09f9661b",
+    "at": "2026-09-21"
+  },
+  "yi-shi-xiang-chang-bei-fei-dan": {
+    "path": "dishes/breakfast/意式香肠北非蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f253ea1140a2038c958bc7109cedb21093ed778cfa9ccbb45832a014d04bd1f5",
+    "at": "2026-09-21"
+  },
+  "yin-du-hu-lu-wan-zi": {
+    "path": "dishes/vegetable_dish/印度葫芦丸子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:0f2d80d5232fe512772abae65ae83049a9f3c76f44d9d36b52b1009977c1605f",
+    "at": "2026-09-21"
+  },
+  "yin-du-kao-bing": {
+    "path": "dishes/staple/印度烤饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:4918b27db27a7dce76436b667f230eadbfc5a63c5705af835eae693ab0510bcf",
+    "at": "2026-09-21"
+  },
+  "yin-du-men-fan": {
+    "path": "dishes/staple/印度焖饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2fb9b7ae8ce3d464ce9d4d7101302885251b1b39ae3da3a84363b0062817a225",
+    "at": "2026-09-21"
+  },
+  "yin-du-nai-cha": {
+    "path": "dishes/drink/印度奶茶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c1a5613b057ea1bf31dbd9feb05573a482230dc91f8c1652341cbb7dcc05ca09",
+    "at": "2026-09-21"
+  },
+  "yin-er-lian-zi-zhou": {
+    "path": "dishes/soup/银耳莲子粥/银耳莲子粥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:49bfb0116ebdc46d51c4321b7af54b593fb9dc12df3fc7cc2d6c68c0f853a5d3",
+    "at": "2026-09-21"
+  },
+  "ying-shi-si-kang": {
+    "path": "dishes/dessert/英式司康/英式司康.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e5422db9f3324945c1b27f180b29e8be081267ba9b8e3104124ae2742a3bb52c",
+    "at": "2026-09-21"
+  },
+  "ying-zui-dou-zha-bing": {
+    "path": "dishes/staple/鹰嘴豆炸饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:f9cf2e5e294cd828b693d856298e11adc37c0eb06947efeed84bd95ec4ec685d",
+    "at": "2026-09-21"
+  },
+  "you-cu-bao-dan": {
+    "path": "dishes/vegetable_dish/油醋爆蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:ce05f448aef8a0399f46c87b55a02e40ee7c5aa4043f31658f575c85e645b345",
+    "at": "2026-09-21"
+  },
+  "you-men-da-xia": {
+    "path": "dishes/aquatic/油焖大虾/油焖大虾.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8a071d988cb189b3d5348eb2b8ad47b2f7403f0a98698d573624356686f16d4c",
+    "at": "2026-09-21"
+  },
+  "you-po-la-zi": {
+    "path": "dishes/condiment/油泼辣子/油泼辣子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2d7480b8bcca2183e01649a5fa2c35f5225c6f6f0ed2afd7cb34aef9f1455d01",
+    "at": "2026-09-21"
+  },
+  "you-su": {
+    "path": "dishes/condiment/油酥.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e05344e548ba77a0f8f21dd5fd8ab5669cc90a7bf87756c29b32eaee1d8ccba4",
+    "at": "2026-09-21"
+  },
+  "yu-mi-pai-gu-tang": {
+    "path": "dishes/soup/玉米排骨汤/玉米排骨汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:32373691adb992fdb35ee9c483f0fa8394efc42133e16c3a96c0ba2482595da1",
+    "at": "2026-09-21"
+  },
+  "yu-ni-xue-mei-niang": {
+    "path": "dishes/dessert/芋泥雪媚娘/芋泥雪媚娘.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:86bf9eb4895a8549e3f09d65443f57b1f3134b7a544193e862a862aba6bde790",
+    "at": "2026-09-21"
+  },
+  "yu-xiang-qie-zi": {
+    "path": "dishes/meat_dish/鱼香茄子/鱼香茄子.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3557aeedfd160e87b0c975538e6cf7800d3d7daebc290f9fe85b9dd08e52a153",
+    "at": "2026-09-21"
+  },
+  "yu-xiang-rou-si": {
+    "path": "dishes/meat_dish/鱼香肉丝.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:02ee59918946cc420b456a208bd7c440615d0f1de198bdf8e155c0e2620cc222",
+    "at": "2026-09-21"
+  },
+  "zha-chuan-jiang-liao": {
+    "path": "dishes/condiment/炸串酱料.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3673b471dd0c156cebf14b66643703a8e0251d5958006e5743e69f3fa7c1cc21",
+    "at": "2026-09-21"
+  },
+  "zha-jiang-mian": {
+    "path": "dishes/staple/炸酱面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:cf2063c25efbb855f908dcf92e6a5fabc5b6557ab4364ddc1347d08fcf8d4d29",
+    "at": "2026-09-21"
+  },
+  "zha-xian-nai": {
+    "path": "dishes/dessert/炸鲜奶/炸鲜奶.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:545d8e6715e3c81fc1735506d31287114a825e19175732b06a646c2eb8741cf3",
+    "at": "2026-09-21"
+  },
+  "zhao-shao-ji-tui-fan": {
+    "path": "dishes/staple/照烧鸡腿饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:885ffe0a5d44bc43906e9f8d40f470ecd88b343f7abdd162a5828063d76900d0",
+    "at": "2026-09-21"
+  },
+  "zhe-tang-tang-jiang": {
+    "path": "dishes/condiment/蔗糖糖浆/蔗糖糖浆.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:e917a0e9dd760aed9ee8ca7e1b3c2a94f9a2a0f883edcb017b221fe17ea464ff",
+    "at": "2026-09-21"
+  },
+  "zheng-hua-juan": {
+    "path": "dishes/breakfast/蒸花卷.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:89b1090edd4df24e3ea7b1a3b732b42f98b95b259599c6fe69d6f96deb90a34e",
+    "at": "2026-09-21"
+  },
+  "zheng-lu-mian": {
+    "path": "dishes/staple/蒸卤面.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:90f4cfdf6d2f45778de3c2e8029435d34dbd8c35b5f7cf6774ec8b1190871a45",
+    "at": "2026-09-21"
+  },
+  "zheng-shui-dan": {
+    "path": "dishes/breakfast/蒸水蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:64fe6e281c48456cd9d8ae9cbe80cec526b58fb0a934e12f8fee99a8dbebc095",
+    "at": "2026-09-21"
+  },
+  "zheng-xiang-ji-dan-geng": {
+    "path": "dishes/vegetable_dish/鸡蛋羹/蒸箱鸡蛋羹.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:438f15acbb57fa4935f622395cc37721bbc000ee3edbf0be10c9a2a9a5171ffe",
+    "at": "2026-09-21"
+  },
+  "zhi-ma-shao-bing": {
+    "path": "dishes/staple/烧饼/芝麻烧饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9d347fed84575c031e87676f641466f30a066d26e0f58be469b11e4439a18072",
+    "at": "2026-09-21"
+  },
+  "zhi-zhu-yang-nan-bao": {
+    "path": "dishes/meat_dish/枝竹羊腩煲/枝竹羊腩煲.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:c736de8d77e1f630ed4dd82968c3237ee72578b8957013b1e40be31cfb325b05",
+    "at": "2026-09-21"
+  },
+  "zhong-shi-xian-bing": {
+    "path": "dishes/staple/中式馅饼/中式馅饼.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2ea918ded88b0adfdf87bfb1102e85c015d34d980b77292d2f9edad6ef39749c",
+    "at": "2026-09-21"
+  },
+  "zhu-guo-zheng-mi-fan": {
+    "path": "dishes/staple/米饭/煮锅蒸米饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:b6975b11a8f6f554803770ddf487366cdd7f837f17921aaaaede60e0a98421f8",
+    "at": "2026-09-21"
+  },
+  "zhu-pao-mian-jia-dan": {
+    "path": "dishes/staple/煮泡面加蛋.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:82e76a207c1c7b5e25df82537fc5bc588e5768e8e716b8593ce7b12ba194c8fc",
+    "at": "2026-09-21"
+  },
+  "zhu-pi-dong": {
+    "path": "dishes/meat_dish/猪皮冻/猪皮冻.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:6ae82f5f64332d9d8a4af4d924579ded0349e937ab7dc871c7b93b5cc7ccb842",
+    "at": "2026-09-21"
+  },
+  "zhu-que-tang": {
+    "path": "dishes/soup/朱雀汤/朱雀汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2a5b35496db6bab101e7f864fee58af163b0af5a8f3d625e7fcc9584eb56c8ad",
+    "at": "2026-09-21"
+  },
+  "zhu-rou-hui-suan-cai": {
+    "path": "dishes/meat_dish/猪肉烩酸菜.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:16f7fe3c070d129d33ac1af2e2668721775d716ec4143782df0977d13e3b3d97",
+    "at": "2026-09-21"
+  },
+  "zhu-you-ban-fan": {
+    "path": "dishes/staple/猪油拌饭.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:8456ed1b47b67cfd20398e4d49d41dec3fa282c9ff0c060771604edc7b859da1",
+    "at": "2026-09-21"
+  },
+  "zi-bo-shao-kao": {
+    "path": "dishes/meat_dish/淄博烧烤/淄博烧烤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:3a9d894d4bd68d2e2f8e39ceef4254e67c1b9e8eabb79e3a5b23a82a5806408f",
+    "at": "2026-09-21"
+  },
+  "zi-cai-dan-hua-tang": {
+    "path": "dishes/soup/紫菜蛋花汤.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:9d3a23e6cc04f8069406f2fad3bcb2849a22be9f57f647cf02329d5121d837d7",
+    "at": "2026-09-21"
+  },
+  "zi-ran-niu-rou": {
+    "path": "dishes/meat_dish/孜然牛肉.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:631537c173b23c37c2783ff79894a3c397803531c6ee0582287b1fd1fba4bdb3",
+    "at": "2026-09-21"
+  },
+  "zui-pai-gu": {
+    "path": "dishes/meat_dish/醉排骨/醉排骨.md",
+    "commit": "c2063eb7",
+    "parserVersion": "howtocook-parse@1",
+    "baselineHash": "sha256:2f6c3b0e2faeda5f5feb80ed86a269da328d1713a828f5c36cde95cc8a79a437",
+    "at": "2026-09-21"
+  }
+}

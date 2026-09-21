@@ -2,6 +2,11 @@
   "id": "cong-you-ban-mian",
   "name": "葱油拌面",
   "category": "主食",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "葱油拌面是一道经典的上海家常面点，以独特的葱油香味著称，做法简单快捷。富含碳水化合物和脂肪，能快速补充能量。一般初学者只需 20 分钟即可完成，非常适合作为日常快手晚餐。",
   "difficulty": 1,
   "servings": 2,
@@ -101,9 +106,13 @@
     "制作好的葱油酱汁可以冷藏保存一段时间，下次吃面时直接取用。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/葱油拌面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:1482004a5ceaf6d00b6b3a907f8780126eef1d5bfaaa321c7a203db2c7dddeca",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

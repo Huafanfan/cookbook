@@ -2,6 +2,10 @@
   "id": "jiang-pai-gu",
   "name": "酱排骨",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口"
+  ],
   "summary": "酱排骨色泽酱红，肉质酥烂，骨香浓郁，汁浓味鲜，咸中带甜，是一道经典的家常菜。排骨富含优质蛋白质和钙质，营养均衡。制作涉及炒糖色和较长时间炖煮，对新手有一定挑战，但只要按步骤操作，也能顺利掌握。预计从备料到出锅约需 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -79,8 +83,8 @@
     },
     {
       "text": "大火煮 30 分钟，加入老抽上色，再煮 10 分钟",
-      "heat": "大火",
-      "minutes": 30
+      "minutes": 30,
+      "heat": "大火"
     },
     {
       "text": "起锅摆盘 ![酱排骨-预览图-1](./1.jpeg) ![酱排骨-预览图-2](./2.jpeg)"
@@ -92,8 +96,9 @@
     "煮排骨期间，可以顺道放入 2-3 个 鸡蛋一起煮，做成简易版卤蛋"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/酱排骨/酱排骨.md",
+    "baselineStatus": "matched"
+  }
 }

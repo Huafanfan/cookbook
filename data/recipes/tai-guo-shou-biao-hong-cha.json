@@ -2,6 +2,10 @@
   "id": "tai-guo-shou-biao-hong-cha",
   "name": "泰国手标红茶",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一道源自泰国街头的经典奶茶，茶香浓郁，口感绵密顺滑，炼乳与牛奶带来香甜奶味。茶奶结合可提供少量蛋白质和钙，但含糖量较高，适宜作为消暑解渴的饮品。制作步骤简单，但需反复过滤茶汤并等待长时间冷藏，整体耗时约 4 小时 20 分钟，对新手稍有耐心即可完成。",
   "difficulty": 2,
   "servings": 1,
@@ -59,8 +63,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/泰国手标红茶/泰国手标红茶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:753caf07982d4f18f6baa060fd26bd1f1100c369d7582560ac387d0e76c2896f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

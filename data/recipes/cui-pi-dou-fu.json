@@ -2,6 +2,10 @@
   "id": "cui-pi-dou-fu",
   "name": "脆皮豆腐",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手"
+  ],
   "summary": "脆皮豆腐外酥里嫩，酱汁咸甜适口，是一道快手下饭菜。豆腐富含植物蛋白和钙质，鸡蛋提供优质蛋白，营养搭配均衡。制作需要耐心煎出金黄脆皮，但步骤清晰，初学者也能掌握，全程大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -79,8 +83,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/脆皮豆腐.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:776fc6e98da08dbe1c353e4da8312746a4bc36a7e7741d4de5f9b4c176a53083",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

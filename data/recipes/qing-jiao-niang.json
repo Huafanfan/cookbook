@@ -2,6 +2,10 @@
   "id": "qing-jiao-niang",
   "name": "青椒酿",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣"
+  ],
   "summary": "这道广西经典家常菜以青椒包裹调好味的肉馅或虾滑，煎至表皮起皱呈虎皮色后焖煮入味，青椒清香与馅料鲜美交融，咸香微辣，十分下饭。猪肉和虾仁提供优质蛋白质，青椒富含维生素 C，营养均衡。制作需要一点耐心酿馅，但整体流程清晰，跟着步骤操作一般 30 分钟就能完成。",
   "difficulty": 2,
   "servings": 2,
@@ -182,8 +186,13 @@
     "虾滑和猪肉馅可以混合使用，比例随意，虾肉增加鲜甜，猪肉提供油脂香"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/青椒酿/青椒酿.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:7f30ea5009dadff69ebf9be61a27cecddbac69fa355f637d11873056a251d89d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

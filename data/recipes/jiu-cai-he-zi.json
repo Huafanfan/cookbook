@@ -2,6 +2,9 @@
   "id": "jiu-cai-he-zi",
   "name": "韭菜盒子",
   "category": "主食",
+  "tags": [
+    "新手友好"
+  ],
   "summary": "韭菜盒子是一道传统中式面点，外皮金黄酥脆，内馅鲜香多汁。韭菜搭配虾仁和鸡蛋，富含维生素与优质蛋白质。做法简单，对新手也很友好，从和面到出锅大约需要 2.5 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -61,7 +64,13 @@
     "注意煎制时火候，避免外焦内生。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/韭菜盒子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:748a5e629bd2b347fb61ceb1d11021d0904466fe353281bd167089c3d51b09c4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

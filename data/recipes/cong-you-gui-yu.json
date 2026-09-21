@@ -2,6 +2,11 @@
   "id": "cong-you-gui-yu",
   "name": "葱油桂鱼",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "清淡",
+    "减脂"
+  ],
   "summary": "葱油桂鱼是一道葱香浓郁、鱼肉鲜嫩的家常蒸菜，属于中式清淡口味，适合各地人群。桂鱼富含优质蛋白和不饱和脂肪酸，经过精细去腥处理，保留了鱼肉的鲜美与营养。做法对新手十分友好，容错性高，只要按步骤操作，基本零失败。从备料到出锅，全程大约需要 45 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -151,9 +156,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客",
-    "清淡",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/葱油桂鱼/葱油桂鱼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ebd41ce9c672d1a650b122fe48c4c77d7f28d6dd2141313d66525c53d4b14b79",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

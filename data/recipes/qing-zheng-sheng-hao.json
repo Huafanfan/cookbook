@@ -2,6 +2,10 @@
   "id": "qing-zheng-sheng-hao",
   "name": "清蒸生蚝",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "快手"
+  ],
   "summary": "清蒸生蚝是一道原汁原味的沿海家常菜，蚝肉鲜嫩多汁，带着淡淡的海水咸香，蒜蓉与姜丝激发出清甜口感。生蚝富含优质蛋白和锌元素，能帮助提升免疫力。操作不算复杂，但掀开滚烫锅盖和处理蚝壳需要稍加小心，新手也能顺利完成。从刷洗到出锅，大约只需二十分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -63,8 +67,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/清蒸生蚝.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:100388562ab069303ea4b00358caee839c3581d0fc622533270b3fad78324ec3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

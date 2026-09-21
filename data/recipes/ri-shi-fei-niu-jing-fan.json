@@ -2,6 +2,10 @@
   "id": "ri-shi-fei-niu-jing-fan",
   "name": "日式肥牛丼饭",
   "category": "主食",
+  "tags": [
+    "下饭",
+    "快手"
+  ],
   "summary": "一道经典的日式家常盖饭，肥牛片与白洋葱在咸甜酱汁中炖煮入味，肉质软嫩，洋葱甜润，汁香浓郁。牛肉提供优质蛋白和血红素铁，洋葱富含膳食纤维与多种抗氧化物。制作不算复杂，新手只要跟着步骤操作也能轻松完成，炒煮过程约需 30 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -29,18 +33,18 @@
     },
     {
       "name": "味淋",
-      "note": "一种常用日式调料，可在各大电商平台购买，也可用料酒代替",
-      "group": "主食材"
+      "group": "主食材",
+      "note": "一种常用日式调料，可在各大电商平台购买，也可用料酒代替"
     },
     {
       "name": "[温泉蛋]",
-      "note": "../../breakfast/温泉蛋/温泉蛋.md",
-      "group": "副食材"
+      "group": "副食材",
+      "note": "../../breakfast/温泉蛋/温泉蛋.md"
     },
     {
       "name": "出汁",
-      "note": "使用柴鱼干和昆布熬制的汤汁，可以用于提鲜",
-      "group": "副食材"
+      "group": "副食材",
+      "note": "使用柴鱼干和昆布熬制的汤汁，可以用于提鲜"
     }
   ],
   "steps": [
@@ -95,8 +99,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/日式肥牛丼饭/日式肥牛丼饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:cd9718e9c55f9088fa95718c0b39e696d285087fee3bf988cf76c714c2dfa61d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

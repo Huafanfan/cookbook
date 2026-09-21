@@ -2,6 +2,10 @@
   "id": "jiang-ban-qiao-mai-mian",
   "name": "酱拌荞麦面",
   "category": "主食",
+  "tags": [
+    "酸甜",
+    "快手"
+  ],
   "summary": "酱拌荞麦面酸甜可口、清凉爽滑，是一道简单快手的家常凉拌面。荞麦面富含膳食纤维和蛋白质，搭配黄瓜、胡萝卜增添清爽口感与维生素，营养均衡。只需煮面、切菜、拌入老干妈，几步搞定，对新手非常友好，一般约 20 分钟便可完成。冷藏后食用风味更佳。",
   "difficulty": 1,
   "servings": 2,
@@ -47,8 +51,13 @@
     "荞麦面跟其他面条热量几乎一致，所以不适合作为减脂的主食"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/酱拌荞麦面/酱拌荞麦面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8411442762ca08e406684bb2fe2200cdce38fd7dfff8ff03d852e8f4a9f052d8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

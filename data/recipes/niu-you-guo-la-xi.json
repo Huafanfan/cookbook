@@ -2,6 +2,10 @@
   "id": "niu-you-guo-la-xi",
   "name": "牛油果拉西",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一款融合了印度传统酸奶饮品“拉西”的创新饮品，口感绵密顺滑、清甜不腻，特别适合作为早餐或午后提神饮品。牛油果富含单不饱和脂肪酸与膳食纤维，搭配酸奶的优质蛋白和益生菌，一杯便能提供持久饱腹感。制作极为简单，新手也能零失败，从备料到享用只需 大约 5 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -69,8 +73,13 @@
     "如果喜欢更冰凉的口感，可以适当减少一点牛奶，加入几块冰块一起搅拌。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/牛油果拉西.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0e8f758ffa4ed6b1ed650f63a695f9d62eaf1cc2e85905f22082625d4a4a67f5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

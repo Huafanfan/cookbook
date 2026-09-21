@@ -2,6 +2,10 @@
   "id": "gui-yuan-hong-zao-zhou",
   "name": "桂圆红枣粥",
   "category": "早餐",
+  "tags": [
+    "省事",
+    "新手友好"
+  ],
   "summary": "一道甜香软糯的中式传统粥品。以糯米、红枣和桂圆同煮，自带甘甜，暖身暖胃。有补血安神、健脑益智、补养心脾的食养效果。做法非常友好，新手也能轻松掌握，从准备到粥香满屋大约需要 70 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -43,8 +47,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/桂圆红枣粥.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d2c05fd21985e66f37f80dd813609e751a5017c1349ff558efb8196e322e4e4d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

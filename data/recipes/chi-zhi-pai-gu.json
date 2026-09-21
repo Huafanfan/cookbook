@@ -2,6 +2,11 @@
   "id": "chi-zhi-pai-gu",
   "name": "豉汁排骨",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "重口"
+  ],
   "summary": "这是一道粤式茶楼里的人气蒸点，豉香醇厚，排骨滑嫩脱骨。排骨提供优质蛋白和钙质，发酵豆豉增添风味也更利吸收。做法需经过泡洗、腌制和控火蒸制，对新手稍有考验，但步骤清晰易上手，从备料到出锅大约只需 1 小时。剩余的汤汁用来拌饭或拌面格外鲜美。",
   "difficulty": 3,
   "servings": 2,
@@ -106,9 +111,13 @@
     "吃剩的汤汁可以用来拌饭或者拌面"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/豉汁排骨.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e7aeaca237298113a8f556e506af97e062dccf992feb727230a1745ede885145",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

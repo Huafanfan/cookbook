@@ -2,6 +2,10 @@
   "id": "luo-song-tang",
   "name": "罗宋汤",
   "category": "汤羹",
+  "tags": [
+    "酸甜",
+    "一锅出"
+  ],
   "summary": "一道源自俄罗斯甜菜汤、在上海改良的海派家常汤品，以番茄和牛肉为主调，口感酸甜浓郁、醇厚鲜美。富含优质蛋白、番茄红素及多种维生素，营养均衡。制作简单，对初学者友好，全程预计 2–3 小时即可完成。",
   "difficulty": 3,
   "servings": 2,
@@ -138,8 +142,13 @@
     "除了胡萝卜、洋葱、欧芹、牛肉是必备食材外，其余可自由搭配"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/罗宋汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:159f028c8e9303ab59c4128edb5707d94a05d39a25b1c8c49664bd10e435f89b",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

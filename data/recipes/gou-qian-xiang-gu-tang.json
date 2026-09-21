@@ -2,6 +2,11 @@
   "id": "gou-qian-xiang-gu-tang",
   "name": "勾芡香菇汤",
   "category": "汤羹",
+  "tags": [
+    "快手",
+    "省事",
+    "清淡"
+  ],
   "summary": "香菇勾芡汤汤浓味鲜，滑润适口，是一道快手的家常汤品。香菇含有丰富的氨基酸和多糖，有助于增强免疫力。制作过程需要一些基本的控火和勾芡技巧，但对新手依然友好。从备料到出锅，大约只需 25 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -68,9 +73,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/勾芡香菇汤/勾芡香菇汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:896c892f9954e94824e24dc8c7ddf1b5052b06e3d86961c2f9f2801bce591bb4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

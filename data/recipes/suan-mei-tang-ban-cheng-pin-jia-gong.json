@@ -2,6 +2,11 @@
   "id": "suan-mei-tang-ban-cheng-pin-jia-gong",
   "name": "酸梅汤（半成品加工）",
   "category": "饮品",
+  "tags": [
+    "酸甜",
+    "快手",
+    "省事"
+  ],
   "summary": "酸梅汤（半成品加工）是一道酸甜爽口的夏日消暑饮品，传统京味风格。酸梅汤本身有生津止渴、帮助消化的好处。做法极其简单，只需按顺序搅拌即可，对新手毫无难度，全程大约五分钟就能完成。",
   "difficulty": 1,
   "servings": 2,
@@ -45,9 +50,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/酸梅汤（半成品加工）.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f755b8f60e47772b42feec05395482d7384f37196de993960cd67f46d2261916",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "shui-zhu-yu",
   "name": "水煮鱼",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "重口"
+  ],
   "summary": "水煮鱼是一道麻辣鲜香、鱼肉嫩滑的经典川菜。巴沙鱼富含优质蛋白且脂肪含量低，搭配时令蔬菜营养均衡。做法中等难度，对新手有一定挑战，但按步骤操作也能成功。预计制作时长约 2 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -118,9 +123,13 @@
     "[How to Fillet a Fish 怎样给鱼剔骨](https://www.youtube.com/watch?v=uXSgGtMkgro)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/水煮鱼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:624dc05af548c46f62d76a0a1a9308a5a6ff58c4499a44c2b9338ae7404d10ca",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

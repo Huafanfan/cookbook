@@ -2,6 +2,10 @@
   "id": "yin-du-tu-dou-hua-cai",
   "name": "印度土豆花菜",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "这道印度家常素菜以干香金黄、香料浓郁为特点，土豆绵软、花菜略带焦边，属于北印度风味。土豆和花菜富含膳食纤维与维生素 C，营养均衡。做法简单，对新手友好，从准备到出锅约需 25 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -156,8 +160,9 @@
     "这道菜可以搭配印度烤饼(Naan)、印度薄饼(Roti)或米饭食用。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/印度土豆花菜.md",
+    "baselineStatus": "matched"
+  }
 }

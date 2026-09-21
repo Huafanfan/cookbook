@@ -2,6 +2,9 @@
   "id": "shou-zhua-bing",
   "name": "手抓饼",
   "category": "早餐",
+  "tags": [
+    "新手友好"
+  ],
   "summary": "手抓饼外酥里软，层次分明，是深受喜爱的家常面点。饼皮用半烫面制作，柔韧有嚼劲，搭配鸡蛋和蔬菜，营养均衡。做法对新手很友好，从和面到出锅大约只需 40 分钟，非常适合忙碌的早晨。",
   "difficulty": 1,
   "servings": 1,
@@ -83,7 +86,13 @@
     "剩余生饼皮可冷藏保存 24 小时，使用时回温擀平即可。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/手抓饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:71b5aa86a8d74ff2db2345553ce8eb5d656ec36834834dd1aef4efd88e308d56",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

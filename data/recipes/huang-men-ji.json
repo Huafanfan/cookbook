@@ -2,6 +2,11 @@
   "id": "huang-men-ji",
   "name": "黄焖鸡",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "一锅出"
+  ],
   "summary": "黄焖鸡是一道以鸡腿、香菇、青椒为主料的家常菜，汤汁浓郁，鸡肉滑嫩，咸鲜微甜，十分下饭。富含优质蛋白质和菌菇多糖等营养。炒糖色环节稍有挑战，但可用老抽替代，整体难度不高，新手也能顺利掌握。从备菜到出锅，大约需要 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -121,9 +126,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/黄焖鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:75bcb90d87e21b2647ee45aa6308218e542c915ef8bebe5904ce17a01405ab6e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

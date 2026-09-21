@@ -2,6 +2,10 @@
   "id": "qian-shi-la-chang-wa-wa-cai",
   "name": "黔式腊肠娃娃菜",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这道菜咸鲜可口，融合了黔式腊肠的醇香与娃娃菜的清甜，是西南菜系中少见的不辣风味，南北皆宜。娃娃菜富含维生素和膳食纤维，搭配腊肠的蛋白质与脂肪，营养均衡。制作过程极为简单，无需掌握火候和额外调味，从备料到出锅仅需 15 分钟，非常适合新手和忙碌的日常。",
   "difficulty": 1,
   "servings": 2,
@@ -47,8 +51,13 @@
     "如果没有刀具，娃娃菜和腊肠不切也可以"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/黔式腊肠娃娃菜/黔式腊肠娃娃菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0f871ab67c664aab617f3ec87cf70edaa7f888b7a3b1268fcd08d98b68ce220f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

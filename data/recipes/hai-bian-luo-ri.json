@@ -2,6 +2,11 @@
   "id": "hai-bian-luo-ri",
   "name": "海边落日",
   "category": "饮品",
+  "tags": [
+    "宴客",
+    "快手",
+    "酸甜"
+  ],
   "summary": "这款鸡尾酒色彩层次分明，底部红石榴糖浆似晚霞，中间橙汁透亮，上层蓝橙酒液如海水，整体呈现海边落日的意境，喝起来酸甜清爽，带朗姆酒香。橙汁和柠檬汁含少量维生素 C，酒精能帮助放松。调酒步骤不复杂，但倒液沿搅拌棒做出分层需要一点耐心，新手跟着做也能成功，准备加调制大约一刻钟搞定。",
   "difficulty": 2,
   "servings": 2,
@@ -99,9 +104,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客",
-    "快手",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/海边落日/海边落日.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:108d56f2ccdb670b838174280e50da25ee0afb9e5d9c796d9663241663e77ea7",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

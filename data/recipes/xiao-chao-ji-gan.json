@@ -2,6 +2,10 @@
   "id": "xiao-chao-ji-gan",
   "name": "小炒鸡肝",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口"
+  ],
   "summary": "这道鸡肝小炒蒜香浓郁，口感嫩滑带点孜然的焦香，是一道家常风味小炒。鸡肝富含铁、维生素 A 和优质蛋白，有助补血明目。制作时需掌握焯水去腥的技巧，对新手略有挑战，从备料到出锅大约需要四十分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -100,8 +104,13 @@
     "焯完水的鸡肝建议用凉水冲洗，更推荐冰水，可以让口感更好。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/小炒鸡肝/小炒鸡肝.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9c51124436ac2310d147b6048bde474b3559f0c7b982f63ae0710bd2746f4842",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

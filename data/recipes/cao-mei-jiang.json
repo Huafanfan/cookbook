@@ -2,6 +2,11 @@
   "id": "cao-mei-jiang",
   "name": "草莓酱",
   "category": "调料",
+  "tags": [
+    "省事",
+    "新手友好",
+    "酸甜"
+  ],
   "summary": "这是一道酸甜可口、果香浓郁的家常果酱，非常适合涂抹面包。草莓富含维生素 C，不过熬煮时糖分较高，可依口味调整。做法非常简单，新手也能轻松搞定，从准备到熬好大约需要两个小时。",
   "difficulty": 1,
   "servings": 2,
@@ -50,9 +55,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/草莓酱/草莓酱.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:7d585de99e9f1262887fdb7976555527f77689c2bb6f81c4558bf198e2b188da",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

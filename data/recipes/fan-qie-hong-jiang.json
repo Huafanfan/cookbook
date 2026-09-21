@@ -2,6 +2,9 @@
   "id": "fan-qie-hong-jiang",
   "name": "番茄红酱",
   "category": "家常菜",
+  "tags": [
+    "酸甜"
+  ],
   "summary": "这款意式风味酱料香浓可口，蔬菜与牛肉的搭配带来丰富口感。它富含蛋白质和多种维生素，营养均衡。制作过程稍有繁琐，需要一些烹饪基础，例如炒出颗粒感的牛肉和控火慢煮。从备料到完成约需一小时，一次可多做一些冷冻保存，随取随用十分方便。",
   "difficulty": 3,
   "servings": 2,
@@ -90,7 +93,13 @@
     "可根据个人口味，将碎牛肉替换成一半碎猪肉一半碎牛肉，牛奶替换成鸡汤或饮用水。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/番茄红酱.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f6c299758c8c65cf741fe4fdb2b0d3446db76e71c55215cb780ec0ad0651ad0b",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

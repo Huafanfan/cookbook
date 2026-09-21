@@ -2,6 +2,9 @@
   "id": "jie-mo-luo-shi-xia",
   "name": "芥末罗氏虾",
   "category": "家常菜",
+  "tags": [
+    "快手"
+  ],
   "summary": "这道菜鲜香微辣，芥末风味浓郁，虾肉紧实弹嫩，是一道快手家常海鲜菜。虾本身富含优质蛋白和钙，脂肪含量低，搭配芥末开胃解腻。中等难度，只要按步骤调制碗汁、控制火候，新手也能较快上手，全程约需 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -87,7 +90,13 @@
     "**注意事项**："
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/芥末罗氏虾/芥末罗氏虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:be7b82f5d552dde02b7cd8fe174268f32733d0bd5ae6b8f74639f27df8d6d352",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

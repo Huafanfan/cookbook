@@ -2,6 +2,10 @@
   "id": "ma-yi-shang-shu",
   "name": "蚂蚁上树",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭"
+  ],
   "summary": "蚂蚁上树是一道经典的川味家常菜，咸香微辣，粉丝软滑吸汁，肉末细嫩鲜香。以红薯粉丝和肉末为主料，富含碳水化合物与蛋白质，能快速补充能量。制作难度中等，步骤清晰，对新手比较友好，全程约需 20 分钟即可完成。",
   "difficulty": 2,
   "servings": 2,
@@ -100,8 +104,13 @@
     "可加入 0.5g 白胡椒粉调味，风味更佳"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/蚂蚁上树.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:63114cec86e1aa388e1571187b2a4fba6819ceb2d7cd2906938508cdb5d326ae",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

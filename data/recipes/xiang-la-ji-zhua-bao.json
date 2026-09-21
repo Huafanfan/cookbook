@@ -2,6 +2,11 @@
   "id": "xiang-la-ji-zhua-bao",
   "name": "香辣鸡爪煲",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭",
+    "重口"
+  ],
   "summary": "香辣浓郁、口感 Q 弹，是一道常见的家常下饭菜。鸡爪富含胶原蛋白，有助滋润皮肤、强健筋骨。制作需要先去趾甲，若用整只鸡爪还需去骨，对新手略有挑战，但耐心按步骤操作也能成功。从焯水到小火慢煮再翻炒入味，全程约需 45 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -92,9 +97,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/香辣鸡爪煲/香辣鸡爪煲.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b3077c7c05bce83b8ce384e7673b734619ab9087cc1d283d93066d68e010199d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "wu-chu-shi-ji-feng-mi-mian-bao",
   "name": "无厨师机蜂蜜面包",
   "category": "甜品",
+  "tags": [
+    "便当"
+  ],
   "summary": "这是一款无需厨师机的家常蜂蜜小面包，松软香甜，底部略带脆感，表面刷满蜂蜜水再撒上芝麻，透着朴实的甜香。主要用料为高筋面粉、牛奶、鸡蛋和黄油，提供充足的碳水化合物、蛋白质和钙质，作为早餐或加餐都很安心。做法简单，全程手揉，发酵时间灵活，甚至可以提前一晚放入冰箱冷藏，第二天再烘烤，对新手相当友好。制作耗时大约 3 小时，其中大部分是发面等待时间，实际动手并不费力。",
   "difficulty": 3,
   "servings": 2,
@@ -99,7 +102,13 @@
     "参考资料：下厨房 - 脆底蜂蜜小面包"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/无厨师机蜂蜜面包/无厨师机蜂蜜面包.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c0458d17f54315848ff8c05acd5ff51e041ad346f32449aac070601e5d6c9d77",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

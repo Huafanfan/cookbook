@@ -2,6 +2,10 @@
   "id": "ma-po-dou-fu",
   "name": "麻婆豆腐",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭"
+  ],
   "summary": "这道香辣滑嫩的豆腐菜以咸鸭蛋替代传统豆瓣酱，咸鲜中带着微麻微辣，格外开胃下饭。富含优质蛋白和钙、铁等多种微量元素。制作难度适中，对新手友好，全程约需 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -105,8 +109,13 @@
     "期间一定要注意观察，防止糊锅"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:34700530e7f39704f882f2a9d662672d7d51fbece9df5fbef24d99964c80483a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

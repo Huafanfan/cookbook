@@ -2,6 +2,11 @@
   "id": "chao-hua-dan",
   "name": "炒滑蛋",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "炒滑蛋是一道口感嫩滑、蛋香浓郁的经典家常菜，带有淡淡的奶香。鸡蛋富含优质蛋白质和多种维生素，营养丰富，易于吸收。做法非常友好，新手也能轻松掌握，从备料到出锅只需约 5 分钟，是忙碌时快速补充能量的理想选择。",
   "difficulty": 1,
   "servings": 2,
@@ -47,9 +52,13 @@
     "[甜琛廚房](http://sweetheartkitchen.com/recipes/scrambled-egg/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/炒滑蛋/炒滑蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:581d35e8606fe920ae17928c314d440948849e585aa0a29322645a11e329bac2",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

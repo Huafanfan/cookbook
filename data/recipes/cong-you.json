@@ -2,6 +2,9 @@
   "id": "cong-you",
   "name": "葱油",
   "category": "调料",
+  "tags": [
+    "重口"
+  ],
   "summary": "葱油是一道提香增鲜的家常调味油，带着浓郁的葱香和开洋的复合鲜味，用来拌馅、凉拌或热菜明油都很适合。主要提供油脂能量，葱姜等辛香料还含有植物活性成分，可辅助去腥开胃。做法简单，对新手友好，一般准备加熬制大约 30 分钟就能完成。",
   "difficulty": 2,
   "servings": 2,
@@ -68,7 +71,13 @@
     "开洋可以极大提升葱油鲜香，并增加鲜甜风味"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/葱油.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:bd4ebf3f83d2274cd406d44d5596c2cb01964ed266a50ae5e64a50d59960ef93",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

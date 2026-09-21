@@ -2,6 +2,9 @@
   "id": "bing-fen",
   "name": "冰粉",
   "category": "饮品",
+  "tags": [
+    "酸甜"
+  ],
   "summary": "石凉粉是河南信阳的传统小吃，口感爽滑如果冻，配以薄荷汁或柠檬汁清凉解暑，属于豫菜系。由冰粉籽手工揉搓而成，天然无添加，含有丰富的植物胶质。制作非常简单，对新手友好，全程约需 3 小时，其中 2.5 小时为静置凝固时间，几乎不占用人工。",
   "difficulty": 1,
   "servings": 5,
@@ -56,7 +59,13 @@
     "操作时，需要注意观察凉白开的颜色和粘度变化，如颜色过浅或者水不黏，则说明冰粉籽量不足，或者是揉搓力度和时间没有到位。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/冰粉/冰粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:84e53f8f3c758e18014d626d2aff99b23d7ce4cf84c62ac9969bea810b807869",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

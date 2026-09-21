@@ -2,6 +2,11 @@
   "id": "qian-long-bai-cai",
   "name": "乾隆白菜",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "快手",
+    "省事"
+  ],
   "summary": "乾隆白菜是一道经典的北京风味凉菜，以手撕白菜心拌上浓稠芝麻酱汁，口感酸甜爽脆、醇厚开胃。白菜富含维生素和膳食纤维，芝麻酱则带来优质脂肪与钙质，清爽解腻又营养。全程不炒不煮，调酱拌匀即可，对新手十分友好，一般仅需 10 分钟便能端上餐桌。",
   "difficulty": 1,
   "servings": 2,
@@ -75,9 +80,13 @@
     "本配方为醋糖版，如希望口味更醇厚圆润，可将白糖的一半替换为蜂蜜。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/乾隆白菜/乾隆白菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:94cc29fe80910c62bfabef9e96de98b83fb1ce560aa9d93b90a2085c6ad3dba9",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

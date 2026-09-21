@@ -2,6 +2,10 @@
   "id": "jiao-yan-yu-mi",
   "name": "椒盐玉米",
   "category": "家常菜",
+  "tags": [
+    "重口",
+    "宵夜"
+  ],
   "summary": "一道外酥里嫩、咸香扑鼻的风味小食，有着川菜馆里常见的干香口感，咬开是玉米自带的清甜。玉米提供丰富的碳水化合物与膳食纤维，搭配芝麻还能补充优质脂肪和维生素 E。这道菜步骤略多但操作简单，需要一点耐心抖水裹粉，对新手比较友好。从解冻到出锅大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -82,8 +86,9 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "宵夜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/椒盐玉米/椒盐玉米.md",
+    "baselineStatus": "matched"
+  }
 }

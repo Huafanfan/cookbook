@@ -2,6 +2,10 @@
   "id": "la-jiao-chao-rou",
   "name": "辣椒炒肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣"
+  ],
   "summary": "辣椒炒肉是一道湘味浓郁的家常菜，辣椒干香微焦，肉片滑嫩入味，咸鲜微辣十分下饭。猪肉富含优质蛋白质和 B 族维生素，青椒则提供丰富的维生素 C。这道菜需要掌握干煸和快炒的火候，适合有一定烹饪基础的朋友尝试。从备料到出锅，大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -91,8 +95,9 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/辣椒炒肉.md",
+    "baselineStatus": "matched"
+  }
 }

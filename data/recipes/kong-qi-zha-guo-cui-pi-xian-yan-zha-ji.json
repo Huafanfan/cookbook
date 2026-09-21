@@ -2,6 +2,9 @@
   "id": "kong-qi-zha-guo-cui-pi-xian-yan-zha-ji",
   "name": "空气炸锅脆皮现腌炸鸡",
   "category": "家常菜",
+  "tags": [
+    "省事"
+  ],
   "summary": "空气炸锅炸鸡是一道先腌后炸的家常肉菜，外壳酥脆、内里多汁，调味可以按口味灵活切换。鸡翅富含优质蛋白和脂肪，适合作为正餐主菜或加餐。实操约 55-70 分钟（含一次裹粉；若选二次裹粉时约 70-90 分钟），如追求最佳效果，可冷藏腌制过夜（提前一天准备，第二天再炸）。",
   "difficulty": 3,
   "servings": 2,
@@ -132,7 +135,9 @@
     "不建议鸡翅叠放，会导致接触面受热不足，外壳不够脆。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/空气炸锅脆皮现腌炸鸡/空气炸锅脆皮现腌炸鸡.md",
+    "baselineStatus": "matched"
+  }
 }

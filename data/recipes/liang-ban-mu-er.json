@@ -2,6 +2,10 @@
   "id": "liang-ban-mu-er",
   "name": "凉拌木耳",
   "category": "家常菜",
+  "tags": [
+    "省事",
+    "快手"
+  ],
   "summary": "凉拌木耳，由于发放物资中有很多干货，木耳是较为健康的食物。且凉拌木耳的烹饪方式也相对简单。",
   "difficulty": 1,
   "servings": 2,
@@ -82,8 +86,13 @@
     "等木耳冷却入味后口味更佳, 约 15 分钟。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e2bc7626219229755471b4b62d222086f3629e10715752c79ba8d197decc5d9f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

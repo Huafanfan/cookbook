@@ -2,6 +2,11 @@
   "id": "hu-nan-jia-chang-hong-shao-rou",
   "name": "湖南家常红烧肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "重口"
+  ],
   "summary": "湖南家常红烧肉是一道湘味浓郁的家常菜，五花肉经慢炖后肥而不腻、入口软糯，咸香中带着微辣回甘。富含优质蛋白和脂肪，能为身体提供充足能量。制作需要一些耐心，对新手有一定挑战，但按步骤操作不难掌握，预计全程约 1 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -92,9 +97,9 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/湖南家常红烧肉/湖南家常红烧肉.md",
+    "baselineStatus": "matched"
+  }
 }

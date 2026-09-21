@@ -2,6 +2,11 @@
   "id": "dong-gua-sang-na-ji",
   "name": "冬瓜桑拿鸡",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡",
+    "减脂"
+  ],
   "summary": "冬瓜桑拿鸡是一道清爽的蒸菜，冬瓜垫底吸饱鸡汁，虫草花提鲜，鸡肉嫩滑，上汽一蒸即成。热量低、蛋白足，做法简单，从备菜到出锅大约需要 35 分钟，适合日常家常制作。",
   "difficulty": 1,
   "servings": 2,
@@ -75,9 +80,13 @@
     "虫草花提前冲洗泡软，铺在冬瓜和鸡肉之间，让鲜味上下渗透"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "清淡",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/冬瓜桑拿鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f86af7f7c7f74dc01e49fa326085b3b35152b61e9121bd6c972dc8a1093b8278",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

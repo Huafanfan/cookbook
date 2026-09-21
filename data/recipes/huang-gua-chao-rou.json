@@ -2,6 +2,11 @@
   "id": "huang-gua-chao-rou",
   "name": "黄瓜炒肉",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "新手友好",
+    "辣"
+  ],
   "summary": "这是一道清爽脆嫩的家常快手菜，咸鲜适口，带有蒜香与微辣。富含蛋白质和多种维生素，有助于清热补水。对新手比较友好，只要注意火候就能成功，预计制作时长约 25 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -90,9 +95,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "新手友好",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/黄瓜炒肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:44ec7b3210256453466fdf7500bd0bb9489fcb7d67cffcda4a67dbbae31e5aa2",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "hui-guo-rou",
   "name": "回锅肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "重口"
+  ],
   "summary": "回锅肉是四川传统名菜，以二刀肉或五花肉为主料，成菜色泽红亮，肥肉透明微卷、瘦肉干香不柴，口感肥而不腻，咸鲜微辣，带有蒜苗与豆瓣酱的复合香气。猪肉富含优质蛋白和必需脂肪酸，搭配青红椒、蒜苗可补充维生素。这道菜步骤稍多，包含煮、切、煸炒，对火候和刀工有一定要求，但按流程操作新手也能成功，预计全程耗时约 40 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -139,9 +144,13 @@
     "回锅肉切记不要切厚了，不然很腻"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/回锅肉/回锅肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d0cb825c5d9098f2c59e497f85722953fcf16f8b1d56e4d3decda63dad5ca0a5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

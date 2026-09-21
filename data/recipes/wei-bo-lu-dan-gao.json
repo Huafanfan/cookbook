@@ -2,6 +2,11 @@
   "id": "wei-bo-lu-dan-gao",
   "name": "微波炉蛋糕",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "微波炉版的快手蛋糕，口感松软香甜，是一道零基础也能轻松上手的家庭甜点。以鸡蛋、面粉为基础，搭配黄油提供能量和浓郁香气，糖分快速补充体力，加入坚果或水果还能增加膳食纤维和维生素。仅需准备少数材料，借助微波炉高火一分钟即可完成，从备料到品尝最快仅需 2 分钟，新手约 20 分钟即可搞定。",
   "difficulty": 1,
   "servings": 2,
@@ -86,9 +91,13 @@
     "**食材不要超过容器的3/4!!**"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/微波炉蛋糕.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b388a0a6e9192adfca2340565dfeb093633703655b333d449b496b4fe48d4582",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

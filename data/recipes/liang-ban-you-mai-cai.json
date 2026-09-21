@@ -2,6 +2,10 @@
   "id": "liang-ban-you-mai-cai",
   "name": "凉拌油麦菜",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "快手"
+  ],
   "summary": "一道清爽解腻的家常凉菜，芝麻酱的醇厚包裹着油麦菜的脆嫩，酸甜咸香交织，非常开胃。油麦菜富含维生素和膳食纤维，芝麻酱则补充钙与健康脂肪，营养均衡。做法毫无难度，切一切、拌一拌就行，从准备到上桌只需十几分钟，特别适合新手和忙碌时快速成菜。",
   "difficulty": 1,
   "servings": 1,
@@ -57,8 +61,13 @@
     "芝麻酱一定要和油麦菜混合均匀才更好吃."
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/凉拌油麦菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:7205bd5e77330fc0139a1573ac720da7b3285cbb5f9e1f05063d310f26ebbc5c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

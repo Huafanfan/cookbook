@@ -2,6 +2,10 @@
   "id": "hong-shao-yu",
   "name": "红烧鱼",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "宴客"
+  ],
   "summary": "红烧鱼是一道家常风味浓郁的经典菜，咸鲜微甜，鱼肉嫩滑入味，属于大众喜爱的中式烧菜。鱼肉富含优质蛋白和不饱和脂肪酸，营养易吸收。制作时需要处理生鱼和油煎，步骤稍多，对新手有一定挑战，但跟着菜谱操作也能成功。从备料到出锅，大约需要 40 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -118,8 +122,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/红烧鱼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:08a7276bc343753db9ebb70a1473155340aca4517443bbc5ae6268017a028ac8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

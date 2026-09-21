@@ -2,6 +2,10 @@
   "id": "zi-ran-niu-rou",
   "name": "孜然牛肉",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭"
+  ],
   "summary": "孜然牛肉是一道香辣鲜嫩的家常小炒，浓郁的孜然风味与牛肉的软滑、青椒的清脆融合得恰到好处。牛肉富含优质蛋白和铁，搭配青椒还能补充维生素，营养均衡。制作需要一些刀工和火候把控，适合有一定下厨基础的爱好者尝试。算上腌肉和备菜，全程大约 45 分钟就能端上餐桌。",
   "difficulty": 2,
   "servings": 2,
@@ -92,8 +96,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/孜然牛肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:631537c173b23c37c2783ff79894a3c397803531c6ee0582287b1fd1fba4bdb3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

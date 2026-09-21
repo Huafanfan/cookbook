@@ -2,6 +2,9 @@
   "id": "liang-fen",
   "name": "凉粉",
   "category": "主食",
+  "tags": [
+    "辣"
+  ],
   "summary": "凉粉是一道源自四川的传统小吃，口感冰凉爽滑，酸辣开胃，很适合夏天消暑。主要原料是豌豆淀粉，富含碳水化合物，能为身体快速补充能量。制作过程不算复杂，但需要耐心搅煮和长时间冷藏定型，对新手来说难度适中。从煮制到完成大约需要 3-4 小时，其中大部分是等待冷藏的时间，动手操作只需大约半 小时。",
   "difficulty": 2,
   "servings": 1,
@@ -98,7 +101,13 @@
     "参考: [制作凉粉的详细步骤](https://www.zhms.cn/recipe/mzvyy.html?source=2)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/凉粉/凉粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:92c51f8512ab7cd9f4034c67a540a0c5779ef9072003b5bf1af8647ef1bc81d5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

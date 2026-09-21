@@ -2,6 +2,9 @@
   "id": "cong-jian-dou-fu",
   "name": "葱煎豆腐",
   "category": "家常菜",
+  "tags": [
+    "辣"
+  ],
   "summary": "外焦里嫩，葱香浓郁，咸鲜微辣，是一道家常风味。豆腐富含植物蛋白和钙质，搭配青椒和葱段，营养均衡。制作难度适中，煎豆腐时需掌握小火慢煎，新手按步骤耐心操作也能做好，全程约 30 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -73,7 +76,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/葱煎豆腐.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0407795fa0b7f19752a8e3251afb9f61fe0feb1efb4fdb4acb391b98b28f695e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

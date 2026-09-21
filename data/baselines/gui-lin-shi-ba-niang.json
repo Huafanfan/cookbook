@@ -1,0 +1,67 @@
+{
+  "id": "gui-lin-shi-ba-niang",
+  "name": "桂林十八酿",
+  "category": "家常菜",
+  "tags": [
+    "宴客"
+  ],
+  "summary": "桂林传统酿菜系列，将调好味的猪肉、虾滑等馅料酿入青椒、苦瓜、田螺、茄子等十多种中空食材中，煎焖成菜，一菜一味，鲜香多汁，口感软嫩或弹牙，属于浓郁的地方家常风味。馅料提供优质蛋白质，搭配多种蔬菜，富含维生素与膳食纤维，营养较为均衡。制作步骤需要逐一填馅和掌控火候，稍需耐心，但操作逻辑简单，厨艺新手也能尝试，预计全部完成约需 1.5 小时。",
+  "difficulty": 2,
+  "servings": 2,
+  "ingredients": [
+    {
+      "name": "青椒、苦瓜、茄子、田螺、豆腐、香菇、南瓜花"
+    },
+    {
+      "name": "柚子、笋、冬瓜、香芋、蒜、番茄、豆芽、蛋、香菌"
+    },
+    {
+      "name": "原则：万物皆可酿"
+    },
+    {
+      "name": "猪肉馅",
+      "note": "基础款，肥瘦比例 3:7"
+    },
+    {
+      "name": "虾滑馅",
+      "note": "fork 版本"
+    },
+    {
+      "name": "鱼肉馅"
+    },
+    {
+      "name": "混合馅",
+      "note": "猪肉 + 虾滑，猪肉 + 螺肉等自由组合"
+    }
+  ],
+  "steps": [
+    {
+      "text": "### 核心思路 所谓\"酿\"，就是找一个中空的管状食材作为容器，把调好味的肉馅塞进去，再煎或焖熟。 以两道已收录的酿菜为例："
+    },
+    {
+      "text": "青椒去籽挖空 → 塞入猪肉馅或虾滑 → 煎至虎皮色 → 酱汁焖煮",
+      "title": "青椒酿"
+    },
+    {
+      "text": "田螺焯水取肉 → 螺肉与猪肉剁碎混合 → 塞回螺壳 → 紫苏薄荷焖煮 换成其他管状食材，同样的工序再来一遍，就是一道新菜。苦瓜酿、茄子酿、豆腐酿……皆是如此。 酿心（馅料）同样可以变化：",
+      "title": "田螺酿"
+    },
+    {
+      "text": "最基础通用的选择，肥瘦 3:7 口感最佳",
+      "title": "猪肉馅"
+    },
+    {
+      "text": "鲜甜弹牙，青椒酿里常用",
+      "title": "虾滑馅"
+    },
+    {
+      "text": "田螺酿的灵魂，螺肉与猪肉 1:1，加紫苏薄荷",
+      "title": "螺肉猪肉混合馅"
+    },
+    {
+      "text": "猪肉 + 虾滑混搭，鲜甜与油脂香兼得 一个容器配一种馅，换一个就是一道新酿。当地有\"万物皆可酿\"的说法，正是这个道理。 ### 桥接模式(Bridge Pattern) 将\"容器\"与\"馅料\"解耦，二者独立变化、自由组合： ```text 抽象层（Abstract Wrapper）：管状物（CylindricalContainer） ├── 青椒酿 extends CylindricalContainer ├── 苦瓜酿 extends CylindricalContainer ├── 茄子酿 extends CylindricalContainer ├── 螺蛳酿 extends CylindricalContainer ├── 豆腐酿 extends CylindricalContainer ├── 香菇酿 extends CylindricalContainer ├── 南瓜花酿 extends CylindricalContainer ├── 柚子酿 extends CylindricalContainer ├── 笋酿 extends CylindricalContainer ├── 冬瓜酿 extends CylindricalContainer ├── 香芋酿 extends CylindricalContainer ├── 蒜酿 extends CylindricalContainer ├── 番茄酿 extends CylindricalContainer ├── 豆芽酿 extends CylindricalContainer ├── 蛋酿 extends CylindricalContainer ├── 香菌酿 extends CylindricalContainer └── ... 万物皆可酿 实现层（Filling Implementation）：肉馅（MeatFilling） ├── 猪肉馅 implements MeatFilling ├── 虾滑馅 implements MeatFilling ├── 鱼肉馅 implements MeatFilling └── 混合馅 implements MeatFilling  // 猪肉 + 虾滑，猪肉 + 螺肉... ``` 换一个 wrapper 就是一道新菜，换一种 filling 又是一个变体。",
+      "title": "混合馅"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

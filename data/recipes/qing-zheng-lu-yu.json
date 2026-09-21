@@ -2,6 +2,10 @@
   "id": "qing-zheng-lu-yu",
   "name": "清蒸鲈鱼",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "宴客"
+  ],
   "summary": "清蒸鲈鱼是一道粤式经典蒸菜，鱼肉细嫩爽滑，味道清淡鲜美，能最大程度保留鲈鱼的原汁原味。鲈鱼富含优质蛋白和 DHA，营养丰富且易于消化。这道菜操作简单，对新手非常友好，从备料到出锅大约只需三十分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -89,8 +93,13 @@
     "- 这道菜难度系数简单，而且味道非常棒哦"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:a2bb17e2b2a37e27fdf9fc514e3b1785d0e9c4da6a7caf5a9652094d3f9975ea",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

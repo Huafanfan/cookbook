@@ -2,6 +2,11 @@
   "id": "cong-shao-hai-shen",
   "name": "葱烧海参",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "宴客",
+    "重口"
+  ],
   "summary": "这是一道经典的鲁菜家常烧制海味，以浓郁的葱香和软糯入味的海参为特色，汤汁稠亮咸鲜回甜。海参富含胶原蛋白与多种微量元素，对滋养身体很有益处。整体烹饪难度不高，但需提前花时间将干海参充分泡发，实际烧制过程约三十分钟即可完成，新手只要按步骤操作也容易成功。",
   "difficulty": 2,
   "servings": 2,
@@ -91,9 +96,13 @@
     "操作时，需要注意观察锅中的水量，如快见底的时候就直接接入水淀粉即可。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "宴客",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/葱烧海参/葱烧海参.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2c71386490f9e2282e73784f983e008df5a71c0d3421268c6af6598577e91322",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

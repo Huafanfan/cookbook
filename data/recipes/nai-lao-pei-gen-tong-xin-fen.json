@@ -2,6 +2,9 @@
   "id": "nai-lao-pei-gen-tong-xin-fen",
   "name": "奶酪培根通心粉",
   "category": "家常菜",
+  "tags": [
+    "重口"
+  ],
   "summary": "奶酪培根通心粉是经典美式家常菜，口感浓郁绵密，奶酪包裹弹牙通心粉，搭配香脆培根，咸香满足。富含蛋白质与钙质，但热量和脂肪较高，建议偶尔享用。制作需要一定耐心，掌握基础白酱和火候对新手略有挑战，整体难度中等。不烘烤时约 30 分钟即可上桌，若选择烘烤需额外预热和烤制，总时长约 1 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -112,7 +115,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/奶酪培根通心粉/奶酪培根通心粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e4134a4a9e50fb9cd295b90f12fb104e297fc97d5c62a754e818fbe9a5547d76",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

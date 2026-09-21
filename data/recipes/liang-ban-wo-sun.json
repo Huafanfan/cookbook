@@ -2,6 +2,11 @@
   "id": "liang-ban-wo-sun",
   "name": "凉拌莴笋",
   "category": "家常菜",
+  "tags": [
+    "新手友好",
+    "清淡",
+    "省事"
+  ],
   "summary": "一道清脆爽口的家常凉拌小菜，莴笋经过腌制后格外脆嫩，带着微微辣意，十分开胃。富含维生素与膳食纤维，热量不高。做法简单，对新手很友好，从备料到上桌大约二十分钟，冰镇后风味更佳。",
   "difficulty": 1,
   "servings": 2,
@@ -68,9 +73,13 @@
     "冰镇效果更加"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "新手友好",
-    "清淡",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/凉拌莴笋/凉拌莴笋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:6ddd1466648ba8ca0fcff20655573ff2eae0281a3a48ca9ddef1ba945b5fc8fa",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

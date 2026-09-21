@@ -2,6 +2,9 @@
   "id": "song-ren-yu-mi",
   "name": "松仁玉米",
   "category": "家常菜",
+  "tags": [
+    "快手"
+  ],
   "summary": "松仁玉米是一道口感清甜脆嫩的家常快手菜，松仁香酥、玉米甜润，属于广受欢迎的北方家常风味。玉米和松仁搭配，能提供丰富的膳食纤维、不饱和脂肪酸和多种维生素，营养均衡。做法简单，新手也能轻松驾驭，从备料到出锅一般只需大约十五 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -77,7 +80,13 @@
     "炒制时火候不宜过大，以防糊锅或松仁焦糊"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/松仁玉米.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4b65aeb0b7ac956053ff818cb8cf5b425b7a8e732ec469e53751ae9db6c75275",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

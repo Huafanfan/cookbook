@@ -2,6 +2,11 @@
   "id": "hong-yun-dou-ban-fan",
   "name": "红芸豆拌饭",
   "category": "主食",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "辣"
+  ],
   "summary": "这道北印度家常菜是旁遮普邦和德里地区的传统美食，番茄洋葱汤汁浓郁辛香，炖煮后红芸豆软糯入味，与热米饭拌食温暖饱腹。豆子富含蛋白质、膳食纤维和多种微量元素，营养均衡。做法简单，初学者也能轻松上手，全程制作约 40 分钟，但干豆需提前浸泡 8 小时。浓郁的家常滋味，有妈妈的味道。",
   "difficulty": 2,
   "servings": 2,
@@ -203,9 +208,13 @@
     "剩余的红芸豆咖喱冷藏保存可达 3-4 天，味道会更好。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "一锅出",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/红芸豆拌饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:636eac67f3d5491d669d19f587be78b58a20dd6de7c47032b18be81cde13f2c4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

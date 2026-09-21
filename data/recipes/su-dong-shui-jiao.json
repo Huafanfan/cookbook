@@ -2,6 +2,10 @@
   "id": "su-dong-shui-jiao",
   "name": "速冻水饺",
   "category": "半成品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一道源自中国的家常面食，采用市售冻饺速成，皮薄馅丰，口感鲜香。佐以醋、姜、蒜等蘸料，滋味更添层次。作为一餐，它能提供充足的蛋白质与碳水，营养饱腹。制作毫无难点，新手也能轻松上手，前后仅需大约一 刻钟。",
   "difficulty": 1,
   "servings": 2,
@@ -57,8 +61,13 @@
     "考虑姜切丝，在小碗加入 20ml 的黑醋与姜丝搅拌当蘸料，味道更丰富。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/速冻水饺.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:7142a47d8beadd9e094e9df805646fc4f501cd7202b466ec03860789227252e0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

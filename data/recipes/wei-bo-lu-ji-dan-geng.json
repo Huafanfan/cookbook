@@ -2,6 +2,11 @@
   "id": "wei-bo-lu-ji-dan-geng",
   "name": "微波炉鸡蛋羹",
   "category": "家常菜",
+  "tags": [
+    "宵夜",
+    "快手",
+    "省事"
+  ],
   "summary": "微波炉鸡蛋羹是一道简单快手的家常蒸蛋，口感嫩滑细腻，尤其适合作为夜宵或快速加餐。鸡蛋富含优质蛋白质和多种维生素，能为身体提供必要营养，虾皮还补充了钙质。这道菜对新手非常友好，无需掌握火候技巧，从打蛋调味到出炉，全程仅需约 10 分钟即可完成。",
   "difficulty": 1,
   "servings": 1,
@@ -91,9 +96,13 @@
     "鸡蛋和水不能超过碗容量的 2/3，否则可能发生溢出。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宵夜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/鸡蛋羹/微波炉鸡蛋羹.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:86a2aa414d6338a1a715daa450dd2e80b8a3ab0adc800f3d220275cf4fac71b3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

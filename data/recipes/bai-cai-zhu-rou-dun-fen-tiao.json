@@ -2,6 +2,11 @@
   "id": "bai-cai-zhu-rou-dun-fen-tiao",
   "name": "白菜猪肉炖粉条",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "重口"
+  ],
   "summary": "猪肉白菜炖粉条是东北地区经典的家常炖菜，汤汁浓郁咸鲜，五花肉软烂、粉条吸饱肉香后滑韧入味，白菜清甜解腻。整道菜荤素搭配均衡，能提供蛋白质、维生素和碳水化合物，营养饱腹。制作过程需要一些耐心，特别是粉条处理和炖煮火候，对新手有一定挑战，但按步骤操作不易失败，从头到尾大约需要 45 分钟即可上桌。",
   "difficulty": 2,
   "servings": 2,
@@ -92,9 +97,13 @@
     "最后一步尝味，如果发现有味道淡、未熟，继续加盖煮一段时间"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/白菜猪肉炖粉条.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:486112fe1cdf4feab7ffa8f3bd77451cea8cea9a32a6bccafefae1dd1a483b33",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

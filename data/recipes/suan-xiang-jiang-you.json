@@ -2,6 +2,10 @@
   "id": "suan-xiang-jiang-you",
   "name": "蒜香酱油",
   "category": "调料",
+  "tags": [
+    "重口",
+    "省事"
+  ],
   "summary": "蒜香酱油是一道蒜香浓郁、咸鲜油润的家常蘸料，常用于白切鸡、饺子等菜肴的提味。大蒜和芝麻分别具有抗菌和补充不饱和脂肪酸的作用。做法极其简单，对新手非常友好，全程只需大约 5 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -48,8 +52,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/蒜香酱油.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8b9d5a7a9a8ec3aa0a1f6abba6b1b529c82dd6302f49bb0b5ea4b3f79084bd15",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

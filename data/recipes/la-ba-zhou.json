@@ -2,6 +2,9 @@
   "id": "la-ba-zhou",
   "name": "腊八粥",
   "category": "汤羹",
+  "tags": [
+    "清淡"
+  ],
   "summary": "腊八粥是一道传统节令甜粥，粥体粘稠软糯，融合了多种谷物、豆类和干果的复合香气。富含碳水化合物、矿物质和多种维生素，莲子还有养心安神之效，适合工作压力大的人食用。虽然食材种类多，但操作简单，耐心慢熬即可，对新手友好。除去浸泡等准备时间，熬煮约需 3 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -144,7 +147,13 @@
     "参考资料：[全网最正宗腊八粥做法，香甜软糯一次成功！\\_哔哩哔哩\\_bilibili](https://www.bilibili.com/video/BV1Mt411H7by/?spm_id_from=333.1391.0.0&vd_source=2a1baf3b15cd0eb7f9396b4ad2708e44) 、 [腊八粥（在腊八节用多种食材熬制的粥）_百度百科](https://baike.baidu.com/item/腊八粥/27200)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/腊八粥.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:251fc4eb7c285c6fb0e68d6aba60a37b4346f94b5b66cbeb094029821934b1c2",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

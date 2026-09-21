@@ -2,6 +2,10 @@
   "id": "lao-you-zhu-rou-fen",
   "name": "老友猪肉粉",
   "category": "主食",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "老友猪肉粉酸辣鲜香，米粉爽滑，带着豆豉与酸笋特有的浓郁风味，是典型的南宁家常味。猪肉提供优质蛋白质，米粉则快速补充碳水能量。整体制作中等难度，需注意提前泡发米粉，熟练后大约四十分钟就能端上桌。",
   "difficulty": 2,
   "servings": 2,
@@ -88,8 +92,13 @@
     "记得米粉必须是泡过的才好吃，没有泡过的话是很难吃的！"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/老友猪肉粉/老友猪肉粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f226550d3aa0947f7e73fa8e55abe180b1280873a791361e9bce93598e15ddec",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "zhu-guo-zheng-mi-fan",
   "name": "煮锅蒸米饭",
   "category": "主食",
+  "tags": [
+    "省事",
+    "新手友好",
+    "一锅出"
+  ],
   "summary": "这是一道朴实无华的家常主食，用普通煮锅就能做出软糯适口的米饭。白米饭主要提供碳水化合物，为身体快速补充能量。做法极为简单，新手只需全程关注火候即可轻松掌握，从下米到出锅大约需要 25 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -51,9 +56,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/米饭/煮锅蒸米饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b6975b11a8f6f554803770ddf487366cdd7f837f17921aaaaede60e0a98421f8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "zhu-que-tang",
   "name": "朱雀汤",
   "category": "汤羹",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "朱雀汤是一道豫东地区的家常快手汤品，口感顺滑香甜，带着芝麻油的醇香。鸡蛋提供优质蛋白质，制作非常简单，只需烧水冲蛋几步就能完成，前后不到十分钟即可上桌，还有清热去火的效果。",
   "difficulty": 1,
   "servings": 2,
@@ -37,9 +42,13 @@
     "此汤乃去火神器！"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/朱雀汤/朱雀汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2a5b35496db6bab101e7f864fee58af163b0af5a8f3d625e7fcc9584eb56c8ad",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

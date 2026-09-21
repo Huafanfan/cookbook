@@ -2,6 +2,10 @@
   "id": "tang-mian",
   "name": "汤面",
   "category": "主食",
+  "tags": [
+    "快手",
+    "一锅出"
+  ],
   "summary": "汤面是一道自由搭配的家常主食，汤汁清爽，面条软滑，兼容各种荤素食材，味道可鲜可淡。它富含碳水化合物和优质蛋白质，搭配蔬菜还能补充维生素与膳食纤维，营养均衡又饱腹。做法非常简单，无需厨艺基础，新手也能轻松驾驭。从准备食材到出锅，一般约需 30 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -79,8 +83,9 @@
     "如掌握不好加盐量，可采用少量多次添加的方法，以免过量"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/汤面.md",
+    "baselineStatus": "matched"
+  }
 }

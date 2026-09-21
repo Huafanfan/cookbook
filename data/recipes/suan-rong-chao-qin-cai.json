@@ -2,6 +2,10 @@
   "id": "suan-rong-chao-qin-cai",
   "name": "蒜蓉炒芹菜",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "快手"
+  ],
   "summary": "蒜蓉炒芹菜是一道清脆爽口、蒜香浓郁的家常快手素菜。芹菜富含膳食纤维、维生素 K 和钾元素。这道菜的灵魂在于「脆」——大火快炒半分钟即出锅，口感脆生生的，一口咬下去还有汁水。从备料到出锅大约只需 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -65,8 +69,13 @@
     "用猪油炒比食用油更香，如果没有猪油，食用油也可替代"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/蒜蓉炒芹菜/蒜蓉炒芹菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:117dedb9ab2fb29c34c27ee0392d132b524f7bef0df2947a3c9dcbe2ca1eb123",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

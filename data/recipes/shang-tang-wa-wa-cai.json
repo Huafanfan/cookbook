@@ -2,6 +2,10 @@
   "id": "shang-tang-wa-wa-cai",
   "name": "上汤娃娃菜",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "减脂"
+  ],
   "summary": "这道上汤娃娃菜清甜鲜美，口感软嫩，属于家常素菜，尤其适合减肥期间食用。娃娃菜富含维生素和膳食纤维，低脂低热量，搭配皮蛋和午餐肉增添风味又不会过多增加负担。制作难度适中，新手也能尝试，从备菜到出锅大约只需 20 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -85,8 +89,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "清淡",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/上汤娃娃菜/上汤娃娃菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c690159a4bc7f1570865a0eb2e812f61c8ada95d25baf3e81124cbc86a5885d0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

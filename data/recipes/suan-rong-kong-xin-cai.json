@@ -2,6 +2,10 @@
   "id": "suan-rong-kong-xin-cai",
   "name": "蒜蓉空心菜",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "快手"
+  ],
   "summary": "蒜蓉空心菜是一道清脆爽口、蒜香浓郁的家常快手菜，属于典型的川式小炒风味。空心菜富含膳食纤维、维生素和钙质，有助于促进肠道蠕动。做法非常简单，对新手十分友好，从备料到出锅大约只需 15 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -71,8 +75,13 @@
     "炒空心菜时，一定要**开大火**，这样空心菜才能快速变软的同时保持脆嫩的口感，大火也有利于炒出生抽的香味。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:08254a7686efd5f8847bdf753ec3021182005d8f63a8061520123b860fa7e868",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "pi-dan-dou-fu",
   "name": "皮蛋豆腐",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手",
+    "省事"
+  ],
   "summary": "皮蛋豆腐是一道清爽开胃的凉拌家常菜，松花蛋 Q 弹滑嫩，嫩豆腐入口即化，咸香微酸的口味特别下饭。豆腐富含优质植物蛋白和钙，皮蛋则提供铁、维生素 A 等营养素，搭配食用易于消化吸收。制作过程几乎零门槛，新手也能轻松完成，从备料到上桌仅需 大约 5 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -78,9 +83,13 @@
     "参考资料：[涼拌皮蛋豆腐 by 低配版小當家 - 愛料理](https://icook.tw/recipes/437531)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/皮蛋豆腐.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:73348ae211e26910f351dd3b5a7f1c990b0466279eed5dbc236d370483edfeef",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

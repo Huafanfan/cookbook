@@ -2,6 +2,9 @@
   "id": "he-nan-zheng-mian-tiao",
   "name": "河南蒸面条",
   "category": "主食",
+  "tags": [
+    "重口"
+  ],
   "summary": "河南蒸面条是源自河南的家常小吃，面条先蒸后炒再蒸，油润入味，口感劲道爽滑。五花肉和蒜薹提供丰富的蛋白质和膳食纤维，搭配主食带来均衡营养。制作步骤稍多一些，但对新手而言只要按顺序操作就能成功。从备料到出锅，总共约需 40 分钟。",
   "difficulty": 3,
   "servings": 1,
@@ -172,7 +175,13 @@
     "宽的、扁的 （口感比较软）"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/河南蒸面条/河南蒸面条.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0ca4b313db50d9bf826247458063f0c4df0f3d08a1a42176007a76e35e3029d1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

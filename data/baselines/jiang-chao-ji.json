@@ -1,0 +1,107 @@
+{
+  "id": "jiang-chao-ji",
+  "name": "姜炒鸡",
+  "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣"
+  ],
+  "summary": "姜炒鸡是湖南风味的下饭菜肴，鸡肉干香入味，姜香浓郁，辣而不燥。鸡肉富含优质蛋白，生姜有助于驱寒暖胃、促进食欲。做法简单，新手也能轻松掌握。从腌制到出锅大约需要 1 小时。",
+  "difficulty": 2,
+  "servings": 2,
+  "ingredients": [
+    {
+      "name": "鸡",
+      "amount": "半",
+      "unit": "只",
+      "note": "土鸡最好，预计 650g"
+    },
+    {
+      "name": "食用油",
+      "amount": 50,
+      "unit": "ml",
+      "note": "茶油最好，没有就用菜籽油"
+    },
+    {
+      "name": "生姜",
+      "amount": "半",
+      "unit": "斤",
+      "note": "250g"
+    },
+    {
+      "name": "啤酒",
+      "amount": "半",
+      "unit": "瓶",
+      "note": "250ml"
+    },
+    {
+      "name": "生抽",
+      "amount": 20,
+      "unit": "ml"
+    },
+    {
+      "name": "老抽",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "盐",
+      "amount": 3,
+      "unit": "g"
+    },
+    {
+      "name": "小米椒",
+      "amount": "0-5",
+      "unit": "个",
+      "note": "0-50g；根据辣口味调整"
+    },
+    {
+      "name": "美人辣",
+      "amount": "0-5",
+      "unit": "个",
+      "note": "0-50g；没有可以用小米椒代替"
+    },
+    {
+      "name": "泡椒",
+      "amount": 5,
+      "unit": "个",
+      "note": "50g"
+    },
+    {
+      "name": "大蒜",
+      "amount": 3,
+      "unit": "头",
+      "note": "50g"
+    }
+  ],
+  "steps": [
+    {
+      "text": "鸡尽量剁成 1cm 的小块，洗净后滤干，再放生抽腌和料酒腌制 30 分钟",
+      "minutes": 30
+    },
+    {
+      "text": "大先热锅到微微冒烟，放入食用油，等 5 秒"
+    },
+    {
+      "text": "下入姜片后转中火炒 30 秒，",
+      "heat": "中火"
+    },
+    {
+      "text": "下入鸡块翻炒 3 分钟，炒干水分，炒出鸡油",
+      "minutes": 3
+    },
+    {
+      "text": "放入各种剁碎的辣椒和大蒜子，加盐和老抽继续翻炒 30 秒"
+    },
+    {
+      "text": "倒入啤酒，中小火焖 2 分钟",
+      "minutes": 2,
+      "heat": "中小火"
+    },
+    {
+      "text": "大火收汁盛盘",
+      "heat": "大火"
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

@@ -2,6 +2,11 @@
   "id": "zheng-xiang-ji-dan-geng",
   "name": "蒸箱鸡蛋羹",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事",
+    "清淡"
+  ],
   "summary": "这是一道利用蒸箱快速制作的嫩滑家常蛋羹，口感可调，水少则弹、水多则嫩。富含优质蛋白质和多种营养素，易于消化吸收。难度适中，新手稍加注意即可掌握，从准备到出锅大约只需 15 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -71,9 +76,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/鸡蛋羹/蒸箱鸡蛋羹.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:438f15acbb57fa4935f622395cc37721bbc000ee3edbf0be10c9a2a9a5171ffe",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

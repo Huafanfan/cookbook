@@ -2,6 +2,9 @@
   "id": "tian-luo-niang",
   "name": "田螺酿",
   "category": "家常菜",
+  "tags": [
+    "宴客"
+  ],
   "summary": "田螺酿是阳朔“十八酿”之首，螺肉韧而紧致、猪肉嫩滑，紫苏薄荷清香扑鼻，曾登上《舌尖上的中国 2》。富含蛋白质和多种微量元素，螺肉与猪肉搭配营养互补。这道菜步骤稍多，对新手有一定挑战，需提前半天让田螺吐沙，正式制作约 40 分钟，适合节假日全家一起动手。",
   "difficulty": 3,
   "servings": 2,
@@ -187,7 +190,13 @@
     "搭配冰镇漓泉啤酒是阳朔当地的标准吃法"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/田螺酿/田螺酿.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:baa1b2bb0b7ef94bdfd324baf9fe71bacaea5112d884b9db748fa84ceb112ffc",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

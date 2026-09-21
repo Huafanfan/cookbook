@@ -2,6 +2,10 @@
   "id": "han-shi-ban-fan",
   "name": "韩式拌饭",
   "category": "主食",
+  "tags": [
+    "便当",
+    "辣"
+  ],
   "summary": "韩式拌饭是一道色彩缤纷、口感丰富的韩国家常料理，甜辣酱汁包裹着米饭、蔬菜、牛肉和溏心蛋，拌匀后一口满足。多种蔬菜提供维生素和膳食纤维，牛肉和鸡蛋补充优质蛋白，营养均衡。制作简单但备菜步骤稍多，新手也能从容完成，从准备到上桌大约需要 45 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -102,8 +106,13 @@
     "如果对外观有一定要求 可以用砂锅代替普通碗"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "便当",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/韩式拌饭/韩式拌饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c5eeaf40fc93fe7967e56483290f9336673a0a61ec9a05ffa1fd1978f3513e41",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

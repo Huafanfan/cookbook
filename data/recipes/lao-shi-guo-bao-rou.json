@@ -2,6 +2,9 @@
   "id": "lao-shi-guo-bao-rou",
   "name": "老式锅包肉",
   "category": "家常菜",
+  "tags": [
+    "酸甜"
+  ],
   "summary": "锅包肉是东北经典名菜，起源于哈尔滨道台府，以白醋调出鲜明酸香，外壳酥脆、肉片滑嫩，酸甜爽口。猪肉提供优质蛋白质，搭配葱姜等蔬菜开胃解腻。这道菜需要掌握挂浆、油温和复炸技巧，烹饪难度中等偏上，新手需要耐心练习。从腌肉、调糊到炸制出锅，预计制作时长约 90 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -151,7 +154,13 @@
     "- [村驴版本](https://www.bilibili.com/video/BV1xy411i7Mi)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/老式锅包肉/老式锅包肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:6a1d6b59ac75ffc71f843597b3d13a9baedde4d5e2ac28ae42050e377eb28845",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

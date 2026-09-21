@@ -2,6 +2,9 @@
   "id": "mo-yu-dan-gao",
   "name": "魔芋蛋糕",
   "category": "甜品",
+  "tags": [
+    "减脂"
+  ],
   "summary": "魔芋蛋糕是一款低热量、无麸质的甜点，用赤藓糖醇代替白砂糖，口感轻盈湿润，带有可可香气，尤其适合减脂人群。它富含膳食纤维和蛋白质，饱腹感强。制作有一定难度，需要打发蛋白并注意翻拌手法，但整体耗时仅约半小时，算是快手健康的烘焙选择。",
   "difficulty": 3,
   "servings": 2,
@@ -38,8 +41,8 @@
     },
     {
       "name": "金属蛋糕模具",
-      "note": "形状任意",
-      "group": "工具"
+      "group": "工具",
+      "note": "形状任意"
     },
     {
       "name": "烘焙纸",
@@ -47,8 +50,8 @@
     },
     {
       "name": "餐刀",
-      "note": "用于翻拌和抹平蛋糕糊",
-      "group": "工具"
+      "group": "工具",
+      "note": "用于翻拌和抹平蛋糕糊"
     },
     {
       "name": "隔热手套",
@@ -140,7 +143,13 @@
     "打发蛋白等部分大幅借鉴[戚风蛋糕](../戚风蛋糕/戚风蛋糕.md)制作流程"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/魔芋蛋糕/魔芋蛋糕.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:1290d1b99ea7480f54ee444b4202acaa74e67d7de166d56ae0c12bfa782a239d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

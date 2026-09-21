@@ -2,6 +2,11 @@
   "id": "shui-zhu-niu-rou",
   "name": "水煮牛肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "重口"
+  ],
   "summary": "水煮牛肉是川菜中的经典麻辣味型，口感滑嫩、汤汁红亮、香辣烫鲜。牛肉富含优质蛋白质和铁，搭配豆芽可补充膳食纤维。这道菜对新手来说不算太难，但需注意火候和泼油安全，整体制作约需四十分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -107,9 +112,13 @@
     "参考: [水煮牛肉的详细步骤](https://www.zhms.cn/recipe/blrqm.html?source=2)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/水煮牛肉/水煮牛肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:60520cc242d209b187c1837b1fc3d2ea3b653e8d46a1d7d5514e5e6f0c9d8658",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "zhu-you-ban-fan",
   "name": "猪油拌饭",
   "category": "主食",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "这是一道充满南方家常气息的简单拌饭，米粒被融化的猪油包裹，透着酱油的咸鲜和葱花的清香，是许多孩子食欲不振时的安心之选。主要提供快速碳水与脂肪能量，但胆固醇较高，不宜常吃。制作毫无门槛，哪怕完全不会做饭也能轻松完成，煮好的米饭只要几分钟就能拌出一碗香喷喷的主食。",
   "difficulty": 1,
   "servings": 1,
@@ -68,9 +73,13 @@
     "参考资料：[猪油拌饭 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E8%B1%AC%E6%B2%B9%E6%8B%8C%E9%A3%AF)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/猪油拌饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8456ed1b47b67cfd20398e4d49d41dec3fa282c9ff0c060771604edc7b859da1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

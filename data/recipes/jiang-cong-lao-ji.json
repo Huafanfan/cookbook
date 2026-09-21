@@ -2,6 +2,9 @@
   "id": "jiang-cong-lao-ji",
   "name": "姜葱捞鸡",
   "category": "家常菜",
+  "tags": [
+    "下饭"
+  ],
   "summary": "姜葱捞鸡是一道粤式经典家常菜，鸡肉嫩滑多汁，葱姜香气浓郁，咸鲜适口，十分下饭。鸡腿肉提供优质蛋白质，搭配姜葱能温中散寒、促进食欲。整体操作以蒸制和手撕为主，步骤清晰，对新手来说比较容易上手。从备料到完成大约需要 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -85,7 +88,13 @@
     "参考: [白饭杀手来啦 #姜葱捞鸡-哔哩哔哩](https://b23.tv/2trBdqJ)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/姜葱捞鸡/姜葱捞鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:532c35ff598e28b700a49d68b7b4471f8acdd8c54f6f383a2d9f26171925eb47",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "ying-zui-dou-zha-bing",
   "name": "鹰嘴豆炸饼",
   "category": "主食",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "鹰嘴豆咖喱配油炸面饼是北印度经典街头小吃，松软的炸饼搭配香料浓郁的鹰嘴豆，口感层次丰富，酸辣咸香。鹰嘴豆富含植物蛋白和膳食纤维，饱腹又营养。制作步骤稍多，但跟着流程走并不难，适合有一定基础的家常烹饪。约 50 分钟即可完成（鹰嘴豆需提前浸泡 8 小时）。",
   "difficulty": 3,
   "servings": 2,
@@ -243,8 +247,13 @@
     "这道菜在印度是国民级的早午餐，从路边摊到高档餐厅都有供应。在中国的印度餐厅中通常被称为\"鹰嘴豆咖喱配炸饼\"。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/鹰嘴豆炸饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f9cf2e5e294cd828b693d856298e11adc37c0eb06947efeed84bd95ec4ec685d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

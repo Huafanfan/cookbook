@@ -2,6 +2,10 @@
   "id": "ji-dan-huo-tui-chao-huang-gua",
   "name": "鸡蛋火腿炒黄瓜",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡"
+  ],
   "summary": "这是一道清爽快手的家常小炒，咸鲜适口，黄瓜脆嫩、鸡蛋软滑、火腿增香，属于大众化的中式家常菜。鸡蛋提供优质蛋白，黄瓜富含维生素和水分，火腿补充风味，整体营养均衡。烹饪步骤简单明了，难度很低，对厨房新手非常友好。从备菜到出锅，全程只需约 10 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -82,8 +86,13 @@
     "火腿是咸的，要在调味后才加入，这样不会让火腿也沾上盐"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:037d1813bb1824874d4f1c4b5ea488c719d54f2317b61f2d6508580e303b5d61",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

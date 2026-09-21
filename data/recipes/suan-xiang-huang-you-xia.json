@@ -2,6 +2,10 @@
   "id": "suan-xiang-huang-you-xia",
   "name": "蒜香黄油虾",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "快手"
+  ],
   "summary": "蒜香黄油虾是一道经典的西式海鲜菜，虾肉鲜嫩弹牙，被浓郁的蒜香和黄油包裹，带有淡淡柠檬清香。虾肉富含优质蛋白，搭配黄油提供能量，适合快速补充营养。做法简单，只需几种常见食材，新手也能轻松上手，从备料到出锅大约二十分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -85,8 +89,13 @@
     "虾不宜过度烹饪，否则会变硬"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宴客",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/蒜香黄油虾/蒜香黄油虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0568f143a252a549fbb433eb19df143643c71ebe8153979bb9a1032894d68195",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

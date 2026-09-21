@@ -2,6 +2,11 @@
   "id": "ka-li-fei-niu",
   "name": "咖喱肥牛",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "一锅出"
+  ],
   "summary": "咖喱肥牛是一道浓郁下饭的家常菜，咖喱的辛香与肥牛的脂香融合，搭配土豆、胡萝卜等蔬菜，口感绵软醇厚。富含蛋白质、维生素和钙质，荤素搭配均衡。做法简单，对新手友好，一般只需 40 分钟就能端上餐桌，很适合作为便当菜。",
   "difficulty": 3,
   "servings": 2,
@@ -80,9 +85,13 @@
     "操作时，需要注意搅拌食材，避免食材调味料不均匀。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/咖喱肥牛/咖喱肥牛.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0bef41cbce8c06eedaa88947d69268a8eaa47b1c04ad3051777ae25b65870b1b",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

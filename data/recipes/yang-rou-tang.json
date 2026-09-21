@@ -2,6 +2,9 @@
   "id": "yang-rou-tang",
   "name": "羊肉汤",
   "category": "汤羹",
+  "tags": [
+    "清淡"
+  ],
   "summary": "羊肉汤是一道家常暖身汤品，汤色乳白，肉质鲜嫩，带有大葱和白胡椒的清香与微辛。富含蛋白质、钙、铁等营养成分，有温补脾胃、抵御寒冷的功效。制作步骤简单，新手也能轻松掌握，整个烹饪过程大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -87,7 +90,9 @@
     "加入开水时，注意要开大火，使油脂与汤汁更好的融合"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/羊肉汤/羊肉汤.md",
+    "baselineStatus": "matched"
+  }
 }

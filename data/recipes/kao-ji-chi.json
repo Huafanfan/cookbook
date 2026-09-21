@@ -2,6 +2,9 @@
   "id": "kao-ji-chi",
   "name": "烤鸡翅",
   "category": "家常菜",
+  "tags": [
+    "新手友好"
+  ],
   "summary": "腌制入味的鸡中翅经高温烘烤，外皮微焦、内里鲜嫩多汁，带有黑胡椒和酱油的咸香。富含优质蛋白质和胶原蛋白。难度适中，新手也能轻松上手，从准备到出炉大约需要 1 小时。还可按喜好添加蜂蜜或五香粉增添风味。",
   "difficulty": 2,
   "servings": 2,
@@ -69,7 +72,13 @@
     "烤鸡翅时，建议将烤盘底部垫上一层锡纸，便于清洁烤盘"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/烤鸡翅.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c1933f5f71dc2e182d553df99b90dc74b17029b508562ff4513ac1ca66696c1e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

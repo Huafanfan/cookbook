@@ -2,6 +2,10 @@
   "id": "liang-ban-jin-zhen-gu",
   "name": "凉拌金针菇",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "凉拌金针菇是一道简单快捷的家常开胃凉菜，口感脆嫩爽滑，咸鲜微酸。金针菇富含膳食纤维和多种维生素，热量较低。制作全程只需焯烫和调味，对新手非常友好，忙碌时也能快速准备。从备菜到完成大约只需 10 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -101,8 +105,13 @@
     "如果不喜欢吃辣，可以省略辣椒油。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/凉拌金针菇.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:bba69bc0234d110df394f81271fcdfa26393a4a3a1aaa8647387244cb460a43f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

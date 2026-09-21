@@ -2,6 +2,10 @@
   "id": "pai-gu-shan-yao-yu-mi-tang",
   "name": "排骨山药玉米汤",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "一锅出"
+  ],
   "summary": "排骨山药玉米汤清甜醇厚，山药软糯、玉米回甘，融合了排骨的鲜香，属于老少皆宜的家常汤品。它富含蛋白质、膳食纤维和多种维生素，有健脾益胃、增强抵抗力的作用。做法简单，预处理和炖煮步骤清晰，新手也能轻松上手，全程大约需要 1 小时即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -101,8 +105,13 @@
     "**补水须知**：炖煮过程中如发现水位低于食材，务必添加热水，避免加入冷水导致肉质纤维瞬间收缩变柴。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "清淡",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/排骨山药玉米汤/排骨山药玉米汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:89e4f1890be057ff14fdcc0aa1e11ad44f8feb5fd0031973cd09b2cccaf38f03",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

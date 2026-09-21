@@ -2,6 +2,10 @@
   "id": "xue-jiang-ya",
   "name": "血浆鸭",
   "category": "家常菜",
+  "tags": [
+    "重口",
+    "宴客"
+  ],
   "summary": "血浆鸭是一道湖南武冈传统名菜，鸭肉香酥脆嫩，浸透醋血后连姜和辣椒都变得甜净不辣。鸭肉与鸭血提供优质蛋白和铁质，适合补血养身。制作步骤较多，需要留意火候和翻炒，但跟着步骤操作，初学者也能在 大约 2 小时完成。",
   "difficulty": 3,
   "servings": 2,
@@ -111,8 +115,13 @@
     "放入鲜鸭血时，需要不断翻炒搅拌，防止鸭血抱团凝固成块。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/血浆鸭/血浆鸭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d788d6535a264e13d4debfc1ec73b157b9436bf03179fc30cf6bfb71ebc70909",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

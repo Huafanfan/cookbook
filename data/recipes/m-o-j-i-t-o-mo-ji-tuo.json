@@ -2,6 +2,10 @@
   "id": "m-o-j-i-t-o-mo-ji-tuo",
   "name": "Mojito莫吉托",
   "category": "饮品",
+  "tags": [
+    "酸甜",
+    "快手"
+  ],
   "summary": "这款鸡尾酒口感清爽酸甜，带有薄荷的清凉和朗姆酒的微醺，是经典的夏季饮品。酒精含量较低，佐以富含维生素 C 的青柠，能生津解渴、提神醒脑。制作十分简单，对新手友好，从备料到完成只需大约十 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -83,8 +87,13 @@
     "参考资料：[【哔哩哔哩】莫吉托(Mojito)世界上最著名的经典鸡尾酒之一。](https://www.bilibili.com/video/BV1jg4y187kB)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/Mojito莫吉托.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e861a11dddce83b6367a476a8974e3d51da2726a86fd6c12931468e77459daf2",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

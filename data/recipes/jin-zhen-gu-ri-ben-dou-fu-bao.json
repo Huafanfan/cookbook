@@ -2,6 +2,11 @@
   "id": "jin-zhen-gu-ri-ben-dou-fu-bao",
   "name": "金针菇日本豆腐煲",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "一锅出"
+  ],
   "summary": "金针菇日本豆腐煲是一道酱香浓郁的家常下饭菜，豆腐外焦里嫩，金针菇爽滑入味。金针菇富含氨基酸和膳食纤维，日本豆腐提供优质蛋白，营养开胃。这道菜步骤简单，新手也能轻松掌握，从备菜到出锅大约需要 30 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -75,9 +80,13 @@
     "豆腐尽量不要翻炒，容易碎"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/金针菇日本豆腐煲.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c4e3fefa44e9baa10381c3b1eb71a2b7f671e3e30b5f6777fd4bc3681f4cec17",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "suan-mei-tang",
   "name": "酸梅汤",
   "category": "饮品",
+  "tags": [
+    "酸甜"
+  ],
   "summary": "酸梅汤是一道酸甜可口、清凉解暑的传统饮品，冰镇后饮用尤为沁人心脾。配方中的乌梅、山楂、甘草等原料有助于生津止渴、消食开胃。做法简单，新手友好，只需浸泡、熬煮和冷藏即可。制作全程包括浸泡、两次煎煮和冷藏，大约需要 6 小时以上，建议提前准备。",
   "difficulty": 1,
   "servings": 2,
@@ -73,7 +76,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/酸梅汤/酸梅汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:5288e7a8da2dfc3bacae54e1c9219243e903eec35d93e2ae4027c154f90d8389",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

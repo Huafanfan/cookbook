@@ -2,6 +2,9 @@
   "id": "shou-rou-tu-dou-pian",
   "name": "瘦肉土豆片",
   "category": "家常菜",
+  "tags": [
+    "快手"
+  ],
   "summary": "一道快手家常小炒，肉片滑嫩，土豆片软韧入味，带有蒜苗清香，属于典型的家常菜风格。瘦肉富含优质蛋白质和铁质，土豆提供碳水化合物和膳食纤维，搭配均衡。制作流程简单明了，需注意刀工和火候，适合有一定基础的新手尝试。从备料到出锅，预计 大约 1 小时即可完成。",
   "difficulty": 2,
   "servings": 2,
@@ -76,7 +79,13 @@
     "腌制瘦肉要搅拌均匀"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/瘦肉土豆片/瘦肉土豆片.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d8eb695a3674475eede770a0644cfecb14a2fcc205f309cf4f85c1cc48379c9b",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

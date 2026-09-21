@@ -2,6 +2,10 @@
   "id": "xi-hong-shi-dou-fu-tang-geng",
   "name": "西红柿豆腐汤羹",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "酸甜"
+  ],
   "summary": "一道清淡鲜美的家常汤羹，酸甜开胃，口感嫩滑。西红柿富含维生素 C 和番茄红素，搭配鸡蛋与豆腐，能补充优质蛋白，营养均衡易吸收。做法简单，只需切配翻炒和煮制，新手也能轻松掌握，从准备到出锅大约 15 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -76,8 +80,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/西红柿豆腐汤羹/西红柿豆腐汤羹.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0d72c0499cabd5d18c5ff70046d0650e1def72c185c3d4055397deaaaa83fcdd",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

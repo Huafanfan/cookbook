@@ -2,6 +2,11 @@
   "id": "fen-zheng-rou",
   "name": "粉蒸肉",
   "category": "家常菜",
+  "tags": [
+    "一锅出",
+    "重口",
+    "辣"
+  ],
   "summary": "粉蒸肉是一道经典中式蒸菜，香味浓郁，口感软糯，属于广泛流传的家常风味。五花肉提供优质蛋白质和脂肪，搭配土豆等根茎蔬菜，营养均衡。此菜适合有一定烹饪经验的人士制作，从准备到完成大约需要 90 分钟。",
   "difficulty": 3,
   "servings": 3,
@@ -124,9 +129,13 @@
     "蒸制期间如水量低于锅底高度 1cm，应立即补充 500ml 热水（90°C 以上），以维持蒸汽充足"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/粉蒸肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:361615bbaab3953c7cad07ea1feba7b6ba92b3d34183cba4d9a5300152bd31fe",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "qi-feng-dan-gao",
   "name": "戚风蛋糕",
   "category": "甜品",
+  "tags": [
+    "新手友好"
+  ],
   "summary": "这道烘焙入门甜品口感细腻绵软，拥有云朵般的轻盈质地，属于西点中的经典基础款。主要原料鸡蛋和牛奶提供了优质蛋白与钙质，营养丰富。制作过程对打发、翻拌及烘烤火候要求较高，具有一定挑战，但只要耐心按步骤操作，新手也能成功。从准备到出炉一般需要 1.5 至 2 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -17,18 +20,18 @@
   "ingredients": [
     {
       "name": "打蛋器 或筷子",
-      "note": "电动最好，手动费力且有一定失败概率；非常不推荐",
-      "group": "工具"
+      "group": "工具",
+      "note": "电动最好，手动费力且有一定失败概率；非常不推荐"
     },
     {
       "name": "铝合金阳极模具",
-      "note": "千万不能选不沾模具，常用尺寸为 6 寸或 8 寸",
-      "group": "工具"
+      "group": "工具",
+      "note": "千万不能选不沾模具，常用尺寸为 6 寸或 8 寸"
     },
     {
       "name": "刮刀",
-      "note": "用于翻拌蛋糕糊",
-      "group": "工具"
+      "group": "工具",
+      "note": "用于翻拌蛋糕糊"
     },
     {
       "name": "鸡蛋",
@@ -40,18 +43,18 @@
     },
     {
       "name": "牛奶",
-      "note": "或水",
-      "group": "原料"
+      "group": "原料",
+      "note": "或水"
     },
     {
       "name": "食用油",
-      "note": "或黄油，但需加热软化",
-      "group": "原料"
+      "group": "原料",
+      "note": "或黄油，但需加热软化"
     },
     {
       "name": "低筋面粉",
-      "note": "推荐惠宜",
-      "group": "原料"
+      "group": "原料",
+      "note": "推荐惠宜"
     },
     {
       "name": "[可选] 柠檬汁或白醋",
@@ -193,7 +196,13 @@
     "- 特别新鲜的鸡蛋蛋清会比较硬，应对硬蛋清 5 个鸡蛋配方的话加 15ml 水会帮助蛋清打发（1 个鸡蛋配方则是 3g 水）"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/戚风蛋糕/戚风蛋糕.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:17807ef33d4bd4a2e36c4d35474ddc62d626772712a2c44d2135f17a92bd87e3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

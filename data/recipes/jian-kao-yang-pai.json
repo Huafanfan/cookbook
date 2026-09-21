@@ -2,6 +2,10 @@
   "id": "jian-kao-yang-pai",
   "name": "煎烤羊排",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "重口"
+  ],
   "summary": "一道外酥里嫩、香气浓郁的料理，先以香料炖煮再煎出金黄脆壳，风味浓郁不腻，是家常宴客两相宜的硬菜。羊肉富含优质蛋白和铁、锌等矿物质，有助于温补气血。做法步骤稍多，但只要按流程走，新手也能拿下；使用高压锅全程约 1 小时，普通锅约 1.5 小时。",
   "difficulty": 3,
   "servings": 3,
@@ -128,8 +132,9 @@
     "焯水、炖煮、煎制过程中会产生较多羊油，处理时请注意不要直接倒入下水道，以防堵塞。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宴客",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/煎烤羊排/煎烤羊排.md",
+    "baselineStatus": "matched"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "chao-yi-da-li-mian",
   "name": "炒意大利面",
   "category": "主食",
+  "tags": [
+    "快手",
+    "重口"
+  ],
   "summary": "这道炒意大利面软糯爽口，搭配肥牛和酱料，酱香浓郁，是带有西式风味的家常主食。富含碳水化合物与蛋白质，能快速补充能量。做法简单，新手也能轻松掌握，全程大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -57,8 +61,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/炒意大利面/炒意大利面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:17bacb0e0f13b1fe2801abc00ee6ce6d42b792ee760280e265e4ac257eda6b7f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

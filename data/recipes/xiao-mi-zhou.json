@@ -2,6 +2,10 @@
   "id": "xiao-mi-zhou",
   "name": "小米粥",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "省事"
+  ],
   "summary": "小米粥是一道北方常见的家常粥品，口感绵滑，米香浓郁，熬出的米油尤其养胃。它富含蛋白质、脂肪、碳水化合物和胡萝卜素，维生素 B1 含量在粮食中名列前茅，容易消化吸收。做法非常简单，新手也能轻松掌握，从烧水到出锅大约需要 30-35 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -45,8 +49,13 @@
     "不喜欢放碱，更喜欢原汁原味的小米香"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/小米粥.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:469762dfc077842758b82840fc0d7131bf2ef08b9ab70856728a9aa2b6eec65b",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

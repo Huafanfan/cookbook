@@ -2,6 +2,10 @@
   "id": "xiang-you-shan-si",
   "name": "响油鳝丝",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口"
+  ],
   "summary": "响油鳝丝是一道经典的江浙沪家常菜，鳝丝鲜嫩滑爽，蒜香浓郁，酱汁微甜，淋上热猪油后香气四溢，非常下饭。鳝鱼富含优质蛋白和 DHA，营养丰富。这道菜对刀工和火候有一定要求，难度适中，新手需要稍加练习。从备料到出锅，一般 大约 40 分钟就能端上餐桌。",
   "difficulty": 2,
   "servings": 2,
@@ -132,8 +136,13 @@
     "参考资料：[“响油鳝丝”的家常做法，味道很赞，先收藏了 - YouTube](https://www.youtube.com/watch?v=X2DvbhnWcN4)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/响油鳝丝.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:63695ad463bc1da798645f5db5ffd8806bad9943256c0b8afcd5df953b082d96",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

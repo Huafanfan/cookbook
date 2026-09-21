@@ -2,6 +2,9 @@
   "id": "ang-ci-yu-dou-fu-tang",
   "name": "昂刺鱼豆腐汤",
   "category": "汤羹",
+  "tags": [
+    "减脂"
+  ],
   "summary": "昂刺鱼豆腐汤是一道口感鲜嫩、汤白味浓的家常汤品，鱼肉刺少肉嫩，豆腐滑润，带有胡椒的微辛暖意，适合各个年龄层。鱼富含优质蛋白质，搭配豆腐能补充钙质，营养均衡好吸收。制作过程不算复杂，只要注意去腥和煎鱼防粘，一般初学者也可以上手，预计制作时长约 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -75,7 +78,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/昂刺鱼豆腐汤/昂刺鱼豆腐汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:7cf5f526eb12a320db0af860b18bef3b472bc8f576795b5ebf14f02073e95155",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

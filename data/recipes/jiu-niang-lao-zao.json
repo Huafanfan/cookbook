@@ -2,6 +2,9 @@
   "id": "jiu-niang-lao-zao",
   "name": "酒酿醪糟",
   "category": "饮品",
+  "tags": [
+    "省事"
+  ],
   "summary": "这是一道传统中式发酵甜品，口感清甜微醺，带着淡淡的酒香。具有健脾开胃、促进消化的作用。制作过程简单有趣，虽然需要等待发酵，但动手操作并不复杂，非常适合作为发酵入门。预计制作总时长约 2 天，其中实际动手时间仅需 大约 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -92,7 +95,9 @@
     "酒酿汁可用于制作酒酿米糕、酒酿饼等，还可以用作调料为肥牛饭、照烧汁增添风味"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/酒酿醪糟/酒酿醪糟.md",
+    "baselineStatus": "matched"
+  }
 }

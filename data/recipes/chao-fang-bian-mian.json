@@ -2,6 +2,11 @@
   "id": "chao-fang-bian-mian",
   "name": "炒方便面",
   "category": "主食",
+  "tags": [
+    "宵夜",
+    "快手",
+    "省事"
+  ],
   "summary": "这道炒方便面口感 Q 弹筋道，咸香入味，是一道改良自传统煮面的家常快手主食。搭配鸡蛋和火腿肠，丰富了蛋白质和能量来源。做法简单，只需注意冷水冲面保持口感，新手也能轻松完成，全程大约 15 分钟即可出锅。",
   "difficulty": 1,
   "servings": 1,
@@ -100,9 +105,13 @@
     "* 上蒸：将湿面饼放入蒸锅，水开后大火蒸 8 分钟，取出抖散备用（蒸能锁住水分，保证面条弹牙）。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宵夜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/炒方便面/炒方便面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:fec932b20e64dd6445313c6326d58a5e891045b66f6db338d047bb199fdb0013",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

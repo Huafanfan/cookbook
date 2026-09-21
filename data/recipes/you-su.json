@@ -2,6 +2,10 @@
   "id": "you-su",
   "name": "油酥",
   "category": "调料",
+  "tags": [
+    "省事",
+    "新手友好"
+  ],
   "summary": "这是一道中式面点配料，常用于烙饼，能让成品层次分明、外酥里软。主要提供碳水化合物和脂肪，为身体补充能量。做法十分简单，新手友好，预计只需 3 分钟就能调好。",
   "difficulty": 1,
   "servings": 2,
@@ -32,8 +36,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/油酥.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e05344e548ba77a0f8f21dd5fd8ab5669cc90a7bf87756c29b32eaee1d8ccba4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

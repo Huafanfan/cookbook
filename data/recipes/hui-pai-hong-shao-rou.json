@@ -2,6 +2,11 @@
   "id": "hui-pai-hong-shao-rou",
   "name": "徽派红烧肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "宴客"
+  ],
   "summary": "徽派红烧肉是一道色泽红亮、肥而不腻的经典徽式家常菜，口感软糯 Q 弹，咸甜交融。以五花肉为主料，富含优质蛋白质和脂肪，能提供充沛能量。烹制需掌握炒糖色与火候，稍有挑战，预估制作时长约 45 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -102,9 +107,9 @@
     "制作过程，用部分五花肉做了水煮处理，跟未处理的一起做后续制作，发现未水煮的肉质更 Q 弹"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/徽派红烧肉/徽派红烧肉.md",
+    "baselineStatus": "matched"
+  }
 }

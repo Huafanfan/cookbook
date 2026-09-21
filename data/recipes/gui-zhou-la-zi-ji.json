@@ -2,6 +2,11 @@
   "id": "gui-zhou-la-zi-ji",
   "name": "贵州辣子鸡",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "辣"
+  ],
   "summary": "贵州辣子鸡是贵州地区的经典家常菜，以糍粑辣椒和多种香料烹制而成，鸡肉香糯软烂，土豆绵密入味，整体风味香辣浓郁。鸡肉富含优质蛋白质，搭配土豆等配菜，营养均衡。这道菜步骤较多，对新手有一定挑战，但按部就班也能成功。从备料到出锅，预计需要 1.大约 5 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -86,9 +91,13 @@
     "操作时，需要注意翻炒，因为糍粑辣椒会糊掉"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/贵州辣子鸡/贵州辣子鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d8a9db37e316d7152eca8ada198052a1125d2108f922e8d06bbe81d29ff2887f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

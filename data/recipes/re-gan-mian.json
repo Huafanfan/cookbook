@@ -2,6 +2,10 @@
   "id": "re-gan-mian",
   "name": "热干面",
   "category": "主食",
+  "tags": [
+    "重口",
+    "辣"
+  ],
   "summary": "热干面是武汉最具代表性的小吃之一，属于鄂菜系。碱水面条筋道爽滑，裹满浓稠的芝麻酱，搭配酸豆角、萝卜干和肉末，咸香微辣，滋味醇厚。主要提供碳水化合物和蛋白质，芝麻酱也富含钙质。制作简单快捷，新手也能轻松上手，从煮面到拌好大约只需十几分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -83,8 +87,13 @@
     "辣椒油看个人口味添加"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/热干面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:74d50c5c67804e1f77e4a3c3a0b74806803b5ec8e889d2b4f21cac8eb9a0f809",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

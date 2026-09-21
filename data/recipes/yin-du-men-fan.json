@@ -2,6 +2,10 @@
   "id": "yin-du-men-fan",
   "name": "印度焖饭",
   "category": "主食",
+  "tags": [
+    "一锅出",
+    "辣"
+  ],
   "summary": "印度焖饭是源自莫卧儿帝国时期的皇家料理，米粒细长、香料气息浓郁，鸡肉嫩滑、米饭粒粒分明，层次丰富。富含蛋白质和多种香料精华，能提振食欲。制作步骤较繁琐，对新手不太友好，全程约需 90 分钟（鸡肉需提前腌制 1 小时）。",
   "difficulty": 3,
   "servings": 3,
@@ -256,8 +260,13 @@
     "此菜在印度是婚礼和节日的必备菜品，被誉为\"印度的国菜\"。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/印度焖饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2fb9b7ae8ce3d464ce9d4d7101302885251b1b39ae3da3a84363b0062817a225",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

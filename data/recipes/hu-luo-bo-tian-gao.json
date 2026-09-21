@@ -2,6 +2,9 @@
   "id": "hu-luo-bo-tian-gao",
   "name": "胡萝卜甜糕",
   "category": "甜品",
+  "tags": [
+    "宴客"
+  ],
   "summary": "胡萝卜甜糕是印度家喻户晓的冬季甜品，胡萝卜丝与牛奶慢炖浓缩，融入酥油和坚果，口感绵密香甜、色泽金红。富含胡萝卜素、钙质和优质脂肪，暖身滋养。制作过程简单，但对新手需要些耐心，全程约需 45 分钟即可完成。",
   "difficulty": 2,
   "servings": 3,
@@ -109,7 +112,13 @@
     "这道甜品在印度几乎每个家庭都会做，是排灯节(Diwali)和婚礼上必不可少的甜品。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/胡萝卜甜糕.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:89bcd8c3b9b4d0681a98b006642548d98886369d83288316cb9373535813b176",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

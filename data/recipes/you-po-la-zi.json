@@ -2,6 +2,10 @@
   "id": "you-po-la-zi",
   "name": "油泼辣子",
   "category": "调料",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "一道香辣扑鼻的陕西风味调味料，红油润泽，芝麻蒜香交织，入口辣而不燥、回味绵长。辣椒富含维生素 C 与辣椒素，能增进食欲、暖身驱寒。制作过程需掌握油温，对新手稍有挑战，但按部就班即可成功。全程约 10 分钟完成，是家常拌菜拌面的点睛之笔。",
   "difficulty": 2,
   "servings": 2,
@@ -118,8 +122,13 @@
     "五香粉、草寇作为\"调料\"加入，可以增加香味，使油泼辣子更香"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/油泼辣子/油泼辣子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2d7480b8bcca2183e01649a5fa2c35f5225c6f6f0ed2afd7cb34aef9f1455d01",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

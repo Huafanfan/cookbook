@@ -2,6 +2,9 @@
   "id": "ying-shi-si-kang",
   "name": "英式司康",
   "category": "甜品",
+  "tags": [
+    "宴客"
+  ],
   "summary": "英式司康是一款经典英式下午茶点心，外酥内软，蛋奶香气浓郁，搭配果酱或奶油食用风味更佳。它主要由面粉、黄油、鸡蛋和淡奶油制成，富含碳水化合物和蛋白质，能快速补充能量。制作过程较为简单，只要掌握基本揉面手法，新手也能胜任，从准备到出炉大约需要一小时。",
   "difficulty": 2,
   "servings": 4,
@@ -76,7 +79,13 @@
     "最简单的分切方案是擀成圆形面皮，用刀切成 6 个扇形"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/英式司康/英式司康.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e5422db9f3324945c1b27f180b29e8be081267ba9b8e3104124ae2742a3bb52c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

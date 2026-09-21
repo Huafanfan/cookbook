@@ -2,6 +2,11 @@
   "id": "gan-bian-zai-ji",
   "name": "干煸仔鸡",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "辣"
+  ],
   "summary": "这是一道源自北大食堂、甜辣风味的创新川菜，鸡肉先腌后炸，外酥里嫩，土豆香糯，青椒脆爽，裹满红亮的甜辣酱汁，咸甜微辣十分开胃。富含蛋白质、碳水化合物及维生素。制作涉及油炸和酱汁熬制，对新手稍有挑战，但按步骤操作即可成功，全程约需 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -125,9 +130,13 @@
     "参考资料：[北大餐饮中心官方资讯](https://mp.weixin.qq.com/s/gd7F1bezTyd3OQsUVVur1w)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/干煸仔鸡/干煸仔鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d29a0276fadd6dea56fb83199c40a9a62000a98e1ae88d3a064bbe520881b296",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

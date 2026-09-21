@@ -2,6 +2,10 @@
   "id": "yang-pai-men-mian",
   "name": "羊排焖面",
   "category": "家常菜",
+  "tags": [
+    "一锅出",
+    "重口"
+  ],
   "summary": "羊排焖面是一道肉香浓郁、面条筋道的北方家常硬菜，羊排软烂，宽面吸足汤汁，每一口都满足。这道菜有肉有面有菜，一顿饭就能补齐人体所需的蛋白质、碳水和脂肪，营养全面。制作时需要先炖羊排再和面焖面，步骤稍多，更适合有一定下厨经验的朋友尝试，预计全程大约花费一个半小时。",
   "difficulty": 3,
   "servings": 2,
@@ -74,8 +78,9 @@
     "再次和面到光滑"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/羊排焖面/羊排焖面.md",
+    "baselineStatus": "matched"
+  }
 }

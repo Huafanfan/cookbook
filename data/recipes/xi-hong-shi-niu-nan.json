@@ -2,6 +2,10 @@
   "id": "xi-hong-shi-niu-nan",
   "name": "西红柿牛腩",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "酸甜"
+  ],
   "summary": "西红柿牛腩汤汁浓厚酸甜可口，牛肉软绵醇香，是道开胃下饭的家常菜。富含蛋白质、维生素和番茄红素，营养均衡。对新手有一定挑战，需要掌握炖肉火候和番茄炒汁的技巧。一般初学者大约需要 90 分钟完成。",
   "difficulty": 3,
   "servings": 2,
@@ -79,8 +83,13 @@
     "绝对不用番茄酱和少加佐料，尽可能还原食材的原味"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/西红柿牛腩/西红柿牛腩.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9bf42e962af781e41b63da5d8db68d669267a540dc88cddcd9c9a4a12e0adc8f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

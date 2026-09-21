@@ -2,6 +2,9 @@
   "id": "shou-gong-shui-jiao",
   "name": "手工水饺",
   "category": "主食",
+  "tags": [
+    "一锅出"
+  ],
   "summary": "手工水饺是一道中式经典主食，皮薄馅大、鲜美多汁，饱腹又可以根据个人口味随意调味。猪肉馅提供优质蛋白质和脂肪，搭配韭菜还能补充维生素与膳食纤维。这道菜品对新手来说难度较高，需要掌握和面、擀皮、调馅和煮饺的火候，预计制作时间约 3 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -169,7 +172,13 @@
     "考虑搭配黑醋食用。建议用量：10-20ml。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/手工水饺.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9c187e87f0a08ff52bc99eaebcb95511406bbf6d74ee2d21d21d9215feec72ec",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

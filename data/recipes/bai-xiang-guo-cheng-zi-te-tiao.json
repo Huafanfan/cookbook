@@ -2,6 +2,10 @@
   "id": "bai-xiang-guo-cheng-zi-te-tiao",
   "name": "百香果橙子特调",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "酸甜"
+  ],
   "summary": "这是一道酸甜清爽的夏日饮品，融合了百香果的热带果香与橙子的鲜甜，搭配茉莉绿茶或苏打气泡水，口感层次分明，冰爽解腻。富含维生素 C，有助增强免疫力和滋润肌肤。包含腌制、泡茶、榨汁等步骤，操作略多但难度适中，新手也能尝试。需提前一天腌制百香果，总耗时约 24 小时，实际动手时间仅 大约 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -86,8 +90,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/百香果橙子特调/百香果橙子特调.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f8c475aa242c8f6f371f7efbfc8dac00adaf9ccaa09b82b39f5dd6a35c623fe2",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

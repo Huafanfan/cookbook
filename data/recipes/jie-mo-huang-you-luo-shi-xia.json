@@ -2,6 +2,9 @@
   "id": "jie-mo-huang-you-luo-shi-xia",
   "name": "芥末黄油罗氏虾",
   "category": "家常菜",
+  "tags": [
+    "重口"
+  ],
   "summary": "这道菜以黄油与芥末的奇妙搭配为亮点，虾肉紧实弹嫩，酱汁浓郁辛香，是一道新派海鲜菜肴。虾肉富含优质蛋白和多种微量元素，营养均衡。制作难度适中，只要提前备好料、控制火候，新手也能成功。从处理活虾到出锅，大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -94,7 +97,13 @@
     "如果不太能接受芥末就放少点，能接受就放多点，如果放多了，煮久一会儿，芥末味也会散去。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/芥末黄油罗氏虾/芥末黄油罗氏虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2c2dcde52f78d7e9514ca6cf742603e54fb71b4b67493a259012d589ccceecf5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "dou-chi-ling-yu-you-mai-cai",
   "name": "豆豉鲮鱼油麦菜",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手",
+    "重口"
+  ],
   "summary": "豆豉鲮鱼油麦菜是一道咸香下饭的快手家常小炒，源于粤式罐头菜肴，油麦菜清脆、鲮鱼酥香。荤素搭配，富含蛋白质和膳食纤维。做法简单，对新手十分友好，一般十五分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -52,9 +57,13 @@
     "**注意事项**："
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "快手",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/豆豉鲮鱼油麦菜/豆豉鲮鱼油麦菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:70fef0e3cc553e2081120225eb73e31f94a6be0548bdf7b6e9b87d4939dd280a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

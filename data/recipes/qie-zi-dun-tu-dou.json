@@ -2,6 +2,11 @@
   "id": "qie-zi-dun-tu-dou",
   "name": "茄子炖土豆",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "一锅出"
+  ],
   "summary": "茄子炖土豆是一道东北家常炖菜，口感绵软咸香，带着辣椒的微辣和蒜香，十分下饭。茄子富含花青素和膳食纤维，土豆提供碳水化合物和维生素 C，加上猪肉的蛋白质，营养均衡又饱腹。这道菜操作流程简单，但需要掌握翻炒和收汁的火候，对新手有一定挑战，预估难度中等。从备料到出锅大约需要 45 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -81,9 +86,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "辣",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/茄子炖土豆.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2176511f2b4fdb548757ef2aaacb859c1715d1f2e192d1372d3e5daafa10ca84",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

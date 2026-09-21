@@ -2,6 +2,10 @@
   "id": "gu-lu-rou",
   "name": "咕噜肉",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "酸甜"
+  ],
   "summary": "咕噜肉是一道经典粤式家常菜，酸甜开胃、外酥里嫩，菠萝的果香让肉块吃起来格外清爽解腻。猪肉提供优质蛋白质，青椒和菠萝则补充维生素与膳食纤维。这道菜的难点在于掌握炸肉的火候，对新手略有挑战，但只要按步骤操作便能成功。从腌制到出锅，全程大约需要 40 分钟，很适合为家人做一道下饭快菜。",
   "difficulty": 3,
   "servings": 2,
@@ -128,8 +132,13 @@
     "想让肉更有层次可以在生粉中加鸡蛋，炸出来会更香脆"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/咕噜肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e07bc7afeca69c7b3016eba8aeb47050b57acab9a9d274992e4dac0952512f46",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

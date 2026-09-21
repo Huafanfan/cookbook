@@ -2,6 +2,11 @@
   "id": "b-5-2-hong-zha-ji",
   "name": "B52轰炸机",
   "category": "饮品",
+  "tags": [
+    "宴客",
+    "快手",
+    "省事"
+  ],
   "summary": "这款鸡尾酒口感层次分明，入口先是伏特加的烈，紧接着是咖啡奶油的回甘，点燃后饮用有独特的冰火体验，属于经典创意鸡尾酒。咖啡酒与百利甜酒提供了少量咖啡因和奶脂，但整体营养以酒精为主。制作需要练习分层倒酒和点火技巧，对新手稍有难度，整个过程大约只需 5 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -55,9 +60,13 @@
     "由于吸管太细，其中氧气不足，所以火苗会灭掉，不必担心。这时候，会感到一股热辣顺着喉咙一直烈到胃，之后就是久久的咖啡奶油回甘。非常刺激又好喝。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/B52轰炸机.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:42c6b0d9050a9ba31d94d3948a9b896b71179d7c53dd82d334baa165c1fa5af8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

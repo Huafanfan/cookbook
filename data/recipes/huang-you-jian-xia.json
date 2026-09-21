@@ -2,6 +2,10 @@
   "id": "huang-you-jian-xia",
   "name": "黄油煎虾",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "重口"
+  ],
   "summary": "黄油煎虾是一道风味浓郁、虾肉鲜嫩弹牙的家常海鲜菜。鲜虾富含优质蛋白和钙、锌等矿物质，搭配黄油增添了奶香与能量。制作相对简单，只需耐心处理活虾，新手也能顺利上手，总耗时约一小时。",
   "difficulty": 2,
   "servings": 2,
@@ -74,8 +78,13 @@
     "[冯小厨的菜谱](https://www.bilibili.com/video/BV1g541177cd)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/黄油煎虾/黄油煎虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:79f1393635b81be57ebebd3a2a90fff6b05934ff2ad4f6d732a18ab300f10bae",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

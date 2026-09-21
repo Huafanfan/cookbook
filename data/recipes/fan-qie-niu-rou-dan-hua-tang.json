@@ -2,6 +2,10 @@
   "id": "fan-qie-niu-rou-dan-hua-tang",
   "name": "番茄牛肉蛋花汤",
   "category": "汤羹",
+  "tags": [
+    "快手",
+    "酸甜"
+  ],
   "summary": "番茄牛肉蛋花汤是一道酸甜开胃的家常汤品，口感鲜嫩顺滑。牛肉富含优质蛋白和铁，番茄提供番茄红素和维生素 C，鸡蛋则补充卵磷脂。做法简单，新手也能轻松掌握，通常大约半 小时就能端上餐桌。",
   "difficulty": 2,
   "servings": 2,
@@ -85,8 +89,13 @@
     "如果喜欢辣味，可以加入一定的辣椒或辣椒酱来调味"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/番茄牛肉蛋花汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b448fe148e52203f17f9df8a2b550a7f8c0bbbef86960b59e238e6adf83dea55",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

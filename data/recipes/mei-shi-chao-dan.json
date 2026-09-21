@@ -2,6 +2,10 @@
   "id": "mei-shi-chao-dan",
   "name": "美式炒蛋",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "新手友好"
+  ],
   "summary": "这是一道松软鲜嫩的美式家常蛋料理，加入牛奶后蛋花细密、口感绵润，富含优质蛋白和钙质。做法简单，对新手友好，从准备到出锅大约只需 20 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -50,8 +54,13 @@
     "考虑到很多人是一人食就炒一两个鸡蛋，口径比较小的锅或许更方便在锅中均匀搅拌。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/美式炒蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0c33dc1ee53723b3910ec72c5cfcc56ce1c76278fb47f44261643a75b11496b4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

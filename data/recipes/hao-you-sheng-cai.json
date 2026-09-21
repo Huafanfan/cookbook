@@ -2,6 +2,10 @@
   "id": "hao-you-sheng-cai",
   "name": "蚝油生菜",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡"
+  ],
   "summary": "蚝油生菜是一道爽口鲜香的家常菜，脆嫩的生菜淋上蒜香蚝油汁，咸中带甜，属于粤菜和川菜馆都很常见的快手素菜。富含维生素和膳食纤维，有助于促进消化。做法对新手非常友好，从洗菜到出锅大约只需 15 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -72,8 +76,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/蚝油生菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ed65013873ea15d2b3ee6f26208a08764aefbb69a8400548d4541e2ba179affd",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

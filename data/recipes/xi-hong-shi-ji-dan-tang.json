@@ -2,6 +2,11 @@
   "id": "xi-hong-shi-ji-dan-tang",
   "name": "西红柿鸡蛋汤",
   "category": "汤羹",
+  "tags": [
+    "快手",
+    "酸甜",
+    "清淡"
+  ],
   "summary": "西红柿鸡蛋汤是一道酸甜开胃、口感滑嫩的家常汤品，做法极简，属于老少皆宜的大众菜肴。富含番茄红素、维生素 C 和优质蛋白质，营养均衡易吸收。对新手非常友好，快手省时，预计制作时长 大约 15 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -68,9 +73,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "酸甜",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/西红柿鸡蛋汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ac89a0557017f5c071692c30df9cf00aa2281240bf123038c6c85fb69a2efde3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

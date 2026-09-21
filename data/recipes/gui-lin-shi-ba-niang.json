@@ -2,6 +2,9 @@
   "id": "gui-lin-shi-ba-niang",
   "name": "桂林十八酿",
   "category": "家常菜",
+  "tags": [
+    "宴客"
+  ],
   "summary": "桂林传统酿菜系列，将调好味的猪肉、虾滑等馅料酿入青椒、苦瓜、田螺、茄子等十多种中空食材中，煎焖成菜，一菜一味，鲜香多汁，口感软嫩或弹牙，属于浓郁的地方家常风味。馅料提供优质蛋白质，搭配多种蔬菜，富含维生素与膳食纤维，营养较为均衡。制作步骤需要逐一填馅和掌控火候，稍需耐心，但操作逻辑简单，厨艺新手也能尝试，预计全部完成约需 1.5 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -61,7 +64,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/桂林十八酿/桂林十八酿.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4bb82d19ba4b2974258d7c614ddb0f747e29659514b221fd30a34b7dbad25539",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

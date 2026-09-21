@@ -1,0 +1,83 @@
+{
+  "id": "dong-gua-sang-na-ji",
+  "name": "冬瓜桑拿鸡",
+  "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡",
+    "减脂"
+  ],
+  "summary": "冬瓜桑拿鸡是一道清爽的蒸菜，冬瓜垫底吸饱鸡汁，虫草花提鲜，鸡肉嫩滑，上汽一蒸即成。热量低、蛋白足，做法简单，从备菜到出锅大约需要 35 分钟，适合日常家常制作。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 35,
+  "ingredients": [
+    {
+      "name": "鸡肉",
+      "amount": 400,
+      "unit": "g",
+      "note": "切块"
+    },
+    {
+      "name": "冬瓜",
+      "amount": 300,
+      "unit": "g",
+      "note": "切薄片"
+    },
+    {
+      "name": "虫草花",
+      "amount": 30,
+      "unit": "g",
+      "note": "提前冲洗泡软"
+    },
+    {
+      "name": "姜丝",
+      "amount": 10,
+      "unit": "g"
+    },
+    {
+      "name": "生抽",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "蚝油",
+      "amount": 10,
+      "unit": "g"
+    },
+    {
+      "name": "盐",
+      "amount": 3,
+      "unit": "g"
+    },
+    {
+      "name": "食用油",
+      "amount": 10,
+      "unit": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "text": "鸡切块，加姜丝、生抽、蚝油、盐、食用油，揉搓均匀后腌制 20 分钟",
+      "minutes": 20
+    },
+    {
+      "text": "冬瓜切薄片铺在盘子底部"
+    },
+    {
+      "text": "再铺一层泡好的虫草花"
+    },
+    {
+      "text": "把腌好的鸡肉铺在虫草花上面"
+    },
+    {
+      "text": "水烧开后放入蒸锅，上汽后蒸 15 分钟，出锅即可",
+      "minutes": 15
+    }
+  ],
+  "tips": [
+    "冬瓜切薄片铺底更容易蒸熟入味，垫在底下还能吸满鸡汤的鲜味",
+    "虫草花提前冲洗泡软，铺在冬瓜和鸡肉之间，让鲜味上下渗透"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+}

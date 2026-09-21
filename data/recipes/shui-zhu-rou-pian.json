@@ -2,6 +2,11 @@
   "id": "shui-zhu-rou-pian",
   "name": "水煮肉片",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "重口"
+  ],
   "summary": "水煮肉片是一道麻辣鲜香、肉片滑嫩、配菜爽脆的经典川菜，极其适合下饭。猪里脊提供优质蛋白质，搭配豆芽等蔬菜，营养均衡。做法稍显繁琐，尤其需要耐心腌制肉片和制作刀口辣椒，新手大约需要 1 至 2 小时完成。",
   "difficulty": 3,
   "servings": 2,
@@ -177,9 +182,13 @@
     "水煮牛肉也可以按照这个做法。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/水煮肉片.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e487bf88a31f500f2a3cdadf4a29cb4de3e5cadb20a7493ada9b18bce7af1e6a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

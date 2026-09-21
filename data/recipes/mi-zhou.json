@@ -2,6 +2,10 @@
   "id": "mi-zhou",
   "name": "米粥",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "省事"
+  ],
   "summary": "白粥清淡绵软，是家常必备的暖胃主食，米香纯粹，老少皆宜。富含碳水化合物和少量蛋白质，易于消化吸收，有补脾、和胃、清肺的食养之效。操作简单，只需掌握好火候和水量，初学者也能轻松完成，全程约需 25 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -63,8 +67,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/米粥.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:17b546c35e445c803237ae9cd169ed47c7d6fe9eca18ddf8078be53653b60de1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

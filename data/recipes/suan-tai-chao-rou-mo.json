@@ -2,6 +2,10 @@
   "id": "suan-tai-chao-rou-mo",
   "name": "蒜苔炒肉末",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "蒜苔炒肉末是北方家常菜，咸鲜脆嫩，蒜香浓郁。蒜苔富含膳食纤维和维生素，五花肉提供蛋白质，荤素搭配均衡。做法简单，备料轻松，新手也能快速上手。从切配到出锅大约只需 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -82,8 +86,13 @@
     "选用五花肉薄片是因为切肉简单且不用腌制即可入味"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/蒜苔炒肉末.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:58592267c5af5c49967c05fba14c3ab2963a5a3679de2f4e8e4d2d59c8851c75",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

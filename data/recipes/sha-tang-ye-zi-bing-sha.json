@@ -2,6 +2,10 @@
   "id": "sha-tang-ye-zi-bing-sha",
   "name": "砂糖椰子冰沙",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "砂糖椰子冰沙是一道极具热带风情的快手冷饮，清甜的椰香融合粗粒黄糖的焦香，口感绵密冰爽。椰子水富含天然电解质与矿物质，能快速补充水分，咖啡调糖增添碳水能量。制作门槛极低，只要提前将椰汁冻硬，敲打成沙即可，对新手毫无压力。从冷冻到出品需提前准备 10 小时以上，但动手操作仅需几分钟，很适合作为悠闲的午后冰品。",
   "difficulty": 1,
   "servings": 2,
@@ -50,8 +54,13 @@
     "在以上步骤中，瓶装椰汁可以提前冰冻，但是不宜超过 7 天，否则有变质风险。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/砂糖椰子冰沙/砂糖椰子冰沙.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e6ed074040ef089e33ad6c1ca06ecc9cc6861575e8c5d78feb02be3e458e2611",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "jin-qiang-yu-jiang-san-ming-zhi",
   "name": "金枪鱼酱三明治",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "便当"
+  ],
   "summary": "这道西式早餐三明治以水浸金枪鱼拌入蛋黄酱和俄式酸黄瓜汁，咸鲜微酸，口感绵密，配上烤脆的吐司格外饱腹。富含优质蛋白和 Omega-3 等营养，能快速补充能量。制作非常简单，只需混合酱料、用轻食机加热，新手也能在 5 分钟里轻松搞定。",
   "difficulty": 1,
   "servings": 2,
@@ -63,8 +67,13 @@
     "注意在按压操作之前不要将轻食机电源接通，以免引发安全问题"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/金枪鱼酱三明治.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:184b966fe0bde2cadd92aa258dcf7050c4093e84307bf885b3c7dfe1eaec210d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

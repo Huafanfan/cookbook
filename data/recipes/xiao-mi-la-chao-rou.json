@@ -2,6 +2,11 @@
   "id": "xiao-mi-la-chao-rou",
   "name": "小米辣炒肉",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭",
+    "重口"
+  ],
   "summary": "小米辣炒肉香辣过瘾，是一道典型的西南风味下饭菜，猪肉的鲜嫩搭配小米辣的爽辣，令人食欲大开。猪肉富含蛋白质和脂肪，辣椒提供丰富的维生素 C，能够促进食欲。虽然需要掌握爆香和翻炒的火候，但步骤清晰，新手也能轻松上手，预计制作时长约 25 分钟。注意，这道菜辣味突出，不建议清淡饮食者尝试。",
   "difficulty": 2,
   "servings": 2,
@@ -80,9 +85,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/小米辣炒肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:5587c7a2ce8643fd719fc4e1a9dc20ebe36875ce3420729528b593686e11ae68",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

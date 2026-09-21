@@ -2,6 +2,11 @@
   "id": "tang-ban-xi-hong-shi",
   "name": "糖拌西红柿",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "新手友好",
+    "省事"
+  ],
   "summary": "这是一道适合夏季的家常凉菜，酸甜爽口，制作简便。西红柿富含维生素 C，开胃解腻。新手也能轻松完成，整个过程（包含冷藏）约 15 分钟即可上桌。",
   "difficulty": 1,
   "servings": 2,
@@ -50,9 +55,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜",
-    "新手友好",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/糖拌西红柿/糖拌西红柿.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:55b897cf2e7f6df64bf931f873aab35015fb6b9969e896b8bba89d8f2b40911e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

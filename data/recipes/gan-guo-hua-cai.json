@@ -2,6 +2,11 @@
   "id": "gan-guo-hua-cai",
   "name": "干锅花菜",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "辣"
+  ],
   "summary": "干锅花菜是一道湘味家常菜，口感脆嫩干香，五花肉焦香四溢，带着微微辣意。花菜富含维生素 C 和膳食纤维，搭配五花肉补充蛋白质与能量。制作难度适中，只需注意焯水后充分沥干并把五花肉煸出油脂，适合有一定基础的烹饪新手。从准备到出锅大约需要 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -84,9 +89,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/干锅花菜/干锅花菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:1f1eb902d7dbb19349f028954a1897153952a0a1ac44a48f90095e48d9b253fe",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

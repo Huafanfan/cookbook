@@ -2,6 +2,10 @@
   "id": "shan-bei-ao-dou-jiao",
   "name": "陕北熬豆角",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出"
+  ],
   "summary": "这是一道西北农家风味的炖菜，豆角绵软、土豆沙糯、番茄汤汁浓郁，酸香开胃。富含膳食纤维、维生素和碳水化合物，营养均衡。做法极其简单，食材用量可随喜好调整，几乎没有失败的可能，对新手特别友好。从备料到出锅，大约只需 30 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -113,8 +117,13 @@
     "加入西红柿后开始继续熬制后，需要偶尔翻搅防止糊底"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/陕北熬豆角.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:461c5f6b80bf6afca7a1329cc9c7912825888820260174bc49b7ceabf7fa253c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

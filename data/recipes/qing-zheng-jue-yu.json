@@ -2,6 +2,10 @@
   "id": "qing-zheng-jue-yu",
   "name": "清蒸鳜鱼",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "宴客"
+  ],
   "summary": "清蒸鳜鱼肉质细嫩，鲜甜本味突出，是讲究原汁原味的家常河鲜做法。鳜鱼富含优质蛋白和多种微量元素，易于消化吸收。处理时需小心鱼鳍，但整体步骤不复杂，新手稍加注意也能胜任。从备料到出锅，大约只需半小时。",
   "difficulty": 2,
   "servings": 2,
@@ -58,8 +62,13 @@
     "**注意事项**："
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/清蒸鳜鱼/清蒸鳜鱼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b57d895e42f8287eb9088bc5b67777f72cbfbe3ad4e5a341d31628758a6bfb0f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

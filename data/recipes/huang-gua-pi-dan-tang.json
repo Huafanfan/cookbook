@@ -2,6 +2,11 @@
   "id": "huang-gua-pi-dan-tang",
   "name": "黄瓜皮蛋汤",
   "category": "汤羹",
+  "tags": [
+    "快手",
+    "清淡",
+    "一锅出"
+  ],
   "summary": "黄瓜皮蛋汤是一道快手家常汤品，口味清淡，带着皮蛋与蒜瓣煸炒出的焦香，暖心暖胃且不油腻。黄瓜清热补水，皮蛋提供一定蛋白质，低脂少负担。做法几乎没有技术门槛，厨房新手也能轻松完成，从备料到出锅只需大约十 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -72,9 +77,13 @@
     "参考资料：[【黄瓜皮蛋汤的做法步骤图，黄瓜皮蛋汤怎么做好吃】是春天呐__下厨房](https://www.xiachufang.com/recipe/103991291/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "清淡",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/黄瓜皮蛋汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4a408d18513d2299f838551f6aff699d40cc39fb21ab3fe4acb6b8044dbd2536",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "ba-si-tu-dou",
   "name": "拔丝土豆",
   "category": "家常菜",
+  "tags": [
+    "宴客"
+  ],
   "summary": "拔丝土豆是一道经典的鲁菜，成菜色泽金黄、糖丝细长，外脆里糯、香甜可口。土豆富含碳水化合物和维生素 C，能快速补充能量。这道菜有一定难度，新手需注意熬糖火候，避免翻沙或焦苦。从备料到出锅，预计制作时长约 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -66,7 +69,13 @@
     "对于使用剩余的食用油，可以考虑重新收集到油壶。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/拔丝土豆/拔丝土豆.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:aa23829e59d2342b9176221d0195089f53928ee2b9c29a397af68dea3022c6f1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

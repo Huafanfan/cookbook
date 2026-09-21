@@ -2,6 +2,11 @@
   "id": "zha-shu-tiao",
   "name": "炸薯条",
   "category": "半成品",
+  "tags": [
+    "宵夜",
+    "省事",
+    "新手友好"
+  ],
   "summary": "炸薯条外酥里软，金黄咸香，属于广受欢迎的快餐小食。土豆提供碳水化合物和膳食纤维，但油炸或空气炸制后热量较高。使用半成品薯条和空气炸锅，操作简单，新手也能轻松上手。从预热到出锅，大约需要 25 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -67,9 +72,9 @@
     "番茄酱、蛋黄酱、蜂蜜芥末酱、[蒜香酱油](../../condiment/蒜香酱油.md)……炸薯条的晋级之路在于对酱料及酱料组合的探究。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宵夜",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/炸薯条/炸薯条.md",
+    "baselineStatus": "matched"
+  }
 }

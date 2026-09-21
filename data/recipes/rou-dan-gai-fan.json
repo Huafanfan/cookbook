@@ -2,6 +2,10 @@
   "id": "rou-dan-gai-fan",
   "name": "肉蛋盖饭",
   "category": "主食",
+  "tags": [
+    "下饭",
+    "快手"
+  ],
   "summary": "这道菜酱香浓郁、咸甜适口，肉馅焦香、鸡蛋嫩滑，盖在热米饭上十分满足，属于家常快手料理。富含优质蛋白质和必需氨基酸，能快速补充能量。做法简单直观，新手也能轻松上手，从备料到出锅大约只需十五分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -89,8 +93,13 @@
     "请务必保证做完饭后关掉燃气设备以免发生危险"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/肉蛋盖饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:821df4244fbe1caa16a2dbafcbb7886d4b3cfe9323d05676946d146d47b817e1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "tai-yang-dan",
   "name": "太阳蛋",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "太阳蛋是一道用微波炉快速制成的家常早餐。口感嫩滑，蛋清凝固、蛋黄微溏，属于典型的快手菜。鸡蛋富含优质蛋白和多种维生素，易于消化吸收。做法非常简单，对新手友好。使用可控火候微波炉只需 3 分钟就能完成，不可控火候的也仅需几分钟反复加热。",
   "difficulty": 1,
   "servings": 2,
@@ -75,8 +79,13 @@
     "- 辨别方法： 若在微波炉操作面板上能找到小火，中火，大火等字样即为可控火候微波炉"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/太阳蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:a03bb05feac3fbd37a3e9e95e9d5b67ec21f3ed83896fd95bca328cd35c450d0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

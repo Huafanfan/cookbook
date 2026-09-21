@@ -2,6 +2,10 @@
   "id": "bian-yu-dun-dou-fu",
   "name": "鳊鱼炖豆腐",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出"
+  ],
   "summary": "鳊鱼炖豆腐是一道家常红烧菜，鱼肉鲜嫩入味，豆腐饱吸汤汁，咸鲜微辣。鳊鱼富含优质蛋白和不饱和脂肪酸，豆腐则提供植物蛋白和钙质，搭配起来营养均衡。制作难度适中，煎鱼时稍需耐心防粘，整体步骤清晰，新手也能尝试。从备料到完成约需 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -91,8 +95,13 @@
     "最后出锅时，加入一些切碎的大蒜，味道会更好"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4392976b795f7ec313cc2dcdaf26ed1070e148118f17a68bd43d338b062ab168",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

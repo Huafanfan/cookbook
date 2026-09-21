@@ -2,6 +2,9 @@
   "id": "yi-shi-kao-ji",
   "name": "意式烤鸡",
   "category": "家常菜",
+  "tags": [
+    "宴客"
+  ],
   "summary": "意式烤鸡是一道带有地中海风味的家常烤箱菜。鸡腿肉经过蒜香橄榄油腌制，烤后外皮微焦、内里鲜嫩多汁，搭配柠檬汁和欧芹，口感清爽不腻。鸡肉富含优质蛋白质，橄榄油提供不饱和脂肪酸，营养均衡。制作难度适中，需要提前预热烤箱，新手跟着步骤也能顺利完成，从腌制到出炉总计约五十分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -72,7 +75,13 @@
     "鸡肉必须全熟才能吃，吃未全熟的鸡肉可能会导致食物中毒和感染细菌，如沙门氏菌和福氏杆菌等。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/意式烤鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:122adb7a89fcc5d486633dfb479998756dad9d2130f8f5799ce9fb2a8a5179de",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

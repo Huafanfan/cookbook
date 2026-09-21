@@ -2,6 +2,10 @@
   "id": "leng-chi-tu",
   "name": "冷吃兔",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "这是一道经典的四川自贡盐帮菜，麻辣干香，兔肉紧实有嚼劲，入口先辣后鲜，回味悠长。兔肉高蛋白低脂肪，富含卵磷脂和多种氨基酸，营养丰富且易于消化。制作过程需处理多种香料并严格控制火候，对新手有一定挑战。从备料到炒制完成约需 1.5 小时，但放置一夜后风味更佳，值得提前准备。",
   "difficulty": 3,
   "servings": 2,
@@ -121,8 +125,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/冷吃兔.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0c779e4bf630c557444f9af6487c67027f1a103afb64654ed3e7eb8c2174f999",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

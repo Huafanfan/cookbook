@@ -2,6 +2,11 @@
   "id": "ban-cheng-pin-yi-mian",
   "name": "半成品意面",
   "category": "半成品",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "这是一道利用市售半成品快速完成的西式简餐，面条弹韧有嚼劲，搭配现成酱料风味浓郁。以碳水化合物为主，能迅速补充能量，并含有蛋白质。制作难度极低，新手也能零失误，从开火到装盘仅需约 2 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -72,9 +77,13 @@
     "“Spaghettoni”是较厚的意大利粉。“Spaghettini”较细的意大利面。“capellini”是更细版的意大利面。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/半成品意面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8344851c25aa982351391e1041443d1d94a4cddc51fdcfecd744fbe042af3c50",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

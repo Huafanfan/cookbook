@@ -2,6 +2,10 @@
   "id": "tang-cu-li-ji",
   "name": "糖醋里脊",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "重口"
+  ],
   "summary": "糖醋里脊酸甜浓郁、外酥里嫩，是广受欢迎的家常风味，在多地域菜系中都很常见。猪里脊提供优质蛋白，但裹粉油炸和糖醋汁使整体热量偏高。制作时需要掌握腌制、复炸和调汁火候，对新手稍有挑战，建议提前备好料并一气呵成。从备料到出锅大约需要 45 分钟到 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -94,8 +98,13 @@
     "[百度百科](https://baike.baidu.com/item/%E7%B3%96%E9%86%8B%E9%87%8C%E8%84%8A/135832)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/糖醋里脊.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:bbb06fa7489f034b5a0af1d14faaf9e13e3cf2616815c8eed0610eef5e52bf7d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

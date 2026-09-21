@@ -2,6 +2,10 @@
   "id": "chang-dao-bing-cha",
   "name": "长岛冰茶",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "长岛冰茶是一款口感酷似冰茶、入口柔和但酒精度颇高的经典鸡尾酒。它本身营养价值不高，偶尔小酌可放松身心，但切勿过量。做法非常简单，只需按比例混合四种基酒、甜酒和果汁，新手也能轻松调制。从准备到完成仅需 大约 5 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -87,8 +91,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/长岛冰茶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d1ce0c921a45e12f8df81e4b1d8889fd24cbf799b21aeaebc0c1e675a0ff9758",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

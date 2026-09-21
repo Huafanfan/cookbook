@@ -2,6 +2,10 @@
   "id": "ao-er-liang-feng-wei-kao-ji-tui",
   "name": "奥尔良风味烤鸡腿",
   "category": "家常菜",
+  "tags": [
+    "省事",
+    "新手友好"
+  ],
   "summary": "奥尔良风味烤鸡腿是一道简单易做的菜，富含蛋白质和铁。总共花费约 3 小时，其中手动操作时间约 20 分钟。",
   "difficulty": 3,
   "servings": 1,
@@ -88,8 +92,13 @@
     "该指南基于的烤箱参数为_**容积 25 L，功率 1400 W**_。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/奥尔良风味烤鸡腿/奥尔良风味烤鸡腿.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:01a0ccc620b29519283d4f1939ac28e7f56b30786952d9dbe097a13bf82bce6a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

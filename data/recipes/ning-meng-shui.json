@@ -2,6 +2,11 @@
   "id": "ning-meng-shui",
   "name": "柠檬水",
   "category": "饮品",
+  "tags": [
+    "酸甜",
+    "快手",
+    "省事"
+  ],
   "summary": "这道饮品以新鲜柠檬为主角，搭配果蜜调和，酸甜平衡，冰镇后更感清凉解暑。柠檬富含维生素 C，经常饮用有助于补充营养、提神美白。制作步骤极简，只需捶打、加料、摇晃，新手也能在三五分钟内完成。",
   "difficulty": 1,
   "servings": 2,
@@ -58,9 +63,13 @@
     "参考资料：[柠檬水教程](https://v.douyin.com/TVNTcXDi46I)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/柠檬水/柠檬水.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3a756c1c237869d8494fea08a4340dcace012b5f5cc16041feecc1ce25e4a4cb",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

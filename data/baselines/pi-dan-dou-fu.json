@@ -1,0 +1,86 @@
+{
+  "id": "pi-dan-dou-fu",
+  "name": "皮蛋豆腐",
+  "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手",
+    "省事"
+  ],
+  "summary": "皮蛋豆腐是一道清爽开胃的凉拌家常菜，松花蛋 Q 弹滑嫩，嫩豆腐入口即化，咸香微酸的口味特别下饭。豆腐富含优质植物蛋白和钙，皮蛋则提供铁、维生素 A 等营养素，搭配食用易于消化吸收。制作过程几乎零门槛，新手也能轻松完成，从备料到上桌仅需 大约 5 分钟。",
+  "difficulty": 1,
+  "servings": 1,
+  "cookMinutes": 5,
+  "ingredients": [
+    {
+      "name": "皮蛋",
+      "amount": 2,
+      "unit": "个"
+    },
+    {
+      "name": "内酯豆腐",
+      "amount": 1,
+      "unit": "盒"
+    },
+    {
+      "name": "生抽",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "白砂糖",
+      "amount": 2.5,
+      "unit": "g"
+    },
+    {
+      "name": "醋",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "香油",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "辣椒油",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "花生碎",
+      "amount": 10,
+      "unit": "g"
+    },
+    {
+      "name": "葱花",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "name": "香菜",
+      "amount": 1,
+      "unit": "株"
+    }
+  ],
+  "steps": [
+    {
+      "text": "先把皮蛋剥壳，切成四瓣。"
+    },
+    {
+      "text": "嫩豆腐切块或者切片放中间。"
+    },
+    {
+      "text": "将生抽、白砂糖、醋、香油、辣椒油调成酱汁，淋上去。"
+    },
+    {
+      "text": "最后可选撒上花生碎、葱花、香菜。"
+    }
+  ],
+  "tips": [
+    "豆腐先焯水去豆腥味可以去除豆腥味",
+    "皮蛋切瓣时刀上可以抹点香油防止粘刀",
+    "参考资料：[涼拌皮蛋豆腐 by 低配版小當家 - 愛料理](https://icook.tw/recipes/437531)"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+}

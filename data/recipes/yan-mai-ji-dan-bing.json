@@ -2,6 +2,9 @@
   "id": "yan-mai-ji-dan-bing",
   "name": "燕麦鸡蛋饼",
   "category": "早餐",
+  "tags": [
+    "快手"
+  ],
   "summary": "燕麦鸡蛋饼是一道快手营养早餐，口感软嫩，带有燕麦的谷物香气与蛋奶的醇厚，属于家常简约风格。富含蛋白质、碳水化合物和膳食纤维，能为身体提供充足能量，尤其适合健身人士和工作日早晨。做法简单，对新手友好，从备料到出锅通常只需十几分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -62,7 +65,13 @@
     "煎饼时使用小火，避免燕麦部分煎糊。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/燕麦鸡蛋饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b344280987def6389220899ff1b66e68512772f306601357bc4da3dad4cfea86",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

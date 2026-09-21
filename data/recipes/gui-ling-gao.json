@@ -2,6 +2,9 @@
   "id": "gui-ling-gao",
   "name": "龟苓膏",
   "category": "甜品",
+  "tags": [
+    "省事"
+  ],
   "summary": "龟苓膏是一道广式传统甜品，口感嫩滑微苦回甘，常作为夏日消暑小食。龟苓膏能清热祛湿、滋阴养颜，是营养健康的一款点心。做法简单，新手也能轻松掌握，全程只需备料、搅拌和加热，冷藏等待约两小时后即可享用。",
   "difficulty": 1,
   "servings": 2,
@@ -64,7 +67,13 @@
     "不同品牌龟苓膏粉浓度略有差异，建议参照包装说明调整配比。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/龟苓膏/龟苓膏.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e216e0f54998d28aff9a78a24adae7f6809237e288babd1d95b6763988c62645",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

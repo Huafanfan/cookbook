@@ -2,6 +2,9 @@
   "id": "li-zhi-rou",
   "name": "荔枝肉",
   "category": "家常菜",
+  "tags": [
+    "酸甜"
+  ],
   "summary": "荔枝肉是一道酸甜酥香的福州传统闽菜，外焦里嫩的肉块裹着红亮的酱汁，搭配水果添入清爽果香。猪瘦肉富含优质蛋白质，凤梨含有膳食纤维和维生素，能帮助开胃解腻。制作过程需要切肉、挂糊和两次油炸，略有挑战但步骤明确，适合有一定下厨基础的美食爱好者尝试，大约 45 分钟就能端上餐桌。",
   "difficulty": 3,
   "servings": 2,
@@ -116,7 +119,13 @@
     "可以通过勺子敲打瘦肉块，听到声响来判断是否炸透瘦肉"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/荔枝肉/荔枝肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8256552cf2753d822945a0f7bbe5c8579c21c3a2518d99e42f6f22e0322d07fb",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "dai-ba-zhou-zi",
   "name": "带把肘子",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "一锅出",
+    "重口"
+  ],
   "summary": "带把肘子是陕西大荔的传统名菜，因脚爪形似把柄而得名。成菜肘皮胶粘软糯，肉质酥烂不腻，蘸甜面酱佐葱段食用，咸香醇厚。富含胶原蛋白和优质蛋白质，滋补养颜。制作需去骨、定形、长时间蒸制，对新手有一定挑战，预计整个制作过程约需 3.5 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -70,13 +75,13 @@
     },
     {
       "name": "小斧头",
-      "note": "砸断骨头用",
-      "group": "工具"
+      "group": "工具",
+      "note": "砸断骨头用"
     },
     {
       "name": "消毒纱布",
-      "note": "能盖住肘子",
-      "group": "工具"
+      "group": "工具",
+      "note": "能盖住肘子"
     }
   ],
   "steps": [
@@ -105,9 +110,13 @@
     "蒸锅下半放水，上半放肘子，蒸时及时加水防止蒸干。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客",
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/带把肘子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3139c1a00707368d1e84487f63cd30f08c58f33107dfd31c5e325efcf0f18cd8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

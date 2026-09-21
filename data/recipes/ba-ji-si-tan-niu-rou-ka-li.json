@@ -2,6 +2,11 @@
   "id": "ba-ji-si-tan-niu-rou-ka-li",
   "name": "巴基斯坦牛肉咖喱",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "辣"
+  ],
   "summary": "这道巴基斯坦风味咖喱牛肉香浓软糯，酸辣开胃，带着浓郁的香料气息。牛肉提供优质蛋白，搭配番茄和酸奶，营养均衡。做法不算繁琐，但慢炖需要一点耐心，很适合在闲暇的周末从容准备。从头到尾大约两个半小时，就能端出一锅温暖的异国美味。",
   "difficulty": 3,
   "servings": 5,
@@ -84,9 +89,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "一锅出",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/巴基斯坦牛肉咖喱/巴基斯坦牛肉咖喱.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:92c07ad87998f192ad92a600378649ad299b14bb1c64d4de57ecf1f7dfa82acd",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "shui-zhu-yu-mi",
   "name": "水煮玉米",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "清淡"
+  ],
   "summary": "水煮玉米是一道家常快手菜，口感清甜软糯。新鲜玉米带皮煮制，保留原香，加入盐和糖更能提味。它富含膳食纤维、维生素与碳水化合物，能为身体提供饱足感。做法极其简单，新手也能轻松上手，从准备到上桌只需大约 15 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -47,8 +51,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/水煮玉米.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:104c3ccb91ac8b51b56dd91b3b790b0daed74c8e221289b47081cab9be4ab373",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

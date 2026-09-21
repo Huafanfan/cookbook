@@ -2,6 +2,10 @@
   "id": "kong-qi-zha-guo-zhao-shao-ji-fan",
   "name": "空气炸锅照烧鸡饭",
   "category": "主食",
+  "tags": [
+    "下饭",
+    "便当"
+  ],
   "summary": "这道日式照烧风味的鸡肉饭，甜咸酱汁浓郁，表层烘烤得略微焦脆，内里软嫩多汁，搭配米饭非常下饭。鸡肉和鸡蛋提供丰富的优质蛋白，不过酱油和糖的用量较多，更适合偶尔改善口味。做法简单，只需混合原料交给空气炸锅，新手也能轻松搞定，从准备到出锅大约需要 1 小时。",
   "difficulty": 3,
   "servings": 1,
@@ -62,8 +66,13 @@
     "参考资料：[库克美食教程:Air fryer Teriyaki Chicken Meatloaf](https://cookpad.com/eng/recipes/16276348)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/空气炸锅照烧鸡饭/空气炸锅照烧鸡饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:fd57c514b7952796c79d4be5f1ac424d88dd1959e4a384cb1968974d0debefaf",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

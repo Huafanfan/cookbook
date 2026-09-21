@@ -2,6 +2,11 @@
   "id": "qi-yi-guo-bo-cai-te-tiao",
   "name": "奇异果菠菜特调",
   "category": "饮品",
+  "tags": [
+    "酸甜",
+    "快手",
+    "省事"
+  ],
   "summary": "这是一道清爽健康的果蔬特饮，口感酸甜细腻，带有奇异果与苹果的天然果香，菠菜味清淡不抢。富含维生素 C 和膳食纤维，有助于促进消化。制作非常简单，新手也能一次成功，全程预计只需 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -78,9 +83,13 @@
     "欢迎改进！"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/奇异果菠菜特调/奇异果菠菜特调.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:573645ee01ca882cd90ad03730ab70df4e3a244629b4bca533761643d7292bc0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

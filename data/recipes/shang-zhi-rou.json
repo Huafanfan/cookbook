@@ -2,6 +2,11 @@
   "id": "shang-zhi-rou",
   "name": "商芝肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "宴客",
+    "重口"
+  ],
   "summary": "商芝肉是陕西商县的传统风味菜，色泽红润，质地软嫩，肥而不腻，带有商芝独特的清香。猪肉提供优质蛋白和脂肪，蕨类蔬菜商芝则增添了膳食纤维和多种微量元素。这道菜工序繁琐，对刀工和火候均有要求，适合有一定烹饪基础的人挑战。从备料到成菜，全程大约需要 2.5 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -106,9 +111,13 @@
     "商芝属于小地方不特别有名的特产，至少本人在其他地方没有见到过，在制作时可换成其他蕨类蔬菜。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "宴客",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/商芝肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e44887da220a71ab47ad4421ec583a2c57a8f882cd6dd5edc71c44fdad21e12d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

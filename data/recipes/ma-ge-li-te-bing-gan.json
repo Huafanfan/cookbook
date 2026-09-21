@@ -2,6 +2,9 @@
   "id": "ma-ge-li-te-bing-gan",
   "name": "玛格丽特饼干",
   "category": "甜品",
+  "tags": [
+    "新手友好"
+  ],
   "summary": "玛格丽特饼干口感酥松，黄油香气浓郁，是一款经典的西式小甜点。它主要由蛋黄、黄油和面粉制成，含有丰富的碳水化合物与脂肪，能快速补充能量。制作难度适中，从准备到出炉大约需要 45 分钟，新手也能轻松上手。",
   "difficulty": 2,
   "servings": 1,
@@ -73,7 +76,13 @@
     "参考资料：[第一百种可邮寄的小饼干 酥酥糯糯入口即化~-哔哩哔哩](https://b23.tv/NZCsV0x)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/玛格丽特饼干/玛格丽特饼干.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c48d9d8c6353c39d754c8c9e09bad41dbb6c5330918028dc1167bd96353869d7",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

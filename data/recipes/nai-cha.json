@@ -2,6 +2,10 @@
   "id": "nai-cha",
   "name": "奶茶",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一道用红茶和奶粉轻松调制的家常饮品，茶香与奶香交融，口感顺滑温暖。红茶中的茶多酚搭配牛奶的蛋白质和钙质，既能提神又补充日常营养。做法非常简单，新手也能一次成功，仅需大约半 小时就能喝上自制奶茶。",
   "difficulty": 1,
   "servings": 2,
@@ -46,8 +50,13 @@
     "等待时间结束后可提起或搅动茶包以使冲泡更加均匀。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/奶茶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f433143e3e9e0498c8a5aaea9ab7d5b50aabfa950ddbe42a6a2f334f8e01bcda",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "xiao-chao-huang-niu-rou",
   "name": "小炒黄牛肉",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭"
+  ],
   "summary": "这道湘味小炒以大火爆炒逼出牛肉的嫩滑与椒香，口感鲜辣劲爽、芹菜脆嫩，极具湖南风味。牛里脊提供优质蛋白和易吸收的铁质，搭配芹菜增添膳食纤维，营养均衡。备料与烹饪步骤简单明了，全程旺火快炒，对新手十分友好，从切配到出锅大约一小时即可完成。",
   "difficulty": 3,
   "servings": 2,
@@ -78,8 +82,13 @@
     "操作时，全程需要开大火"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:a42179cb757aa148793f2e7eef75f11549c23310c972f7a9bdc87011a1ee3b34",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

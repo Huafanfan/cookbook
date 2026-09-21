@@ -2,6 +2,9 @@
   "id": "yu-ni-xue-mei-niang",
   "name": "芋泥雪媚娘",
   "category": "甜品",
+  "tags": [
+    "宴客"
+  ],
   "summary": "芋泥雪媚娘外皮软糯 Q 弹，内馅是细腻香甜的芋泥与轻盈奶油，口感层次丰富，是一道源自家常创意的中式甜品。芋头和紫薯提供膳食纤维与花青素，牛奶和淡奶油补充钙质，营养均衡。制作无需烤箱，步骤简单，对新手很友好，即使不擅烘焙也能轻松完成。从头到尾大约需要两小时，就能做出让孩子爱不释口的自制小点心。",
   "difficulty": 3,
   "servings": 2,
@@ -106,7 +109,13 @@
     "制作完即可食用，不用再加热"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/芋泥雪媚娘/芋泥雪媚娘.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:86bf9eb4895a8549e3f09d65443f57b1f3134b7a544193e862a862aba6bde790",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

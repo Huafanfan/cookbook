@@ -2,6 +2,9 @@
   "id": "ke-le-chao-fan",
   "name": "可乐炒饭",
   "category": "主食",
+  "tags": [
+    "快手"
+  ],
   "summary": "这道菜以可乐替代糖调味，带来独特的焦香微甜风味，酱汁浓郁包裹粒粒米饭，属于创意家常炒饭。鸡蛋和火腿肠提供优质蛋白质与能量，搭配主食米饭，营养均衡管饱。操作步骤直观，适合新手尝试，一般 大约 20 分钟便可端上桌。",
   "difficulty": 2,
   "servings": 1,
@@ -95,7 +98,13 @@
     "如果嫌麻烦，可以在第一步直接放 3 个鸡蛋，取消挖洞打另一个鸡蛋的步骤"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/可乐炒饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ca7fcab9a4d5181916e17e00bd319ce33d10a7669dd0a3f23bfb6de8a7a7bec9",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

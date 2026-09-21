@@ -2,6 +2,11 @@
   "id": "kao-qie-zi",
   "name": "烤茄子",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口",
+    "宵夜"
+  ],
   "summary": "烤茄子香气浓郁、外焦里嫩，孜然和蒜蓉的辛香完美融入软糯的茄肉，是街头烧烤风味在家轻松复刻的菜品。茄子富含维生素 P 和花青素，有助于保护心血管、抗氧化。做法需要用到烤箱，但步骤清晰，新手也能在大约半 小时完成，很适合作为家庭聚餐的快手下饭菜。",
   "difficulty": 2,
   "servings": 2,
@@ -87,9 +92,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口",
-    "宵夜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/烤茄子/烤茄子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:30f348de0f4e6823863fa69c637a3548482fb3f330ae61fc95d85ae144bcaa77",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

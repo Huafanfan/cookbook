@@ -2,6 +2,10 @@
   "id": "yu-mi-pai-gu-tang",
   "name": "玉米排骨汤",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "新手友好"
+  ],
   "summary": "玉米排骨汤是一道鲜美清甜的家常汤品，排骨软烂，玉米和胡萝卜带来自然甜味。富含蛋白质、维生素和膳食纤维，营养均衡。做法简单，对新手友好，只需将排骨焯水煸香后慢炖约一小时即可完成。从备菜到出锅大约需要一个半小时。",
   "difficulty": 2,
   "servings": 2,
@@ -105,8 +109,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/玉米排骨汤/玉米排骨汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:32373691adb992fdb35ee9c483f0fa8394efc42133e16c3a96c0ba2482595da1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

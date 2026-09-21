@@ -2,6 +2,10 @@
   "id": "dian-fan-bao-san-wen-yu-chui-fan",
   "name": "电饭煲三文鱼炊饭",
   "category": "主食",
+  "tags": [
+    "省事",
+    "一锅出"
+  ],
   "summary": "这是一道融合日式炊饭做法的家常料理，米饭吸饱牛油和三文鱼的香气，口感浓郁鲜香。三文鱼提供优质蛋白和不饱和脂肪酸，搭配菌菇更添膳食纤维。操作极其简单，只需用电饭煲一键完成，从备料到出锅大约 45 分钟，非常适合新手尝试。",
   "difficulty": 1,
   "servings": 2,
@@ -64,8 +68,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/电饭煲三文鱼炊饭/电饭煲三文鱼炊饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:5c4e5f231cdf44807a7fead2eeb0fb8d03f68d945fc1584f4e9e49f3c1f2a4ff",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

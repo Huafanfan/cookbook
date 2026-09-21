@@ -2,6 +2,10 @@
   "id": "qing-jiao-tu-dou-chao-rou",
   "name": "青椒土豆炒肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手"
+  ],
   "summary": "青椒土豆炒肉是一道荤素搭配的家常小炒，口感鲜香脆嫩，酱香浓郁，特别下饭。土豆富含碳水化合物和维生素 C，青椒提供丰富的维生素 C 和膳食纤维，搭配猪肉的优质蛋白质，营养均衡。这道菜做法不复杂，对新手比较友好，从备料到出锅大约只需 1 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -87,8 +91,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/青椒土豆炒肉/青椒土豆炒肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ef2008c3e534f40fcd963e911f950b1afb139dc0da0fd2383aefd9c0ca93e40d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

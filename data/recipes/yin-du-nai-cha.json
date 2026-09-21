@@ -2,6 +2,9 @@
   "id": "yin-du-nai-cha",
   "name": "印度奶茶",
   "category": "饮品",
+  "tags": [
+    "快手"
+  ],
   "summary": "印度奶茶是一道充满异域风情的家常饮品，以红茶、牛奶和多种香料现煮而成，口感浓郁顺滑，带有生姜、豆蔻、肉桂交织的辛香暖意。牛奶提供优质蛋白和钙质，香料则有助于暖身驱寒、促进消化。制作过程简单直观，对新手友好，从备料到入口只需大约 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -118,7 +121,13 @@
     "印度街头奶茶摊(Chai Wala)通常使用陶土杯(Kulhad)盛茶，赋予茶汤一种独特的泥土芬芳。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/印度奶茶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c1a5613b057ea1bf31dbd9feb05573a482230dc91f8c1652341cbb7dcc05ca09",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

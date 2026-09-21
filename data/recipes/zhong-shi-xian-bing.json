@@ -2,6 +2,7 @@
   "id": "zhong-shi-xian-bing",
   "name": "中式馅饼",
   "category": "主食",
+  "tags": [],
   "summary": "这道饼外皮微脆内里松软，馅料咸香，属于家常面食。富含碳水化合物和蛋白质，搭配胡萝卜和鸡蛋更添营养。制作难度中等，新手需掌握火候，但步骤明确易上手。从备料到完成大约需要 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -139,5 +140,13 @@
     "肉沫和胡萝卜末即馅料可以使用各类熟馅料替代。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": []
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/中式馅饼/中式馅饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2ea918ded88b0adfdf87bfb1102e85c015d34d980b77292d2f9edad6ef39749c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

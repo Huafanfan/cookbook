@@ -2,6 +2,11 @@
   "id": "zi-cai-dan-hua-tang",
   "name": "紫菜蛋花汤",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "快手",
+    "省事"
+  ],
   "summary": "紫菜蛋花汤是一道清淡鲜美的家常汤品，属于中式简易汤菜。紫菜富含碘、钙和膳食纤维，鸡蛋提供优质蛋白质，二者搭配营养均衡。做法非常简单，对新手友好，从准备到出锅仅需约 20 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -58,9 +63,13 @@
     "如果喜欢浓稠口感，可加入 2g 淀粉."
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/紫菜蛋花汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9d3a23e6cc04f8069406f2fad3bcb2849a22be9f57f647cf02329d5121d837d7",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

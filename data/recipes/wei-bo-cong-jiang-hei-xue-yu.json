@@ -2,6 +2,10 @@
   "id": "wei-bo-cong-jiang-hei-xue-yu",
   "name": "微波葱姜黑鳕鱼",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "微波做鱼，葱姜提鲜，热油一淋，香气四溢，是一道肉质细嫩、滋味咸鲜的家常蒸鱼菜，属于改良粤式做法。黑鳕鱼富含优质蛋白和欧米伽-3 脂肪酸，对心脑健康有益。操作不算复杂，但需掌握火候和油温，更适合有一定下厨经验的朋友。从备料到上桌大约只需二十分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -67,8 +71,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/微波葱姜黑鳕鱼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:7d0a9394b96dc4573365f0f2dc3533047546bc4e07d3bd0bcd36d3eb5abc0b3c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

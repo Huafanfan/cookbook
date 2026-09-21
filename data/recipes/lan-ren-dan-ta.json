@@ -2,6 +2,10 @@
   "id": "lan-ren-dan-ta",
   "name": "懒人蛋挞",
   "category": "半成品",
+  "tags": [
+    "省事",
+    "新手友好"
+  ],
   "summary": "这道甜品利用现成的蛋挞皮和蛋挞液，外皮酥香、内馅嫩滑，带有焦糖斑点，是经典粤式点心中最易上手的版本。主要成分鸡蛋和牛奶提供了优质蛋白质与钙质，适合作为家庭小点心。整个操作只需组装和烘烤，对完全零基础的新手也很友好，从预热烤箱到出炉约需 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -56,8 +60,13 @@
     "可以在蛋挞中加 10g 碎芝士，就是一道芝士蛋挞啦~"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/懒人蛋挞/懒人蛋挞.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:782b17870131b569b184c981d0e97f4b10c934666d4b2434b0a4d45f36115f10",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

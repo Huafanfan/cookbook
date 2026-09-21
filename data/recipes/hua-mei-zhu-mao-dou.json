@@ -2,6 +2,11 @@
   "id": "hua-mei-zhu-mao-dou",
   "name": "话梅煮毛豆",
   "category": "家常菜",
+  "tags": [
+    "宵夜",
+    "省事",
+    "酸甜"
+  ],
   "summary": "话梅煮毛豆是一道酸甜开胃的家常小菜，口感清爽软糯，带有梅子的自然果香。毛豆富含植物蛋白和膳食纤维，有助于补充能量、促进消化。做法非常简单，新手也能轻松上手，全程只需 35 到 45 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -36,9 +41,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宵夜",
-    "省事",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/话梅煮毛豆/话梅煮毛豆.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f9ed665459f308c86d45e96de24bd257a2cd0ccb88ad29a7d9d1736008185dd6",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

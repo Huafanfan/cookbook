@@ -2,6 +2,9 @@
   "id": "ji-dan-geng",
   "name": "鸡蛋羹",
   "category": "家常菜",
+  "tags": [
+    "快手"
+  ],
   "summary": "这道菜是一道简单快手的家常蒸菜，口感嫩滑如果冻，咸鲜适口，常作为早餐或配餐出现在各地餐桌。鸡蛋提供优质蛋白质和卵磷脂，易于消化吸收。对新手十分友好，只需简单几步就能蒸出平整细腻的蛋羹，全程大约需要 15 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -67,13 +70,13 @@
     },
     {
       "text": "开**中火**蒸**10 分钟**, 10 分钟之后关火再闷上**5 分钟**。",
-      "heat": "中火",
-      "minutes": 10
+      "minutes": 10,
+      "heat": "中火"
     },
     {
       "text": "开**大火**蒸**5 分钟**，要保持锅中水一直处于沸腾状态，否则要延长时间。每隔**2 分钟**开盖一次释放水蒸气，开盖过晚蛋羹容易变成蜂窝状；开盖太早/频繁蒸的时间需要久一些。",
-      "heat": "大火",
-      "minutes": 5
+      "minutes": 5,
+      "heat": "大火"
     },
     {
       "text": "如何判断已经熟了？",
@@ -88,7 +91,9 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md",
+    "baselineStatus": "matched"
+  }
 }

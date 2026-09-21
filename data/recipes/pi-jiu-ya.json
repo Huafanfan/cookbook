@@ -2,6 +2,11 @@
   "id": "pi-jiu-ya",
   "name": "啤酒鸭",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "一锅出"
+  ],
   "summary": "这是一道风味独特的家常菜肴，鸭肉鲜香软烂，透着淡淡啤酒清香，热而不浮、香而不腻。鸭肉富含蛋白质，啤酒去腥增香，搭配食用更有滋味。做法对新手友好，从备料到出锅大约需要 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -98,8 +103,8 @@
     },
     {
       "text": "倒入啤酒，没过鸭肉，加入盐、鸡精，然后中火将鸭子烧 30 分钟（牙口不好的话可以再多烧 5 分钟）。",
-      "heat": "中火",
-      "minutes": 30
+      "minutes": 30,
+      "heat": "中火"
     },
     {
       "text": "出锅盛盘，上桌食用。"
@@ -109,9 +114,9 @@
     "啤酒的量一定要足够把所有鸭肉没过，啤酒最好选择清香型的。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/啤酒鸭/啤酒鸭.md",
+    "baselineStatus": "matched"
+  }
 }

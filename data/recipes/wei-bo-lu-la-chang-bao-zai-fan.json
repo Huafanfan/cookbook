@@ -2,6 +2,11 @@
   "id": "wei-bo-lu-la-chang-bao-zai-fan",
   "name": "微波炉腊肠煲仔饭",
   "category": "主食",
+  "tags": [
+    "快手",
+    "省事",
+    "一锅出"
+  ],
   "summary": "这是一道简单快手的粤式风味主食，米饭吸足腊肠油脂后油润咸香，搭配脆嫩青菜和胡萝卜，口感层次丰富。富含碳水化合物、蛋白质和多种维生素，营养均衡。烹饪用微波炉操作，对新手十分友好，预计全程仅需 15 分钟即可享用。",
   "difficulty": 1,
   "servings": 2,
@@ -90,9 +95,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/微波炉腊肠煲仔饭/微波炉腊肠煲仔饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:488aae9e7177411bdd42e01a3d6bc12ccc8d622c049634e378fe61a8fa9931ba",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "xi-hong-shi-ji-dan-gua-mian",
   "name": "西红柿鸡蛋挂面",
   "category": "主食",
+  "tags": [
+    "快手",
+    "酸甜"
+  ],
   "summary": "西红柿鸡蛋挂面是一道家常快手面食，酸甜咸鲜，汤汁浓郁，面条劲道，属于融入北方风味的日常主食。鸡蛋提供优质蛋白，西红柿富含番茄红素和维生素，搭配碳水主食，营养均衡。操作简单，步骤清晰，对新手友好，从备料到完成大约只需 20 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -129,8 +133,13 @@
     "煮面条如果一次性煮熟也可以，多次加水是为了让面条口感劲道，面条不粘黏，技巧在于煮沸就加冷水，循环往复两三次即可"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:dbc7e3c4d97c298307c21c822dccd973d56a3a49967228b7258ebce5cadad386",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "suan-la-tu-dou-si",
   "name": "酸辣土豆丝",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "快手"
+  ],
   "summary": "酸辣开胃的经典家常菜，口感脆爽，色泽鲜亮，属于大众喜爱的快手小炒。土豆提供碳水化合物和钾元素，辣椒富含维生素 C，有助于增进食欲。操作步骤简单明了，对新手十分友好，从备料到出锅大约只需 20 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -88,8 +92,13 @@
     "加入蒜末、盐后应尽快出锅，保留蒜香以及避免破坏口感。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/酸辣土豆丝.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:093bb3a55ad322f31f992cf616182e17efa1a39883983dc29f8fba00ee3bd11a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "yin-du-kao-bing",
   "name": "印度烤饼",
   "category": "主食",
+  "tags": [
+    "新手友好"
+  ],
   "summary": "这是一道印度风味的发酵烤饼，外表微焦酥脆，内部松软有嚼劲，是咖喱的绝佳搭档。富含碳水化合物和蛋白质，酸奶的加入也让面饼更易消化。制作稍有难度，需注意面团软硬和火候，但平底锅即可操作，提前 1 小时发酵，总耗时约 1.5 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -177,7 +180,13 @@
     "Naan 在印度有数百年的历史，最早的记载出现在 1300 年，被认为源自波斯文化。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/印度烤饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4918b27db27a7dce76436b667f230eadbfc5a63c5705af835eae693ab0510bcf",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

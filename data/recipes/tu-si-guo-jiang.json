@@ -2,6 +2,10 @@
   "id": "tu-si-guo-jiang",
   "name": "吐司果酱",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一道极简快手早餐，烤至微脆的吐司夹入甜香果酱，外脆内软，方便随身携带，属于典型的便捷西式简餐。主要提供碳水化合物和糖分，能快速补充晨间能量。操作几乎零门槛，非常适合不擅烹饪的忙碌新手。从准备到完成只需大约 2 分钟，无需开火，也几乎不用清洗厨具。",
   "difficulty": 1,
   "servings": 2,
@@ -38,8 +42,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/吐司果酱.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:5d698290a047d76edf54e68e4b3b28d538a713ceceb649847bc6509a4165b5b8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

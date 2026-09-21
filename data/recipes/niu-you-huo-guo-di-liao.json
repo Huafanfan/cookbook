@@ -2,6 +2,10 @@
   "id": "niu-you-huo-guo-di-liao",
   "name": "牛油火锅底料",
   "category": "半成品",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "这道重庆火锅底料以大量牛油为基底，糅合糍粑辣椒和多种香辛料，熬出的底料麻辣醇厚、香气浓烈，是涮烫毛肚、鸭肠等食材的灵魂。牛油和猪油提供了丰富能量，辣椒与花椒能温中散寒、促进食欲，但油脂含量较高，宜节制食用。制作过程需精准控制油温和翻炒火候，对新手有一定挑战，从备料到完成约需 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -20,8 +24,8 @@
     },
     {
       "name": "1000 ml",
-      "note": "色拉油 或 菜籽油",
-      "group": "原料"
+      "group": "原料",
+      "note": "色拉油 或 菜籽油"
     },
     {
       "name": "纯猪油",
@@ -33,8 +37,8 @@
       "name": "豆瓣",
       "amount": 1000,
       "unit": "g",
-      "note": "郫县",
-      "group": "原料"
+      "group": "原料",
+      "note": "郫县"
     },
     {
       "name": "糍粑辣椒",
@@ -46,36 +50,36 @@
       "name": "老姜",
       "amount": 250,
       "unit": "g",
-      "note": "切片",
-      "group": "原料"
+      "group": "原料",
+      "note": "切片"
     },
     {
       "name": "大葱",
       "amount": 100,
       "unit": "g",
-      "note": "切段",
-      "group": "原料"
+      "group": "原料",
+      "note": "切段"
     },
     {
       "name": "洋葱",
       "amount": 100,
       "unit": "g",
-      "note": "切丝",
-      "group": "原料"
+      "group": "原料",
+      "note": "切丝"
     },
     {
       "name": "大蒜",
       "amount": 200,
       "unit": "g",
-      "note": "切片",
-      "group": "原料"
+      "group": "原料",
+      "note": "切片"
     },
     {
       "name": "豆鼓",
       "amount": 10,
       "unit": "g",
-      "note": "剁碎；永川",
-      "group": "原料"
+      "group": "原料",
+      "note": "剁碎；永川"
     },
     {
       "name": "豆母子",
@@ -93,22 +97,22 @@
       "name": "老油 ? 颗粒香料",
       "amount": 100,
       "unit": "g",
-      "note": ": 整形香料 150 g",
-      "group": "原料"
+      "group": "原料",
+      "note": ": 整形香料 150 g"
     },
     {
       "name": "麦芽粉",
       "amount": 12.5,
       "unit": "g",
-      "note": "肉香",
-      "group": "原料"
+      "group": "原料",
+      "note": "肉香"
     },
     {
       "name": "白酒",
       "amount": 150,
       "unit": "ml",
-      "note": "52%VOL",
-      "group": "原料"
+      "group": "原料",
+      "note": "52%VOL"
     },
     {
       "name": "老油 ?? 干辣椒面",
@@ -270,8 +274,13 @@
     "**警告：操作时请擦干手上水滴！以免水进入油锅中发生爆炸！造成严重烧伤！**"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/牛油火锅底料.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:73aa96a6f3098b4f868b4d469d4422f5567998e56ca1ab50ad9926c43f0564b0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

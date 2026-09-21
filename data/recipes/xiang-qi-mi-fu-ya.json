@@ -2,6 +2,10 @@
   "id": "xiang-qi-mi-fu-ya",
   "name": "湘祁米夫鸭",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "湖南两祁地区传统特色菜，鸭肉煸炒后裹上混合米粉蒸制，口感软糯，咸香入味，回味悠长。鸭肉富含优质蛋白质和 B 族维生素，搭配米粉提供能量，营养均衡。制作需先煸炒再高压蒸制，稍有难度，适合有一定烹饪基础的朋友。从备料到出锅大约需要 1 小时，若选用老鸭需延长蒸制时间。",
   "difficulty": 3,
   "servings": 2,
@@ -72,8 +76,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/湘祁米夫鸭/湘祁米夫鸭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:fb086b1d2a3d251ceaf906014a7714dcd8308525970e68c68dd2e95297698c0d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

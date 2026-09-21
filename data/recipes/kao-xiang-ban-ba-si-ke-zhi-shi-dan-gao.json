@@ -2,6 +2,9 @@
   "id": "kao-xiang-ban-ba-si-ke-zhi-shi-dan-gao",
   "name": "烤箱版巴斯克芝士蛋糕",
   "category": "甜品",
+  "tags": [
+    "宴客"
+  ],
   "summary": "巴斯克芝士蛋糕是一道口感浓郁绵密、表面焦香内部湿润的甜品，属于西班牙巴斯克地区的经典风味。主要原料为奶油奶酪和鸡蛋，富含优质蛋白质和钙质。制作过程非常简单，新手也能轻松驾驭。从准备到出炉仅需约 30 分钟，但建议冷藏过夜后食用，总耗时约 8 小时以上。",
   "difficulty": 1,
   "servings": 2,
@@ -60,7 +63,9 @@
     "参考资料：下厨房 - 巴斯克芝士蛋糕『最简单的蛋糕』零失败🔥芝士控"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/烤箱版巴斯克芝士蛋糕/烤箱版巴斯克芝士蛋糕.md",
+    "baselineStatus": "matched"
+  }
 }

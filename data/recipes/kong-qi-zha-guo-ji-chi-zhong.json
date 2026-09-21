@@ -2,6 +2,11 @@
   "id": "kong-qi-zha-guo-ji-chi-zhong",
   "name": "空气炸锅鸡翅中",
   "category": "半成品",
+  "tags": [
+    "省事",
+    "快手",
+    "新手友好"
+  ],
   "summary": "这是一道方便省事的家常快手菜，鸡翅外焦里嫩，自带油脂香气，比快餐店的更对胃口。鸡翅中富含优质蛋白和脂肪，能量充足。对新手非常友好，实际操作只需几分钟，全程大约四十分钟就能吃上。",
   "difficulty": 1,
   "servings": 2,
@@ -39,9 +44,13 @@
     "推荐购买温控比较好的空气炸锅，不然可能会糊"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "快手",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/空气炸锅鸡翅中/空气炸锅鸡翅中.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3ce1ab1b27c5ad4b4582551ca15a90218fa79eaee63421c19643c28ceb16b370",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

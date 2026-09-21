@@ -2,6 +2,10 @@
   "id": "han-guo-ma-yao-ji-dan",
   "name": "韩国麻药鸡蛋",
   "category": "早餐",
+  "tags": [
+    "新手友好",
+    "辣"
+  ],
   "summary": "一道甜辣浓郁的韩式溏心蛋小菜，酱汁挂满蛋白，入口嫩滑，回味微辛。鸡蛋提供优质蛋白与卵磷脂，营养饱腹。做法极为简单，新手也能轻松上手，从煮蛋到冷藏入味大约需要一个半小时。",
   "difficulty": 1,
   "servings": 2,
@@ -79,8 +83,13 @@
     "剩余的酱汁非常美味，可以直接用来拌饭。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "新手友好",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/韩国麻药鸡蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:153727a2423cc61fb48346f37f835de318467ddaa9e9f154759ef3ec5db4741a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

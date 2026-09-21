@@ -2,6 +2,10 @@
   "id": "dong-gua-niang-rou",
   "name": "冬瓜酿肉",
   "category": "家常菜",
+  "tags": [
+    "一锅出",
+    "清淡"
+  ],
   "summary": "冬瓜酿肉是一道荤素搭配的家常蒸菜，口感鲜嫩爽滑，肉馅的咸香与冬瓜的清甜相互融合，清爽不腻。猪肉末提供优质蛋白质和必需氨基酸，冬瓜则有助于清热利尿、补充水分。做法简单，即使是新手也能轻松上手，只需稍加练习卷肉技巧即可。从备料到出锅，大约需要 30 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -104,8 +108,13 @@
     "参考资料：[b站视频](https://www.bilibili.com/video/BV1oF411F7wD?spm_id_from=333.337.search-card.all.click&vd_source=9f568660d497311d3f945e5dce319705)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/冬瓜酿肉/冬瓜酿肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b98a35af6ddea6e80adcf69c223d017b9c67ce36a0eaf779dbecbd954564da8f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

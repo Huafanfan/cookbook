@@ -2,6 +2,10 @@
   "id": "huo-tui-fan-tuan",
   "name": "火腿饭团",
   "category": "主食",
+  "tags": [
+    "快手",
+    "便当"
+  ],
   "summary": "一道简单快手的日式风味饭团，咸香火腿搭配沙拉酱与海苔，口感丰富饱腹。富含碳水化合物、蛋白质和维生素，能快速补充能量。制作难度极低，新手也能轻松上手，从煮饭到完成大约只需 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -67,8 +71,13 @@
     "参考资料：小红书 - 干饭选手又困了"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/火腿饭团/火腿饭团.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:6dc805186aed239e8448179d1c33e9a5a46b558e069377bb89a68f758a8271e0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "shou-si-bao-cai",
   "name": "手撕包菜",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "快手"
+  ],
   "summary": "手撕包菜是一道酸辣脆爽的经典湘菜，成菜包菜脆嫩入味，五花肉干香不腻，开胃下饭。包菜富含维生素 C 和膳食纤维，搭配五花肉能提供蛋白质和能量。制作时需要掌握大火快炒的火候，对新手稍有挑战，但按步骤操作也能成功。从备料到出锅大约 20 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -83,8 +88,8 @@
     },
     {
       "text": "锅中加入 30 ml 食用油，倒入包菜翻炒，大火翻炒 1 分钟 后，加入 3 g 盐 ，继续翻炒 2 分钟 后取出备用",
-      "heat": "大火",
-      "minutes": 2
+      "minutes": 2,
+      "heat": "大火"
     },
     {
       "text": "锅中加入 30 ml 食用油，倒入五花肉，大火翻炒 1 分钟",
@@ -107,9 +112,9 @@
     "最后一个步骤中，翻炒时间根据实际情况和个人口感做灵活调整"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/手撕包菜/手撕包菜.md",
+    "baselineStatus": "matched"
+  }
 }

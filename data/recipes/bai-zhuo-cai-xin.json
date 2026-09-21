@@ -2,6 +2,11 @@
   "id": "bai-zhuo-cai-xin",
   "name": "白灼菜心",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡",
+    "减脂"
+  ],
   "summary": "这道经典粤菜采用白灼技法，沸水快焯保留菜心的清甜与脆嫩，根茎尤为爽口，味道清淡鲜美。富含维生素 C 和膳食纤维，低脂低热量，适合追求健康饮食的人群。做法非常简单，预估难度仅两星，一般初学者只需 15 分钟即可完成，是快速补充绿叶蔬菜的理想选择。",
   "difficulty": 1,
   "servings": 2,
@@ -75,9 +80,9 @@
     "锅内烧清水要加油和盐"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "清淡",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/白灼菜心/白灼菜心.md",
+    "baselineStatus": "matched"
+  }
 }

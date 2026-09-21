@@ -2,6 +2,11 @@
   "id": "yu-xiang-rou-si",
   "name": "鱼香肉丝",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "辣",
+    "下饭"
+  ],
   "summary": "鱼香肉丝是一道经典川菜，口味酸甜微辣，肉丝滑嫩，配以胡萝卜、青椒和木耳，口感丰富。富含蛋白质和多种维生素，荤素搭配，营养均衡。制作有一定难度，需要调好鱼香汁并掌握翻炒火候，新手建议严格按步骤操作。预计制作时长约 40 分钟（不含木耳泡发时间）。",
   "difficulty": 3,
   "servings": 1,
@@ -142,9 +147,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜",
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/鱼香肉丝.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:02ee59918946cc420b456a208bd7c440615d0f1de198bdf8e155c0e2620cc222",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

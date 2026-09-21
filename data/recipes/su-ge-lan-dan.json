@@ -2,6 +2,9 @@
   "id": "su-ge-lan-dan",
   "name": "苏格兰蛋",
   "category": "早餐",
+  "tags": [
+    "快手"
+  ],
   "summary": "这道简易版苏格兰蛋外层酥脆，内里糖心软嫩，融合了芝士的奶香和培根的烟熏风味，是一道源自英式做法的创意小吃。鸡蛋提供优质蛋白质，芝士补充钙质，搭配手抓饼皮能满足一餐的能量需求。制作过程不复杂，新手也能轻松上手，从准备到出锅大约只需 20 至 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -64,7 +67,13 @@
     "芝士片、培根片、手抓饼直接淘宝购买即可"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/苏格兰蛋/苏格兰蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:6054cb7d5f902db4f75350fa52d243dae64a67708b32c15cfc52edf33b51ea45",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

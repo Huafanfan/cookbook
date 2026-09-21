@@ -2,6 +2,11 @@
   "id": "dan-chao-fan",
   "name": "蛋炒饭",
   "category": "主食",
+  "tags": [
+    "宵夜",
+    "快手",
+    "省事"
+  ],
   "summary": "一道家常蛋炒饭，金黄的蛋丝裹着粒粒分明的米饭，搭配火腿、胡萝卜和黄瓜，口感丰富，咸香适口。鸡蛋提供优质蛋白，胡萝卜增添维生素，碳水化合物带来充足能量。制作步骤稍多，但新手按流程操作也能成功，全程大约需要 25 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -104,9 +109,13 @@
     "- 炒饭要做到“粒粒分明”其实就是要将饭炒干。为什么要用隔夜的冷饭是因为隔夜已经流失了一定的水分。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宵夜",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/蛋炒饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8dacd0e257f73c189b40d7a002945d1d6190c9497600f233e9d7f66d9073c627",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

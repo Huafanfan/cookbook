@@ -2,6 +2,10 @@
   "id": "li-yu-dun-bai-cai",
   "name": "鲤鱼炖白菜",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出"
+  ],
   "summary": "鲤鱼炖白菜是一道鲜香浓郁的家常炖菜，鱼肉软嫩入味，白菜清甜吸汁，属于典型的北方风味。鲤鱼富含优质蛋白和不饱和脂肪酸，搭配白菜提供膳食纤维和维生素，营养均衡。制作过程需要煎鱼和炖煮，有一定难度但不算复杂，适合有基础烹饪经验的朋友尝试，从备料到出锅大约需要 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -78,8 +82,13 @@
     "也可以放一些粉条，粉条先凉水/热水，需要泡软，可以和娃娃菜一起放入"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:bc52438ca183661e7c275a0935683db9e1c831ade71973a3492137313f31bbe0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

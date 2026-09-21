@@ -2,6 +2,10 @@
   "id": "xiang-gan-qin-cai-chao-rou",
   "name": "香干芹菜炒肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣"
+  ],
   "summary": "香干芹菜炒肉是一道家常小炒，豆干柔韧、芹菜爽脆、猪肉嫩滑，咸鲜微辣。芹菜富含膳食纤维，豆干和猪肉提供优质植物蛋白与动物蛋白。做法简单，对新手友好，从备料到出锅大约只需 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -101,8 +105,13 @@
     "[香干芹菜炒肉教程](https://www.xiachufang.com/recipe/105987156/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/香干芹菜炒肉/香干芹菜炒肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:07c4ffe588e26d21e240a02ac1d70a45058db2574fd557af74202f331ff5fe32",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

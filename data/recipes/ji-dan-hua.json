@@ -2,6 +2,10 @@
   "id": "ji-dan-hua",
   "name": "鸡蛋花",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "一道简单易做的家常食疗汤饮，有甜咸两种风味，口感柔滑嫩爽，属于民间润喉小方。富含优质蛋白质和卵磷脂，易于消化吸收，可缓解喉咙干痒不适。制作极简单，初学者看一遍就能上手，从烧水到完成大约只需 5 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -60,8 +64,13 @@
     "为了防止生鸡蛋中可能含有的沙门氏菌，建议使用刚烧开的、100 ℃ 的滚水，瞬间将鸡蛋液完全烫熟。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/鸡蛋花/鸡蛋花.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c7eae441a123c32a2e50c33d3ec87725cf70fea4c9f7252e4d8ecd6d9e221de1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

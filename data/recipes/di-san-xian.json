@@ -2,6 +2,11 @@
   "id": "di-san-xian",
   "name": "地三鲜",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "辣"
+  ],
   "summary": "地三鲜是东北经典家常菜，茄子软糯、土豆绵香、尖椒清脆，酱香咸鲜十分下饭。食材搭配可提供丰富的维生素与膳食纤维，土豆还带来满足的碳水能量。这道菜需要油炸和快速翻炒，有一定技巧要求，新手需稍加练习，制作全程约需 40 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -125,9 +130,13 @@
     "青椒下锅的瞬间可能会爆发很多水分，导致油飞溅。务必下锅时用锅盖当盾牌挡在身前，小心下锅。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/地三鲜/地三鲜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0abfdf9bb0379fb964d8c2971801b3308b4bde1cfd16bb4eb511aeca30051fcb",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

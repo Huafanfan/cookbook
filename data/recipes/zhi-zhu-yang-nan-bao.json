@@ -2,6 +2,11 @@
   "id": "zhi-zhu-yang-nan-bao",
   "name": "枝竹羊腩煲",
   "category": "家常菜",
+  "tags": [
+    "重口",
+    "一锅出",
+    "下饭"
+  ],
   "summary": "这是一道源自广东的传统煲仔菜，羊肉与腐竹在柱侯酱和腐乳的调和下，酱香浓郁，口感肥美而不腻口，暖身暖心，尤其适合寒冬食用。羊肉富含蛋白质和铁质，能温补气血，腐竹则提供优质植物蛋白，搭配起来营养均衡。虽然备料和炖煮步骤较多，但全程火候控制并不复杂，新手只需按部就班也能成功。预计从准备到出锅约需两个半小时。",
   "difficulty": 3,
   "servings": 2,
@@ -179,9 +184,13 @@
     "参考资料：[枝竹羊腩煲 Lamb Stew with Bean Curd Sheet [by 點Cook Guide]](https://www.youtube.com/watch?v=ThVDpVoToDQ)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "一锅出",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/枝竹羊腩煲/枝竹羊腩煲.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c736de8d77e1f630ed4dd82968c3237ee72578b8957013b1e40be31cfb325b05",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "jin-fei-shi",
   "name": "金菲士",
   "category": "饮品",
+  "tags": [
+    "酸甜",
+    "快手",
+    "新手友好"
+  ],
   "summary": "经典金酒鸡尾酒，酸甜适口，气泡激爽。柠檬提供丰富维 C，搭配蔗糖糖浆平衡酸度。制作非常简单，新手只需 5 分钟即可调制完成，适合在家轻松享用。注意饮酒有害健康，请勿过量。",
   "difficulty": 1,
   "servings": 2,
@@ -97,9 +102,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/金菲士/金菲士.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ee64e2aa3ed0697c87d9f74bab43534d4a4e3b5f711875e60b1ab9f6789f77ae",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

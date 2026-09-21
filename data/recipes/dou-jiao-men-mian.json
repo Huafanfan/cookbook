@@ -2,6 +2,10 @@
   "id": "dou-jiao-men-mian",
   "name": "豆角焖面",
   "category": "主食",
+  "tags": [
+    "一锅出",
+    "重口"
+  ],
   "summary": "豆角焖面是一道北方家常面食，面条吸饱汤汁，口感软韧咸香，带着豆角的清爽和肉片的油润。五花肉提供蛋白质和脂肪，豆角富含膳食纤维和维生素，荤素搭配均衡。整体操作不难，但需要留意火候和加汤时机，适合有一定下厨经验的朋友尝试，一般约 30 分钟就能端上桌。",
   "difficulty": 2,
   "servings": 1,
@@ -141,8 +145,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/豆角焖面/豆角焖面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9435fc9c72130fd32bf2adc45b1be06e13cbd5098ead88a386ebe7a589126164",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

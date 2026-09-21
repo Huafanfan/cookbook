@@ -1,0 +1,115 @@
+{
+  "id": "shui-zhu-niu-rou",
+  "name": "水煮牛肉",
+  "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "重口"
+  ],
+  "summary": "水煮牛肉是川菜中的经典麻辣味型，口感滑嫩、汤汁红亮、香辣烫鲜。牛肉富含优质蛋白质和铁，搭配豆芽可补充膳食纤维。这道菜对新手来说不算太难，但需注意火候和泼油安全，整体制作约需四十分钟。",
+  "difficulty": 2,
+  "servings": 2,
+  "ingredients": [
+    {
+      "name": "牛肉",
+      "amount": 300,
+      "unit": "g"
+    },
+    {
+      "name": "豆芽",
+      "amount": 100,
+      "unit": "g"
+    },
+    {
+      "name": "鸡蛋",
+      "amount": 1,
+      "unit": "个"
+    },
+    {
+      "name": "香菜",
+      "amount": 5,
+      "unit": "根"
+    },
+    {
+      "name": "豆瓣酱",
+      "amount": 10,
+      "unit": "g"
+    },
+    {
+      "name": "料酒",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "淀粉",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "name": "干辣椒粉",
+      "amount": 5,
+      "unit": "g"
+    },
+    {
+      "name": "姜",
+      "amount": 20,
+      "unit": "g"
+    },
+    {
+      "name": "蒜",
+      "amount": 3,
+      "unit": "瓣"
+    },
+    {
+      "name": "红辣椒",
+      "amount": 1,
+      "unit": "根"
+    },
+    {
+      "name": "蚝油",
+      "amount": 8,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "text": "牛肉洗干净切片。 ![水煮牛肉-预览图-2](./sznr2.jpg)"
+    },
+    {
+      "text": "加入 15g 姜丝，1 个鸡蛋，15g 淀粉，8g 蚝油，10ml 料酒搅拌均匀，腌制 15 分钟。 ![水煮牛肉-预览图-3](./sznr3.jpg)",
+      "minutes": 15
+    },
+    {
+      "text": "香菜洗干净切好。 ![水煮牛肉-预览图-4](./sznr4.jpg)"
+    },
+    {
+      "text": "锅里倒油，加入豆瓣酱，5g 姜丝，蒜片。 ![水煮牛肉-预览图-5](./sznr5.jpg)"
+    },
+    {
+      "text": "倒入开水，煮成红汤。 ![水煮牛肉-预览图-6](./sznr6.jpg)"
+    },
+    {
+      "text": "豆芽洗干净去掉尾须，放进开水里焯熟。 ![水煮牛肉-预览图-7](./sznr7.jpg)"
+    },
+    {
+      "text": "将豆芽铺入碗底。 ![水煮牛肉-预览图-8](./sznr8.jpg)"
+    },
+    {
+      "text": "将牛肉片一片一片的放进红汤中，煮熟以后捞出。 ![水煮牛肉-预览图-9](./sznr9.jpg)"
+    },
+    {
+      "text": "将牛肉铺在豆芽上，撒上香菜梗。 ![水煮牛肉-预览图-10](./sznr10.jpg)"
+    },
+    {
+      "text": "撒上香菜叶，辣椒粉，辣椒圈。 ![水煮牛肉-预览图-11](./sznr11.jpg)"
+    },
+    {
+      "text": "另起锅烧热油，将热油淋在菜上面，就完成了。 ![水煮牛肉-预览图-12](./sznr12.jpg)"
+    }
+  ],
+  "tips": [
+    "参考: [水煮牛肉的详细步骤](https://www.zhms.cn/recipe/blrqm.html?source=2)"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+}

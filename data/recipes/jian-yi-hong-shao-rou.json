@@ -2,6 +2,11 @@
   "id": "jian-yi-hong-shao-rou",
   "name": "简易红烧肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "一锅出"
+  ],
   "summary": "这道家常美味色泽红润油亮，口感软糯，肥而不腻，酱香浓郁，搭配米饭特别过瘾。五花肉提供优质蛋白质和必需脂肪酸，加上鹌鹑蛋或豆皮，营养更全面。做法对新手相当友好，从备料到出锅大约需要 1.5 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -118,9 +123,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/红烧肉/简易红烧肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:5aaff3f486c6033f7c71df71cb6ec425cfb21aa615ef5505cef5c56df596f151",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

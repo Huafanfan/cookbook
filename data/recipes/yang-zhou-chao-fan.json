@@ -2,6 +2,10 @@
   "id": "yang-zhou-chao-fan",
   "name": "扬州炒饭",
   "category": "主食",
+  "tags": [
+    "一锅出",
+    "便当"
+  ],
   "summary": "这是一道配料丰富的升级版炒饭，米饭粒粒分明，鸡蛋嫩滑，搭配虾仁、午餐肉和蔬菜丁，口感层次鲜明，属于淮扬菜系中的经典主食。富含优质蛋白、碳水化合物和多种维生素，营养均衡。步骤虽多但操作直观，对初级烹饪者也较为友好，只需耐心备料。预计制作时长约 1 小时。",
   "difficulty": 3,
   "servings": 1,
@@ -126,8 +130,13 @@
     "超市有青豆，胡萝卜，玉米粒的混合冷冻包装，可以使用这个省去切丁的烦恼，推荐 Pams Mixed Veges 很便宜，或者类似的都可以用（如下图）"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出",
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/扬州炒饭/扬州炒饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:de8d6b2e65d4b85653be89b49d52ee51c0f59359a82e3df0be355b22609a8000",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

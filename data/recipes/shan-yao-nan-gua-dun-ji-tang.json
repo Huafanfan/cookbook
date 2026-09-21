@@ -2,6 +2,10 @@
   "id": "shan-yao-nan-gua-dun-ji-tang",
   "name": "山药南瓜炖鸡汤",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "一锅出"
+  ],
   "summary": "山药南瓜炖鸡汤是一道秋冬暖身汤品，山药健脾、南瓜香甜、板栗粉糯，一锅炖出鲜甜。富含蛋白质、膳食纤维与多种维生素，营养均衡。做法简单，从备料到出锅大约需要 50 分钟，新手也能轻松完成。",
   "difficulty": 1,
   "servings": 2,
@@ -77,8 +81,13 @@
     "山药去皮时建议戴手套，可避免手部发痒"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "清淡",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/山药南瓜炖鸡汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:500ccfd1bc2d18c432332b040a6e91b89edea999c1fe79ecc83f145d00009ab3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

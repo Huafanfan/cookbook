@@ -2,6 +2,10 @@
   "id": "hei-jiao-niu-liu",
   "name": "黑椒牛柳",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手"
+  ],
   "summary": "黑椒牛柳是一道广受欢迎的家常小炒，黑椒风味浓郁，牛柳嫩滑，搭配甜脆的洋葱和彩椒，荤素均衡，口味老少咸宜。牛肉富含优质蛋白和铁，彩椒和洋葱能补充多种维生素。这道菜对新手十分友好，从备料到出锅，通常一小时以内就能完成。",
   "difficulty": 3,
   "servings": 2,
@@ -84,8 +88,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/黑椒牛柳/黑椒牛柳.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4851448627a1feaf12220a4d201afa369b9e6143e20a90e7795ba3f69c380975",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

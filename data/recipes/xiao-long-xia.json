@@ -2,6 +2,10 @@
   "id": "xiao-long-xia",
   "name": "小龙虾",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "这道菜麻辣鲜香，虾肉细嫩多汁，是经典的川湘风味下酒菜，在家自制干净又实惠。小龙虾富含优质蛋白和多种微量元素，但汤汁含油盐较多，适合偶尔享用。处理活虾和多种香料对新手有一定挑战，不过不去虾线可明显降低难度。从备料到出锅大约需要 45 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -113,8 +117,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/小龙虾/小龙虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f8a3e9fcc0c58b30e7a4a4cb2099f2a97e8831fbb1fe9eff80a4ab95366d82c5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

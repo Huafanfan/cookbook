@@ -2,6 +2,12 @@
   "id": "liang-ban-dou-fu",
   "name": "凉拌豆腐",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "新手友好",
+    "清淡",
+    "减脂"
+  ],
   "summary": "这道凉菜清爽可口，富含植物蛋白和钙质，低脂健康，制作简单快捷，一般初学者只需要 10 分钟即可完成。",
   "difficulty": 1,
   "servings": 1,
@@ -101,10 +107,13 @@
     "酱汁的比例可以根据个人口味进行调整。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "新手友好",
-    "清淡",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/凉拌豆腐.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d4f7e376ab1dd43208f19b6c28ccdbb0f3e0372821e25d7ca6239040d0159de5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "wo-sun-ye-jian-bing",
   "name": "莴笋叶煎饼",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "莴笋叶煎饼是一道简单快手的家常小吃，口感外酥里嫩，带有莴笋叶的清香味。莴笋叶富含维生素和膳食纤维，搭配鸡蛋补充优质蛋白，营养均衡。制作过程无需复杂技巧，只需搅拌并煎制两面，新手也很容易上手，预计从备料到出锅仅需 大约 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -54,8 +58,13 @@
     "莴笋叶直接焯水后凉拌有苦味，所以选择做成煎饼的配菜"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/莴笋叶煎饼/莴笋叶煎饼.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:bd4de948830d87cd206109596543e40e6a45cec65c2bd56543761398ae75fed9",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

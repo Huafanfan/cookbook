@@ -2,6 +2,11 @@
   "id": "hong-shao-qie-zi",
   "name": "红烧茄子",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "辣"
+  ],
   "summary": "红烧茄子是一道咸香浓郁的家常下饭菜，软糯的茄块吸饱汤汁，搭配柿子椒和番茄，酸辣适口。茄子富含膳食纤维和维生素 P，炸过的茄块香而不腻。制作需要挂糊油炸并慢烧入味，步骤略多但对新手仍可尝试，专注细节就能成功。从备料到出锅大约需要 45 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -101,9 +106,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/红烧茄子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:1fa702e42a76dfb883496669b9bfe8074898aadea9e9a72803a7f8f6c43e6897",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

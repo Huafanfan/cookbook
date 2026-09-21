@@ -2,6 +2,11 @@
   "id": "dian-fan-bao-zheng-mi-fan",
   "name": "电饭煲蒸米饭",
   "category": "主食",
+  "tags": [
+    "省事",
+    "新手友好",
+    "一锅出"
+  ],
   "summary": "一道家喻户晓的基础主食，米香纯粹、口感软糯，因水量调节可偏硬或偏润。富含碳水化合物，能快速补充能量，适合搭配各类菜肴。操作极其简单，新手也能轻松上手，从洗米到焖好大约需要四十分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -56,9 +61,13 @@
     "更多信息请参考使用的电饭煲的说明书。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/米饭/电饭煲蒸米饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ae9a2bc97a008cc7a044ce87c489f7fbaa1354a1155d8591eebd4eea27be6d71",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

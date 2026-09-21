@@ -2,6 +2,10 @@
   "id": "pa-pa-gan-cha",
   "name": "耙耙柑茶",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "耙耙柑茶是一款融合了柑橘清甜与茉莉花香的果茶饮品，口感清爽回甘，属于创意调饮，不限于特定菜系。耙耙柑富含维生素 C 与膳食纤维，搭配绿茶饮用能带来清新提神的体验。做法非常简单，新手友好，从泡茶到搅拌全程仅需约 15 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -58,8 +62,13 @@
     "果肉和茶水比例为 1 : 1，如果需要配置更大的分量，可按比例提升用量"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/耙耙柑茶/耙耙柑茶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2ee7173f83e7ac1b1396338f009d86e4e2b602c477f81eac6bacf0347d3d69e4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

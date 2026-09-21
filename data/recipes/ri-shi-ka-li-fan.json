@@ -2,6 +2,10 @@
   "id": "ri-shi-ka-li-fan",
   "name": "日式咖喱饭",
   "category": "主食",
+  "tags": [
+    "下饭",
+    "一锅出"
+  ],
   "summary": "日式咖喱饭是一道浓郁醇厚的家常和风料理，以咖喱块调味，搭配土豆、胡萝卜、洋葱和肉类，口感顺滑绵密、辛香微甜。它富含蛋白质、碳水与多种维生素，能为身体提供充足能量。做法整体不算复杂，但需要掌握火候与搅拌技巧，适合稍有下厨经验的朋友尝试。从备料到出锅约需 1 小时，冷藏后风味更佳。",
   "difficulty": 3,
   "servings": 2,
@@ -33,23 +37,23 @@
     },
     {
       "name": "咖喱块",
-      "note": "推荐品牌好侍",
-      "group": "主食材"
+      "group": "主食材",
+      "note": "推荐品牌好侍"
     },
     {
       "name": "花椰菜",
-      "note": "清水煮开",
-      "group": "副食材"
+      "group": "副食材",
+      "note": "清水煮开"
     },
     {
       "name": "培根",
-      "note": "即食",
-      "group": "副食材"
+      "group": "副食材",
+      "note": "即食"
     },
     {
       "name": "煎蛋或[太阳蛋]",
-      "note": "../../breakfast/太阳蛋.md",
-      "group": "副食材"
+      "group": "副食材",
+      "note": "../../breakfast/太阳蛋.md"
     }
   ],
   "steps": [
@@ -109,8 +113,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/日式咖喱饭/日式咖喱饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e43ef8d7c1bb349fae7f99e8b8e2659c3231101c2be380040b8c637f7fb8f536",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

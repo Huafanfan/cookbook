@@ -2,6 +2,9 @@
   "id": "xiang-gan-rou-si",
   "name": "香干肉丝",
   "category": "家常菜",
+  "tags": [
+    "下饭"
+  ],
   "summary": "香干肉丝是一道咸香下饭的家常小炒，肉丝嫩滑，香干柔韧，青椒爽脆。富含动物性与植物性双重蛋白质，搭配青椒补充维生素。难度适中，新手稍加练习即可掌握，预计制作时长约 30 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -92,7 +95,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/香干肉丝.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ab71e107b5ff2cb618b1e5a1dfd5d3a17453d05b6ea5f0331da19345c6f199d2",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

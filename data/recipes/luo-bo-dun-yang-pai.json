@@ -2,6 +2,10 @@
   "id": "luo-bo-dun-yang-pai",
   "name": "萝卜炖羊排",
   "category": "家常菜",
+  "tags": [
+    "一锅出",
+    "清淡"
+  ],
   "summary": "这道汤菜清鲜不腻，羊肉软烂入味，萝卜饱吸汤汁后甘甜绵糯，是北方冬季常见的家常暖身菜。羊肉富含优质蛋白和铁，萝卜含有维生素与膳食纤维，两者搭配温补脾胃、驱寒助消化。虽然需经焯水去腥和两次炖煮，但步骤清晰易循，新手也能顺利上手。整体制作大约需要两小时，若用高压锅可缩短至大约一 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -81,8 +85,8 @@
     },
     {
       "text": "再开火，中火，高压锅上汽再炖 10 分钟，普通锅盖盖再炖 20 分钟",
-      "heat": "中火",
-      "minutes": 20
+      "minutes": 20,
+      "heat": "中火"
     },
     {
       "text": "关火，盛盘"
@@ -92,8 +96,9 @@
     "操作时，需要注意观察沸腾的水位线，如发现低于 2/3 的食材应加热水至没过食材。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "一锅出",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/萝卜炖羊排.md",
+    "baselineStatus": "matched"
+  }
 }

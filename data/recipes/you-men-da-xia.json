@@ -2,6 +2,10 @@
   "id": "you-men-da-xia",
   "name": "油焖大虾",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "重口"
+  ],
   "summary": "这道鲁菜经典以咸甜交融的酱汁包裹整虾，成菜红亮油润，虾肉紧实弹嫩。虾本身富含优质蛋白与虾青素，脂肪含量低，是补充营养又不易增加负担的食材。制作时需要炼葱油、剪虾、焖烧、收汁，对火候和调味把握有一定要求，更适合有基础的厨友尝试，全程大约需要 40 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -84,8 +88,13 @@
     "做法参考：B 站老饭骨视频[从小吃到大的油焖大虾居然是假的？泰斗级大师还原真·味道](https://www.bilibili.com/video/BV17f4y1W7z9)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/油焖大虾/油焖大虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8a071d988cb189b3d5348eb2b8ad47b2f7403f0a98698d573624356686f16d4c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

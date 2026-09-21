@@ -2,6 +2,11 @@
   "id": "xiang-cun-pi-jiu-ya",
   "name": "乡村啤酒鸭",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口",
+    "下饭"
+  ],
   "summary": "鸭肉与啤酒同炖，汤汁浓郁，肉质鲜香软烂，还带有一股淡淡的啤酒清香，是一道风味独特的家常菜。鸭肉本身滋补，富含蛋白质、B 族维生素和多种矿物质，搭配啤酒炖煮后更易入味。这道菜步骤虽稍多，但操作并不复杂，一般初学者只需 大约 1 小时即可完成。",
   "difficulty": 3,
   "servings": 2,
@@ -29,8 +34,8 @@
       "name": "大蒜",
       "amount": 4,
       "unit": "颗",
-      "note": ",拍散备用",
-      "group": "辅料"
+      "group": "辅料",
+      "note": ",拍散备用"
     },
     {
       "name": "生姜",
@@ -48,15 +53,15 @@
       "name": "蒜苗",
       "amount": 2,
       "unit": "根",
-      "note": "切段备用",
-      "group": "辅料"
+      "group": "辅料",
+      "note": "切段备用"
     },
     {
       "name": "大葱",
       "amount": 2,
       "unit": "根",
-      "note": "1 根切段,1 根备用",
-      "group": "辅料"
+      "group": "辅料",
+      "note": "1 根切段,1 根备用"
     },
     {
       "name": "草果",
@@ -86,8 +91,8 @@
       "name": "干辣椒",
       "amount": 6,
       "unit": "条",
-      "note": "(不吃辣可以不用",
-      "group": "香料"
+      "group": "香料",
+      "note": "(不吃辣可以不用"
     },
     {
       "name": "红椒"
@@ -152,9 +157,13 @@
     "[厨师长：用土灶烧“乡村啤酒鸭”，味道安逸得不摆了](https://www.bilibili.com/video/BV1R4411u7po?spm_id_from=333.999.0.0)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/乡村啤酒鸭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e06f38e235033315aaaf00a853ecdde0d53cf56f98ca14a6195135d6e2b6831c",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

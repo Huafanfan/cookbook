@@ -2,6 +2,10 @@
   "id": "jian-yi-ban-chao-tang-se",
   "name": "简易版炒糖色",
   "category": "调料",
+  "tags": [
+    "省事",
+    "一锅出"
+  ],
   "summary": "糖色是中餐红烧类菜肴上色的关键技法，火候到位时能带来红亮光泽与独特的焦香风味。主要成分为糖，提供能量，但更多是调和菜肴色泽与口味。这道简易版炒糖色对火候控制有一定要求，新手需多加练习才能避免发苦或发甜，整体制作约需十分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -52,8 +56,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/简易版炒糖色.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:dc572accd4526da23edf63607cc5b242ceb505af047f1edaf167beb54c80cc63",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

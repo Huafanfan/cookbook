@@ -2,6 +2,9 @@
   "id": "zha-xian-nai",
   "name": "炸鲜奶",
   "category": "甜品",
+  "tags": [
+    "宴客"
+  ],
   "summary": "炸鲜奶是一道外壳酥脆、内馅柔软的甜点。制作本身不难，但奶糊必须充分加热并冷藏定型，否则切块和油炸时容易散开。实际操作约需 30 分钟，另需至少 2 小时冷藏定型。",
   "difficulty": 2,
   "servings": 2,
@@ -103,7 +106,13 @@
     "参考资料：[王刚的教学视频](https://www.bilibili.com/video/BV1U7411E7LH/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/炸鲜奶/炸鲜奶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:545d8e6715e3c81fc1735506d31287114a825e19175732b06a646c2eb8741cf3",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

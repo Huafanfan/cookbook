@@ -2,6 +2,11 @@
   "id": "zheng-hua-juan",
   "name": "蒸花卷",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "这是一道北方传统面食，松软可口，带着淡淡麦香。使用冷冻花卷蒸制，能快速补充碳水化合物和膳食纤维。做法极其简单，烹饪新手也能轻松掌握，全程仅需半小时，是理想的快手早餐。",
   "difficulty": 1,
   "servings": 2,
@@ -58,9 +63,13 @@
     "操作时，需要注意观察锅里的水不能少于 50ml。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/蒸花卷.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:89b1090edd4df24e3ea7b1a3b732b42f98b95b259599c6fe69d6f96deb90a34e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

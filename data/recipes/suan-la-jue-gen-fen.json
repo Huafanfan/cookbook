@@ -2,6 +2,11 @@
   "id": "suan-la-jue-gen-fen",
   "name": "酸辣蕨根粉",
   "category": "主食",
+  "tags": [
+    "辣",
+    "快手",
+    "省事"
+  ],
   "summary": "酸辣蕨根粉口感爽滑筋道，酸辣开胃，是一道家常凉菜，也可当作主食享用。蕨根粉富含淀粉和膳食纤维，能为身体提供能量。这道菜做法格外简单，对新手非常友好，从准备到完成只需 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -107,9 +112,13 @@
     "整体口味偏辣，如果不能吃辣请减少油泼辣子的量并且不加入小米辣"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/酸辣蕨根粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:07922e90af83328fd1032e5604204eaec813b9249756f36e23ba13bd042aaeb8",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

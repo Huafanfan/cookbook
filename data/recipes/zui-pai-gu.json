@@ -2,6 +2,10 @@
   "id": "zui-pai-gu",
   "name": "醉排骨",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "宴客"
+  ],
   "summary": "醉排骨是福州传统名菜，口感外酥里嫩，酸甜开胃，带着独特的鱼露鲜香。排骨富含蛋白质和钙质，营养解馋。这道菜需要掌握挂糊和复炸的技巧，更适合有一定下厨经验的朋友尝试，全程大约需要 40 分钟完成。",
   "difficulty": 3,
   "servings": 2,
@@ -91,8 +95,13 @@
     "本次制作过程中，由于疫情原因没有雨露，只能用老抽代替，所以排骨颜色偏黑，正常是金黄色"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/醉排骨/醉排骨.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2f6c3b0e2faeda5f5feb80ed86a269da328d1713a828f5c36cde95cc8a79a437",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

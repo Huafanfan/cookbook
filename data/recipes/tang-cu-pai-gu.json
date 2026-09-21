@@ -2,6 +2,11 @@
   "id": "tang-cu-pai-gu",
   "name": "糖醋排骨",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "宴客",
+    "重口"
+  ],
   "summary": "糖醋排骨是一道酸甜可口、外酥里嫩的传统名菜，广受欢迎。排骨富含优质蛋白和钙质，有较好的滋补效果。这道菜涉及焯水、油炸、炒糖色和收汁等多个步骤，对火候和调味有一定要求，不算特别适合新手，但按照优化后的流程操作成功率较高。预计制作时长为 大约 45 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -103,9 +108,9 @@
     "收汁时应快速翻炒，使排骨均匀裹上调料，避免长时间煮炖造成口感损失。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "宴客",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/糖醋排骨/糖醋排骨.md",
+    "baselineStatus": "matched"
+  }
 }

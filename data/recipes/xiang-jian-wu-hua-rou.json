@@ -2,6 +2,11 @@
   "id": "xiang-jian-wu-hua-rou",
   "name": "香煎五花肉",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "重口",
+    "辣"
+  ],
   "summary": "香煎五花肉是一道家常风味的快手荤菜，五花肉片煎得焦香微脆、肥而不腻，搭配脆爽的生菜叶和咸鲜豆瓣酱，入口酱香浓郁又解腻。猪肉富含优质蛋白质和脂肪，能快速补充能量，生菜则提供膳食纤维和维生素，营养更均衡。这道菜适合有一定下厨基础的朋友，新手只要注意火候和防溅油也能轻松上手，从备料到出锅大约半小时即可享用。",
   "difficulty": 2,
   "servings": 1,
@@ -47,9 +52,13 @@
     "操作时，小心被溅出的油烫到"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "重口",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/香煎五花肉/香煎五花肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2590d501cbda4b36daf2b95ce8df76cf4bdc30fe6722bcb91668d4a219cf1a65",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

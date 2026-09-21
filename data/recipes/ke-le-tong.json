@@ -2,6 +2,10 @@
   "id": "ke-le-tong",
   "name": "可乐桶",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "宴客"
+  ],
   "summary": "可乐桶是一款简单易调的休闲鸡尾酒，口感清爽甜润，可乐的气泡和柠檬汁很好地中和了威士忌的烈感，适合聚会场合。主要提供能量，柠檬补充维生素 C。整个调配过程只需 5 分钟即可完成，新手也能轻松上手。",
   "difficulty": 1,
   "servings": 2,
@@ -61,8 +65,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/可乐桶.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b046b88bef479279c2ff7d3c93951910cbaa0f245cda12e7ca9453c22fe59e5d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

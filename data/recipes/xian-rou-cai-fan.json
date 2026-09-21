@@ -2,6 +2,10 @@
   "id": "xian-rou-cai-fan",
   "name": "咸肉菜饭",
   "category": "主食",
+  "tags": [
+    "一锅出",
+    "重口"
+  ],
   "summary": "这是一道充满上海弄堂风情的家常主食，咸肉的醇香与青菜的清甜在猪油的点化下融进每一粒米饭，既有锅巴焦脆，又保留菜梗爽嫩，层次分明。青菜富含维生素和膳食纤维，咸肉提供蛋白质与能量，荤素搭配均衡。做法并不复杂，但需要掌握分次下菜叶的小技巧，对新手而言稍有挑战。从头备料到出锅，大约需要 1 小时。",
   "difficulty": 3,
   "servings": 3,
@@ -92,8 +96,13 @@
     "参考资料：[咸肉菜饭 - 维基百科](https://wuu.wikipedia.org/wiki/%E5%92%B8%E8%82%89%E8%8F%9C%E9%A5%AD)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/咸肉菜饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:bb9dd6b7370c590d17cb7f2d597986ce709fbe60e6ba4a2ee06541651335df70",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

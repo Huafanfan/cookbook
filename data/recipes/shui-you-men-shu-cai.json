@@ -2,6 +2,11 @@
   "id": "shui-you-men-shu-cai",
   "name": "水油焖蔬菜",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "快手",
+    "省事"
+  ],
   "summary": "水油焖蔬菜是一道简单快手的家常佐餐，通过沸水加几滴油和调料，让叶菜口感软嫩、色泽油亮，既清爽又带有淡淡油香。这种做法有助于提高脂溶性维生素的吸收率，比生吃蔬菜更有营养价值。烹饪难度低，对新手非常友好，从洗菜到出锅一般只需 10 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -53,9 +58,13 @@
     "焖的时间不可过长"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/水油焖蔬菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:cb7a682ca9b65a227684ed0987e5f44abe11e12140d2ca4858ff32e2d2fce724",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

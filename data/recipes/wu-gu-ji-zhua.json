@@ -2,6 +2,10 @@
   "id": "wu-gu-ji-zhua",
   "name": "无骨鸡爪",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "酸辣开胃、口感 Q 弹，是一道家常凉拌小吃。鸡爪富含胶原蛋白，对皮肤有益。去骨步骤繁琐费力，制作难度较高，不太适合新手尝试。全程耗时约 8 小时 15 分钟。",
   "difficulty": 3,
   "servings": 2,
@@ -170,8 +174,13 @@
     "鸡爪去骨教程 ：[bili_89324373958](https://www.bilibili.com/video/BV1t44y117D8?share_source=copy_web)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/无骨鸡爪/无骨鸡爪.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:16773e6ab6ecbf6d60602515a5b7d595cdab7d0ab38b0b659ada620ca37d77e6",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

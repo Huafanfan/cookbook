@@ -2,6 +2,11 @@
   "id": "tang-cu-zhi",
   "name": "糖醋汁",
   "category": "调料",
+  "tags": [
+    "酸甜",
+    "快手",
+    "新手友好"
+  ],
   "summary": "这款调味汁酸甜可口，是中餐里糖醋菜肴的经典风味来源。调制简单、比例易记，新手也能轻松上手，从备料到完成约需 10 分钟。糖分能提供能量，醋香有助于开胃解腻，让家常菜瞬间变得有滋有味。",
   "difficulty": 1,
   "servings": 2,
@@ -45,9 +50,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜",
-    "快手",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/糖醋汁.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:1f7d8572e178ffe06a65a47fba24eb614787749c471867f040280d6b81f8e1d6",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

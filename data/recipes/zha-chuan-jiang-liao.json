@@ -2,6 +2,11 @@
   "id": "zha-chuan-jiang-liao",
   "name": "炸串酱料",
   "category": "调料",
+  "tags": [
+    "辣",
+    "重口",
+    "新手友好"
+  ],
   "summary": "这款万能炸串酱料香辣浓郁、鲜咸适口，属于街头风味风格。主要提供脂肪和香辛料带来的芳香物质，能增进食欲。制作非常简单，对新手毫无压力，全程只需大约 10 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -78,9 +83,13 @@
     "原料可按比例缩减。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/炸串酱料.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3673b471dd0c156cebf14b66643703a8e0251d5958006e5743e69f3fa7c1cc21",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

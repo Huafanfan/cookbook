@@ -2,6 +2,9 @@
   "id": "wen-quan-dan",
   "name": "温泉蛋",
   "category": "早餐",
+  "tags": [
+    "减脂"
+  ],
   "summary": "温泉蛋源自日本，蛋白呈半流动凝乳状，蛋黄却温润凝固，口感滑嫩细腻，与溏心蛋恰好相反。鸡蛋富含优质蛋白、卵磷脂和多种维生素，营养十分全面。制作时需要借助温度计将水温控制在 70℃，虽然对温度稍有要求，但步骤简单，耐心等待约半小时便能完成。佐以昆布酱油和葱花，鲜香清爽，是一道轻松上手的小食。",
   "difficulty": 2,
   "servings": 2,
@@ -13,18 +16,18 @@
     },
     {
       "name": "厨房用温度计",
-      "note": "尽量选用带有夹子的温度计",
-      "group": "必备工具"
+      "group": "必备工具",
+      "note": "尽量选用带有夹子的温度计"
     },
     {
       "name": "杯子",
-      "note": "无特定要求，只要是杯子就行",
-      "group": "必备工具"
+      "group": "必备工具",
+      "note": "无特定要求，只要是杯子就行"
     },
     {
       "name": "昆布酱油",
-      "note": "一种日式的少盐酱油，用于为温泉蛋调味",
-      "group": "副食材"
+      "group": "副食材",
+      "note": "一种日式的少盐酱油，用于为温泉蛋调味"
     },
     {
       "name": "香葱",
@@ -60,7 +63,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/温泉蛋/温泉蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:68d1d2fd150bba05389e7f8c8c42b7e49ae30fd0bbc90d3876e4a7a5642e445f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

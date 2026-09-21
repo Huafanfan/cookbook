@@ -2,6 +2,10 @@
   "id": "tian-la-kao-quan-chi",
   "name": "甜辣烤全翅",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "省事"
+  ],
   "summary": "这道甜辣烤全翅利用空气炸锅烹制，外皮微焦、内里多汁，甜中带辣的风味很受欢迎。鸡肉富含优质蛋白质，用空气炸代替油炸大幅减少了油脂，吃起来负担更轻。制作流程清晰明了，只需提前腌制并中途翻面一次，对新手也比较友好。从处理食材到出锅大约需要 3 个小时，大部分是静置腌制的时间，实际操作并不繁琐。",
   "difficulty": 2,
   "servings": 2,
@@ -113,8 +117,13 @@
     "腌制时间可自由掌控，建议在 60 分钟到 180 分钟之间为宜"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/甜辣烤全翅.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:60d4d84b26528961f359b6ecc6a0137f931c0197368a4a335fc3944f224d23fc",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

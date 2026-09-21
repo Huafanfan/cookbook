@@ -2,6 +2,11 @@
   "id": "bai-zhuo-xia",
   "name": "白灼虾",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "新手友好",
+    "减脂"
+  ],
   "summary": "白灼虾是一道粤式经典快手菜，虾肉鲜甜弹嫩，原汁原味。虾本身富含优质蛋白和多种矿物质，搭配蘸料开胃不油腻。做法简单容错率高，对新手非常友好，从备料到出锅大约只需 15 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -90,9 +95,9 @@
     "- 蘸料其实也是可选的、也可以是纯的醋，大自然馈赠的鲜虾在没有水带走冲淡鲜甜的情况下口感味道都非常棒的。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "新手友好",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/白灼虾/白灼虾.md",
+    "baselineStatus": "matched"
+  }
 }

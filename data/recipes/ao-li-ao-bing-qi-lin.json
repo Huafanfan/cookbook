@@ -2,6 +2,9 @@
   "id": "ao-li-ao-bing-qi-lin",
   "name": "奥利奥冰淇淋",
   "category": "甜品",
+  "tags": [
+    "省事"
+  ],
   "summary": "奥利奥冰淇淋口感细腻，奶香与奥利奥的酥脆甜蜜相融，纯动物奶油令整体轻盈不腻。它主要提供能量，含有脂肪和碳水化合物，适合作为消暑小甜点。制作过程较为简单，只需处理饼干夹心和搅打奶油，新手稍加耐心也可完成，全程准备约需半小时，再冷冻 4 小时以上即可享用。",
   "difficulty": 2,
   "servings": 2,
@@ -68,7 +71,13 @@
     "参考资料：[5分钟搞定【奥利奥麦旋风】太解馋叭！](https://www.xiachufang.com/recipe/106178429/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/奥利奥冰淇淋/奥利奥冰淇淋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d59d72172925c26a197c88ba68895b0048293a33f4357143fafce829d34cd601",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "guang-shi-luo-bo-niu-nan",
   "name": "广式萝卜牛腩",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "一锅出",
+    "重口"
+  ],
   "summary": "这是一道广式家常炖菜，牛腩软烂入味，萝卜吸饱汤汁后清甜浓郁，整体酱香回甘。富含优质蛋白和膳食纤维，开胃助消化。制作步骤稍多但难度适中，新手按部就班也能成功。预计从头到尾大约需要 2.5 小时完成。",
   "difficulty": 3,
   "servings": 3,
@@ -122,9 +127,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/广式萝卜牛腩/广式萝卜牛腩.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:14cdc3896eec686f7b98b8e670e970b5052f809b84b0628fad742d56efd2e5d1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

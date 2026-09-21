@@ -2,6 +2,11 @@
   "id": "rou-xie-bao",
   "name": "肉蟹煲",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "宴客",
+    "辣"
+  ],
   "summary": "这道菜酱香浓郁，蟹肉鲜甜微辣，土豆软糯、年糕 Q 弹，汤汁拌饭格外过瘾，属于一道适合聚餐的硬菜。它富含优质蛋白和多种微量元素，营养丰富。制作有一定难度，需处理活蟹、把控火候和调味比例，对新手略具挑战，预计全程约需 1 小时。",
   "difficulty": 3,
   "servings": 3,
@@ -171,9 +176,13 @@
     "死蟹绝对不能用（买来的就是冷冻的除外，但是解冻后未及时使用的也不行）"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "宴客",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/肉蟹煲.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:708555a65c5d0c8bb6f349ade964a1340748dd41cd6ff7038f21823f4bc2f267",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

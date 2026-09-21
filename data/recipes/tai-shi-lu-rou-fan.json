@@ -2,6 +2,11 @@
   "id": "tai-shi-lu-rou-fan",
   "name": "台式卤肉饭",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "一锅出"
+  ],
   "summary": "台式卤肉饭是一道浓香四溢的台湾家常料理，肉条软糯入味，酱汁琥珀般油亮，浇在热米饭上满口脂香。富含优质蛋白、胶原蛋白和碳水，能快速补充能量。做法对新手非常友好，只需备好食材、掌握火候，全程约 1.5 小时即可完成，其中动手操作仅需半小时，剩下的交给小火慢炖。",
   "difficulty": 2,
   "servings": 2,
@@ -125,9 +130,13 @@
     "- 切条时可以较小的力度将刀刃与肉快速摩擦，如此更易于切割并保护五花肉肥瘦相间的结构。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "重口",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/台式卤肉饭/台式卤肉饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:044df019d317cde968a89df5c167b94b1a5da3ff65f2f0b97171f73dfef48b99",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

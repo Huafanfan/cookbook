@@ -2,6 +2,11 @@
   "id": "gong-bao-ji-ding",
   "name": "宫保鸡丁",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "酸甜"
+  ],
   "summary": "这道川味名菜以糊辣荔枝味见长，小酸甜中透着干辣椒与花椒的香气，鸡丁嫩滑、花生酥脆，口感层次丰富。富含优质蛋白和不饱和脂肪酸，开胃下饭。做法分成简易和进阶两版，对新手比较友好，提前规划好腌制时间即可。从备料到出锅大约需要 1.5 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -206,9 +211,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "辣",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ed6353e9149c76c6aeba0a57999e3eadcabf0c887e317bebe32948e8fb13122a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

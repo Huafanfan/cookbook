@@ -2,6 +2,9 @@
   "id": "yang-cong-chao-zhu-rou",
   "name": "洋葱炒猪肉",
   "category": "家常菜",
+  "tags": [
+    "下饭"
+  ],
   "summary": "这是一道家常风味小炒，咸中带甜，酱香浓郁，洋葱炒软后滋味温和，搭配嫩滑猪肉片非常下饭。猪肉提供优质蛋白质和 B 族维生素，洋葱含膳食纤维和多种抗氧化物，开胃助消化。操作简单，新手也能轻松上手，预计制作时长仅需 15 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -79,7 +82,13 @@
     "猪肉可选猪肩肉片或是切好的肉丝看个人喜好"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/洋葱炒猪肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3f32084373cf7851d277ab9ec93a7f6e40798e829eab5ae7f47550686557f8ea",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

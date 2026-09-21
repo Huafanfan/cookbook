@@ -1,0 +1,84 @@
+{
+  "id": "shan-yao-nan-gua-dun-ji-tang",
+  "name": "山药南瓜炖鸡汤",
+  "category": "汤羹",
+  "tags": [
+    "清淡",
+    "一锅出"
+  ],
+  "summary": "山药南瓜炖鸡汤是一道秋冬暖身汤品，山药健脾、南瓜香甜、板栗粉糯，一锅炖出鲜甜。富含蛋白质、膳食纤维与多种维生素，营养均衡。做法简单，从备料到出锅大约需要 50 分钟，新手也能轻松完成。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 50,
+  "ingredients": [
+    {
+      "name": "鸡肉",
+      "amount": 500,
+      "unit": "g"
+    },
+    {
+      "name": "板栗",
+      "amount": 150,
+      "unit": "g"
+    },
+    {
+      "name": "山药",
+      "amount": 200,
+      "unit": "g"
+    },
+    {
+      "name": "小南瓜",
+      "amount": 1,
+      "unit": "个",
+      "note": "约 300 g，蒸熟后挖果肉做泥"
+    },
+    {
+      "name": "红枣",
+      "amount": 8,
+      "unit": "颗"
+    },
+    {
+      "name": "姜",
+      "amount": 5,
+      "unit": "片"
+    },
+    {
+      "name": "料酒",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "name": "盐",
+      "amount": 5,
+      "unit": "g"
+    }
+  ],
+  "steps": [
+    {
+      "text": "鸡肉切块，加姜、料酒，冷水下锅焯水，水开后煮 3 分钟捞出备用",
+      "minutes": 3
+    },
+    {
+      "text": "山药去皮切滚刀块，板栗去壳备用"
+    },
+    {
+      "text": "小南瓜洗净，上锅蒸熟后挖出果肉，压成南瓜泥备用"
+    },
+    {
+      "text": "将焯好的鸡肉、山药、板栗、姜片放入锅中，加水没过食材，大火烧开后转小火炖 30 分钟",
+      "minutes": 30
+    },
+    {
+      "text": "加入南瓜泥搅开，放入红枣，再煮 10 分钟",
+      "minutes": 10
+    },
+    {
+      "text": "加盐调味，盛出即可"
+    }
+  ],
+  "tips": [
+    "南瓜泥最后放，汤色金黄不浑浊",
+    "山药去皮时建议戴手套，可避免手部发痒"
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook"
+}

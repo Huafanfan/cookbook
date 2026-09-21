@@ -2,6 +2,11 @@
   "id": "gan-jian-a-gen-ting-hong-xia",
   "name": "干煎阿根廷红虾",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡",
+    "减脂"
+  ],
   "summary": "一道鲜美诱人的海鲜快手菜，煎制后的阿根廷红虾肉质白嫩，口感鲜甜浓郁，虾壳酥香。富含碘、磷和虾青素等微量元素，有助于增强免疫力、保护心脏并降低胆固醇。难度适中，需要掌握火候和翻面技巧，但步骤清晰，新手按操作来也能成功。预计 大约 20 分钟即可完成。",
   "difficulty": 2,
   "servings": 2,
@@ -107,9 +112,13 @@
     "趁热吃"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "清淡",
-    "减脂"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/干煎阿根廷红虾/干煎阿根廷红虾.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:5227ce94a55448c44d1ed4be740121c77ebb9a5fe0b80ba10247f220e7a406de",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

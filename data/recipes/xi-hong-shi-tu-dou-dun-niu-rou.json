@@ -2,6 +2,10 @@
   "id": "xi-hong-shi-tu-dou-dun-niu-rou",
   "name": "西红柿土豆炖牛肉",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "酸甜"
+  ],
   "summary": "一道家常炖菜，酸甜开胃，汤汁浓郁，牛肉软烂，土豆绵密。牛肉提供优质蛋白，西红柿富含番茄红素，搭配土豆和洋葱，营养均衡。操作简单，无需复杂技巧，新手也能轻松上手。从备菜到出锅大约需要 1 至 1.5 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -84,8 +88,13 @@
     "不要用鸡精味精，会抢夺牛肉的鲜味"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e8e0172cf96f40e2fcb50cc978029ef35e7cf9b3f2a0ad29ef0ebc853a75a35d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

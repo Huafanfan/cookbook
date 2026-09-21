@@ -2,6 +2,10 @@
   "id": "ma-you-ban-mian",
   "name": "麻油拌面",
   "category": "主食",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "麻油香气浓郁，搭配老抽与胡椒粉简单调味，咸香适口，是一道省时省钱的家常拌面。面条提供充足碳水化合物，麻油含有不饱和脂肪酸与维生素 E，能为身体补充能量。制作毫无难度，厨房新手也能轻松上手，从煮水到拌好只需大约十分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -69,8 +73,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/麻油拌面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:cfb04b18c0275242b024b5569583107c4055017a3325e7c49587427b314625b1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "ao-men-shi-ban-mian-zhi-niu-rou-fan",
   "name": "澳门湿版免治牛肉饭",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手",
+    "重口"
+  ],
   "summary": "这是一道经典的澳门葡式风味快餐，牛肉碎嫩滑咸香，裹着浓郁酱汁和半熟蛋液，拌入米饭后口感油润诱人。牛肉末提供优质蛋白质，搭配鸡蛋和洋葱，营养均衡管饱。操作步骤简单易上手，特别适合新手尝试，从备料到出锅大约只需 30 分钟。",
   "difficulty": 1,
   "servings": 1,
@@ -110,9 +115,13 @@
     "吃的时候将半熟的蛋黄戳破，与牛肉和米饭拌匀食用，口感最佳。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "快手",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/澳门湿版免治牛肉饭/澳门湿版免治牛肉饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e600b7f0fa37b78dc234dddd7a4de4df258038b8c84baf20bdd20df740111a2e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

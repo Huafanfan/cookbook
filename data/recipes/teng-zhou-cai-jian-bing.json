@@ -2,6 +2,9 @@
   "id": "teng-zhou-cai-jian-bing",
   "name": "滕州菜煎饼",
   "category": "主食",
+  "tags": [
+    "一锅出"
+  ],
   "summary": "滕州菜煎饼是山东省滕州市的传统小吃，创始于清代，由王牛臯创制。以白面煎饼包裹白菜、粉条、豆腐等时令蔬菜，搭配鸡蛋、火腿肠，调以油与香料煎烙而成。成品外酥内软、鲜香爽口，适合作为主食或早餐，从备料到出锅大约 15 分钟即可完成。",
   "difficulty": 1,
   "servings": 1,
@@ -113,8 +116,8 @@
     },
     {
       "text": "开中小火加热 2 分钟至底部微黄，用锅铲将整张菜煎饼翻面，继续加热 2 分钟至另一面微黄、油润",
-      "heat": "中小火",
-      "minutes": 2
+      "minutes": 2,
+      "heat": "中小火"
     },
     {
       "text": "转最小火继续加热 1 分钟，至两面均呈金黄色、蔬菜熟透（可用筷子插入中心，确认无生蔬菜的阻力）",
@@ -133,7 +136,9 @@
     "参考资料：[滕州菜煎饼 - 百度百科](https://baike.baidu.com/item/滕州菜煎饼/2512643)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/滕州菜煎饼.md",
+    "baselineStatus": "matched"
+  }
 }

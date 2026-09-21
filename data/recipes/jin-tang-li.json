@@ -2,6 +2,10 @@
   "id": "jin-tang-li",
   "name": "金汤力",
   "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一款经典的金酒鸡尾酒，口感清爽微苦，带有柠檬的明亮酸香与汤力水的细腻气泡，入口轻盈畅快。虽然主要提供水分和少量酒精带来的热量，新鲜柠檬汁能补充维生素 C，帮助提神。做法非常简单，新手也能轻松掌握，预计只需 5 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -74,8 +78,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/drink/金汤力/金汤力.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:c048cab9e953192159074abab96303e805fef3f3afb3406ad47270cacef9d36d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

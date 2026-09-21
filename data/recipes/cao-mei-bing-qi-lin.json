@@ -2,6 +2,10 @@
   "id": "cao-mei-bing-qi-lin",
   "name": "草莓冰淇淋",
   "category": "甜品",
+  "tags": [
+    "省事",
+    "新手友好"
+  ],
   "summary": "这是一道不需要搅拌机就能轻松制作的家常草莓冰淇淋，果香浓郁、口感绵密。草莓富含维生素 C，搭配奶香四溢的炼乳和奶油，能提供能量和钙质。做法简单不考验厨艺，新手也能一次成功。全程制作耗时约八小时，其中大部分是冷冻时间，实际动手只需短短几十分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -80,8 +84,13 @@
     "制作过程中注意安全，避免割/烫到手。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/草莓冰淇淋/草莓冰淇淋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:aeb44f80ac0431b81b41007362bcf19752de3c0fc7caea6bce9582bca883c5b4",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

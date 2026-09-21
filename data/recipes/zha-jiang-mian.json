@@ -2,6 +2,9 @@
   "id": "zha-jiang-mian",
   "name": "炸酱面",
   "category": "主食",
+  "tags": [
+    "重口"
+  ],
   "summary": "炸酱面是一道酱香浓郁、面条劲道的传统北京家常面食，搭配清爽菜码，咸甜适口。主要营养来自瘦肉蛋白质和蔬菜维生素，能为人体提供充足能量。做法对新手友好，预计制作时长约 30 分钟，熟练掌握后可通过备菜与炒酱并行进一步缩短时间。",
   "difficulty": 2,
   "servings": 1,
@@ -75,7 +78,13 @@
     "甜咸口个人有爱好，两种酱的配比需要自己迭代优化。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/炸酱面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:cf2063c25efbb855f908dcf92e6a5fabc5b6557ab4364ddc1347d08fcf8d4d29",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,11 @@
   "id": "xi-hu-lu-chao-ji-dan",
   "name": "西葫芦炒鸡蛋",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "清淡",
+    "下饭"
+  ],
   "summary": "西葫芦炒鸡蛋是一道清爽可口的家常快手菜，西葫芦软嫩多汁、鸡蛋鲜香松软，加入西红柿后更添酸甜风味，十分下饭。鸡蛋提供优质蛋白质和卵磷脂，西葫芦含有丰富的维生素 C 和膳食纤维，搭配食用营养均衡。制作过程简单，对新手非常友好，从备料到出锅一般初学者只需 15 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -65,9 +70,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "清淡",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/西葫芦炒鸡蛋/西葫芦炒鸡蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:578e36782790fd618ee093717c8bde30252d2a9e5c2b3708ad4f6fbab27e1fe1",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

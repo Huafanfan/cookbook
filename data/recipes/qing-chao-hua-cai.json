@@ -2,6 +2,11 @@
   "id": "qing-chao-hua-cai",
   "name": "清炒花菜",
   "category": "家常菜",
+  "tags": [
+    "清淡",
+    "快手",
+    "新手友好"
+  ],
   "summary": "一道常见的家常素菜，口感脆嫩爽口。富含维生素 C 和膳食纤维。做法简单快捷，一般初学者仅需 15 分钟即可完成。",
   "difficulty": 1,
   "servings": 2,
@@ -81,9 +86,13 @@
     "炒制时间可以根据个人喜欢的花菜软硬程度调整。喜欢脆一些可以缩短时间。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "清淡",
-    "快手",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/清炒花菜.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8f8a534ee34e95a518e688f78267910cc08587c4b961beb9e437006e5ae2aada",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

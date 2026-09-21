@@ -2,6 +2,10 @@
   "id": "chao-liang-fen",
   "name": "炒凉粉",
   "category": "主食",
+  "tags": [
+    "快手",
+    "辣"
+  ],
   "summary": "炒凉粉是一道山西、陕西地区的特色小吃，入口滑嫩，咸香微辣，带着蒜香和酱香。凉粉主要由淀粉制成，能提供丰富的碳水化合物，快速补充能量。烹饪难度适中，适合有一定基础的新手尝试，全程制作大约需要 15 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -94,8 +98,13 @@
     "选择凉粉时最好选用豌豆淀粉制作成的凉粉，条件不允许的话红薯淀粉或其他也可"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/炒凉粉/炒凉粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:26d23ef7acdcf340b201f2e4955cafb1195c510dc2f74607424e17564942773e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

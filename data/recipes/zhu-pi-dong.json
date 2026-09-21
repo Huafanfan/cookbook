@@ -2,6 +2,9 @@
   "id": "zhu-pi-dong",
   "name": "猪皮冻",
   "category": "家常菜",
+  "tags": [
+    "宴客"
+  ],
   "summary": "猪皮冻是北方年夜饭常见的传统凉菜，晶莹剔透，口感滑嫩 Q 弹，特别适合下酒。猪皮富含胶原蛋白，有美容养颜的作用。这道菜难度稍高，需要耐心处理猪皮去腥和长时间熬煮，预计制作时长约 24 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -56,7 +59,13 @@
     "参考资料：[铭哥说美食](https://www.bilibili.com/video/BV1hh41117TL?spm_id_from=333.999.0.0)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/猪皮冻/猪皮冻.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:6ae82f5f64332d9d8a4af4d924579ded0349e937ab7dc871c7b93b5cc7ccb842",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

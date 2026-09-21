@@ -2,6 +2,9 @@
   "id": "zheng-shui-dan",
   "name": "蒸水蛋",
   "category": "早餐",
+  "tags": [
+    "清淡"
+  ],
   "summary": "这是一道以滑嫩如布丁的口感和清雅鲜美的风味见长的家常菜，南北通吃，北方常亲切地称其为“鸡蛋糕儿”。鸡蛋富含优质蛋白和卵磷脂，是日常补充营养的便捷之选。做法只需掌握蛋水比例和小火慢蒸的诀窍，对新手非常友好，从准备到出锅通常 大约 15 分钟就能完成。",
   "difficulty": 1,
   "servings": 2,
@@ -51,7 +54,13 @@
     "也可加入蒸鱼豉油，葱花香油作为佐料。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/蒸水蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:64fe6e281c48456cd9d8ae9cbe80cec526b58fb0a934e12f8fee99a8dbebc095",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

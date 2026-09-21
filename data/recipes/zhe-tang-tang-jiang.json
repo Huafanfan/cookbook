@@ -2,6 +2,10 @@
   "id": "zhe-tang-tang-jiang",
   "name": "蔗糖糖浆",
   "category": "调料",
+  "tags": [
+    "省事",
+    "新手友好"
+  ],
   "summary": "自制饮料糖浆，按 1：1 比例将白砂糖与水混合溶解，方便控制冷饮甜度，是调饮的基础配方。富含碳水化合物，能快速补充能量。做法极其简单，对新手非常友好，仅需几分钟即可完成，冷藏可保存一周。",
   "difficulty": 1,
   "servings": 2,
@@ -30,8 +34,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/condiment/蔗糖糖浆/蔗糖糖浆.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:e917a0e9dd760aed9ee8ca7e1b3c2a94f9a2a0f883edcb017b221fe17ea464ff",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

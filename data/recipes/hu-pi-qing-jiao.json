@@ -2,6 +2,10 @@
   "id": "hu-pi-qing-jiao",
   "name": "虎皮青椒",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "酸甜"
+  ],
   "summary": "虎皮青椒是一道家常小菜，外皮微焦起皱，口感软嫩带脆，咸鲜中透着酸甜，十分开胃下饭。青椒富含维生素 C 和膳食纤维，有助于增强免疫力、促进消化。制作过程简单明了，只需掌握按压和火候，对新手也比较友好，一般约 15 分钟就能完成。",
   "difficulty": 2,
   "servings": 2,
@@ -79,8 +83,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/虎皮青椒/虎皮青椒.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:cfbf81df860fde77962794bef41bf1a5adcdd1528bb724cbcd8aa79c7da2fd57",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

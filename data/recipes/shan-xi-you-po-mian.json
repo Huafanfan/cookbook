@@ -2,6 +2,10 @@
   "id": "shan-xi-you-po-mian",
   "name": "陕西油泼面",
   "category": "主食",
+  "tags": [
+    "辣",
+    "重口"
+  ],
   "summary": "这道西北传统面食以筋道的扯面和热油泼出的香辣风味著称，是陕西家喻户晓的日常主食。面条富含碳水化合物，搭配青菜和豆芽，能快速补充能量，膳食搭配合理。整个流程简单明了，对新手十分友好，从备料到出锅大约只需 30 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -111,8 +115,13 @@
     "- 传统陕西油泼面讲究“一青二白三红四绿”，即面条、蒜末、辣椒、葱花的颜色搭配"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/陕西油泼面/陕西油泼面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:53fecfa4e052c5b3060436eaa1271d65b05637ac58c18fe537cf71d46fb42439",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

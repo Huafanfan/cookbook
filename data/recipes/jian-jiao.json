@@ -2,6 +2,10 @@
   "id": "jian-jiao",
   "name": "煎饺",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "煎饺是一道底部金黄酥脆、内馅鲜嫩多汁的家常面点，常见于北方餐桌。搭配速冻水饺制作，富含碳水化合物和蛋白质，简单快手。预估难度二星，对新手非常友好，总共约需 15 分钟就能端上桌。",
   "difficulty": 1,
   "servings": 2,
@@ -56,8 +60,13 @@
     "操作时，需时刻观察锅内情况，切记不可分神玩手机。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/煎饺.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:df53dd80014a5047929d9eb81e1f98e42925055a1c73033c4e84772d9d49e60a",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

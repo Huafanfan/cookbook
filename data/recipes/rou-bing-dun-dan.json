@@ -2,6 +2,11 @@
   "id": "rou-bing-dun-dan",
   "name": "肉饼炖蛋",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "快手",
+    "省事"
+  ],
   "summary": "肉饼炖蛋是一道咸鲜滑嫩的传统家常菜，肉饼吸饱了酱汁，鸡蛋卧在其中，口感软嫩又下饭。它富含优质蛋白质和多种氨基酸，能很好地补充体力。做法十分简单，对厨房新手非常友好，从备料到出锅大约只需要 20 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -54,9 +59,13 @@
     "在取出肉饼炖蛋时，注意盘子很烫，请小心操作。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭",
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/肉饼炖蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:419615b2512ecc9087031757ce86c825350c7d53c577b100dcf3dd7b1328b2d5",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

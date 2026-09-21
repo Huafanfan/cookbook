@@ -2,6 +2,11 @@
   "id": "xiao-chao-ou-ding",
   "name": "小炒藕丁",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "下饭",
+    "辣"
+  ],
   "summary": "小炒藕丁是一道快手家常素菜，藕丁脆嫩爽口，咸鲜中带着微微辣意，非常下饭。莲藕富含膳食纤维和维生素，有助于清热润燥。制作简单，只要注意藕丁焯水和调味，厨房新手也能轻松完成。全程大约 20 分钟就能端上餐桌。",
   "difficulty": 2,
   "servings": 2,
@@ -81,9 +86,13 @@
     "请尽量不要使用铁器，会导致莲藕发黑"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "下饭",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/小炒藕丁/小炒藕丁.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:529f5357dc6c35603baeb1e5a759367299cda5d77e18479a5e8e75d965dd4724",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

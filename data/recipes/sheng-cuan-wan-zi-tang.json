@@ -2,6 +2,10 @@
   "id": "sheng-cuan-wan-zi-tang",
   "name": "生汆丸子汤",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "一锅出"
+  ],
   "summary": "生汆丸子汤口感鲜嫩弹滑，是一道原汁原味的家常汤品。猪肉提供优质蛋白质，搭配木耳、黄花等食材，营养较为均衡。制作中需要自己剁肉并掌握挤丸子的火候，稍有些门槛，更适合有一定基础的厨艺爱好者。从备料到上桌大约需要 1 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -51,8 +55,8 @@
     },
     {
       "name": "泡好的粉丝",
-      "note": "放碗底",
-      "group": "丸子汤配料"
+      "group": "丸子汤配料",
+      "note": "放碗底"
     },
     {
       "name": "鸡粉",
@@ -130,8 +134,13 @@
     "辣椒油可以根据口味放"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/生汆丸子汤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:07d21b228dfa943532f6fdbeab3ad779663f1b19b3c52bcd2c3d2ab352e0fb28",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

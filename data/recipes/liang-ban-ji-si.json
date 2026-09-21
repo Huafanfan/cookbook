@@ -2,6 +2,10 @@
   "id": "liang-ban-ji-si",
   "name": "凉拌鸡丝",
   "category": "家常菜",
+  "tags": [
+    "减脂",
+    "清淡"
+  ],
   "summary": "一道少油低卡的家常凉菜，鸡丝嫩滑入味，麻油与香醋调和出微麻微酸的清爽口感，适合夏日解腻。鸡胸肉富含优质蛋白且脂肪含量低。做法简单，新手也能轻松上手，从备料到完成大约只需 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -100,8 +104,9 @@
     "这道菜是隔离期间用现有材料做的，有条件可以加入香菜、小葱等进行调味，喜欢吃辣的可以加入辣椒油"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "减脂",
-    "清淡"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/凉拌鸡丝/凉拌鸡丝.md",
+    "baselineStatus": "matched"
+  }
 }

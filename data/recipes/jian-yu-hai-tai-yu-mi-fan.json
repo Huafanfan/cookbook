@@ -2,6 +2,10 @@
   "id": "jian-yu-hai-tai-yu-mi-fan",
   "name": "鲣鱼海苔玉米饭",
   "category": "主食",
+  "tags": [
+    "便当",
+    "省事"
+  ],
   "summary": "这是一道鲜香味美的日式简餐，米饭粒粒分明，融合了鲣鱼的咸鲜、海苔的酥香与玉米的甜脆。鲣鱼富含优质蛋白和 DHA，搭配海苔的矿物质和玉米的膳食纤维，营养均衡。做法非常简单，新手也能轻松完成，实际动手仅需 5 分钟，加上煮饭总共约 40 分钟即可享用。",
   "difficulty": 1,
   "servings": 2,
@@ -33,8 +37,13 @@
     "使用米家小饭煲煮东北米的话，水没过米 3 毫米就行，太多水煮出来不是一粒一粒的饭"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "便当",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/鲣鱼海苔玉米饭/鲣鱼海苔玉米饭.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:a431f8ea6e8b4b7da84a4a44419120e8dcc4ff4633a54f15d4a9cc1b15fe0554",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

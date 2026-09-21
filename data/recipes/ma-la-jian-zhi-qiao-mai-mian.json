@@ -2,6 +2,11 @@
   "id": "ma-la-jian-zhi-qiao-mai-mian",
   "name": "麻辣减脂荞麦面",
   "category": "主食",
+  "tags": [
+    "辣",
+    "减脂",
+    "重口"
+  ],
   "summary": "麻辣汤底融合了火锅底料与花生酱、牛奶，口感浓郁顺滑，带有鲜明麻辣风味。搭配高纤维荞麦面与新鲜蔬菜，低卡饱腹，适合减脂期享用。做法毫无难度，无需厨艺基础，全程约 20 分钟即可端锅开吃。",
   "difficulty": 1,
   "servings": 2,
@@ -99,9 +104,13 @@
     "如果不能吃酸，可以不加醋"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "辣",
-    "减脂",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/麻辣减脂荞麦面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:8a46c53f880113e6b4f9b8ff778b4df0704efe3a85d841538a2feb05a5d4e479",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

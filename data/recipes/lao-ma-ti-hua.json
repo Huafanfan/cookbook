@@ -2,6 +2,10 @@
   "id": "lao-ma-ti-hua",
   "name": "老妈蹄花",
   "category": "家常菜",
+  "tags": [
+    "一锅出",
+    "重口"
+  ],
   "summary": "老妈蹄花汤色奶白，猪蹄软烂脱骨，口感细腻，配上酸辣蘸汁十分开胃，是经典的川式家常菜。猪蹄富含胶原蛋白，白芸豆增添绵密口感，营养丰富。操作需要高压锅和提前浸泡，对新手有一定挑战，但按步骤来做不难掌握。含浸泡和压煮，全程大约需要 2 小时（不含提前一晚浸泡白芸豆的时间）。",
   "difficulty": 3,
   "servings": 2,
@@ -83,8 +87,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "一锅出",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/老妈蹄花/老妈蹄花.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:69eac0eba8ad25e8f1cc85f06d114c1ad857fcea850097e03b5b7ff46c9e6adc",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

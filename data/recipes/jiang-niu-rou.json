@@ -2,6 +2,10 @@
   "id": "jiang-niu-rou",
   "name": "酱牛肉",
   "category": "家常菜",
+  "tags": [
+    "重口",
+    "便当"
+  ],
   "summary": "酱牛肉是一道北派家常冷荤，酱香浓郁，口感紧实不散，嚼劲十足。牛腱子肉富含优质蛋白和多种氨基酸，慢炖后更易消化吸收。制作过程不算复杂，但包含腌制、慢炖和长时间冷藏，对新手来说需要些耐心，从头到尾大约需要 10 小时。",
   "difficulty": 3,
   "servings": 2,
@@ -94,8 +98,8 @@
     },
     {
       "text": "加盐后，继续小火 90 分钟（注：每 30 分钟确认水位线，要求至少达到牛肉面高度的 80%）",
-      "heat": "小火",
-      "minutes": 90
+      "minutes": 90,
+      "heat": "小火"
     },
     {
       "text": "加热 180 分钟后，捞出牛腱子肉，捞出牛腱子肉，用保鲜膜紧密包裹，放入冰箱冷藏数小时",
@@ -111,8 +115,9 @@
     "用牙签或者叉子在牛肉表面扎孔可以破坏筋膜，便于入味。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口",
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/酱牛肉/酱牛肉.md",
+    "baselineStatus": "matched"
+  }
 }

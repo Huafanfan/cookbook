@@ -2,6 +2,10 @@
   "id": "hong-you-dan-gao",
   "name": "红柚蛋糕",
   "category": "甜品",
+  "tags": [
+    "省事",
+    "酸甜"
+  ],
   "summary": "红柚蛋糕是一道用空气炸锅就能轻松完成的清新甜点，融合了红柚果粒的微酸果香与蛋糕的松软口感，适合作为单人份下午茶。鸡蛋和面粉提供蛋白质与碳水，红柚富含维生素 C，带来简单的基础营养。制作难度中等，关键在于分次搅拌成无颗粒的淡黄色面糊，新手只要耐心按步骤操作就能成功。从备料到出锅大约需要 35 分钟，想吃现烤甜点时不会占用太多时间。",
   "difficulty": 2,
   "servings": 2,
@@ -85,8 +89,13 @@
     "刚出锅的锡纸盘比较烫，请用夹子夹取或使用湿抹布之类的隔热材料拿取"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "省事",
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/红柚蛋糕/红柚蛋糕.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:de3a3a92a743a7428170ade8ed82fd6c2a7af78dfc29327b9ab971d255a716a0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

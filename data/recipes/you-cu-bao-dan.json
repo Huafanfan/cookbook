@@ -2,6 +2,11 @@
   "id": "you-cu-bao-dan",
   "name": "油醋爆蛋",
   "category": "家常菜",
+  "tags": [
+    "快手",
+    "下饭",
+    "辣"
+  ],
   "summary": "这是一道湘味十足的家常快手下饭菜，酸辣鲜香，鸡蛋焦香蓬松裹满浓郁汤汁，十分开胃。鸡蛋提供优质蛋白质和卵磷脂，搭配香醋更有助于促进食欲。做法极其简单，新手友好，从准备到出锅仅需大约十分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -78,9 +83,13 @@
     "亲测老恒和酿造香醋零添加口味最好，醋香是本菜灵魂所在。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手",
-    "下饭",
-    "辣"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/油醋爆蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ce05f448aef8a0399f46c87b55a02e40ee7c5aa4043f31658f575c85e645b345",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

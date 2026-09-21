@@ -2,6 +2,10 @@
   "id": "dan-jian-ci-ba",
   "name": "蛋煎糍粑",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "一道简单快手的小吃，外皮微酥，内里软糯，裹着蛋香与甜味，是南方家常风味。糍粑提供丰富碳水，鸡蛋补充蛋白质，热量较高但很顶饱。制作过程极其简单，新手也能轻松驾驭，全程仅需大约十 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -61,8 +65,13 @@
     "[蛋煎糍粑教程](https://www.dachu.co/recipe/378826)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/蛋煎糍粑.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:d2d2e55888279f09d329122de6cc427c46ffffe3d17d10caaf8af2b709581f81",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

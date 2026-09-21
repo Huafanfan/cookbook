@@ -2,6 +2,10 @@
   "id": "tang-xin-dan",
   "name": "溏心蛋",
   "category": "早餐",
+  "tags": [
+    "快手",
+    "省事"
+  ],
   "summary": "这是一道用普通电锅就能轻松做出的家常蛋料理，蛋黄呈现流动的溏心状态，口感嫩滑香醇。每颗鸡蛋提供约 6 克优质蛋白质，尤其适合健身人群补充营养。制作过程简单明了，只要掌握好加热和静置的时间，新手也能快速上手，全程仅需 大约 15 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -49,8 +53,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/溏心蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:dd128ff095b4af0a405507dc41b0798648d5d3eb0b4d4400c5f8b70b930bb719",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

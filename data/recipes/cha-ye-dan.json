@@ -2,6 +2,9 @@
   "id": "cha-ye-dan",
   "name": "茶叶蛋",
   "category": "早餐",
+  "tags": [
+    "便当"
+  ],
   "summary": "这道传统小吃茶香浓郁，鲜香可口，富含优质蛋白质，是快捷的营养早餐之选。制作步骤清晰，难度适中，新手需要留意火候与香料配比，约 30 分钟即可完成，一次能做够 2-3 人食用，适合周末从容备好。",
   "difficulty": 2,
   "servings": 2,
@@ -92,7 +95,9 @@
     "常规做法的卤汁渗透速度慢，内部味道容易偏淡。想入味更快、切面更好看：**剥壳** → 在蛋白侧面**划 3–11 刀**（上下十字方向，接近蛋黄即可，别太深以免蛋黄散出）→ 放入小容器，卤汁**没过鸡蛋** → 浸泡 **2 天以上**"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "便当"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/breakfast/茶叶蛋.md",
+    "baselineStatus": "matched"
+  }
 }

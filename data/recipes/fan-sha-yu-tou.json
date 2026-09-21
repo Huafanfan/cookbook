@@ -2,6 +2,9 @@
   "id": "fan-sha-yu-tou",
   "name": "反沙芋头",
   "category": "甜品",
+  "tags": [
+    "宴客"
+  ],
   "summary": "反沙芋头是一道外酥里糯、甜香可口的潮汕传统小吃，常作下午茶点。荔浦芋头富含膳食纤维、钾和多种维生素，能提供持久饱腹感。制作不难但需要掌握熬糖火候，适合稍有基础的初学者尝试，全程大约 20 分钟即可完成。",
   "difficulty": 2,
   "servings": 2,
@@ -54,7 +57,13 @@
     "再配上茶，啊~真惬意啊"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/反沙芋头/反沙芋头.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:f512ac64e69d2df2c152dfb477c6d447b1bff3c22083227dab0c10ff0e77f729",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

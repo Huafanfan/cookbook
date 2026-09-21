@@ -2,6 +2,9 @@
   "id": "yi-shi-rou-jiang-mian",
   "name": "意式肉酱面",
   "category": "主食",
+  "tags": [
+    "快手"
+  ],
   "summary": "意式肉酱面是一道简单快手的家常西餐，酱汁浓郁、面条筋道，适合忙碌的日常。肉末和洋葱搭配成品意面酱，能快速补充蛋白质与碳水化合物，洋葱还含有膳食纤维。做法对初学者十分友好，全程只需简单切炒，熟练后 15 分钟就能端上桌，比方便面更满足。",
   "difficulty": 1,
   "servings": 2,
@@ -72,7 +75,13 @@
     "意大利面酱并不是番茄酱，平常用的番茄酱准确是叫番茄沙司，而意大利面酱虽然和番茄沙司都是调味过的番茄酱，但加的调味料不同"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/意式肉酱面/意式肉酱面.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:33d1d87e00b1b752589003d7f3fb1f08347fb66a5486aff436f3c2ba09f9661b",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

@@ -2,6 +2,9 @@
   "id": "xiang-gu-hua-ji",
   "name": "香菇滑鸡",
   "category": "家常菜",
+  "tags": [
+    "下饭"
+  ],
   "summary": "香菇滑鸡是一道以鸡腿肉和香菇为主料的家常菜，鸡腿肉经过煸炒和焖煮后口感滑嫩，搭配香菇独特的菌香，汤汁浓郁鲜美，属于老少皆宜的粤式风味。鸡肉富含优质蛋白质和多种氨基酸，香菇含有香菇多糖和膳食纤维，有助于增强免疫力和促进消化。这道菜需要一些刀工和火候控制，对新手有一定挑战，整体制作约需 1 小时。",
   "difficulty": 2,
   "servings": 2,
@@ -113,7 +116,13 @@
     "- 用刀尖切断最后的粘连即可"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/香菇滑鸡/香菇滑鸡.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:a1aa85e6d2d129e2c4d6bc9a151b9a23ef352ef62a8013a6e2eabba0995a20fc",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

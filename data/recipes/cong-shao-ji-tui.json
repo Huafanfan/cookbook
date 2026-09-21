@@ -2,6 +2,11 @@
   "id": "cong-shao-ji-tui",
   "name": "葱烧鸡腿",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "新手友好",
+    "一锅出"
+  ],
   "summary": "葱烧鸡腿是一道只靠鸡腿和大葱两种核心食材就能完成的下饭家常菜。鸡腿肉外焦里嫩，葱香浓郁，做法简单，全程一口锅，新手也能一次成功。蛋白质丰富，搭配米饭尤其合适，适合工作日快手晚餐。",
   "difficulty": 1,
   "servings": 2,
@@ -131,9 +136,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "新手友好",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/葱烧鸡腿.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:a526b15ef6c719190e7d2dd1807ebbed1cf08bd1913a8c1161684da815902bf0",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

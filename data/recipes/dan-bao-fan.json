@@ -2,6 +2,9 @@
   "id": "dan-bao-fan",
   "name": "蛋包饭",
   "category": "主食",
+  "tags": [
+    "酸甜"
+  ],
   "summary": "以嫩滑蛋皮包裹茄汁炒饭，口感丰富，酸甜开胃，是一道经典的日式家庭料理。富含蛋白质、碳水和多种维生素，营养均衡。包裹蛋皮需要一点技巧，但整体难度适中，新手也可尝试，从准备到完成约需 25 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -95,7 +98,9 @@
     "如果不擅长包裹造型，也可以直接将炒饭铺盘后盖上蛋皮。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "酸甜"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/蛋包饭.md",
+    "baselineStatus": "matched"
+  }
 }

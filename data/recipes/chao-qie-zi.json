@@ -2,6 +2,10 @@
   "id": "chao-qie-zi",
   "name": "炒茄子",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口"
+  ],
   "summary": "这道家常炒茄子软嫩入味，酱香浓郁，加八角后风味更足。茄子富含膳食纤维、维生素 P 和钾元素，有助于保护心血管。做法简单，对新手友好，全程大火快炒，从备料到出锅大约二十分钟即可完成。",
   "difficulty": 2,
   "servings": 1,
@@ -104,8 +108,13 @@
     "糖和醋在最后阶段加，翻炒 20 秒就出锅，避免过早加醋，否则酸味挥发。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/炒茄子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:2c23e0bbbd66e19167e2d22eca4b8e6bfa108754ba5eb919f21ab7ffc348bb04",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

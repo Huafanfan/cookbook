@@ -2,6 +2,10 @@
   "id": "niu-pai",
   "name": "牛排",
   "category": "家常菜",
+  "tags": [
+    "宴客",
+    "重口"
+  ],
   "summary": "这是一道经典的西式煎牛排，焦香外壳包裹着鲜嫩多汁的肉心，搭配黄油、大蒜和香草，风味浓郁。富含优质蛋白质、油脂及铁、锌等矿物质。烹饪流程对新手较为友好，但掌握火候仍需一些练习，全程 15-30 分钟即可完成。",
   "difficulty": 3,
   "servings": 2,
@@ -152,8 +156,9 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "宴客",
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/牛排/牛排.md",
+    "baselineStatus": "matched"
+  }
 }

@@ -2,6 +2,10 @@
   "id": "ti-la-mi-su",
   "name": "提拉米苏",
   "category": "甜品",
+  "tags": [
+    "新手友好",
+    "省事"
+  ],
   "summary": "这道意大利传统甜品无需烤箱，奶酪糊绵密轻盈，浸润咖啡液的手指饼干香醇柔软，属于入门级甜点。富含蛋白质和钙质，但糖分与热量较高，宜偶尔享用。操作简便，对烘焙新手十分友好，只需大约半 小时动手，再冷藏四小时即可成型品尝。",
   "difficulty": 3,
   "servings": 2,
@@ -86,8 +90,13 @@
     "[下厨房蛋白打发具体教程](https://www.xiachufang.com/recipe/101779500/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "新手友好",
-    "省事"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/dessert/提拉米苏/提拉米苏.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:ed7789e1ae569857378cbe332b0f3477efb5922a53a5a5ed588548143254039d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

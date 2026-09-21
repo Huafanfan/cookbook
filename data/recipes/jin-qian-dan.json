@@ -2,6 +2,10 @@
   "id": "jin-qian-dan",
   "name": "金钱蛋",
   "category": "家常菜",
+  "tags": [
+    "辣",
+    "下饭"
+  ],
   "summary": "金钱蛋是一道外焦里嫩、咸香微辣的湘味家常菜，煎至金黄的蛋片形似铜钱，寓意吉祥。鸡蛋与青红椒搭配，富含优质蛋白质和多种维生素，营养均衡。制作难度中等，新手稍加练习也能掌握，全程约需 30 分钟即可完成下饭菜。",
   "difficulty": 2,
   "servings": 2,
@@ -107,8 +111,13 @@
     "参考资料：[【步骤图】湘菜馆-金钱蛋的做法_湘菜馆-金钱蛋的做法步骤_家常菜_下厨房](https://www.xiachufang.com/recipe/107161729/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/vegetable_dish/金钱蛋.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:b983228fd22badc606f07b960db14c8eef5adc47fb6dfd716059c6dedcd18e55",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

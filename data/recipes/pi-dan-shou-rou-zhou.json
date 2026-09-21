@@ -2,6 +2,10 @@
   "id": "pi-dan-shou-rou-zhou",
   "name": "皮蛋瘦肉粥",
   "category": "汤羹",
+  "tags": [
+    "清淡",
+    "一锅出"
+  ],
   "summary": "皮蛋瘦肉粥是广东经典的家常粥品，粥底绵密顺滑，皮蛋的醇香与瘦肉的鲜嫩融合，口感温润鲜美。它富含碳水化合物和优质蛋白质，搭配蔬菜，营养较为均衡，易于消化吸收。这道粥步骤虽多，但操作直观，新手跟着流程也能顺利完成，预计制作时长约 1.5 小时，借助电饭锅的预约或保温功能，作为早餐尤为方便。",
   "difficulty": 2,
   "servings": 2,
@@ -120,8 +124,13 @@
     "作为早餐时可提前一夜准备好主料，保温模式到第二天早餐，再添加配料和酱料"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "清淡",
-    "一锅出"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/soup/皮蛋瘦肉粥.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:008d21b0c7475ea02fd363c39da1e4f4d26f70b0f2c87e7a5d9ee16cfe5ba37d",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

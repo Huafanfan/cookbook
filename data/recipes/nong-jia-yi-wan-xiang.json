@@ -2,6 +2,11 @@
   "id": "nong-jia-yi-wan-xiang",
   "name": "农家一碗香",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "辣",
+    "快手"
+  ],
   "summary": "这是一道咸香下饭的湖南家常小炒，五花肉的油润、鸡蛋的嫩滑与青椒的清香彼此融合，口感层次丰富。猪肉与鸡蛋提供优质蛋白质，搭配青椒补充维生素 C，营养均衡。中等难度，需要注意煸炒火候和调味顺序，新手稍加练习也能做好。预计备菜 7 分钟，烹饪 10 分钟，总共约 17 分钟就能出锅。",
   "difficulty": 2,
   "servings": 1,
@@ -77,9 +82,13 @@
     "参考资料[下厨房](https://www.xiachufang.com/recipe/106817581/)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "辣",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/农家一碗香/农家一碗香.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:4ec7b75075f70fdde21bab48786bc25fb0bbc6d5246531b1215c0cdcf24d4d80",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

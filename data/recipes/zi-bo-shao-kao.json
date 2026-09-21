@@ -2,6 +2,9 @@
   "id": "zi-bo-shao-kao",
   "name": "淄博烧烤",
   "category": "家常菜",
+  "tags": [
+    "重口"
+  ],
   "summary": "这是一道山东淄博特色烧烤，小饼卷肉配大葱的吃法风味独特，肉香、酱香与葱香交融，口感层次丰富。五花肉富含优质蛋白质和脂肪，大葱提供膳食纤维，搭配小饼能快速补充能量。制作需要控制炭火火候和翻烤技巧，对新手稍具挑战，全程约 40 分钟即可完成。",
   "difficulty": 3,
   "servings": 2,
@@ -80,7 +83,13 @@
     "酱料可根据个人口味调整芝麻酱与甜面酱的比例，也可以换成芝麻盐。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "重口"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/淄博烧烤/淄博烧烤.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3a9d894d4bd68d2e2f8e39ceef4254e67c1b9e8eabb79e3a5b23a82a5806408f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

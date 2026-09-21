@@ -2,6 +2,11 @@
   "id": "jiang-dun-xie",
   "name": "酱炖蟹",
   "category": "家常菜",
+  "tags": [
+    "下饭",
+    "重口",
+    "宴客"
+  ],
   "summary": "这道菜是浙江平湖地区的秋日限定咸鲜风味，蟹黄绵润裹着酱香，蟹肉清甜，汤汁拌饭一绝。富含优质蛋白和微量元素。难度适中，适合有基础的新手，从准备到出锅大约 30 分钟。",
   "difficulty": 2,
   "servings": 2,
@@ -94,9 +99,13 @@
     "参考资料：[秋风起，平湖这道美味很下饭_潮新闻官网](https://tidenews.com.cn/news.html?id=2925971)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "下饭",
-    "重口",
-    "宴客"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/aquatic/酱炖蟹.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:0ba499fcaf214647e7c4f4b5fb8295946b7b92b838852347a53ec3539863c249",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

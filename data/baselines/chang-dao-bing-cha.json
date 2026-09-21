@@ -1,0 +1,94 @@
+{
+  "id": "chang-dao-bing-cha",
+  "name": "长岛冰茶",
+  "category": "饮品",
+  "tags": [
+    "快手",
+    "省事"
+  ],
+  "summary": "长岛冰茶是一款口感酷似冰茶、入口柔和但酒精度颇高的经典鸡尾酒。它本身营养价值不高，偶尔小酌可放松身心，但切勿过量。做法非常简单，只需按比例混合四种基酒、甜酒和果汁，新手也能轻松调制。从准备到完成仅需 大约 5 分钟。",
+  "difficulty": 1,
+  "servings": 2,
+  "cookMinutes": 5,
+  "ingredients": [
+    {
+      "name": "金酒",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "龙舌兰酒",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "伏特加",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "白朗姆酒",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "橙味甜酒",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "name": "柠檬汁",
+      "amount": 30,
+      "unit": "ml"
+    },
+    {
+      "name": "枫糖浆",
+      "amount": 20,
+      "unit": "ml"
+    },
+    {
+      "name": "可乐",
+      "amount": 75,
+      "unit": "ml"
+    },
+    {
+      "name": "柠檬",
+      "amount": 1,
+      "unit": "个"
+    },
+    {
+      "name": "冰块",
+      "amount": 100,
+      "unit": "克"
+    },
+    {
+      "name": "高球杯",
+      "note": "容量 300ml"
+    }
+  ],
+  "steps": [
+    {
+      "text": "柠檬对半切，挤出 30ml 柠檬汁至杯中；"
+    },
+    {
+      "text": "依次向杯中加入：",
+      "tip": "15ml 金酒，；15ml 龙舌兰酒，；15ml 伏特加，；15ml 白朗姆酒，；15ml 橙味甜酒；"
+    },
+    {
+      "text": "向杯中缓慢倒入 20ml 枫糖浆，边倒边搅拌；"
+    },
+    {
+      "text": "向杯中加入 75ml 可乐；"
+    },
+    {
+      "text": "向杯中加入冰块直至满杯；"
+    },
+    {
+      "text": "轻轻搅拌 20 秒；"
+    },
+    {
+      "text": "开始享用."
+    }
+  ],
+  "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份"
+}

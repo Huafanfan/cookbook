@@ -2,6 +2,11 @@
   "id": "su-dong-hun-tun",
   "name": "速冻馄饨",
   "category": "半成品",
+  "tags": [
+    "快手",
+    "省事",
+    "新手友好"
+  ],
   "summary": "速冻馄饨皮薄馅嫩，汤清味鲜，是一道便捷的家常面食。主要提供碳水化合物和蛋白质，便于快速补充能量。做法简单，对新手非常友好，使用电饭煲即可完成，从烧水到出锅大约需要 55 分钟。",
   "difficulty": 1,
   "servings": 2,
@@ -81,9 +86,13 @@
     "出锅后也可以加入水煮荷包蛋（[太阳蛋](../../dishes/breakfast/太阳蛋.md)）一起食用。"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "快手",
-    "省事",
-    "新手友好"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/semi-finished/速冻馄饨.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:97d2beaad8011c3861d98fa14364e38a999a8a589321caa6a942eb71e9a6cb7e",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

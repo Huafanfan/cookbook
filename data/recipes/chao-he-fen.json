@@ -2,6 +2,10 @@
   "id": "chao-he-fen",
   "name": "炒河粉",
   "category": "主食",
+  "tags": [
+    "宵夜",
+    "快手"
+  ],
   "summary": "炒河粉是一道流行于广东地区的经典小吃，讲究镬气十足、干香爽滑，河粉软韧透亮，搭配肉丝、豆芽和黄瓜丝，口感层次丰富。主要提供碳水化合物和蛋白质，蔬菜的加入也补充了维生素与膳食纤维。按本菜谱操作难度适中，即便新手只要备齐材料也能尝试，整个制作过程约需 30 分钟即可端上餐桌。",
   "difficulty": 3,
   "servings": 2,
@@ -118,8 +122,13 @@
     }
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook · 原文未声明份量，按官方模板约定记为 2 人份",
-  "tags": [
-    "宵夜",
-    "快手"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/staple/炒河粉.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:955fc8ab145a7c4c37f970c098f479ae15fc3214225e2821f9a582e0dea2ef7f",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }

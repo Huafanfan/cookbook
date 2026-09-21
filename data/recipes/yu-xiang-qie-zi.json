@@ -2,6 +2,11 @@
   "id": "yu-xiang-qie-zi",
   "name": "鱼香茄子",
   "category": "家常菜",
+  "tags": [
+    "酸甜",
+    "辣",
+    "下饭"
+  ],
   "summary": "鱼香茄子是一道经典的川味家常菜，酸甜微辣，茄子软糯吸汁，非常下饭。茄子富含膳食纤维和多种维生素，搭配肉末能补充蛋白质。制作难度中等，需要掌握炸茄子和调味技巧，新手稍加练习也能成功。从备料到出锅大约需要 30 分钟。",
   "difficulty": 2,
   "servings": 1,
@@ -91,9 +96,13 @@
     "参考: [鱼香茄子详细步骤](https://www.zhms.cn/recipe/kbbrl.html?source=2)"
   ],
   "source": "HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook",
-  "tags": [
-    "酸甜",
-    "辣",
-    "下饭"
-  ]
+  "sourceRef": {
+    "repo": "https://github.com/Anduin2017/HowToCook",
+    "path": "dishes/meat_dish/鱼香茄子/鱼香茄子.md",
+    "commit": "c2063eb7",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:3557aeedfd160e87b0c975538e6cf7800d3d7daebc290f9fe85b9dd08e52a153",
+    "parserVersion": "howtocook-parse@1",
+    "lastSyncedAt": "2026-09-21"
+  }
 }
