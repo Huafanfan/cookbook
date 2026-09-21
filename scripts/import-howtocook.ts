@@ -12,9 +12,12 @@
  */
 import { copyFile, mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative } from "node:path";
-import { pinyin } from "pinyin-pro";
 
 import { parseHowToCookMarkdown, mapCategory } from "../src/server/lib/howtocook-parse.js";
+import { toRecipeId } from "./lib/recipe-id.js";
+
+// 兼容既有引用面：规则本体在 lib 里，这里只是再导出
+export { toRecipeId };
 import { formatContentIssues, lintRecipeContent } from "../src/server/lib/content-lint.js";
 import { createRecipeSchema, formatIssues } from "../src/server/lib/schema.js";
 import { loadEquipmentList } from "../src/server/lib/equipment.js";
@@ -55,17 +58,6 @@ function parseArgs(argv: string[]): Options {
   }
 
   return options;
-}
-
-/** 菜名 → 拼音 id（只用小写字母、数字和连字符，与 schema 约束一致） */
-export function toRecipeId(name: string): string {
-  const parts = pinyin(name, { toneType: "none", type: "array" }) as string[];
-  const slug = parts
-    .join("-")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  return slug.length > 0 ? slug : "dish";
 }
 
 /**
