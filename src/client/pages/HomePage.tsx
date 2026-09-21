@@ -113,6 +113,7 @@ export function HomePage(): React.JSX.Element {
             (metaFailed ? "厨具清单载入失败，刷新页面重试。" : null)
           }
           syncFailed={kitchen.syncFailed}
+          migrateFailed={kitchen.migrateFailed}
           apply={kitchen.apply}
         />
       )}

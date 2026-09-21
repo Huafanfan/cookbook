@@ -161,7 +161,7 @@ export class UserStateStore {
    * 并且**允许空数组**（= 用户明确全不选，与"从未设置过"不同）。
    */
   setKitchen(tools: string[]): Promise<KitchenState> {
-    const unique = [...new Set(tools.map((tool) => tool.trim()).filter(Boolean))];
+    const unique = uniqueTools(tools);
 
     return this.#mutate((draft) => {
       const next: KitchenState = { tools: unique, updatedAt: now() };
@@ -171,31 +171,64 @@ export class UserStateStore {
   }
 
   /**
+   * **仅当尚未设置过**时写入「我的厨具」（CB-008 迁移用）。
+   *
+   * 关键：判断放在**串行队列的任务里**，所以是原子的一一两台设备同时迁移时，
+   * 只有第一台得到 `created: true`，另一台拿到现有配置，不会互相覆盖。
+   * 已设置时**不写盘**（没有必要重写相同的字节）。
+   */
+  initializeKitchen(tools: string[]): Promise<{ kitchen: KitchenState; created: boolean }> {
+    const unique = uniqueTools(tools);
+
+    return this.#enqueue(async () => {
+      if (this.#state.kitchen) {
+        return { kitchen: this.#state.kitchen, created: false };
+      }
+
+      const draft = this.#draftCopy();
+      const next: KitchenState = { tools: unique, updatedAt: now() };
+      draft.kitchen = next;
+
+      await this.#persist(draft);
+      this.#state = draft;
+      return { kitchen: next, created: true };
+    });
+  }
+
+  /**
    * 变更 → 落盘 → **成功才提交到内存**（失败回滚），并且全程串行。
    * `build` 在草稿上做修改，返回值就是给调用方的结果。
    */
   #mutate<T>(build: (draft: UserStateFile) => T): Promise<T> {
-    const task = async (): Promise<T> => {
-      const draft: UserStateFile = {
-        version: 1,
-        recipes: { ...this.#state.recipes },
-        ...(this.#state.kitchen
-          ? { kitchen: { ...this.#state.kitchen, tools: [...this.#state.kitchen.tools] } }
-          : {})
-      };
-
+    return this.#enqueue(async () => {
+      const draft = this.#draftCopy();
       const result = build(draft);
+
       await this.#persist(draft);
       this.#state = draft; // 只有写盘成功才替换内存
       return result;
-    };
+    });
+  }
 
+  /** 串行队列：同时只有一个写在跑，后到者排队 */
+  #enqueue<T>(task: () => Promise<T>): Promise<T> {
     const run = this.#chain.then(task, task);
     this.#chain = run.then(
       () => undefined,
       () => undefined
     );
     return run;
+  }
+
+  /** 内存状态的**浅拷贝草稿**：只改草稿，成功了才整体替换（失败即回滚） */
+  #draftCopy(): UserStateFile {
+    return {
+      version: 1,
+      recipes: { ...this.#state.recipes },
+      ...(this.#state.kitchen
+        ? { kitchen: { ...this.#state.kitchen, tools: [...this.#state.kitchen.tools] } }
+        : {})
+    };
   }
 
   async #persist(state: UserStateFile): Promise<void> {
@@ -207,4 +240,9 @@ export class UserStateStore {
 
 function now(): string {
   return new Date().toISOString();
+}
+
+/** 防御性去重：去空白、丢空串、保序 */
+function uniqueTools(tools: string[]): string[] {
+  return [...new Set(tools.map((tool) => tool.trim()).filter(Boolean))];
 }

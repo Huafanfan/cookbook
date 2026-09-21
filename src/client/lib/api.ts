@@ -87,3 +87,14 @@ export function postFavorite(id: string, favorite: boolean): Promise<RecipeUserS
 export function postKitchen(tools: string[]): Promise<KitchenState> {
   return postJson<KitchenState>("/api/kitchen", { tools });
 }
+
+/**
+ * 迁移专用：**仅当服务端尚未设置过**时写入厨具（服务端队列内原子判定）。
+ *
+ * `created: false` 表示服务端已有配置（可能是另一台设备刚配好的）—— 这时**不能覆盖**。
+ */
+export function initKitchen(
+  tools: string[]
+): Promise<{ kitchen: KitchenState; created: boolean }> {
+  return postJson<{ kitchen: KitchenState; created: boolean }>("/api/kitchen/init", { tools });
+}

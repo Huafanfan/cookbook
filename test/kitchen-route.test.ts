@@ -29,6 +29,8 @@ let root: string;
 let app: FastifyInstance;
 /** 词表缺失的实例：写入必须被拒绝（503），不能存进无法校验的值 */
 let appWithoutCatalog: FastifyInstance;
+/** 干净的实例（没写过 kitchen）：用来验 `/api/kitchen/init` 的原子"不存在才创建" */
+let appFreshKitchen: FastifyInstance;
 
 async function writeRecipe(dataDir: string): Promise<void> {
   await mkdir(join(dataDir, "recipes"), { recursive: true });
@@ -51,11 +53,17 @@ beforeAll(async () => {
     dataDir: noCatalogDir,
     webDir: null
   });
+
+  const freshDir = join(root, "fresh");
+  await writeRecipe(freshDir);
+  await writeFile(join(freshDir, "equipment.json"), EQUIPMENT);
+  appFreshKitchen = await createApp({ host: "127.0.0.1", port: 0, dataDir: freshDir, webDir: null });
 });
 
 afterAll(async () => {
   await app.close();
   await appWithoutCatalog.close();
+  await appFreshKitchen.close();
   await rm(root, { recursive: true, force: true });
 });
 
@@ -96,13 +104,23 @@ describe("POST /api/kitchen", () => {
     expect(kitchen?.tools).toEqual([]);
   });
 
-  it("非数组 / 非字符串 / 缺字段 → 400", async () => {
-    const payloads = [{ tools: "炒锅" }, { tools: [1] }, { tools: [null] }, {}];
+  it("tools 不是字符串数组 → 400 invalid_tools", async () => {
+    const payloads = [{ tools: "炒锅" }, { tools: [1] }, { tools: [null] }];
 
     for (const payload of payloads) {
       const response = await app.inject({ method: "POST", url: "/api/kitchen", payload });
       expect(response.statusCode, JSON.stringify(payload)).toBe(400);
       expect(response.json<{ error: string }>().error).toBe("invalid_tools");
+    }
+  });
+
+  it("未知字段 / 空 body → 400 invalid_body（ADR-0003：未知字段拒绝）", async () => {
+    const payloads = [{}, { tools: [], extra: 1 }, { tools: [] as string[], tool: [] }];
+
+    for (const payload of payloads) {
+      const response = await app.inject({ method: "POST", url: "/api/kitchen", payload });
+      expect(response.statusCode, JSON.stringify(payload)).toBe(400);
+      expect(response.json<{ error: string }>().error).toBe("invalid_body");
     }
   });
 
@@ -149,5 +167,52 @@ describe("POST /api/kitchen", () => {
 
     expect(body.recipes["ke-le-ji-chi"]).toMatchObject({ likes: 1, favorite: true });
     expect(body.kitchen?.tools).toEqual(["烤箱"]);
+  });
+});
+
+describe("POST /api/kitchen/init（迁移专用：原子「不存在才创建」）", () => {
+  it("第一次 created=true 并落盘；再来一次 created=false 且不覆盖", async () => {
+    const first = await appFreshKitchen.inject({
+      method: "POST",
+      url: "/api/kitchen/init",
+      payload: { tools: ["烤箱", "炒锅"] }
+    });
+    expect(first.statusCode).toBe(200);
+    const createdBody = first.json<{ kitchen: KitchenState; created: boolean }>();
+    expect(createdBody.created).toBe(true);
+    expect(createdBody.kitchen.tools).toEqual(["炒锅", "烤箱"]);
+
+    const before = await readFile(join(root, "fresh", "user-state.json"), "utf8");
+
+    // 另一台设备带着自己的旧值来迁移 → 服务端已有值，绝不覆盖
+    const second = await appFreshKitchen.inject({
+      method: "POST",
+      url: "/api/kitchen/init",
+      payload: { tools: ["空气炸锅"] }
+    });
+    expect(second.statusCode).toBe(200);
+    const existingBody = second.json<{ kitchen: KitchenState; created: boolean }>();
+    expect(existingBody.created).toBe(false);
+    expect(existingBody.kitchen.tools).toEqual(["炒锅", "烤箱"]);
+
+    // created=false 时**不写盘**：文件字节不变（包括 updatedAt）
+    expect(await readFile(join(root, "fresh", "user-state.json"), "utf8")).toBe(before);
+  });
+
+  it("该校验与 /api/kitchen 一致：词表外 → 400、未知字段 → 400", async () => {
+    const unknown = await appFreshKitchen.inject({
+      method: "POST",
+      url: "/api/kitchen/init",
+      payload: { tools: ["不粘锅"] }
+    });
+    expect(unknown.statusCode).toBe(400);
+
+    const extra = await appFreshKitchen.inject({
+      method: "POST",
+      url: "/api/kitchen/init",
+      payload: { tools: ["炒锅"], force: true }
+    });
+    expect(extra.statusCode).toBe(400);
+    expect(extra.json<{ error: string }>().error).toBe("invalid_body");
   });
 });

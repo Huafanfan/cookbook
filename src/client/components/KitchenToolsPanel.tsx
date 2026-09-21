@@ -11,6 +11,8 @@ interface KitchenToolsPanelProps {
   problem: string | null;
   /** 服务端用户状态没同步上（此时用的是默认清单） */
   syncFailed?: boolean;
+  /** 旧本地值迁移失败（本地键还留着，下次打开再试） */
+  migrateFailed?: boolean;
   /** 用更新函数修改（连续调不会互相覆盖）；返回是否保存成功 */
   apply: (updater: (tools: string[]) => string[]) => Promise<boolean>;
 }
@@ -26,6 +28,7 @@ export function KitchenToolsPanel({
   tools,
   problem,
   syncFailed = false,
+  migrateFailed = false,
   apply
 }: KitchenToolsPanelProps): React.JSX.Element {
   const [saveFailed, setSaveFailed] = useState(false);
@@ -53,6 +56,12 @@ export function KitchenToolsPanel({
       {syncFailed && (
         <p className="notice notice-warn">
           厨具清单没从服务器同步上，现在用的是默认清单。刷新页面试试。
+        </p>
+      )}
+
+      {migrateFailed && (
+        <p className="notice notice-warn">
+          这台设备浏览器里存的旧设置没能同步上（本地那份先留着），下次打开会自动再试一次。
         </p>
       )}
 

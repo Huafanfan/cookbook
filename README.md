@@ -29,6 +29,10 @@ npm run dev          # 开发：前端 5173 + 后端 3000（**端口固定**，�
 npm run start:lan    # 构建 + 在 3000 端口监听 0.0.0.0 → 手机开 http://<Mac IP>:3000
 ```
 
+> `start:lan` 把**主机与端口都写死**（`COOKBOOK_HOST=${COOKBOOK_HOST:-0.0.0.0}`、`COOKBOOK_PORT=${COOKBOOK_PORT:-3000}`），
+> 只在你想改时才用环境变量覆盖。注意 `0.0.0.0` 是**这台机器所有接口**（含 Tailscale/VPN），不只是家里网段；
+> 想只开给家里网段：`COOKBOOK_HOST=192.168.1.5 npm run start:lan`（或改用默认的只绑本机 `npm start`）。
+
 > **网址尽量固定用一个。** 字号、常亮存在浏览器本地，而浏览器存储**按网址隔离**：
 > `localhost:5173` / `127.0.0.1:5173` / `192.168.1.5:5173` 各算一份（换个网址就像"设置丢了"）。
 > **「我的厨具」已经不受这个影响** —— 它存在服务端，换网址、换设备都共用一份（[CB-008](docs/features/CB-008-kitchen-tools-server.md)）；

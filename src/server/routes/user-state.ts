@@ -1,4 +1,4 @@
-import type { FastifyInstance } from "fastify";
+import type { FastifyInstance, FastifyReply } from "fastify";
 
 import { normalizeToolName } from "../../shared/equipment.js";
 import type { RecipeRepository } from "../services/recipe-repository.js";
@@ -22,6 +22,94 @@ interface FavoriteBody {
 
 interface KitchenBody {
   tools?: unknown;
+}
+
+/* ---------- 厨具（CB-008）的请求处理 ---------- */
+
+type KitchenCheck =
+  | { ok: true; tools: string[] }
+  | { ok: false; status: 400 | 503; error: string; message: string; allowed?: string[] };
+
+/**
+ * 严格读 body：只允许恰好 `{ tools }`。
+ *
+ * 多一个键就是 400 —— [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) §4
+ * 明确要求"未知字段拒绝"，不靠"多传的字段反正不看"。
+ */
+function readToolsBody(
+  body: unknown
+): { tools: string[] } | { problem: "invalid_body" | "invalid_tools" } {
+  if (typeof body !== "object" || body === null) return { problem: "invalid_body" };
+
+  const keys = Object.keys(body as Record<string, unknown>);
+  if (keys.length !== 1 || keys[0] !== "tools") return { problem: "invalid_body" };
+
+  const tools = (body as { tools?: unknown }).tools;
+  if (!Array.isArray(tools) || tools.some((tool) => typeof tool !== "string")) {
+    return { problem: "invalid_tools" };
+  }
+
+  return { tools: tools as string[] };
+}
+
+/** 按厨具词表校验并归一化（去重 + 顺序按词表 —— 存储字节稳定，便于 diff/备份比较） */
+function checkTools(repository: RecipeRepository, tools: string[]): KitchenCheck {
+  const catalog = repository.equipment();
+  if (catalog.problem !== null || catalog.tools.length === 0) {
+    // 词表坏了就不接受写入：存进去的值无法校验，下次启动也会被判为非法
+    return {
+      ok: false,
+      status: 503,
+      error: "catalog_unavailable",
+      message: catalog.problem ?? "厨具清单未载入，先修好 data/equipment.json"
+    };
+  }
+
+  const known = new Set(catalog.tools.map((tool) => normalizeToolName(tool)));
+  const unknown = tools.find((tool) => !known.has(normalizeToolName(tool)));
+  if (unknown !== undefined) {
+    return {
+      ok: false,
+      status: 400,
+      error: "unknown_tool",
+      message: `厨具“${unknown}”不在厨具清单里`,
+      allowed: catalog.tools
+    };
+  }
+
+  const wanted = new Set(tools.map((tool) => normalizeToolName(tool)));
+  return { ok: true, tools: catalog.tools.filter((tool) => wanted.has(normalizeToolName(tool))) };
+}
+
+/** 两个厨具写接口共用的前半段：读 body + 词表校验。已回复错误时返回 null */
+function readKitchenRequest(
+  repository: RecipeRepository,
+  body: unknown,
+  reply: FastifyReply
+): string[] | null {
+  const parsed = readToolsBody(body);
+  if ("problem" in parsed) {
+    reply
+      .code(400)
+      .send(
+        parsed.problem === "invalid_body"
+          ? { error: "invalid_body", message: "只接受 { tools: string[] }，不接受其他字段" }
+          : { error: "invalid_tools", message: "tools 必须是字符串数组" }
+      );
+    return null;
+  }
+
+  const checked = checkTools(repository, parsed.tools);
+  if (!checked.ok) {
+    reply.code(checked.status).send({
+      error: checked.error,
+      message: checked.message,
+      ...(checked.allowed ? { allowed: checked.allowed } : {})
+    });
+    return null;
+  }
+
+  return checked.tools;
 }
 
 export function registerUserStateRoutes(
@@ -86,40 +174,32 @@ export function registerUserStateRoutes(
    * 额外一条：厨具是**受控词表**，词表外的名字一律 400（与菜谱校验同一纪律）。
    */
   app.post<{ Body: KitchenBody }>("/api/kitchen", async (request, reply) => {
-    const tools = (request.body ?? {}).tools;
-    if (!Array.isArray(tools) || tools.some((tool) => typeof tool !== "string")) {
-      return reply
-        .code(400)
-        .send({ error: "invalid_tools", message: "tools 必须是字符串数组" });
-    }
-
-    const catalog = repository.equipment();
-    if (catalog.problem !== null || catalog.tools.length === 0) {
-      // 词表坏了就不接受写入：存进去的值无法校验，下次启动也会被判为非法
-      return reply.code(503).send({
-        error: "catalog_unavailable",
-        message: catalog.problem ?? "厨具清单未载入，先修好 data/equipment.json"
-      });
-    }
-
-    const known = new Set(catalog.tools.map((tool) => normalizeToolName(tool)));
-    const unknown = tools.find((tool) => !known.has(normalizeToolName(tool)));
-    if (unknown !== undefined) {
-      return reply.code(400).send({
-        error: "unknown_tool",
-        message: `厨具“${unknown}”不在厨具清单里`,
-        allowed: catalog.tools
-      });
-    }
-
-    // 归一化：去重 + 顺序按词表 —— 让存储稳定（同一份配置写出的字节一致，便于 diff/备份比较）
-    const wanted = new Set(tools.map((tool) => normalizeToolName(tool)));
-    const normalized = catalog.tools.filter((tool) => wanted.has(normalizeToolName(tool)));
+    const tools = readKitchenRequest(repository, request.body, reply);
+    if (tools === null) return reply;
 
     try {
-      return await userState.setKitchen(normalized);
+      return await userState.setKitchen(tools);
     } catch (error) {
       request.log.error(`厨具写入失败：${(error as Error).message}`);
+      return reply.code(503).send({ error: "write_failed", message: "厨具没能保存，请重试" });
+    }
+  });
+
+  /**
+   * 迁移专用：**仅当服务端尚未设置过**时才写入（原子，CB-008）。
+   *
+   * 已设置 → `created: false` 且**不写盘**，返回现有配置（另一台设备先配好了，不能覆盖）。
+   * 客户端不能拿"先 GET 看到 null 再 POST"代替它 —— 那中间有竞态窗口。
+   */
+  app.post<{ Body: KitchenBody }>("/api/kitchen/init", async (request, reply) => {
+    const tools = readKitchenRequest(repository, request.body, reply);
+    if (tools === null) return reply;
+
+    try {
+      const { kitchen, created } = await userState.initializeKitchen(tools);
+      return { kitchen, created };
+    } catch (error) {
+      request.log.error(`厨具初始化失败：${(error as Error).message}`);
       return reply.code(503).send({ error: "write_failed", message: "厨具没能保存，请重试" });
     }
   });

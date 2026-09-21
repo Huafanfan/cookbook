@@ -82,13 +82,19 @@
 | 方法 | 路径 | 说明 |
 | --- | --- | --- |
 | `GET` | `/api/user-state` | **响应新增 `kitchen`**：`{ recipes, kitchen: { tools: string[], updatedAt?: string } \| null }`（一次拿全，不新增读接口） |
-| `POST` | `/api/kitchen` | body `{ "tools": string[] }` → 200 `{ tools, updatedAt }`（返回**归一化后**的存储值） |
+| `POST` | `/api/kitchen` | body `{ "tools": string[] }` → 200 `{ tools, updatedAt }`（**整份替换**，返回归一化后的存储值） |
+| `POST` | `/api/kitchen/init` | body `{ "tools": string[] }` → 200 `{ kitchen, created }`：**仅当服务端尚未设置过时才写入**（原子，见下）。已设置时 `created: false` 且**不写盘**，返回现有配置 |
+
+**原子初始化的用途**：客户端迁移（旧浏览器本地值上传）不能是"先 GET 看是 null 再 POST" —— 两台设备可能同时认为"尚未设置"，后写的旧值就会盖掉另一台刚保存的配置。`/api/kitchen/init` 把判断放进**服务端同一条串行写的队列里**，因此"不存在才创建"是原子的。
+
+**请求体严格校验**：只接受恰好一个键 `tools`，多一个键或键名不对 → 400 `invalid_body`（[ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) §4 "未知字段拒绝"）。
 
 错误码（与既有写接口一致）：
 
 | 情形 | 状态码 |
 | --- | --- |
 | body 不是数组 / 含非字符串 | 400 `invalid_tools` |
+| body 有未知字段 | 400 `invalid_body` |
 | 含厨具词表以外的名字 | 400 `unknown_tool`（附 `message` 说明"厨具必须来自词表"） |
 | 厨具词表未载入（`equipmentProblem`） | 503 `catalog_unavailable`（环境问题，不是用户输入问题；拒绝写入未校验的数据） |
 | 写盘失败（磁盘满/只读） | 503 `write_failed` |
@@ -99,12 +105,16 @@
 
 | 情形 | 行为 | 用户可见反馈 |
 | --- | --- | --- |
-| 发送中又改一次 | 串行提交（服务端写队列）+ 前端乐观值按顺序推进 | 无（最终以最后一次为准） |
+| 发送中又改一次 | **客户端只有一条写队列**（保存与迁移共用）：请求按调用顺序发出，同一时刻只有一个在飞；完成后以该次服务端返回值落地 | 无（最终等于服务端最后一次写入） |
+| 较早的请求失败、较新的成功 | 失败只回滚到**已确认值**；若后面还排着更新的意图，界面显示那个更新的意图（不闪回旧值） | 面板提示"这次改动没能保存，已恢复原状" |
+| 响应乱序（先发的后回） | 队列保证响应按发出顺序落地，乱序不会把新值覆盖成旧值 | 无 |
+| 迟到的全量拉取（GET 晚于 POST） | 拉取时记下修订号，落地时若已被写操作推进则**丢弃**该响应（只用来挡陈旧数据，顺序问题由队列解决） | 无 |
 | 两台设备同时改 | 后写覆盖（**明确接受**：这是一份配置，不是计数；不做合并） | 刷新后看到最后一次的值 |
+| 两台设备同时**迁移**（服务端尚未设置） | `/api/kitchen/init` 原子判定：只有第一台会 `created: true`，另一台拿到 `created: false` 并采用服务端现有配置（**不覆盖**） | 无（双方最终看到同一份） |
 | 写失败 | 回滚前端状态；服务端内存不变（ADR-0003 的原子替换 + 失败回滚） | 面板提示"这次改动没能保存，已恢复原状" |
-| 迁移时上传失败 | 保留本地键，下次打开再试（**不删本地**） | 面板提示同步失败 |
-| 迁移后本地键删除失败 | 忽略（下次迁移会被服务端已有值挡住，不会重复上传） | 无 |
-| 服务端有值、本地也有旧值 | **服务端优先**，本地值不再上传 | 无 |
+| 迁移时上传失败 | **保留本地键**，下次打开再试（不删本地） | 面板提示"旧设置没能同步上来，稍后重试"（一次性提示，不会同一次挂载里连续重试） |
+| 迁移成功 / 服务端已有值 | 采用服务端结果并清掉本地键（两种结果都算迁移结束） | 无 |
+| 迁移后本地键删除失败 | 忽略（下次会被服务端已有值挡住，`created: false`，不会重复上传） | 无 |
 | `data/user-state.json` 损坏 | 沿用现有行为：另存 `.broken` + 空状态启动 | 日志 warn（厨具退回默认值） |
 
 ## 6. 验收标准
@@ -114,11 +124,13 @@
 - [ ] 清掉浏览器缓存（localStorage）后刷新，厨具还在。
 - [ ] `docker restart` / 本地重启服务后厨具还在（`data/user-state.json` 里有 `kitchen`）。
 - [ ] **迁移**：先在旧版本（本地存储）勾好厨具 → 打开新版本 → 自动上传（`data/user-state.json` 出现 `kitchen`），本地键被删除，不需要重新勾。
+- [ ] **迁移不覆盖**：服务端已有配置时走 `/api/kitchen/init` → `created: false`、不写盘、采用现有配置（自动化测试覆盖）。
+- [ ] **并发不变脏**：连续两次修改 / 前失败后成功 / 响应乱序 / GET 晚于 POST → 界面与服务端最终一致（自动化测试覆盖，deferred 控制时序）。
 - [ ] 把 `data/user-state.json` 里的 `kitchen` 删掉（或换一台从没设置过的设备）→ 回到 `defaultOwned` 与"按默认厨具判断"文案。
 - [ ] 全不选 → 存 `tools: []` → 刷新后仍是"已选 0 件"（而不是回到默认 5 件）。
 - [ ] 写盘失败（模拟只读数据目录 / 磁盘满）：接口 503、界面**回滚**、面板提示出现。
-- [ ] 词表外的名字（构造请求）→ 400；词表未载入 → 503。
-- [ ] `npm run typecheck`、`npm test`、`npm run check:data`、`npm run build` 全绿。
+- [ ] 词表外的名字（构造请求）→ 400；未知字段 → 400；词表未载入 → 503。
+- [ ] `npm run typecheck`、`npm test`、`npm run check:data`、`npm run build` 全绿（**不用管道，记真实退出码**）。
 
 ## 7. 测试要点
 
@@ -157,18 +169,19 @@
 
 | 项目 | 证据 |
 | --- | --- |
-| 实现路径 | `src/shared/types.ts`（`KitchenState` + `UserStateResponse.kitchen`）；`src/server/services/user-state-store.ts`（`kitchen` 字段、`setKitchen`、通用化 `#mutate`）；`src/server/routes/user-state.ts`（`POST /api/kitchen`）；`src/client/lib/api.ts`（`postKitchen`）；`src/client/lib/user-state.ts`（status store + `saveKitchen` 乐观更新/回滚）；`src/client/lib/use-kitchen.ts`（服务端权威 + 迁移）；`src/client/lib/kitchen.ts`（`readMyTools` 仅供迁移、`clearMyTools`）；`src/client/components/KitchenToolsPanel.tsx`；`src/client/pages/HomePage.tsx`、`RecipePage.tsx` |
-| 静态检查 | `npm run typecheck` → exit 0（三套 tsconfig） |
-| 自动化测试 | `npm test` → **241 passed**（新增 18：store 8、route 6、hook/组件 4；面板测试改为异步提交） |
-| 数据校验 | `npm run check:data` → 371 通过 / 0 失败 |
-| 生产构建 | `npm run build` → exit 0 |
-| 真实运行（本机浏览器） | ① 迁移：本地 7 项（含词表外的名字）→ 服务端 6 项（过滤 + 按词表排序）+ 本地键清除；② `127.0.0.1` / `localhost` / `192.168.1.5` 三个 origin 显示**同一份**；③ 在 `.5` 取消一件 → `.4` 刷新后同步；④ 另起实例（端口 3100，同一数据目录）读到的厨具与写入一致（= 重启不丢）；⑤ 「全不选」存 `[]`、刷新后仍 0 件（未回到默认 5 件）；⑥ 拦截 `POST /api/kitchen` 返回 503 → 勾选**回滚** + 面板提示。逐条见 [verification/CB-008/CHECK.md](../verification/CB-008/CHECK.md) |
-| **真机双设备** | **未做**：手机改、电脑看（本次用同一浏览器不同 origin 验证隔离性） |
-| 已知限制或未验证假设 | 不做按人区分（共用一份）；两人同时改是**后写覆盖**（未实测并发）；服务端真实写失败（磁盘满/只读）未在真实环境模拟（前端回滚用 route 503 验证、服务端回滚有单测）；服务器未部署 |
+| 实现路径 | 服务端：`src/shared/types.ts`（`KitchenState` + `UserStateResponse.kitchen`）；`src/server/services/user-state-store.ts`（`kitchen` 字段、`setKitchen`、**`initializeKitchen` 队列内原子判定**、通用化 `#mutate`/`#enqueue`/`#draftCopy`）；`src/server/routes/user-state.ts`（`/api/kitchen` + `/api/kitchen/init`、**严格 body**、词表校验）<br>客户端：`src/client/lib/kitchen-sync.ts`（新，**可独立实例化的同步器**：单一写队列 + 已确认值 + 陈旧拉取丢弃）；`src/client/lib/user-state.ts`（适配层 + `__resetUserStateForTests`）；`src/client/lib/use-kitchen.ts`（服务端权威 + 迁移走 init + `migrateFailed`）；`src/client/lib/api.ts`；`src/client/lib/kitchen.ts`（`readMyTools` 仅供迁移、`clearMyTools`）；`components/KitchenToolsPanel.tsx`；`pages/HomePage.tsx`、`RecipePage.tsx` |
+| 静态检查 | `npm run typecheck` → **退出码 0**（三套 tsconfig） |
+| 自动化测试 | `npm test` → **退出码 0**，20 files / **256 passed**（CB-008 相关 33 例：落地 18 + 并发修复 15；含 deferred-promise 时序用例，用例间互不依赖） |
+| 数据校验 | `npm run check:data` → **退出码 0**（371 通过 / 0 失败） |
+| 生产构建 | `npm run build` → **退出码 0** |
+| 真实运行（本机浏览器 / 隔离实例） | ① 迁移（隔离实例）：网络日志显示走 `POST /api/kitchen/init`，词表外名字被过滤、本地键清除、落盘正确；② **原子初始化**（真实 HTTP）：已有配置时 `init` 返回 `created:false` 且不写盘（文件字节不变）；③ 三个 origin 共用同一份、跨 origin 写入互见；④ 另起实例（3100）重启后值一致；⑤ 全不选 → `[]` 刷新仍 0 件；⑥ 拦截 503 → 回滚 + 提示。逐条见 [verification/CB-008/CHECK.md](../verification/CB-008/CHECK.md)；复核意见与处置见 [verification/current-review/REVIEW.md](../verification/current-review/REVIEW.md) |
+| **真机双设备** | **未做**：已验的是同一浏览器不同 origin（存储隔离等价），不能替代真机 |
+| 已知限制或未验证假设 | 不做按人区分（共用一份）；两人同时改是**后写覆盖**（未实测并发）；两台设备**同时迁移**的真并发未实测（服务端判定在队列内）；服务端真实写失败（磁盘满/只读）未在真实环境验证（前端回滚用 route 503、服务端回滚有单测）；服务器未部署 |
 
 ## 12. 复核记录
 
 | 日期 | 变更 | 阅读和复核的文档 | 结论 |
 | --- | --- | --- | --- |
 | 2026-09-21 | 建立规格（用户选定服务端存储；迁移策略与覆盖语义明确） | START-HERE、AGENTS、DATA_MODEL、ADR-0002/0003、CB-002/005 | `accepted`（开始实现） |
-| 2026-09-21 | 实现完成（存储/接口/前端/迁移）+ 本机验收（迁移、跨 origin 共用、重启保持、失败回滚）；文档回填 | DATA_MODEL §7、ADR-0003 扩展记录、README、CB-002、START-HERE、ROADMAP、[CHECK.md](../verification/CB-008/CHECK.md) | `implemented`（**真机双设备待做**） |
+| 2026-09-21 | 实现完成（存储/接口/前端/迁移）+ 本机验收（迁移、跨 origin 共用、重启保持、失败回滚）；文档回填 | DATA_MODEL §7、ADR-0003 扩展记录、README、CB-002、START-HERE、ROADMAP、CHECK.md | `implemented`（真机双设备待做） |
+| 2026-09-21 | **独立复核后修复**（[REVIEW.md](../verification/current-review/REVIEW.md) P1-1/P1-2）：客户端单一写队列 + 已确认值 + 陈旧拉取丢弃；服务端**原子初始化** `POST /api/kitchen/init`；请求体**严格拒绝未知字段**；抽出可独立实例化的同步器并补 deferred-promise 时序测试；同步器/证据口径按复核意见修订 | 本规格 §4/§5/§6/§7、ADR-0003、CB-007 CHECK、CB-002 §11 | `implemented`（真机双设备待做） |

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef } from "react";
 
 import { keepKnownTools } from "../../shared/equipment";
 import { clearMyTools, readMyTools } from "./kitchen";
-import { saveKitchen, useLoadUserState, useUserStateStatus } from "./user-state";
+import { migrateKitchen, saveKitchen, useLoadUserState, useUserStateStatus } from "./user-state";
 
 export interface MyKitchen {
   /** 当前使用的厨具清单（服务端从未设置过时为服务端的 defaultOwned） */
@@ -20,6 +20,8 @@ export interface MyKitchen {
   apply: (updater: (tools: string[]) => string[]) => Promise<boolean>;
   /** 服务端状态没同步上（此时用默认清单兜底，面板要说清楚） */
   syncFailed: boolean;
+  /** 旧本地值迁移失败（本地键还留着，下次打开再试） */
+  migrateFailed: boolean;
 }
 
 export interface MyKitchenOptions {
@@ -31,6 +33,11 @@ export interface MyKitchenOptions {
 
 /** 本地旧值只迁移一次：列表页与详情页各有一个 hook 实例，别重复上传 */
 let migrationDone = false;
+
+/** **仅供测试**：清掉"已迁移"标记（组件用例之间隔离） */
+export function __resetKitchenMigrationForTests(): void {
+  migrationDone = false;
+}
 
 /**
  * "我的厨具"状态（CB-008：存在服务端，两口子共用一份）。
@@ -58,6 +65,7 @@ export function useMyKitchen({ available, defaultOwned }: MyKitchenOptions): MyK
 
   // 迁移（CB-008）：服务端从没设置过 + 浏览器里有旧值 → 上传一次。
   // 必须等词表载入再传（否则词表外的名字会被服务端拒掉）。
+  // 上传走 /api/kitchen/init：服务端**队列内原子判定**，另一台设备先配好了就不会被覆盖。
   useEffect(() => {
     if (migrationDone || !status.loaded || status.kitchen !== null) return;
     if (available.length === 0) return;
@@ -73,9 +81,13 @@ export function useMyKitchen({ available, defaultOwned }: MyKitchenOptions): MyK
     }
 
     migrationDone = true;
-    void saveKitchen(tools).then((ok) => {
-      if (ok) clearMyTools();
-      else migrationDone = false; // 上传失败：留着本地值，下次打开再试
+    void migrateKitchen(tools).then((outcome) => {
+      if (outcome === "failed") {
+        migrationDone = false; // 保留本地值，下次打开再试（同一次挂载不会连续重试）
+        return;
+      }
+      // created / existing 都算迁移结束：本地旧值再留着只会造成困惑
+      clearMyTools();
     });
   }, [status.loaded, status.kitchen, available]);
 
@@ -92,6 +104,7 @@ export function useMyKitchen({ available, defaultOwned }: MyKitchenOptions): MyK
     tools: effective,
     configured: stored !== null,
     apply,
-    syncFailed: status.syncFailed
+    syncFailed: status.syncFailed,
+    migrateFailed: status.migrateFailed
   };
 }

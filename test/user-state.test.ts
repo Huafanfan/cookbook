@@ -146,6 +146,41 @@ describe("UserStateStore · 我的厨具（CB-008）", () => {
 
     expect(store.snapshot().kitchen).toBeNull();
   });
+
+  it("initializeKitchen：仅在未设置时创建；已设置时 created=false 且**不写盘**", async () => {
+    const dir = await makeDir();
+    const { store } = await UserStateStore.load(dir);
+
+    const created = await store.initializeKitchen(["烤箱", "炒锅", "烤箱"]);
+    expect(created.created).toBe(true);
+    expect(created.kitchen.tools).toEqual(["烤箱", "炒锅"]); // 去重保序（按词表排序在路由层）
+
+    const fileAfterCreate = await readFile(join(dir, USER_STATE_FILE_NAME), "utf8");
+
+    // 另一台设备带着自己的旧值来迁移：服务端已有值 → 不覆盖、不写盘
+    const existing = await store.initializeKitchen(["空气炸锅"]);
+    expect(existing.created).toBe(false);
+    expect(existing.kitchen.tools).toEqual(["烤箱", "炒锅"]);
+    expect(await readFile(join(dir, USER_STATE_FILE_NAME), "utf8")).toBe(fileAfterCreate);
+  });
+
+  it("initializeKitchen 与 setKitchen 并发：同一条队列，结果按调用顺序确定", async () => {
+    const dir = await makeDir();
+    const { store } = await UserStateStore.load(dir);
+
+    await Promise.all([store.initializeKitchen(["烤箱"]), store.setKitchen(["炒锅"])]);
+
+    // init 先创建（烤箱），set 再整份替换（炒锅）
+    expect(store.snapshot().kitchen?.tools).toEqual(["炒锅"]);
+  });
+
+  it("initializeKitchen 写失败 → 内存不变（回滚）", async () => {
+    const store = UserStateStore.inMemory("/definitely/not/here/user-state.json");
+
+    await expect(store.initializeKitchen(["炒锅"])).rejects.toThrow();
+
+    expect(store.snapshot().kitchen).toBeNull();
+  });
 });
 
 describe("normalizeState（容错）", () => {
