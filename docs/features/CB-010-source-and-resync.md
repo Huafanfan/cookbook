@@ -5,7 +5,7 @@
 | 字段 | 内容 |
 | --- | --- |
 | 编号 | `CB-010` |
-| 状态 | `draft`（待用户批准后改 `accepted`；批准前不写实现） |
+| 状态 | `accepted`（2026-09-21 用户批准方向；预实现复核的 4 条阻断项已修——**基线快照改为落盘、来源匹配与基线验证分开、两种哈希分开、移除一键绕过冲突**，见 [预实现复核](../verification/current-review/PRE-REVIEW-CB-009-010.md)） |
 | 变更等级 | `T2`（新增数据字段 `sourceRef`、新增提案目录；工具链首次引入**外网 LLM 依赖** → [ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)） |
 | 创建日期 | 2026-09-21 |
 | 最后文档复核 | 2026-09-21 |
@@ -50,14 +50,17 @@
 
 | 状态 | 表现 |
 | --- | --- |
+| 默认无参数 | **`--dry-run` 是默认**：只报告、不写任何文件；一次只处理一道菜（`--id <id>` 或 `--next`） |
 | 无克隆 / 路径不对 | 立刻报错退出，提示"需要 HowToCook 克隆路径" |
 | commit 在克隆里不可达 | 该菜标记 `baseline-missing`，跳过并计入报告（**不猜**、不写任何文件） |
-| `importedHash` 对不上基线 | 标记 `baseline-drift`（可能是解析器升级导致口径变了），跳过 + 报告里说明 |
-| 只有上游变 | 报告里写"可直接更新"；`--apply <id>` 落地（不需要 LLM） |
-| 两边都变 | 生成提案（json + md）；`--apply <id>` 前必须已存在提案文件，否则拒绝 |
+| `baselineHash` 对不上基线快照 | 标记 `baseline-drift`（可能是解析器升级导致口径变了），跳过 + 报告里说明 |
+| `baselineStatus=matched`（基线未验证） | **不进自动流程**：只报告 + 提示人工建立基线（`--rebaseline <id>`） |
+| 只有上游变 | 报告里写"可直接更新"；`--apply <proposalId>` 落地（不需要 LLM） |
+| 只有本地变 | 报告里写"保留本地"，跳过 |
+| 两边都变 | 生成提案（json + md）；`--apply <proposalId>` 前必须已存在提案文件且**冲突已逐项解决**，否则拒绝 |
 | LLM 无 key / 网络失败 | 该菜标记 `llm-unavailable`，**只报告差异**（报告里含两侧全文），不生成提案 |
-| LLM 输出不合法（不过 zod） | 标记 `llm-invalid`，保留原始响应到 `data/sync-proposals/<id>.raw.txt` 供排查，不写提案 |
-| 提案里存在未决冲突 | `--apply` **默认拒绝**，除非显式 `--accept-conflicts`（把冲突段按提案写入并在历史里标注） |
+| LLM 输出不合法（不过 zod/内容检查） | 标记 `llm-invalid`，保留**脱敏后**的原始响应供排查，不写提案 |
+| 提案里有未决冲突 | `--apply` **拒绝**（首版**没有**一键绕过开关）；冲突在提案里逐项标 `resolved` 后才能应用 |
 | 报告 | 默认打印到终端，同时写 `data/sync-proposals/report-<日期>.md` |
 
 ## 4. 数据与接口变化
@@ -72,56 +75,74 @@
     "repo": "https://github.com/Anduin2017/HowToCook",
     "path": "汤/昂刺鱼豆腐汤/昂刺鱼豆腐汤.md",
     "commit": "c2063eb",
-    "importedHash": "sha256:9f2c…",
+    "baselineStatus": "verified",
+    "baselineHash": "sha256:9f2c…",
+    "parserVersion": "howtocook-parse@1",
     "lastSyncedAt": "2026-09-21"
   }
 }
 ```
 
-- 校验（`lib/schema.ts`）：`sourceRef` 可选；给了就必须四个字段齐全（`repo`/`path`/`commit`/`importedHash` 非空字符串，`lastSyncedAt` 可选）。
+- 校验（`lib/schema.ts`）：`sourceRef` 可选；`path`/`repo` 必填非空；`baselineStatus` 只能是 `matched`/`verified`，`verified` 时必须有 `commit`+`baselineHash`+`parserVersion`。
+- **两种哈希分开**（复核 #7）：`revision` = 当前菜谱**文件字节** SHA-256（并发控制）；`baselineHash` = **语义哈希**（canonical 投影，排除 `sourceRef`/`updatedAt`/图片派生字段）—— 三方比较只用后者。
 - 旧文件不需要迁移；手工菜（`家常做法`）没有 `sourceRef`。
 
 ### 新增目录
 
 ```text
-data/sync-proposals/<id>.json       # 提案：合并后的整份菜谱 + 逐条说明 + 冲突清单
-data/sync-proposals/<id>.md         # 人类可读：上游改了什么 / 我改了什么 / 合并结果
+data/baselines/<id>.json            # 基线快照：导入当时**解析后**的整份菜谱（canonical）
+data/baselines/index.json           # {id, path, commit, parserVersion, baselineHash}
+data/sync-proposals/<id>.json       # 提案：合并后的整份菜谱 + 逐条说明 + 冲突清单 + 提案元数据
+data/sync-proposals/<id>.md         # 人类可读：上游改了什么 / 我改了什么 / 合并结果 / 冲突逐条
 data/sync-proposals/report-<日期>.md
-data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留
+data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已脱敏）
 ```
+
+**基线为什么改成落盘（复核 #6/#7 的修正）**：靠 `git show <commit>:<path>` 现场重算看似省空间，但同一份 markdown 在不同版本解析器下结果不同（CB-003 修过 9 个解析缺口），而且 `data/` 备份就**不再能独立恢复同步能力**。首版就把解析后的基线存下来（371 道 × 约 3 KB ≈ 1–2 MB 文本），代价可接受。
 
 ### LLM 调用（只在脚本里）
 
 | 项 | 值 |
 | --- | --- |
 | 端点 | `$IVAN_ONLINE_API_URL`（`https://api.ivan-online.xyz/v1/chat/completions`） |
-| 鉴权 | `$IVAN_ONLINE_API_KEY`（**只从环境变量读，不落盘、不进日志**） |
+| 鉴权 | `$IVAN_ONLINE_API_KEY`（**只从环境变量读，不落盘、不进日志、不外发**） |
+| 客户端 | **Node fetch**（项目已有运行时）—— 实测 Python/urllib 会被 Cloudflare 拦 `403/1010`；**不新增 npm 依赖** |
 | 模型 | `gpt-5.6-luna`（可 `--model` 覆盖） |
-| 思考档位 | `reasoning_effort: "low"`（代理拒绝该参数时退回普通调用，并在输出里记录实际用法） |
-| 传输 | 直接 `fetch`（OpenAI 兼容），**不新增 npm 依赖** |
-| 失败 | 不重试超过 2 次；失败即降级为"只报告" |
+| 思考档位 | `reasoning_effort: "low"`（**必需**：已被用户指定；实测 curl 与 Node fetch 均 200） |
+| 档位被拒时 | **报配置阻断并停下**（退出码非 0），**不得**自动去掉 `low` 继续跑（复核 #9） |
+| 发送内容 | **只发目标菜谱的三方内容**（基线/上游新/本地）；不发环境变量、密钥、其他文件、路径 |
+| 重试 | 最多 2 次；失败即降级为"只报告" |
 
 ## 5. 失败、降级与边界
 
 | 情形 | 行为 |
 | --- | --- |
 | 上游文件在克隆里被删除/改名 | 标记 `upstream-missing`，报告里给出候选（同菜名/相似路径），**人决定** |
+| 上游改了、但本地 `baselineStatus=matched`（基线未验证） | **不自动覆盖**；报告里列为"需人工建立基线"（`--rebaseline <id>`） |
 | 本地文件被手工改坏（校验不过） | 该菜跳过 + 报告；不参与合并 |
 | 本地有 `sourceRef` 但菜谱文件不存在 | 忽略（可能是删除的菜） |
 | 同一菜名匹配到多个上游文件 | 回填时列为**待决定**，不写 |
-| 解析器口径升级导致 `importedHash` 不匹配 | 标记 `baseline-drift`；提供 `--rebaseline <id>`（把当前上游解析结果当作新基线，需显式） |
-| 提案与当前文件不一致（审阅后才又改了文件） | `--apply` 时再次比对本地哈希；不一致 → 拒绝并提示重新生成提案 |
+| 解析器口径升级导致 `baselineHash` 不匹配 | 标记 `baseline-drift`；提供 `--rebaseline <id>`（以当前本地内容为基线起点，显式记录） |
+| 提案与当前文件不一致（审阅后又改了文件） | `--apply` 时**重新校验本地 `revision`**；不一致 → 拒绝并提示重新生成提案 |
+| 提案里有未决冲突 | `--apply` 拒绝（逐项解决后才能应用）；**没有**一键绕过 |
+| 数组重排/删除 | 按**内容相似度**对齐（不按下标硬套）；无法对齐的列为冲突 |
 | 无外网 | 三档确定性动作照常；需要 LLM 的那档降级为报告 |
+| 代理拒绝 `reasoning_effort` | **配置阻断**：停下报错，不自动降级（复核 #9） |
 | 上游 force-push 导致老 commit 不可达 | `baseline-missing`；报告里建议更新克隆并 `--rebaseline` |
 
 ## 6. 验收标准
 
-- [ ] `npm run backfill:source-ref --source <克隆>` 在**临时数据目录**上跑通；能唯一匹配的写入 `sourceRef`，未匹配/多匹配的列出清单（**不写**）。
+- [ ] `npm run backfill:source-ref --source <克隆>` 在**临时数据目录**上跑通：能唯一匹配的写 `sourceRef`（`baselineStatus` 为 `matched` 或 `verified`，**分开统计**）、未匹配/多匹配的列清单（**不写**）；`baseline-unverified` 的菜**不会被自动覆盖**。
+- [ ] **基线快照可离线恢复**：删掉克隆目录后，`data/baselines/` + `sourceRef` 仍能确定"本地是否改过"（三方比较不依赖克隆）。
 - [ ] 构造三种工况（只上游变 / 只本地变 / 两边都变）在临时目录上各跑一次：
   - 只上游变 → 报告"可直接更新"；`--apply` 落地并写历史（来源 `import`）；
   - 只本地变 → 跳过，本地内容**一个字节不变**；
   - 两边都变 → 生成提案（json + md），**未审阅前文件不变**。
-- [ ] 提案里的冲突（同一字段两边都改）在 md 里**逐条列出**，`--apply` 默认拒绝，除非 `--accept-conflicts`。
+- [ ] 提案里的冲突（同一字段两边都改）在 md 里**逐条列出**；`--apply` 在存在未决冲突时**拒绝**（首版**没有** `--accept-conflicts`）；逐项标 `resolved` 后能落地。
+- [ ] **本地 `revision` 变了之后 `--apply` 被拒**（提案重新生成才行）。
+- [ ] **默认 dry-run + 单菜**：不带 `--apply` 跑一次 → 不写任何文件；不带 `--id` 的批量操作需要**单独授权**（脚本拒绝直接批量写）。
+- [ ] **不外发多余数据**：用假 fetch 断言请求体只含目标菜谱的三方内容（不含环境变量、密钥、其他菜谱；日志里 `Bearer` 已打码）。
+- [ ] **`reasoning_effort` 被拒 → 配置阻断**：假 fetch 返回 400 且报错信息指向该参数 → 脚本**停下报错**，不自动去掉 `low` 重试。
 - [ ] 离线（清空 `IVAN_ONLINE_*`）跑一次：三档确定性动作正常，需要合并的那档降级为报告，退出码非 0 但**不写任何文件**。
 - [ ] `--apply` 落地后：菜谱文件是提案内容、`sourceRef` 更新、`data/history/.../<时间>-llm-merge.json` 存在、`npm run check:data` 仍全绿。
 - [ ] LLM 故意返回不合法 JSON（用 `--model` 指一个不存在的模型或注入假响应）→ 标记 `llm-invalid`，不写提案、不写菜谱。
@@ -133,7 +154,8 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留
 
 | 层级 | 用例 |
 | --- | --- |
-| 单元（merge 纯函数） | 三方决策表四档；字段级差异识别（新增/删除/修改）；冲突判定（同路径两边都改）与冲突清单结构；提案 → 整份菜谱的组装；"不得新增事实"的可校验部分（LLM 结果里出现两边都没有的步骤 → 拒绝） |
+| 单元（merge 纯函数） | 三方决策表四档（含 `matched` 不进自动流程）；字段级差异识别（新增/删除/修改）；**数组按内容相似度对齐**（重排/插入/删除/改一个字段）而不是按下标；冲突判定与冲突清单结构；canonical 投影（排除 `sourceRef`/时间/派生字段；tag/厨具按归一化集合比）；提案 → 整份菜谱的组装；"两边都没有、只出现在提案里"的内容能被标识出来（供人核对） |
+| 单元（基线/哈希） | 语义哈希稳定性（同样的菜谱不同排版 → 同哈希）；`parserVersion` 变化 → `baseline-drift`；基线快照读写与 `index.json` 一致性 |
 | 单元（llm 客户端） | 请求体（model/`reasoning_effort`/system prompt）、环境变量缺失时的行为、非 2xx、超时、非法 JSON、`reasoning_effort` 被拒后的退回路径（用注入的假 fetch，不发真实请求） |
 | 单元（回填匹配） | name→路径的两种层级、重名（列待决定）、找不到（列待决定）、幂等（已有 `sourceRef` 跳过） |
 | 脚本端到端（临时目录 + 假 LLM + 假克隆） | 三档工况；`--apply` 的守卫（无提案 / 哈希变了 / 有未决冲突）；历史快照来源标记 |
@@ -166,7 +188,7 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留
 - [x] 与现有文档无冲突；`source` 已存在（371/371），本规格只**新增可选** `sourceRef`。
 - [x] 外网依赖的边界已写清：**只在本地脚本**，应用运行时不调用 LLM（[REQUIREMENTS](../REQUIREMENTS.md)"不依赖任何第三方在线服务"指的是应用运行时）。
 - [x] 每条事实的权威位置：基线与 LLM 策略 → ADR-0006；字段定义 → DATA_MODEL；交互与验收 → 本规格。
-- [ ] 本规格已达到 `accepted`（**待用户批准**）。
+- [x] 本规格已达到 `accepted`（2026-09-21：用户批准方向；预实现复核 4 条阻断项已落入 §3/§4/§5/§6/§7；**实施顺序上排在 CB-009 之后**，且批量回填/覆盖真实 `data/` 前需单独授权）。
 - [ ] 实现后同步：`DATA_MODEL.md`、`DEPLOYMENT.md`、`README.md`、`ROADMAP.md`、`START-HERE.md`、`features/README.md`、`CB-003`。
 
 ## 11. 实现与验证证据（实现后填写）
@@ -183,3 +205,4 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留
 | 日期 | 变更 | 阅读和复核的文档 | 结论 |
 | --- | --- | --- | --- |
 | 2026-09-21 | 建立规格（用户要求来源、编辑、记录、LLM 整合；ADR-0006 同批新立） | START-HERE、AGENTS、DATA_MODEL、ARCHITECTURE、ADR-0002/0005、CB-003 | `draft`（待批准） |
+| 2026-09-21 | 用户批准方向（两份规格 + 先做 CB-009）；**预实现复核（Astra）提出 4 条阻断项** → 本规格按意见修订：**基线快照落盘**（不再靠克隆现场重算）、区分"来源已匹配"与"基线已验证"、原始字节哈希与语义哈希分开、移除一键绕过冲突、提案加元数据与 `proposalId`、数组按内容对齐、默认 dry-run 单菜、`reasoning_effort` 被拒=配置阻断、最小化数据外发 | 本规格 §3/§4/§5/§6/§7、[ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)、[预实现复核](../verification/current-review/PRE-REVIEW-CB-009-010.md) | 仍为 `draft`（**待复核项修完后才改 accepted**） |

@@ -8,8 +8,8 @@
 | [ADR-0002](ADR-0002-json-files-as-source-of-truth.md) | 菜谱数据以 JSON 文件为唯一数据源 | 已接受 |
 | [ADR-0003](ADR-0003-write-operations-user-state.md) | 引入写操作：用户状态（点赞/收藏）存服务端 | 已接受 |
 | [ADR-0004](ADR-0004-image-static-hosting.md) | 从数据目录托管菜谱图片（`/images/*`） | 已接受 |
-| [ADR-0005](ADR-0005-editable-recipes-and-history.md) | 菜谱内容变为可写（编辑模式 + 修改记录） | 提议中 |
-| [ADR-0006](ADR-0006-source-baseline-and-llm-resync.md) | 来源基线与 LLM 辅助的重新同步 | 提议中 |
+| [ADR-0005](ADR-0005-editable-recipes-and-history.md) | 菜谱内容变为可写（编辑模式 + 修改记录） | 已接受 |
+| [ADR-0006](ADR-0006-source-baseline-and-llm-resync.md) | 来源基线与 LLM 辅助的重新同步 | 已接受 |
 
 ## 什么时候要写 ADR
 

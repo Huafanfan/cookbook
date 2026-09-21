@@ -152,14 +152,14 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 ## M5 · 增值（按需选做）
 
 > 网页录入/上传会引入写操作，改变 [ADR-0002](decisions/ADR-0002-json-files-as-source-of-truth.md) "只有一个写者"的前提，属 T2：
-> 必须先写 ADR + 规格（[ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md) / [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md) 已立为**提议中**，等批准）。
+> 必须写 ADR + 规格——[ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md) / [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md) 均已接受，[CB-009](features/CB-009-edit-mode.md) 先做（预实现复核已过）。
 
 | 优先级 | 功能 | 说明 |
 | --- | --- | --- |
 | ~~撤销~~ | ~~份量换算~~ | **2026-09-20 撤销**：两人份是家庭基准，不是缩放授权；且与步骤文案矛盾。要重启先立规格（见 [OPEN_QUESTIONS](OPEN_QUESTIONS.md) Q10） |
 | 高 | 最近浏览 / 收藏 | 首页顶部一行"常做的菜"（浏览器本地存储） |
-| 中 | **编辑菜谱 + 修改记录** | ✅ 已立项 [`CB-009`](features/CB-009-edit-mode.md)（`draft`，待批准）：浏览器内改全部字段（含来源）+ 历史快照 + 版本守卫；**不做新建/删除** |
-| 中 | **来源基线与重新同步** | ✅ 已立项 [`CB-010`](features/CB-010-source-and-resync.md)（`draft`，待批准）：`sourceRef` + 回填 + 三方合并，LLM 只出提案（本地脚本，应用运行时不调 LLM） |
+| 中 | **编辑菜谱 + 修改记录** | ✅ 已立项 [`CB-009`](features/CB-009-edit-mode.md)（`accepted`，**实现中**）：浏览器内改全部字段（含来源）+ 历史快照 + 版本守卫；**不做新建/删除** |
+| 中 | **来源基线与重新同步** | ✅ 已立项 [`CB-010`](features/CB-010-source-and-resync.md)（`accepted`，排在 CB-009 后）：`sourceRef` + 基线快照 + 三方合并，LLM 只出提案（本地脚本，应用运行时不调 LLM） |
 | 中 | 上传图片 | 网页上传并自动压缩到 `data/images/` |
 | 低 | 购物清单 | 多选菜谱合并食材，可勾选 |
 | 低 | PWA | 加到手机桌面，像 App 一样打开 |
