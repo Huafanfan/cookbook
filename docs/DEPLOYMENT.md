@@ -76,10 +76,15 @@ scp ~/Workspace/cookbook/data/equipment.json root@192.168.1.2:/srv/data/cookbook
 在 Mac 上（**只同步源码，不带 `node_modules`、`data/`、`.env`**）：
 
 ```bash
+> **服务器上没有 `rsync`**（iStoreOS 是 BusyBox），所以用 `tar` 管道同步；
+> macOS 还要加 `COPYFILE_DISABLE=1` 并排除 `._*`，否则会把 AppleDouble 元数据文件传上去 ——
+> 那些 `._*.json` 会被当成菜谱文件、解析失败，前端因此弹出"N 个文件未载入"告警（2026-09-21 首次部署踩到过）。
+
 cd ~/Workspace/cookbook
-rsync -av --delete --exclude node_modules --exclude dist --exclude .git \
-  --exclude data --exclude '*.log' --exclude '.env.server' \
-  ./ root@192.168.1.2:/srv/app/cookbook/source/
+COPYFILE_DISABLE=1 tar czf - \
+  --exclude=node_modules --exclude=dist --exclude=.git --exclude=data \
+  --exclude='*.log' --exclude=.env.server --exclude='._*' --exclude=.DS_Store \
+  . | ssh root@192.168.1.2 'mkdir -p /srv/app/cookbook/source && tar xzf - -C /srv/app/cookbook/source'
 ```
 
 > 为什么排除 `data/`：菜谱数据只走 `/srv/data/cookbook`（bind mount），不参与镜像构建，避免出现"两份数据"。
@@ -116,10 +121,11 @@ docker logs --tail 50 cookbook
 ### 步骤 6 · 首次灌入菜谱数据
 
 ```bash
-# Mac → 服务器
-rsync -av ~/Workspace/cookbook/data/recipes/ root@192.168.1.2:/srv/data/cookbook/recipes/
-rsync -av ~/Workspace/cookbook/data/images/ root@192.168.1.2:/srv/data/cookbook/images/     # 菜品图片（约 56 MiB，不在镜像里）
-rsync -av ~/Workspace/cookbook/data/equipment.json root@192.168.1.2:/srv/data/cookbook/   # 厨具词表改过才需要
+# Mac → 服务器（用 tar 管道；COPYFILE_DISABLE 防止带上 ._* 元数据）
+cd ~/Workspace/cookbook
+COPYFILE_DISABLE=1 tar czf - -C data --exclude='._*' --exclude=.DS_Store \
+  recipes images equipment.json tags.json baselines \
+  | ssh root@192.168.1.2 'tar xzf - -C /srv/data/cookbook'
 ssh root@192.168.1.2 "cd /srv/app/cookbook/source && docker compose --env-file .env.server -f compose.yaml restart"
 ```
 
