@@ -62,6 +62,9 @@ ssh root@192.168.1.2
 mkdir -p /srv/app/cookbook/source
 mkdir -p /srv/data/cookbook/recipes /srv/data/cookbook/images
 chmod 755 /srv/data/cookbook
+# 关键：容器以 node(uid 1000) 运行，数据目录与文件必须归它，否则写操作全部 503/EACCES
+# （点赞/收藏/厨具/菜谱编辑都是"运行期写 data/"，见 ADR-0003）
+chown -R 1000:1000 /srv/data/cookbook
 ```
 
 同时放入厨具词表（菜谱的厨具字段按它校验；缺了这个文件厨具功能会显示"清单未载入"）：
