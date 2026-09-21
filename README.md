@@ -9,6 +9,7 @@
 > 份量按菜谱原文显示（`servings: 2` 是家庭基准，**不做自动换算**）。
 > **「我的厨具」存服务端**（跟点赞、收藏一起，两口子共用一份；换网址/换手机/清缓存都在，[CB-008](docs/features/CB-008-kitchen-tools-server.md)）。
 > 下一步：真机试做并回填[试做反馈](docs/features/CB-001-cooking-feedback.md) ｜ 真机看图片 ｜ 部署（T3，需明确授权）。
+> **正在做**：菜谱**编辑模式 + 修改记录**（[CB-009](docs/features/CB-009-edit-mode.md)）—— 后端写入协议与接口已完成并测试（`PUT /api/recipes/:id`、历史接口、版本守卫 409、每道菜串行队列），界面待做。
 > 入口：[`docs/START-HERE.md`](docs/START-HERE.md)（当前状态与阅读路径）。
 
 ## 目标（一句话）
@@ -65,7 +66,9 @@ npm run check:data   # 校验 data/recipes/*.json
 > 老乡鸡的 [CookLikeHOC](https://github.com/Gar-b-age/CookLikeHOC) **没有 LICENSE**，默认保留所有权利，
 > 因此本项目**不使用其内容**（只参考了"按烹饪工艺分类"的组织方式）。导入规则见 [docs/features/CB-003](docs/features/CB-003-howtocook-import.md)。
 >
-> 用法：`npx tsx scripts/import-howtocook.ts --source <HowToCook 仓库目录> [--dry-run] [--limit N] [--no-images]`
+> 用法：`npx tsx scripts/import-howtocook.ts --source <HowToCook 仓库目录> [--dry-run] [--limit N] [--no-images] [--overwrite-existing]`
+>
+> ⚠️ **默认不会覆盖已存在的菜谱**（自从可以在网页上编辑后，直接覆盖会吃掉你的修改）；确实要覆盖就加 `--overwrite-existing`，并**先停服务**。
 
 ## 怎么加一道菜
 
@@ -187,7 +190,10 @@ cookbook/
 | 方法 | 路径 | 说明 |
 | --- | --- | --- |
 | GET | `/api/recipes?q=&category=&tag=` | 列表，支持关键词（菜名/别名/食材/标签）与筛选 |
-| GET | `/api/recipes/:id` | 详情（完整食材与步骤） |
+| GET | `/api/recipes/:id` | 详情（完整食材与步骤；含 `revision` —— 保存时要用它） |
+| PUT | `/api/recipes/:id` | **保存菜谱**（整份替换；body `{recipe, baseRevision, note?, source?}`；400 校验不过 / 409 版本冲突 / 413 太大 / 415 非 JSON / 403 跨站 / 503 写盘失败） |
+| GET | `/api/recipes/:id/history` | 修改记录列表（倒序，只有元数据） |
+| GET | `/api/recipes/:id/history/:historyId` | 某一条修改记录（含被替换掉的整份内容） |
 | GET | `/api/meta` | 分类、标签、总数（筛选器数据源） |
 | GET | `/api/health` | 健康检查（容器用） |
 | GET | `/images/<菜谱id>/cover.jpg` 或 `step-<N>.jpg` | 菜品图片（白名单：只提供扫描认下的文件；`no-cache` + ETag） |

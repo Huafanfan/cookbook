@@ -5,7 +5,7 @@
 | 字段 | 内容 |
 | --- | --- |
 | 编号 | `CB-009` |
-| 状态 | `accepted`（2026-09-21 用户批准方向并指定先做本项；预实现复核的 5 条阻断项已修，见 [预实现复核](../verification/current-review/PRE-REVIEW-CB-009-010.md)） |
+| 状态 | `accepted`（2026-09-21 用户批准方向并指定先做本项；预实现复核的 5 条阻断项已修。**进度：后端写入协议 + 接口已实现并测试（21 例，临时目录），界面待做**） |
 | 变更等级 | `T2`（菜谱内容从"运行期只读"变为**可写**，并新增历史数据目录与写接口 → [ADR-0005](../decisions/ADR-0005-editable-recipes-and-history.md)） |
 | 创建日期 | 2026-09-21 |
 | 最后文档复核 | 2026-09-21 |
@@ -189,12 +189,25 @@ data/history/recipes/<recipe-id>/2026-09-21T15-02-11Z-llm-merge.json
 
 ## 11. 实现与验证证据（实现后填写）
 
+### 已完成部分：写入协议 + 接口（2026-09-21）
+
 | 项目 | 证据 |
 | --- | --- |
-| 实现路径 | <待填> |
-| 静态检查 / 测试 / 数据校验 / 构建 | <待填（记真实退出码）> |
-| 真实运行 / 双设备 | <待填> |
-| 已知限制或未验证假设 | <待填> |
+| 实现路径 | `src/server/lib/recipe-revision.ts`（新：字节哈希 / 落盘序列化 / `historyId` / ID 格式校验）；`src/server/lib/schema.ts`（`recipeWriteBodySchema` + `formatIssueList`）；`src/server/services/recipe-repository.ts`（`saveRecipe`：**每道菜串行队列 → 重读重比 → zod + 内容检查 → 历史快照 → 原子替换 → 内存/图片/白名单重算 → 历史 `outcome` 回写**；`listHistory`/`readHistory`；`detail().revision`）；`src/server/routes/recipes.ts`（`PUT /api/recipes/:id` + 历史两个接口 + 同源/JSON/256KB 限制）；`scripts/import-howtocook.ts`（默认**拒绝覆盖** + `--overwrite-existing` + 停服提醒）；`src/shared/types.ts`（`RecipeHistoryEntry`/`RecipeHistoryRecord`/`RecipeDetail.revision`） |
+| 静态检查 | `npm run typecheck` → **退出码 0** |
+| 自动化测试 | `npm test` → **退出码 0**：22 files / **282 passed**；CB-009 新增 **21 例**（写入协议 11 + HTTP 层 10），全部在 `mkdtemp` 临时目录上跑：并发两次保存串行且后到者 409、历史写失败正文不变、替换失败留 `outcome: failed`、`recipe.id` 不可改、未知字段（`sourceRef`）不被丢掉、步骤数变小后 `stepImages`/白名单重算、400/403/404/409/413/415/503 各码、历史列表与单条、路径穿越 404 |
+| 数据校验 | `npm run check:data` → **退出码 0**（371 通过 / 0 失败） |
+| 生产构建 | `npm run build` → **退出码 0** |
+| 真实运行（本机，非浏览器） | 导入脚本冒烟：无 `--source` → 退出码 **1**；用真实克隆 `/tmp/howto` 跑 `--dry-run --limit 3` → 报告 3 道“已存在，未覆盖”（**不写盘**） |
+| **测试中抓到并修掉的问题** | ① 非 JSON 请求体：Fastify 没替我拒 → 补显式 **415**；② **历史列表排序错**：`historyId` 时间戳只到秒，同一秒两次保存按文件名排序会变成随机顺序 → 改为按记录里的 `savedAt`（带毫秒）倒序 |
+| 待做 | 前端（编辑页 / 历史 UI / 冲突 UI）、真机与双设备验收 |
+
+### 尚未实现（本规格剩余部分）
+
+- 编辑页与表单（字段分组、排序、草稿、未保存确认）
+- 历史 UI（“改过 N 次” / 看某一条 / 恢复）
+- 冲突 UI（409 两个分支 + 带最新 `revision` 重试）
+- 因此**没有**浏览器端验收证据；规格**不得**称 `verified`
 
 ## 12. 复核记录
 
@@ -202,3 +215,4 @@ data/history/recipes/<recipe-id>/2026-09-21T15-02-11Z-llm-merge.json
 | --- | --- | --- | --- |
 | 2026-09-21 | 建立规格（用户要求编辑模式 + 修改记录；ADR-0005 同批新立） | START-HERE、AGENTS、DATA_MODEL、ARCHITECTURE、ADR-0002/0003、CB-008 | `draft`（待批准） |
 | 2026-09-21 | 用户批准方向（两份规格 + 先做 CB-009）；**预实现复核（Astra）提出 5 条阻断项** → 本规格按意见修订（并发保证范围、提交点与失败语义、独立 `historyId`、409 重试守卫、受保护字段/id 不可改、内容检查、步骤变动的后果、同源与大小限制、草稿结构），并补写入协议测试清单 | 本规格 §4/§5/§6/§7/§9、[ADR-0005](../decisions/ADR-0005-editable-recipes-and-history.md)、[预实现复核](../verification/current-review/PRE-REVIEW-CB-009-010.md) | 仍为 `draft`（**待复核项修完后才改 accepted**） |
+| 2026-09-21 | **按 Astra 顺序：先冻结写入协议 + 临时目录测试，再做界面**。后端已实现：`saveRecipe`（串行队列/重读重比/zod+内容检查/历史快照/原子替换/索引与图片重算/`outcome` 语义）、`PUT` 与历史接口、导入器默认拒绝覆盖；新增 21 例测试；测试中修掉 2 个真问题（415、历史排序） | 本规格 §4/§5/§7/§11、ADR-0005、DATA_MODEL §5b、ARCHITECTURE §4/§6/§7、README、DEPLOYMENT | `accepted`（**后端已实现，界面待做**） |

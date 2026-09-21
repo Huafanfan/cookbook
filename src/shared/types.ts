@@ -93,7 +93,46 @@ export interface RecipeMedia {
 }
 
 /** 详情接口返回：菜谱文件字段 + 图片信息 */
-export interface RecipeDetail extends Recipe, RecipeMedia {}
+export interface RecipeDetail extends Recipe, RecipeMedia {
+  /**
+   * 当前**文件字节**的 SHA-256（CB-009 并发守卫）。
+   *
+   * 保存时必须原样回传 —— 与磁盘不一致就是 409（不静默覆盖）。
+   */
+  revision: string;
+}
+
+/** 修改记录的来源（CB-009） */
+export type RecipeHistorySource = "manual" | "llm-merge" | "import" | "restore";
+
+/**
+ * 一次保存的修改记录（CB-009），记录的是**被替换掉的那一版**。
+ *
+ * `historyId` 是历史记录自己的 ID（独立于内容 `revision`：同一内容可以被保存多次）。
+ */
+export interface RecipeHistoryEntry {
+  historyId: string;
+  recipeId: string;
+  savedAt: string;
+  source: RecipeHistorySource;
+  note?: string;
+  /** 被替换那一版的 revision */
+  beforeRevision: string;
+  /** 替换后的新 revision；未完成/失败时为 null */
+  afterRevision: string | null;
+  /** pending = 快照已落盘但结果未确认；replaced = 替换成功；failed = 替换失败 */
+  outcome: "pending" | "replaced" | "failed";
+}
+
+/** 单条历史记录（含被替换的整份内容） */
+export interface RecipeHistoryRecord extends RecipeHistoryEntry {
+  beforeRecipe: Recipe;
+}
+
+/** `GET /api/recipes/:id/history` 的响应（倒序） */
+export interface RecipeHistoryListResponse {
+  items: RecipeHistoryEntry[];
+}
 
 /**
  * 单道菜的用户状态（点赞、收藏）。

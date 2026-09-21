@@ -32,10 +32,18 @@ interface Options {
   limit: number | null;
   dryRun: boolean;
   withImages: boolean;
+  /** 显式覆盖已存在的菜谱（默认**拒绝**：网页上的修改不能被导入悄悄吃掉，CB-009 / ADR-0005 §7） */
+  overwriteExisting: boolean;
 }
 
 function parseArgs(argv: string[]): Options {
-  const options: Options = { source: "", limit: null, dryRun: false, withImages: true };
+  const options: Options = {
+    source: "",
+    limit: null,
+    dryRun: false,
+    withImages: true,
+    overwriteExisting: false
+  };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -43,6 +51,7 @@ function parseArgs(argv: string[]): Options {
     else if (arg === "--limit") options.limit = Number.parseInt(argv[++index] ?? "", 10);
     else if (arg === "--dry-run") options.dryRun = true;
     else if (arg === "--no-images") options.withImages = false;
+    else if (arg === "--overwrite-existing") options.overwriteExisting = true;
   }
 
   return options;
@@ -170,9 +179,17 @@ async function main(): Promise<void> {
   const usedIds = new Set<string>();
   const failures: string[] = [];
   const skipped: string[] = [];
+  /** 已存在、按默认策略**没覆盖**的（CB-009 之后已有菜谱可能有网页修改） */
+  const skippedExisting: string[] = [];
   const warnings: string[] = [];
   let imported = 0;
   let images = 0;
+
+  if (options.overwriteExisting && !options.dryRun) {
+    console.log("⚠️  --overwrite-existing：已存在的菜谱会被**覆盖**（包括你在网页上改过的内容）。");
+    console.log("    建议先停服务（docker stop cookbook 或停掉 npm run dev），避免与编辑中的会话打架。");
+    console.log("    更好的办法：等 CB-010 的「先比较、后合并」流程落地后再批量同步。");
+  }
 
   if (!options.dryRun) await mkdir(RECIPES_DIR, { recursive: true });
 
@@ -221,6 +238,14 @@ async function main(): Promise<void> {
     }
     warnings.push(...formatContentIssues(id, issues.filter((issue) => issue.severity === "warning")));
 
+    // 已存在 → **默认不覆盖**（CB-009：那道菜可能已经在网页上改过了）
+    const target = join(RECIPES_DIR, `${id}.json`);
+    const targetExists = (await stat(target).catch(() => null)) !== null;
+    if (targetExists && !options.overwriteExisting) {
+      skippedExisting.push(`${id}（${recipe.name}）`);
+      continue;
+    }
+
     if (options.dryRun) {
       console.log(`\n--- ${id} ${recipe.name}（${recipe.category}）---`);
       console.log(JSON.stringify(recipe, null, 2).slice(0, 1200));
@@ -243,9 +268,16 @@ async function main(): Promise<void> {
   }
 
   console.log(
-    `\n导入完成：成功 ${imported}，失败 ${failures.length}，跳过（保留自建菜谱）${skipped.length}，成品图 ${images} 张`
+    `\n导入完成：成功 ${imported}，失败 ${failures.length}，跳过（保留自建菜谱）${skipped.length}，` +
+      `跳过（已存在，未覆盖）${skippedExisting.length}，成品图 ${images} 张`
   );
   for (const item of skipped) console.log(`  ⏭ ${item}`);
+  if (skippedExisting.length > 0) {
+    console.log(`已存在而没有覆盖的（前 5 个）：${skippedExisting.slice(0, 5).join("、")}`);
+    console.log(
+      "  默认不覆盖是为了不弄丢你在网页上的修改；确实要覆盖就加 --overwrite-existing（先停服）。"
+    );
+  }
   if (warnings.length > 0) {
     console.log(`内容警告 ${warnings.length} 条（不阻止）：`);
     for (const warning of warnings.slice(0, 8)) console.log(`  ${warning}`);

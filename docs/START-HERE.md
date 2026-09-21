@@ -19,7 +19,7 @@
 - **图片已完成（2026-09-20）**：[CB-007](features/CB-007-images.md) + [ADR-0004](decisions/ADR-0004-image-static-hosting.md)，`implemented`：启动扫描 `data/images/<id>/`（179/371 道菜有封面）、`/images/*` 只提供扫描认下的文件、`no-cache` + ETag；列表懒加载、详情限高头图、步骤图在完成按钮之外。验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md)（**待真机**）；首版**不做缩略图**（已批准）
 - **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **261**（含图片路由/降级、厨具服务端并发时序与 schema 校验的用例）
 - 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；真机顺便看图片（滚动是否卡）与双设备厨具同步 ｜ M4 图片（[CB-007](features/CB-007-images.md)）与厨具改服务端（[CB-008](features/CB-008-kitchen-tools-server.md)）均已实现 → 之后才是部署（T3，需授权）
-- 新立项（2026-09-21 已批准，`accepted`）：**编辑模式 + 修改记录**（[CB-009](features/CB-009-edit-mode.md) + [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)）与**来源基线 + LLM 辅助重新同步**（[CB-010](features/CB-010-source-and-resync.md) + [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md)），先做 CB-009；**预实现复核（Astra）的 9 条阻断项已全部落入文档**，见 [verification/current-review/PRE-REVIEW-CB-009-010.md](verification/current-review/PRE-REVIEW-CB-009-010.md)
+- 新立项（2026-09-21 已批准）：**编辑模式 + 修改记录**（[CB-009](features/CB-009-edit-mode.md) + [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)）与**来源基线 + LLM 辅助重新同步**（[CB-010](features/CB-010-source-and-resync.md) + [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md)）；**CB-009 后端写入协议 + 接口已完成并测试（21 例，临时目录），界面待做**；预实现复核的 9 条阻断项见 [verification/current-review/PRE-REVIEW-CB-009-010.md](verification/current-review/PRE-REVIEW-CB-009-010.md)
 
 ## 新 session 的阅读路径
 

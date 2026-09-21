@@ -121,14 +121,34 @@ export function createRecipeSchema(options: RecipeSchemaOptions = {}) {
 export const recipeSchema = createRecipeSchema();
 
 /** 把 zod 的报错整理成一行可读文本：`steps.0.text: 步骤内容不能为空` */
-export function formatIssues(error: z.ZodError): string {
-  return error.issues
-    .map((issue) => {
-      const path = issue.path.join(".");
-      return path ? `${path}: ${issue.message}` : issue.message;
-    })
-    .join("; ");
+/** zod 报错 → 一行一条（接口返回给前端做字段级提示） */
+export function formatIssueList(error: z.ZodError): string[] {
+  return error.issues.map((issue) => {
+    const path = issue.path.join(".");
+    return path ? `${path}: ${issue.message}` : issue.message;
+  });
 }
+
+export function formatIssues(error: z.ZodError): string {
+  return formatIssueList(error).join("; ");
+}
+
+/**
+ * 菜谱写接口的请求体（[CB-009](../../docs/features/CB-009-edit-mode.md)）：**严格**——只接受 `{ recipe, baseRevision, note? }`。
+ *
+ * 这里只管**请求形状**（多一个键就拒，ADR-0003 §4 的"未知字段拒绝"）；
+ * `recipe` 的字段级校验用 `createRecipeSchema`（含厨具/tag 词表）在 repository 里做。
+ */
+export const recipeWriteBodySchema = z.strictObject({
+  recipe: z.custom<Record<string, unknown>>(
+    (value) => typeof value === "object" && value !== null && !Array.isArray(value),
+    { message: "recipe 必须是一个对象" }
+  ),
+  baseRevision: z.string().min(8, "baseRevision 不能为空"),
+  note: z.string().max(500, "note 最多 500 字").optional(),
+  /** 网页只能声明这两种：脚本的 llm-merge / import 由脚本直接调 repository */
+  source: z.enum(["manual", "restore"]).optional()
+});
 
 /* ---------- 用户状态（`data/user-state.json`）与它的写接口：CB-008 ---------- */
 

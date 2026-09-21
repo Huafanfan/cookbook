@@ -195,6 +195,9 @@ ssh root@192.168.1.2 "docker restart cookbook"     # 或等 M5 做热重载，�
 
 ### 备份（数据只有 `data/`，备份它就等于备份了一切）
 
+`data/` 里现在包含：`recipes/`（菜谱正文）、`history/recipes/`（**每次保存的修改记录**）、`images/`、
+`equipment.json`、`tags.json`、`user-state.json`（点赞/收藏/我的厨具），以及（CB-010 之后）`baselines/` 与 `sync-proposals/`。
+
 ```bash
 ssh root@192.168.1.2 "tar czf /srv/backup/cookbook-$(date +%F).tar.gz -C /srv/data cookbook"
 # 建议再加一条：把归档拉回 Mac
@@ -225,6 +228,10 @@ ssh root@192.168.1.2 "tar xzf /srv/backup/cookbook-2026-09-19.tar.gz -C /srv/dat
 | 菜谱提示“厨具不在清单里” | 菜谱里的厨具名不在词表内；错误信息会列出全部可选值（词表在 `data/equipment.json`） |
 | 端口冲突 | 改 `.env.server` 的 `COOKBOOK_PORT`，重新 `up -d` |
 | 图片不显示 / 图片 404 | 确认 `data/images/<菜谱id>/cover.jpg`：目录名要与 `id` **完全一致**（大小写敏感）、文件名必须是 `cover.jpg` 或 `step-<N>.jpg`（小写 `.jpg`，`cover.png`/HEIC 不认）；加/换图后要**重启**；看启动日志 `图片扫描完成：X/Y 道菜有封面` 与 `图片检查 …` 告警 |
+| 网页保存报 409「服务端上已经是另一个版本」 | 说明这道菜在别处（另一台设备/手工编辑器）又被改过：重新加载看新内容，或用"覆盖"（会带最新版本号重试）。**没把握就别覆盖** |
+| 想手工编辑 `data/recipes/*.json` | **先停服务**再改（应用没有文件锁）：改完启动时会重新载入；否则网页保存可能把你的修改覆盖掉（见 [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md) §1） |
+| 重跑导入脚本 | **默认不会覆盖已存在的菜谱**；要覆盖加 `--overwrite-existing`，并先停服务（否则会吃掉网页上的修改） |
+| 菜谱改坏了想回退 | 看 `data/history/recipes/<id>/` 里保存前的版本（也可以在应用内"改过 N 次"里看/恢复）；仍可用 git 回退整个 `data/recipes/` |
 | 图片换了但还看到旧的 | 浏览器缓存是按 `no-cache` 重验证的，正常刷新即可；若确认没变，检查是否真的重启了（扫描在启动时）、文件是否放到了另一个目录 |
 | 容器起不来（磁盘） | `df -h /srv`；Overlay 只有 1.9G，Docker 数据必须留在 `/srv/docker` |
 

@@ -36,7 +36,9 @@
 │  cookbook 容器 (Node, Fastify)  @ 192.168.1.2:<端口>                          │
 │                                                                              │
 │   GET /api/recipes          列表（支持 q / category / tag 查询参数）           │
-│   GET /api/recipes/:id      详情                                             │
+│   GET /api/recipes/:id      详情（含 `revision`）                            │
+│   PUT /api/recipes/:id      保存（整份替换，版本守卫 409）见 CB-009            │
+│   GET /api/recipes/:id/history[/:historyId]   修改记录                    │
 │   GET /api/meta             分类、标签、统计（供筛选器渲染）                    │
 │   GET /images/*             菜品图片（白名单：cover.jpg / step-N.jpg）        │
 │   GET /*                    前端构建产物（SPA，index.html 兜底）                │
@@ -85,8 +87,9 @@ src/
    外加第 5 处：`server/services/user-state-store.ts`（用户状态的读写，见 ADR-0003）。
    **不得新增第 6 处**；菜谱数据读取一律经 repository。
    图片**字节**不经过我们的模块：由 `@fastify/static` 插件按 `routes/images.ts` 给出的白名单与缓存头提供。
-2b. **写操作只有一处**：`user-state-store` 写 `data/user-state.json`（原子替换 + 串行队列）；
-   菜谱内容运行期只读，应用不会改写 `data/recipes/`。
+2b. **写操作只有两处**：`user-state-store` 写 `data/user-state.json`（点赞/收藏/厨具；原子替换 + 串行队列）；
+   `recipe-repository` 写**菜谱内容**与 `data/history/recipes/` 下的修改记录（CB-009：同一套原子替换 + **每道菜一条串行队列** + 失败回滚）。
+   菜谱写入前必须过 zod + 内容检查，并用文件字节的 `revision` 做版本守卫（不一致 → 409）。
 3. **类型**的唯一来源是 `src/shared/types.ts`，**运行时校验**的唯一来源是 `src/server/lib/schema.ts`（zod）。两边字段必须同步，改一处就要改另一处。
 
 ## 5. 备选方案与取舍
@@ -108,13 +111,15 @@ src/
 | D3 | 端口使用高位端口（`18081`，已确认服务器上空闲） | 避开路由器管理页 80/443 与已占用端口 |
 | D4 | 容器 `read_only: true`；数据目录可写，但只允许应用写 `user-state.json` | 其余内容（菜谱、图片）运行期只读；写操作边界见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)，图片托管见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md) |
 | D5 | 镜像**在服务器上**构建（x86_64） | `docker compose up -d --build` 在服务器执行，不需要 buildx |
-| D6 | 中文内容、英文标识符 | 代码可读性与中文可维护性兼顾 |
+| D7 | 菜谱内容可写（CB-009）：写路径仍在 repository，**每道菜一条串行队列** + 原子替换 + 版本守卫（409） + 历史快照 | 界面编辑与脚本导入共用同一写入口；外部编辑器无锁（TOCTOU，见 [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)） |
 
 ## 7. 风险与应对
 
 | 风险 | 应对 |
 | --- | --- |
 | 手写 JSON 出错导致服务启动失败 | zod 校验 + 启动时跳过并告警坏文件，不影响其他菜谱；`npm run check:data` 提供离线校验 |
+| **网页编辑把内容改坏** | 写入前过同一份 zod + 内容检查（不合法不写盘），原子替换 + 历史快照（可回退） + git 可 diff；版本守卫防覆盖 |
+| **导入脚本吃掉网页修改** | 导入器**默认拒绝覆盖已存在菜谱**（显式 `--overwrite-existing` 才覆盖，并在输出里提醒先停服）；CB-010 落地后走「先比较、后合并」 |
 | 图片体积膨胀 | 首版按**原图 + 懒加载**（不生成缩略图）：单张中位数 230 KiB、最大 1 MiB，滚动看完现有 179 张累计约 56 MiB；真机着卡再另立规格做缩略图（口径见 [CB-007](features/CB-007-images.md)）；将来做网页上传时在上传环节压缩 |
 | 服务器磁盘/分区未就绪 | 部署前确认数据目录可用空间（见 `DEPLOYMENT.md` 的前置检查） |
 | 端口冲突 | 部署前 `netstat -ltn` 检查；端口写进 `.env.server` 便于改 |

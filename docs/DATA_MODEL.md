@@ -64,7 +64,7 @@
 | `steps` | Step[] | ✅ | 有序步骤，见下 |
 | `tips` | string[] | | 小贴士 / 易错点 |
 | `source` | string | | 来源（"妈妈的做法"、链接等） |
-| `createdAt` / `updatedAt` | string | | `YYYY-MM-DD` |
+| `createdAt` / `updatedAt` | string | | `YYYY-MM-DD`；`updatedAt` 由**应用保存时**写入（手改文件不会更新它） |
 
 ### Ingredient
 
@@ -104,7 +104,6 @@
 - `data/recipes/ke-le-ji-chi.json`（4 步，含腌制与收汁）
 
 ## 4. 图片约定（已实现，CB-007）
-
 ```text
 data/images/<recipe-id>/
 ├── cover.jpg        # 封面图（列表卡片 + 详情页头图）
@@ -133,6 +132,22 @@ data/images/<recipe-id>/
 6. 启动日志汇总：载入成功 N 道 / 失败 M 道（失败项列出文件名与原因）。
 
 配套脚本：`npm run check:data`（`scripts/check-data.ts`，经 tsx 运行，复用后端同一份 zod 规则）——不启动服务即可校验全部数据文件。
+
+## 5b. 网页编辑与修改记录（CB-009）
+
+- **写接口**：`PUT /api/recipes/:id`（整份替换）；写入前必须过 **zod（含词表）+ 内容检查**，不合法不写盘；并发用 **`revision`**（当前**文件字节**的 SHA-256）做版本守卫，不一致 → 409，**不静默覆盖**。
+- **`revision` 是派生字段**（不进 JSON 文件）：详情接口下发，保存时原样回传。
+- **修改记录**：每次保存前把**被替换掉的那一版**存到
+
+```text
+data/history/recipes/<recipe-id>/<historyId>-<source>.json
+```
+
+  记录含 `beforeRecipe`（旧版全文）、`beforeRevision`、`afterRevision`、`savedAt`、`source`（`manual`/`llm-merge`/`import`/`restore`）、`note?`、`outcome`（`pending`/`replaced`/`failed`）。
+  `historyId` 是**历史记录自己的 ID**（时间戳 + 随机），与内容 `revision` 不是一回事。列表按 `savedAt` 倒序。
+- **不自动删除历史**（删除属数据操作，需授权）；历史随 `data/` 一起备份。
+- **schema 之外的键会被保留**：保存以**磁盘上的原始 JSON** 为底、用校验后的字段覆盖，所以像 `sourceRef`（CB-010）这种当时还不认识的字段不会被顺手删掉。
+- 策略与失败语义（提交点、历史写失败、替换失败）见 [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)；**手工改文件请先停服**（没有文件锁，见该 ADR §1）。
 
 ## 6. 待定项
 
