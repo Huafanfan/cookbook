@@ -1068,6 +1068,158 @@ button {
   font-weight: 600;
 }
 
+/* ---------- 编辑页表单（CB-009） ---------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 560px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field input,
+.field select,
+.field textarea,
+.form-row input,
+.section textarea {
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  min-height: var(--tap);
+  min-width: 0;
+}
+
+/* 服务端指出哪个字段错 → 红边框 + 淡红底（不是只给一行字） */
+.field input.invalid,
+.form-row input.invalid {
+  border-color: var(--color-error);
+  background: var(--color-error-soft);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.form-row-sub {
+  padding-left: 38px;
+}
+
+.form-block {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.row-main {
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+.row-num {
+  flex: 0 0 76px;
+}
+
+.row-small {
+  flex: 1 1 92px;
+  min-width: 0;
+}
+
+.row-actions {
+  display: flex;
+  gap: 2px;
+}
+
+.icon-button {
+  min-width: 34px;
+  min-height: 34px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.icon-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.chip-danger {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* ---------- 修改记录（CB-009） ---------- */
+
+.history-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  margin: 0;
+}
+
+.history-main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-when {
+  font-size: 14px;
+}
+
+.history-note {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
 /* ---------- 无障碍：尊重系统的减少动态效果设置 ---------- */
 
 @media (prefers-reduced-motion: reduce) {

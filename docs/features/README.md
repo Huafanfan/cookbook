@@ -14,7 +14,7 @@
 | CB-006 | [tag 受控词表与逐道分类](CB-006-tags.md) | `implemented` | 14 个受控 tag（`data/tags.json`）+ LLM 逐道判定，**371/371 全覆盖**，筛选栏不再有空 tab |
 | CB-007 | [图片展示（封面、头图、步骤配图）](CB-007-images.md) | `implemented` | 服务端扫描 `data/images/<id>/` + `/images/*` 只提供扫描认下的文件（[ADR-0004](../decisions/ADR-0004-image-static-hosting.md)）；**首版不做压缩缩略图、不做上传**——本机验收通过（[验收记录](../verification/CB-007/CHECK.md)），**待真机** |
 | CB-008 | [「我的厨具」改存服务端](CB-008-kitchen-tools-server.md) | `implemented` | `user-state.json` 新增 `kitchen` + `POST /api/kitchen`（词表校验）；旧浏览器本地值自动迁移，两口子共用一份——本机验收通过（[验收记录](../verification/CB-008/CHECK.md)），**待真机双设备** |
-| CB-009 | [编辑模式与修改记录](CB-009-edit-mode.md) | `accepted` | 浏览器内改菜谱全部字段（含来源）+ 历史快照（独立 `historyId`）+ 版本守卫（409 不静默覆盖）——T2，[ADR-0005](../decisions/ADR-0005-editable-recipes-and-history.md)；**后端写入协议 + 接口已完成并测试（21 例），界面待做** |
+| CB-009 | [编辑模式与修改记录](CB-009-edit-mode.md) | `implemented` | 浏览器内改菜谱全部字段（含来源）+ 历史快照（独立 `historyId`）+ 版本守卫（409 不静默覆盖、可恢复旧版）——T2，[ADR-0005](../decisions/ADR-0005-editable-recipes-and-history.md)；本机浏览器验收通过（[CHECK](../verification/CB-009/CHECK.md)），**待真机** |
 | CB-010 | [来源、基线与 LLM 辅助重新同步](CB-010-source-and-resync.md) | `accepted` | `sourceRef`（含 `baselineStatus`）+ 基线快照落盘 + 三方合并（LLM 只出提案、人审逐项后落地；应用运行时不调 LLM）——T2，[ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)，排在 CB-009 之后 |
 
 ## 待建规格（来自 ROADMAP）

@@ -36,6 +36,11 @@ export const STORAGE_KEYS = {
     key: `cookbook:servings:${recipeId}`,
     kind: "local"
   }),
+  /** 编辑页草稿（长期：刷新/误触返回后能接着改；存 `{recipeId, baseRevision, draft, savedAt}`） */
+  editDraft: (recipeId: string): StorageSlot => ({
+    key: `cookbook:edit-draft:${recipeId}`,
+    kind: "local"
+  }),
 } as const satisfies Record<string, StorageSlot | ((id: string) => StorageSlot)>;
 
 function getArea(kind: StorageKind): Storage | null {

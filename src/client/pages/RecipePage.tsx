@@ -287,6 +287,15 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
           )}
         </div>
 
+        <div className="action-row">
+          <button type="button" className="chip" onClick={() => navigate(`/recipe/${recipe.id}/edit`)}>
+            ✎ 编辑
+          </button>
+          <button type="button" className="chip" onClick={() => navigate(`/recipe/${recipe.id}/history`)}>
+            🕘 修改记录
+          </button>
+        </div>
+
         {actionError && <p className="notice notice-error">{actionError}</p>}
       </header>
 

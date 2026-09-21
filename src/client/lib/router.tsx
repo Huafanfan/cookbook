@@ -1,12 +1,34 @@
 import { useEffect, useState } from "react";
 
-export type Route = { name: "home" } | { name: "recipe"; id: string };
+export type Route =
+  | { name: "home" }
+  | { name: "recipe"; id: string }
+  | { name: "edit"; id: string }
+  | { name: "history"; id: string }
+  | { name: "historyVersion"; id: string; historyId: string };
 
 export function parseRoute(pathname: string): Route {
+  // 从最具体的开始匹配（编辑页 / 修改记录 / 菜品详情）
+  const edit = /^\/recipe\/([^/]+)\/edit\/?$/.exec(pathname);
+  if (edit) return { name: "edit", id: decodeURIComponent(edit[1]) };
+
+  const version = /^\/recipe\/([^/]+)\/history\/([^/]+)\/?$/.exec(pathname);
+  if (version) {
+    return {
+      name: "historyVersion",
+      id: decodeURIComponent(version[1]),
+      historyId: decodeURIComponent(version[2])
+    };
+  }
+
+  const history = /^\/recipe\/([^/]+)\/history\/?$/.exec(pathname);
+  if (history) return { name: "history", id: decodeURIComponent(history[1]) };
+
   const match = /^\/recipe\/([^/]+)\/?$/.exec(pathname);
   if (match) {
     return { name: "recipe", id: decodeURIComponent(match[1]) };
   }
+
   return { name: "home" };
 }
 

@@ -5,7 +5,7 @@
 | 字段 | 内容 |
 | --- | --- |
 | 编号 | `CB-009` |
-| 状态 | `accepted`（2026-09-21 用户批准方向并指定先做本项；预实现复核的 5 条阻断项已修。**进度：后端写入协议 + 接口已实现并测试（21 例，临时目录），界面待做**） |
+| 状态 | `implemented`（本机浏览器实测通过：编辑、保存、修改记录、恢复、409 冲突；**真机与双设备待做**。证据见 §11 与 [verification/CB-009/CHECK.md](../verification/CB-009/CHECK.md)） |
 | 变更等级 | `T2`（菜谱内容从"运行期只读"变为**可写**，并新增历史数据目录与写接口 → [ADR-0005](../decisions/ADR-0005-editable-recipes-and-history.md)） |
 | 创建日期 | 2026-09-21 |
 | 最后文档复核 | 2026-09-21 |
@@ -202,12 +202,21 @@ data/history/recipes/<recipe-id>/2026-09-21T15-02-11Z-llm-merge.json
 | **测试中抓到并修掉的问题** | ① 非 JSON 请求体：Fastify 没替我拒 → 补显式 **415**；② **历史列表排序错**：`historyId` 时间戳只到秒，同一秒两次保存按文件名排序会变成随机顺序 → 改为按记录里的 `savedAt`（带毫秒）倒序 |
 | 待做 | 前端（编辑页 / 历史 UI / 冲突 UI）、真机与双设备验收 |
 
-### 尚未实现（本规格剩余部分）
+### 界面部分（2026-09-21 完成）
 
-- 编辑页与表单（字段分组、排序、草稿、未保存确认）
-- 历史 UI（“改过 N 次” / 看某一条 / 恢复）
-- 冲突 UI（409 两个分支 + 带最新 `revision` 重试）
-- 因此**没有**浏览器端验收证据；规格**不得**称 `verified`
+| 项目 | 证据 |
+| --- | --- |
+| 实现路径 | `src/client/pages/EditRecipePage.tsx`（表单 + 草稿 + 409 冲突 + 步骤变动提示）、`src/client/pages/RecipeHistoryPage.tsx`（列表 + 只读某版 + 恢复）、`src/client/lib/api.ts`（`saveRecipe`/历史接口 + 带错误体的 `ApiError`）、`src/client/lib/router.tsx`（`/recipe/:id/edit`、`/recipe/:id/history[/:historyId]`）、`src/client/pages/RecipePage.tsx`（入口按钮）、`src/client/lib/storage.ts`（`editDraft`）、`styles/global.css`（表单与记录样式） |
+| 自动化测试 | 编辑页 6 例 + 修改记录页 4 例（jsdom + 注入的假 API）：预填与保存 payload、400 字段级报错、409 冲突两个分支、网络中断的"结果未确认"、词表未载入禁用保存、草稿恢复不改 `baseRevision`、恢复走 `restore` 来源并清完成标记 |
+| 真实浏览器（隔离实例） | 编辑→保存（磁盘与历史都正确）→ 修改记录 → 看旧版 → 恢复（历史多一条 `-restore`）→ **409 不静默覆盖**（外部改文件后保存被拒，磁盘未被覆盖）→ 重新加载拿到**磁盘版本**。逐条见 [verification/CB-009/CHECK.md](../verification/CB-009/CHECK.md)；截图在 `docs/verification/CB-009/` |
+| 浏览器验收中修掉的问题 | 冲突后「重新加载」原本会用 `GET`（内存索引，只在启动时载入）拿到**陈旧内容** → 改为用 409 响应里带的磁盘版本 |
+
+### 仍未做
+
+- **真机**（手机视口与真机键盘输入）：本次只在桌面内核验过
+- 两台真实设备同时编辑（用"外部改文件"模拟了冲突）
+- 真实只读挂载/磁盘满导致的写失败（临时目录里构造了历史失败与替换失败）
+- 因此规格状态是 `implemented`，**不得**称 `verified`
 
 ## 12. 复核记录
 
