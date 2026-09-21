@@ -45,6 +45,18 @@ const baseRecipeSchema = z.object({
   equipmentAlternatives: z
     .array(z.array(z.string().min(1)).min(1, "替代组不能为空"))
     .optional(),
+  /** 上游来源（CB-010）：可选；`verified` 时三个字段都要在（跨字段规则在下面的 refiner 里查） */
+  sourceRef: z
+    .object({
+      repo: z.string().min(1, "sourceRef.repo 不能为空"),
+      path: z.string().min(1, "sourceRef.path 不能为空"),
+      commit: z.string().min(1).optional(),
+      baselineStatus: z.enum(["matched", "verified"]),
+      baselineHash: z.string().min(1).optional(),
+      parserVersion: z.string().min(1).optional(),
+      lastSyncedAt: z.string().min(1).optional()
+    })
+    .optional(),
   ingredients: z.array(ingredientSchema).min(1, "至少要有一个食材"),
   steps: z.array(stepSchema).min(1, "至少要有一个步骤"),
   tips: z.array(z.string().min(1)).optional(),
@@ -79,12 +91,24 @@ export function createRecipeSchema(options: RecipeSchemaOptions = {}) {
 
   const hasTools = Boolean(allowedTools && allowedTools.length > 0);
   const hasTags = Boolean(allowedTags && allowedTags.length > 0);
-  if (!hasTools && !hasTags) return baseRecipeSchema;
-
   const allowed = new Set((allowedTools ?? []).map(normalizeToolName));
   const tagSet = new Set(allowedTags ?? []);
 
+  // refiner 总是挂上：sourceRef 的跨字段规则与词表无关
   return baseRecipeSchema.superRefine((recipe, ctx) => {
+    const sourceRef = recipe.sourceRef;
+    if (sourceRef && sourceRef.baselineStatus === "verified") {
+      for (const key of ["commit", "baselineHash", "parserVersion"] as const) {
+        if (!sourceRef[key]) {
+          ctx.addIssue({
+            code: "custom",
+            path: ["sourceRef", key],
+            message: `baselineStatus 是 verified 时必须给 sourceRef.${key}`
+          });
+        }
+      }
+    }
+
     if (hasTags) {
       (recipe.tags ?? []).forEach((tag, index) => {
         if (tagSet.has(tag)) return;

@@ -47,6 +47,7 @@ docs/verification/
 | --- | --- | --- |
 | ~~LSP 报 `test/**` 里"模块没有导出成员 xxx"~~ **已修（2026-09-20）** | 根 `tsconfig.json` 的 `include` 只有 `src/client`/`src/shared`，LSP 给 `test/**` 挑了它 → 看不到 `src/server` 的导出。已把根配置的 `include` 放宽为 `["src", "test", "vite.config.ts"]` 并补上 `node` 类型 | 修复后复检：`npm run typecheck`/`test`/`check:data`/`build` 四个门禁仍 exit 0 |
 | LSP 对刚编辑过的文件给出过期结论 | 索引滞后 | 以 `tsc` 与实际测试运行为准 |
+| 报 `scripts/*.ts` 里 `process` 找不到、参数隐式 any | 根 `tsconfig.json` 的 `include` 只有 `src`/`test`/`vite.config.ts`，单扫这些文件时缺 node 类型；**`scripts/` 其实由 `tsconfig.test.json` 覆盖**（`npm run typecheck` 第三项） | 跑 `npm run typecheck`（三项全过即脚本类型正常）；别为此改 tsconfig 的 include |
 
 **规矩**：门禁以**命令退出码**为准（`npm run typecheck`/`npm test`/`npm run check:data`/`npm run build`），不以编辑器内联诊断为准。
 

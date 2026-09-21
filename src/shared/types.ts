@@ -49,12 +49,37 @@ export interface Recipe {
   equipment?: string[];
   /** 可选：每个子数组是"任选其一"的一组厨具，如 [["炒锅", "砂锅", "空气炸锅"]] */
   equipmentAlternatives?: string[][];
+  /** 上游来源的机器可读信息（CB-010）；手工菜没有它 */
+  sourceRef?: RecipeSourceRef;
   ingredients: Ingredient[];
   steps: Step[];
   tips?: string[];
   source?: string;
   createdAt?: string;
   updatedAt?: string;
+}
+
+/**
+ * 上游来源的机器可读信息（CB-010）。
+ *
+ * - `baselineStatus: "matched"` = 只匹配到**候选**来源（知道对应哪个上游文件，但基线未验证）；
+ * - `baselineStatus: "verified"` = 基线已验证（必须有 `commit` + `baselineHash` + `parserVersion`）；
+ * - `baselineHash` 是**语义哈希**（canonical 投影，见 `recipe-canonical.ts`），不是文件字节哈希。
+ */
+export interface RecipeSourceRef {
+  /** 上游仓库地址，如 `https://github.com/Anduin2017/HowToCook` */
+  repo: string;
+  /** 上游文件路径（相对于仓库根） */
+  path: string;
+  /** 基线所在的上游 commit */
+  commit?: string;
+  baselineStatus: "matched" | "verified";
+  /** 基线内容的语义哈希（判断"本地改过没有"） */
+  baselineHash?: string;
+  /** 解析器/归一化器版本（识别"基线口径漂移"） */
+  parserVersion?: string;
+  /** 最后一次成功同步的日期 */
+  lastSyncedAt?: string;
 }
 
 /** 列表页用的轻量结构：不含食材明细与步骤，避免列表接口过大 */

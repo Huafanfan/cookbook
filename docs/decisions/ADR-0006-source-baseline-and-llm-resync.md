@@ -71,11 +71,17 @@ HowToCook（Unlicense 公有领域）· https://github.com/Anduin2017/HowToCook 
 | `baselineHash` / 语义哈希 | **canonical 投影**（排除 `sourceRef`、`updatedAt`/时间、图片派生字段；数组按内容比较而非下标；归一化空白）后再哈希 | 三方比较、判断“本地是否改过” |
 | `parserVersion` | 解析器/归一化器的版本号（常量，随 CB-003 改动递增） | 识别“基线口径漂移” |
 
-**应用维护字段的所有权（必须定义，否则一加 `sourceRef` 就永远判"本地已改"）**：
+**字段所有权（已实现于 `src/server/lib/recipe-canonical.ts`，必须定义，否则一加 `sourceRef` 就永远判"本地已改"）**：
 
-- 应用写入的字段：`sourceRef`、`updatedAt` —— 语义哈希**排除**它们；
-- 受控词表字段（`tags`/`equipment`）：三方比较时按**归一化后的集合**比（顺序不算改），并在提案里保留本地顺序；
-- 其余内容字段（菜名/食材/步骤/小贴士/份量…）全部参与比较。
+| 字段 | 归属 | 参与三方合并？ |
+| --- | --- | --- |
+| `name` / `category` / `summary` / `difficulty` / `servings` / `prepMinutes` / `cookMinutes` / `aliases` / `ingredients` / `steps` / `tips` | **内容核心** | ✅ 参与（数组顺序有意义，不排序） |
+| `tags` / `equipment` / `equipmentAlternatives` | **本地拥有**（CB-002/CB-006 由我们补的，上游没有；用户也会在网页上改） | ❌ 不参与：合并时**一律保留本地** |
+| `source`（人类可读出处）/ `sourceRef` / `createdAt` / `updatedAt` | **应用拥有** | ❌ 不参与 |
+
+**这条决定很关键**：369 道导入菜在导入后都被我们补过 tag/厨具。若把它们算进内容比较，上游一更新就会**全部**落进"两边都改"那一档，全都要过 LLM（又慢又贵，而且都是假改动）。排除它们之后：导入后没被用户改过的菜，语义哈希 == 上游解析结果的哈希 → `baselineStatus` 可以标 `verified`，上游更新走"直接采用"那一档。
+
+上游若真的改了 tag/厨具类字段，脚本在报告里**单独提示**（不静默丢弃）。
 
 ### 3. 一次性回填（`scripts/backfill-source-ref.ts`）——**匹配与基线要分开记**
 

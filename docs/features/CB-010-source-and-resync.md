@@ -193,12 +193,25 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 
 ## 11. 实现与验证证据（实现后填写）
 
+### 已完成部分：基础件（2026-09-21）
+
 | 项目 | 证据 |
 | --- | --- |
-| 实现路径 | <待填> |
-| 静态检查 / 测试 / 数据校验 / 构建 | <待填（记真实退出码）> |
-| 真实运行（真实克隆 + 真实 luna） | <待填：报告 + 提案 + 落地后的 diff> |
-| 已知限制或未验证假设 | <待填> |
+| 实现路径 | `src/shared/types.ts`（`RecipeSourceRef`：`matched`/`verified`、`baselineHash`、`parserVersion`）；`src/server/lib/schema.ts`（`sourceRef` 的运行时校验：`verified` 时必须有 `commit`/`baselineHash`/`parserVersion`，并把 refiner 改成**总是挂上**——跨字段规则与词表无关）；`src/server/lib/recipe-canonical.ts`（**语义投影 + 语义哈希** + `PARSER_VERSION` + `sameContent`，字段所有权见 [ADR-0006 §2b](../decisions/ADR-0006-source-baseline-and-llm-resync.md)） |
+| 静态检查 | `npm run typecheck` → **退出码 0** |
+| 自动化测试 | `npm test` → **退出码 0**：25 files / **300 passed**；本片新增 8 例（`test/recipe-canonical.test.ts`）：内容相同 → 同哈希、**补的 tag/厨具/来源/时间戳不影响哈希**、内容真变则哈希变（含顺序）、投影里确实没有本地字段、`sourceRef` 校验的四种情形 |
+| 数据校验 | `npm run check:data` → **退出码 0**（371 通过 / 0 失败） |
+| 生产构建 | `npm run build` → **退出码 0** |
+| 顺手修的一处过期前提 | CB-009 的"未知字段不被丢掉"用例原本拿 `sourceRef` 当未知字段——它现在是**受校验的真字段**（缺 `baselineStatus` 会被拒）。已改为用真未知字段（`futureField`）并补一条"合法 `sourceRef` 保存后也保留" |
+| 待做 | 回填脚本（匹配 + 验证 + 写 `sourceRef`）、三方比较四档、LLM 提案与 `--apply` |
+
+### 尚未实现（本规格剩余部分）
+
+- `scripts/backfill-source-ref.ts`（来源匹配 → `matched`；能证明基线的 → `verified` + `data/baselines/`）
+- 三方比较四档（不调 LLM 的部分）与报告
+- LLM 提案生成 + 人工逐项审阅 + `--apply`
+- 真实克隆 + 真实 `gpt-5.6-luna` 跑通一次
+- 因此规格仍为 `accepted`，**不得**称 `implemented`/`verified`
 
 ## 12. 复核记录
 
@@ -206,3 +219,4 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 | --- | --- | --- | --- |
 | 2026-09-21 | 建立规格（用户要求来源、编辑、记录、LLM 整合；ADR-0006 同批新立） | START-HERE、AGENTS、DATA_MODEL、ARCHITECTURE、ADR-0002/0005、CB-003 | `draft`（待批准） |
 | 2026-09-21 | 用户批准方向（两份规格 + 先做 CB-009）；**预实现复核（Astra）提出 4 条阻断项** → 本规格按意见修订：**基线快照落盘**（不再靠克隆现场重算）、区分"来源已匹配"与"基线已验证"、原始字节哈希与语义哈希分开、移除一键绕过冲突、提案加元数据与 `proposalId`、数组按内容对齐、默认 dry-run 单菜、`reasoning_effort` 被拒=配置阻断、最小化数据外发 | 本规格 §3/§4/§5/§6/§7、[ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)、[预实现复核](../verification/current-review/PRE-REVIEW-CB-009-010.md) | 仍为 `draft`（**待复核项修完后才改 accepted**） |
+| 2026-09-21 | CB-009 完成后开工：**先做不依赖 LLM 的基础件**——`sourceRef` 类型与校验、**语义投影/哈希**（字段所有权落成 `recipe-canonical.ts`：tag/厨具/来源/时间戳不参与，否则 369 道菜全会被判"本地改过"）；上游克隆改为**完整克隆** `~/Workspace/HowToCook` | 本规格 §4/§11、ADR-0006 §2b、[DEPLOYMENT](../DEPLOYMENT.md) | `accepted`（基础件已实现，回填/三方比较/LLM 待做） |

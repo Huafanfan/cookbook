@@ -208,10 +208,16 @@ describe("保存（CB-009 写入协议）", () => {
     expect(items[0].afterRevision).toBeNull();
   });
 
-  it("schema 之外的键（例如未来的 sourceRef）不会在保存时被丢掉", async () => {
+  it("schema 之外的键与已识别的 sourceRef 都不会在保存时被丢掉", async () => {
     const withExtra = {
       ...baseRecipe(),
-      sourceRef: { repo: "https://example.com/x", path: "汤/菜/菜.md" }
+      /** 真·未知字段（模拟以后才会加的字段） */
+      futureField: { hello: "world" },
+      sourceRef: {
+        repo: "https://example.com/x",
+        path: "汤/菜/菜.md",
+        baselineStatus: "matched"
+      }
     } as unknown as Recipe;
     const dir = await makeDataDir([withExtra]);
     const repository = await RecipeRepository.load(dir);
@@ -227,7 +233,12 @@ describe("保存（CB-009 写入协议）", () => {
       unknown
     >;
     expect(saved.name).toBe("改名但别丢来源");
-    expect(saved.sourceRef).toEqual({ repo: "https://example.com/x", path: "汤/菜/菜.md" });
+    expect(saved.futureField).toEqual({ hello: "world" });
+    expect(saved.sourceRef).toEqual({
+      repo: "https://example.com/x",
+      path: "汤/菜/菜.md",
+      baselineStatus: "matched"
+    });
   });
 
   it("同一道菜两次并发保存：串行执行，只有一次写盘，另一次 409", async () => {
