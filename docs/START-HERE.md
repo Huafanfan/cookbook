@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-**M0–M3 与 CB-001（做菜顺手）、CB-002（厨具匹配）已完成**，本机浏览器（手机视口）实测通过，**尚未真机验收**，**尚未部署到服务器**。
+**M0–M4 与 CB-001…CB-008 已完成**（做菜顺手、厨具匹配、导入、份量档位、点赞收藏、tag、图片、厨具改服务端），本机浏览器（手机视口 + 桌面）实测通过，**尚未真机验收**，**尚未部署到服务器**。
 
 - 能用的：浏览、搜索（菜名/别名/食材/标签）、分类与标签筛选、详情页（食材分组、**厨具匹配与缺件标记**、步骤打勾、一键计时与到点提醒、吸顶回位、字号调节、屏幕常亮）、**图片（列表封面、详情头图、步骤配图；无图不破图）**；份量按原文显示，不做换算
 - **我的厨具存服务端**（[CB-008](features/CB-008-kitchen-tools-server.md) `implemented`）：与点赞/收藏同一份 `data/user-state.json`，两口子共用一份；升级时会把浏览器里的旧值自动上传一次（走 `POST /api/kitchen/init`，服务端原子判定）。独立复核后已修掉并发保存与迁移竞态，见 [verification/current-review/REVIEW.md](verification/current-review/REVIEW.md)
@@ -17,8 +17,9 @@
 - **份量档位已实现（2026-09-20）**：[CB-004](features/CB-004-serving-scale.md) —— 多一人多 0.5 倍（2/3/4/5 人），非基准档位时提示"步骤用量按基准写"
 - **菜单已丰富（2026-09-20）**：从 HowToCook 导入 369 道菜，菜单从 2 道扩到 371 道（[CB-003](features/CB-003-howtocook-import.md)，`implemented`）；解析器 33 个单测
 - **图片已完成（2026-09-20）**：[CB-007](features/CB-007-images.md) + [ADR-0004](decisions/ADR-0004-image-static-hosting.md)，`implemented`：启动扫描 `data/images/<id>/`（179/371 道菜有封面）、`/images/*` 只提供扫描认下的文件、`no-cache` + ETag；列表懒加载、详情限高头图、步骤图在完成按钮之外。验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md)（**待真机**）；首版**不做缩略图**（已批准）
-- **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **223**（含 CB-007 的 33 个新用例：图片文件名解析、启动扫描、图片路由与缓存/安全边界、封面降级）
+- **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **261**（含图片路由/降级、厨具服务端并发时序与 schema 校验的用例）
 - 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；真机顺便看图片（滚动是否卡）与双设备厨具同步 ｜ M4 图片（[CB-007](features/CB-007-images.md)）与厨具改服务端（[CB-008](features/CB-008-kitchen-tools-server.md)）均已实现 → 之后才是部署（T3，需授权）
+- 新立项待批准（2026-09-21）：**编辑模式 + 修改记录**（[CB-009](features/CB-009-edit-mode.md) + [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)）与**来源基线 + LLM 辅助重新同步**（[CB-010](features/CB-010-source-and-resync.md) + [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md)）——两份规格都是 `draft`，批准后才动代码
 
 ## 新 session 的阅读路径
 

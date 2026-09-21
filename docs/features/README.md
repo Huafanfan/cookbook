@@ -14,13 +14,17 @@
 | CB-006 | [tag 受控词表与逐道分类](CB-006-tags.md) | `implemented` | 14 个受控 tag（`data/tags.json`）+ LLM 逐道判定，**371/371 全覆盖**，筛选栏不再有空 tab |
 | CB-007 | [图片展示（封面、头图、步骤配图）](CB-007-images.md) | `implemented` | 服务端扫描 `data/images/<id>/` + `/images/*` 只提供扫描认下的文件（[ADR-0004](../decisions/ADR-0004-image-static-hosting.md)）；**首版不做压缩缩略图、不做上传**——本机验收通过（[验收记录](../verification/CB-007/CHECK.md)），**待真机** |
 | CB-008 | [「我的厨具」改存服务端](CB-008-kitchen-tools-server.md) | `implemented` | `user-state.json` 新增 `kitchen` + `POST /api/kitchen`（词表校验）；旧浏览器本地值自动迁移，两口子共用一份——本机验收通过（[验收记录](../verification/CB-008/CHECK.md)），**待真机双设备** |
+| CB-009 | [编辑模式与修改记录](CB-009-edit-mode.md) | `draft` | 浏览器内改菜谱全部字段（含来源）+ 每次保存留历史快照 + 版本守卫（409 不静默覆盖）——T2，需 [ADR-0005](../decisions/ADR-0005-editable-recipes-and-history.md)，**待批准** |
+| CB-010 | [来源、基线与 LLM 辅助重新同步](CB-010-source-and-resync.md) | `draft` | `sourceRef`（repo/path/commit/hash）+ 回填 + 三方合并（LLM 只出提案、人审后落地；应用运行时不调 LLM）——T2，需 [ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)，**待批准** |
 
 ## 待建规格（来自 ROADMAP）
 
 | 里程碑 | 需要立项为 | 说明 |
 | --- | --- | --- |
 | M4 图片 | ✅ 已立为 [`CB-007`](CB-007-images.md) | 封面图与步骤配图：目录约定（已有 179 张落盘）、懒加载、占位图；**首版明确不做压缩缩略图**（口径见规格 §1）——`implemented`（[验收记录](../verification/CB-007/CHECK.md)） |
-| M5 网页录入 | `CB-009`（建议） | 浏览器内新增/编辑菜谱，写回 JSON —— T2；厨具存服务端已由 [CB-008](CB-008-kitchen-tools-server.md) 先做掉了 |
+| M5 网页录入/编辑 | ✅ 已立为 [`CB-009`](CB-009-edit-mode.md) | 浏览器内编辑菜谱（含来源可编辑）+ **修改记录**（每次保存留快照）+ 版本守卫；不做新建/删除（删除属 T3）——`draft`，待批准 |
+| 来源与重新同步 | ✅ 已立为 [`CB-010`](CB-010-source-and-resync.md) | `sourceRef` 字段 + 一次性回填 + 三方合并（LLM 只出提案、人审后落地；**应用运行时不调 LLM**）——`draft`，待批准 |
+| 上传图片 | 待定（CB-011 建议） | 网页上传并压缩到 `data/images/`（CB-007 明确把它排除在首版之外） |
 | ~~导入内容的时间提取修正~~ | ✅ 已完成 | 归入 CB-003 后续：36 条交 LLM 判定，填入 34 条、判定不填 2 条；内容检查同步改为"已填 minutes 就不再提示" |
 | M5 收藏/最近浏览 | 待定 | 收藏已由 CB-005 承接；"最近浏览"本地存储即可，视使用频率决定 |
 | 部署上线 | 非功能规格 | 按 [`../DEPLOYMENT.md`](../DEPLOYMENT.md) 执行，属 T3，需要明确授权 |
