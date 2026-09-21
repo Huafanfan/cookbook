@@ -22,7 +22,7 @@ describe("KitchenToolsPanel（勾选式，无自由输入）", () => {
         available={["炒锅", "烤箱"]}
         tools={["炒锅"]}
         problem={null}
-        apply={() => true}
+        apply={async () => true}
       />
     );
 
@@ -30,39 +30,59 @@ describe("KitchenToolsPanel（勾选式，无自由输入）", () => {
     expect(document.querySelector("input[type=text]")).toBeNull();
   });
 
-  it("**保存失败时明确提示**（P1-5 回归：不能静默失效）", () => {
+  it("**保存失败时明确提示**（P1-5 回归：不能静默失效）", async () => {
     render(
       <KitchenToolsPanel
         available={["炒锅", "烤箱"]}
         tools={["炒锅"]}
         problem={null}
-        apply={() => false}
+        apply={async () => false}
       />
     );
 
     fireEvent.click(screen.getByLabelText("烤箱"));
 
-    expect(screen.getByText(/没能保存/)).toBeTruthy();
+    expect(await screen.findByText(/没能保存/)).toBeTruthy();
   });
 
-  it("保存成功时不出现失败提示", () => {
+  it("服务端状态没同步上时说清楚（而不是静默用默认清单）", () => {
     render(
       <KitchenToolsPanel
         available={["炒锅", "烤箱"]}
         tools={["炒锅"]}
         problem={null}
-        apply={() => true}
+        syncFailed
+        apply={async () => true}
+      />
+    );
+
+    expect(screen.getByText(/没从服务器同步上/)).toBeTruthy();
+  });
+
+  it("保存成功时不出现失败提示", async () => {
+    render(
+      <KitchenToolsPanel
+        available={["炒锅", "烤箱"]}
+        tools={["炒锅"]}
+        problem={null}
+        apply={async () => true}
       />
     );
 
     fireEvent.click(screen.getByLabelText("烤箱"));
 
+    await Promise.resolve();
     expect(screen.queryByText(/没能保存/)).toBeNull();
   });
 
   it("词表未载入时给出说明而不是空列表", () => {
     render(
-      <KitchenToolsPanel available={[]} tools={[]} problem={"厨具清单未载入"} apply={() => true} />
+      <KitchenToolsPanel
+        available={[]}
+        tools={[]}
+        problem={"厨具清单未载入"}
+        apply={async () => true}
+      />
     );
 
     // problem 提示与面板空状态都会提到"未载入"，这里用完整句子精确定位面板自己的那条
@@ -71,7 +91,7 @@ describe("KitchenToolsPanel（勾选式，无自由输入）", () => {
   });
 
   it("全选 / 全不选按词表提交", () => {
-    const apply = vi.fn((updater: (tools: string[]) => string[]) => {
+    const apply = vi.fn(async (updater: (tools: string[]) => string[]) => {
       void updater;
       return true;
     });

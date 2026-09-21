@@ -25,6 +25,7 @@
 | 份量档位 | ✅ 已完成 | [CB-004](features/CB-004-serving-scale.md)（`implemented`）：多一人多 0.5 倍 |
 | 点赞/收藏/排序 | ✅ 已完成 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)：服务端共享、失败回滚；待双设备验收 |
 | tag 词表与分类 | ✅ 已完成 | [CB-006](features/CB-006-tags.md)：14 个受控 tag，LLM 逐道分类 371/371 |
+| 厨具改存服务端 | ✅ 已完成（待真机双设备） | [CB-008](features/CB-008-kitchen-tools-server.md)：`data/user-state.json` 新增 `kitchen` 字段 + `POST /api/kitchen`；旧浏览器本地值自动迁移；验收记录 [verification/CB-008/CHECK.md](verification/CB-008/CHECK.md) |
 | 导入内容的时间提取 | ✅ 已完成 | 36 条交 LLM 判定：填入 34、判定不填 2；内容警告从 52 条降到 19 条 |
 | M4 图片 | ✅ 已完成（待真机） | [CB-007](features/CB-007-images.md)（`implemented`）+ [ADR-0004](decisions/ADR-0004-image-static-hosting.md)：封面/头图/步骤图，服务端扫描 + `/images/*` 白名单托管；验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md) |
 | M5 增值 | ⬜ 待做（规格未写） | 网页录入属 T2，需 ADR |

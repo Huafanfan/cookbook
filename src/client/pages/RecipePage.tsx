@@ -235,6 +235,7 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
               meta?.equipmentProblem ??
               (metaFailed ? "厨具清单载入失败，刷新页面重试。" : null)
             }
+            syncFailed={kitchen.syncFailed}
             apply={kitchen.apply}
           />
         )}

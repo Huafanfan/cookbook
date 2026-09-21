@@ -89,8 +89,62 @@ describe("UserStateStore · 点赞与收藏", () => {
     const dir = await makeDir();
     const { store, warnings } = await UserStateStore.load(dir);
 
-    expect(store.snapshot()).toEqual({ recipes: {} });
+    expect(store.snapshot()).toEqual({ recipes: {}, kitchen: null });
     expect(warnings).toEqual([]);
+  });
+});
+
+describe("UserStateStore · 我的厨具（CB-008）", () => {
+  it("保存后可重载，且不会把点赞/收藏冲掉", async () => {
+    const dir = await makeDir();
+    const first = await UserStateStore.load(dir);
+    await first.store.like("a", 1);
+    await first.store.setKitchen(["炒锅", "烤箱"]);
+
+    const second = await UserStateStore.load(dir);
+
+    expect(second.store.snapshot().kitchen?.tools).toEqual(["炒锅", "烤箱"]);
+    expect(second.store.get("a").likes).toBe(1);
+  });
+
+  it("从未设置过是 null；空数组是「明确全不选」（两者不能混）", async () => {
+    const dir = await makeDir();
+    const { store } = await UserStateStore.load(dir);
+
+    expect(store.snapshot().kitchen).toBeNull();
+
+    await store.setKitchen([]);
+
+    expect(store.snapshot().kitchen?.tools).toEqual([]);
+    expect(store.snapshot().kitchen?.updatedAt).toBeTruthy();
+  });
+
+  it("归一化：去重、去空白、丢掉空字符串", async () => {
+    const dir = await makeDir();
+    const { store } = await UserStateStore.load(dir);
+
+    await store.setKitchen(["炒锅", " 炒锅 ", "烤箱", "", "  "]);
+
+    expect(store.snapshot().kitchen?.tools).toEqual(["炒锅", "烤箱"]);
+  });
+
+  it("并发保存 10 次只留最后一次（串行队列）", async () => {
+    const dir = await makeDir();
+    const { store } = await UserStateStore.load(dir);
+
+    await Promise.all(
+      Array.from({ length: 10 }, (_, index) => store.setKitchen([`锅${index}`]))
+    );
+
+    expect(store.snapshot().kitchen?.tools).toEqual(["锅9"]);
+  });
+
+  it("写盘失败时内存不变（回滚），且不留下半成品", async () => {
+    const store = UserStateStore.inMemory("/definitely/not/here/user-state.json");
+
+    await expect(store.setKitchen(["炒锅"])).rejects.toThrow();
+
+    expect(store.snapshot().kitchen).toBeNull();
   });
 });
 
@@ -108,6 +162,25 @@ describe("normalizeState（容错）", () => {
     expect(normalizeState(null).recipes).toEqual({});
     expect(normalizeState("x").recipes).toEqual({});
     expect(normalizeState({}).recipes).toEqual({});
+  });
+
+  it("旧文件没有 kitchen → 视为从未设置过（向后兼容）", () => {
+    expect(normalizeState({ version: 1, recipes: {} }).kitchen).toBeUndefined();
+    expect(normalizeState({ kitchen: { tools: "炒锅" } }).kitchen).toBeUndefined();
+    expect(normalizeState({ kitchen: null }).kitchen).toBeUndefined();
+  });
+
+  it("kitchen 只收字符串并去重；recipes 坏了也不影响 kitchen", () => {
+    const state = normalizeState({
+      recipes: "坏掉了",
+      kitchen: { tools: ["炒锅", 42, "炒锅", "烤箱"], updatedAt: "2026-09-21T00:00:00.000Z" }
+    });
+
+    expect(state.recipes).toEqual({});
+    expect(state.kitchen).toEqual({
+      tools: ["炒锅", "烤箱"],
+      updatedAt: "2026-09-21T00:00:00.000Z"
+    });
   });
 });
 

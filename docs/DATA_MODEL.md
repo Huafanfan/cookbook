@@ -193,18 +193,25 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 详情页的**缩放在显示层**做，按用户授权口径：**多一个人多 0.5 倍**（见 [CB-004](features/CB-004-serving-scale.md)）；
 基准档位下显示与文件原文完全一致。
 
-### 用户状态（点赞、收藏）
+### 用户状态（点赞、收藏、我的厨具）
 
-与菜谱内容**分开放**，由应用运行期写入（唯一的写操作，见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)）：
+与菜谱内容**分开放**，由应用运行期写入（写操作边界见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)）：
 
 ```json
 // data/user-state.json
-{ "version": 1, "recipes": { "hong-shao-rou": { "likes": 3, "favorite": true, "updatedAt": "..." } } }
+{
+  "version": 1,
+  "recipes": { "hong-shao-rou": { "likes": 3, "favorite": true, "updatedAt": "..." } },
+  "kitchen": { "tools": ["炒锅", "烤箱"], "updatedAt": "..." }
+}
 ```
 
 - 点赞是**计数增减**（下限 0），收藏是开关；写入为**原子替换**（临时文件 → rename）+ 串行队列。
 - 文件损坏 → 另存 `.broken` 后用空状态启动；写入失败 → 接口 503、前端回滚。
 - 排序：**收藏优先 → 点赞降序 → 名称**，且只在**没有搜索词**时生效（搜索仍按相关度）。
+- **`kitchen` = 「我的厨具」**（[CB-008](features/CB-008-kitchen-tools-server.md)）：`tools` 只存词表里的值（去重、顺序按词表）；**字段缺失 = 从未设置过**（用 `equipment.json` 的 `defaultOwned`），**`tools: []` = 明确全不选**（两者语义不同，不能混）。
+  - 接口：`GET /api/user-state` 一起下发；`POST /api/kitchen` 整份替换（词表外的名字 → 400，词表未载入 → 503，写盘失败 → 503）。
+  - 升级前存在浏览器本地的厨具，会在新版本首次打开时**自动上传一次**（按当前词表过滤，成功后清掉本地键）。
 
 ### 菜品图片
 

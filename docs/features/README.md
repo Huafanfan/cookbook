@@ -13,13 +13,14 @@
 | CB-005 | [点赞、收藏与排序](CB-005-likes-favorites.md) | `implemented` | 服务端存储（两人共享）、收藏优先排序；**本项目第一个写操作** → [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) |
 | CB-006 | [tag 受控词表与逐道分类](CB-006-tags.md) | `implemented` | 14 个受控 tag（`data/tags.json`）+ LLM 逐道判定，**371/371 全覆盖**，筛选栏不再有空 tab |
 | CB-007 | [图片展示（封面、头图、步骤配图）](CB-007-images.md) | `implemented` | 服务端扫描 `data/images/<id>/` + `/images/*` 只提供扫描认下的文件（[ADR-0004](../decisions/ADR-0004-image-static-hosting.md)）；**首版不做压缩缩略图、不做上传**——本机验收通过（[验收记录](../verification/CB-007/CHECK.md)），**待真机** |
+| CB-008 | [「我的厨具」改存服务端](CB-008-kitchen-tools-server.md) | `implemented` | `user-state.json` 新增 `kitchen` + `POST /api/kitchen`（词表校验）；旧浏览器本地值自动迁移，两口子共用一份——本机验收通过（[验收记录](../verification/CB-008/CHECK.md)），**待真机双设备** |
 
 ## 待建规格（来自 ROADMAP）
 
 | 里程碑 | 需要立项为 | 说明 |
 | --- | --- | --- |
 | M4 图片 | ✅ 已立为 [`CB-007`](CB-007-images.md) | 封面图与步骤配图：目录约定（已有 179 张落盘）、懒加载、占位图；**首版明确不做压缩缩略图**（口径见规格 §1）——`implemented`（[验收记录](../verification/CB-007/CHECK.md)） |
-| M5 网页录入 | `CB-008`（建议） | 浏览器内新增/编辑菜谱，写回 JSON —— T2；可一并把"我的厨具"也存到服务端 |
+| M5 网页录入 | `CB-009`（建议） | 浏览器内新增/编辑菜谱，写回 JSON —— T2；厨具存服务端已由 [CB-008](CB-008-kitchen-tools-server.md) 先做掉了 |
 | ~~导入内容的时间提取修正~~ | ✅ 已完成 | 归入 CB-003 后续：36 条交 LLM 判定，填入 34 条、判定不填 2 条；内容检查同步改为"已填 minutes 就不再提示" |
 | M5 收藏/最近浏览 | 待定 | 收藏已由 CB-005 承接；"最近浏览"本地存储即可，视使用频率决定 |
 | 部署上线 | 非功能规格 | 按 [`../DEPLOYMENT.md`](../DEPLOYMENT.md) 执行，属 T3，需要明确授权 |

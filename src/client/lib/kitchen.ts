@@ -1,5 +1,5 @@
 import { normalizeToolName } from "../../shared/equipment";
-import { readStored, STORAGE_KEYS, writeStored } from "./storage";
+import { removeStored, readStored, STORAGE_KEYS } from "./storage";
 
 /**
  * 厨具匹配：判断"我有的厨具能不能做这道菜"。
@@ -136,9 +136,13 @@ export function shortEquipmentLabel(check: EquipmentCheck): string | null {
   return null;
 }
 
-/* ---------- 我的厨具：读写（存浏览器本地） ---------- */
+/* ---------- 我的厨具：读写（读仅供迁移，权威在服务端） ---------- */
 
-/** @returns null 表示从未设置过（此时用服务端给的 defaultOwned）；空数组表示用户明确清空了 */
+/**
+ * 读本地旧值，**只用于从旧版本迁移**（CB-008 之后权威在服务端）。
+ *
+ * @returns null 表示从未设置过（此时用服务端给的 defaultOwned）；空数组表示用户明确清空了
+ */
 export function readMyTools(): string[] | null {
   const raw = readStored(STORAGE_KEYS.kitchen);
   if (raw === null) return null;
@@ -155,8 +159,9 @@ export function readMyTools(): string[] | null {
   }
 }
 
-export function writeMyTools(tools: string[]): boolean {
-  return writeStored(STORAGE_KEYS.kitchen, JSON.stringify(tools));
+/** 迁移完成后清掉本地旧值（CB-008）；失败不影响功能，只是下次会再尝试迁移 */
+export function clearMyTools(): boolean {
+  return removeStored(STORAGE_KEYS.kitchen);
 }
 
 /** 勾选/取消一件厨具（只能是词表里的值） */

@@ -1,4 +1,5 @@
 import type {
+  KitchenState,
   RecipeDetail,
   RecipeListResponse,
   RecipeMetaResponse,
@@ -80,4 +81,9 @@ export function postFavorite(id: string, favorite: boolean): Promise<RecipeUserS
   return postJson<RecipeUserState>(`/api/recipes/${encodeURIComponent(id)}/favorite`, {
     favorite
   });
+}
+
+/** 保存「我的厨具」（CB-008）；服务端返回**归一化后**的存储值 */
+export function postKitchen(tools: string[]): Promise<KitchenState> {
+  return postJson<KitchenState>("/api/kitchen", { tools });
 }

@@ -1,7 +1,7 @@
 import { readFile, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import type { RecipeUserState, UserStateResponse } from "../../shared/types.js";
+import type { KitchenState, RecipeUserState, UserStateResponse } from "../../shared/types.js";
 
 /**
  * 用户状态（点赞、收藏）的持久化。
@@ -18,6 +18,8 @@ export const USER_STATE_FILE_NAME = "user-state.json";
 interface UserStateFile {
   version: 1;
   recipes: Record<string, RecipeUserState>;
+  /** 「我的厨具」（CB-008）；缺省 = 从未设置过 */
+  kitchen?: KitchenState;
 }
 
 const EMPTY_STATE: UserStateFile = { version: 1, recipes: {} };
@@ -26,11 +28,34 @@ function emptyRecipeState(): RecipeUserState {
   return { likes: 0, favorite: false };
 }
 
+/** 归一化「我的厨具」：只收字符串、去重、保留顺序；`tools: []` 是合法值（明确全不选） */
+function normalizeKitchen(raw: unknown): KitchenState | undefined {
+  if (typeof raw !== "object" || raw === null) return undefined;
+
+  const tools = (raw as { tools?: unknown }).tools;
+  if (!Array.isArray(tools)) return undefined;
+
+  const cleaned = [
+    ...new Set(
+      tools
+        .filter((tool): tool is string => typeof tool === "string")
+        .map((tool) => tool.trim())
+        .filter(Boolean)
+    )
+  ];
+  const updatedAt = (raw as { updatedAt?: unknown }).updatedAt;
+
+  return { tools: cleaned, ...(typeof updatedAt === "string" ? { updatedAt } : {}) };
+}
+
 export function normalizeState(raw: unknown): UserStateFile {
   if (typeof raw !== "object" || raw === null) return EMPTY_STATE;
 
+  const kitchen = normalizeKitchen((raw as { kitchen?: unknown }).kitchen);
   const recipes = (raw as { recipes?: unknown }).recipes;
-  if (typeof recipes !== "object" || recipes === null) return EMPTY_STATE;
+  if (typeof recipes !== "object" || recipes === null) {
+    return kitchen ? { version: 1, recipes: {}, kitchen } : EMPTY_STATE;
+  }
 
   const cleaned: Record<string, RecipeUserState> = {};
   for (const [id, value] of Object.entries(recipes as Record<string, unknown>)) {
@@ -46,7 +71,7 @@ export function normalizeState(raw: unknown): UserStateFile {
     cleaned[id] = { likes, favorite, ...(updatedAt ? { updatedAt } : {}) };
   }
 
-  return { version: 1, recipes: cleaned };
+  return { version: 1, recipes: cleaned, ...(kitchen ? { kitchen } : {}) };
 }
 
 export class UserStateStore {
@@ -103,36 +128,66 @@ export class UserStateStore {
   }
 
   snapshot(): UserStateResponse {
-    return { recipes: { ...this.#state.recipes } };
+    return { recipes: { ...this.#state.recipes }, kitchen: this.#state.kitchen ?? null };
   }
 
   /** 点赞数增减（下限 0）；`delta` 必须为 ±1 */
   like(id: string, delta: 1 | -1): Promise<RecipeUserState> {
-    return this.#mutate((recipes) => {
-      const current = recipes[id] ?? emptyRecipeState();
-      recipes[id] = { ...current, likes: Math.max(0, current.likes + delta), updatedAt: now() };
-    }, id);
+    return this.#mutate((draft) => {
+      const current = draft.recipes[id] ?? emptyRecipeState();
+      const next: RecipeUserState = {
+        ...current,
+        likes: Math.max(0, current.likes + delta),
+        updatedAt: now()
+      };
+      draft.recipes[id] = next;
+      return next;
+    });
   }
 
   setFavorite(id: string, favorite: boolean): Promise<RecipeUserState> {
-    return this.#mutate((recipes) => {
-      const current = recipes[id] ?? emptyRecipeState();
-      recipes[id] = { ...current, favorite, updatedAt: now() };
-    }, id);
+    return this.#mutate((draft) => {
+      const current = draft.recipes[id] ?? emptyRecipeState();
+      const next: RecipeUserState = { ...current, favorite, updatedAt: now() };
+      draft.recipes[id] = next;
+      return next;
+    });
   }
 
-  /** 变更 → 落盘 → 成功才提交到内存（失败回滚），并且全程串行 */
-  #mutate(apply: (recipes: Record<string, RecipeUserState>) => void, id: string): Promise<RecipeUserState> {
-    const task = async (): Promise<RecipeUserState> => {
+  /**
+   * 整份替换「我的厨具」（CB-008）。
+   *
+   * 词表校验与排序在路由层（那里有词表）；这里只做防御性去重，
+   * 并且**允许空数组**（= 用户明确全不选，与"从未设置过"不同）。
+   */
+  setKitchen(tools: string[]): Promise<KitchenState> {
+    const unique = [...new Set(tools.map((tool) => tool.trim()).filter(Boolean))];
+
+    return this.#mutate((draft) => {
+      const next: KitchenState = { tools: unique, updatedAt: now() };
+      draft.kitchen = next;
+      return next;
+    });
+  }
+
+  /**
+   * 变更 → 落盘 → **成功才提交到内存**（失败回滚），并且全程串行。
+   * `build` 在草稿上做修改，返回值就是给调用方的结果。
+   */
+  #mutate<T>(build: (draft: UserStateFile) => T): Promise<T> {
+    const task = async (): Promise<T> => {
       const draft: UserStateFile = {
         version: 1,
-        recipes: { ...this.#state.recipes, ...(this.#state.recipes[id] ? { [id]: { ...this.#state.recipes[id] } } : {}) }
+        recipes: { ...this.#state.recipes },
+        ...(this.#state.kitchen
+          ? { kitchen: { ...this.#state.kitchen, tools: [...this.#state.kitchen.tools] } }
+          : {})
       };
-      apply(draft.recipes);
 
+      const result = build(draft);
       await this.#persist(draft);
       this.#state = draft; // 只有写盘成功才替换内存
-      return draft.recipes[id] ?? emptyRecipeState();
+      return result;
     };
 
     const run = this.#chain.then(task, task);

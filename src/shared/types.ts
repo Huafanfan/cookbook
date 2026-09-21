@@ -111,6 +111,21 @@ export interface RecipeUserState {
 /** `GET /api/user-state` 的响应 */
 export interface UserStateResponse {
   recipes: Record<string, RecipeUserState>;
+  /** 「我的厨具」（CB-008）；从未设置过时为 null（此时用 equipment.json 的 defaultOwned） */
+  kitchen: KitchenState | null;
+}
+
+/**
+ * 「我的厨具」（CB-008）。
+ *
+ * 与点赞/收藏同一份文件（`data/user-state.json`）、同一条写路径（[ADR-0003](../docs/decisions/ADR-0003-write-operations-user-state.md)）。
+ * `tools: []` 表示用户**明确全不选**，与"从未设置过"（`kitchen` 字段缺失）不同。
+ */
+export interface KitchenState {
+  /** 厨具名（只能是词表里的值；去重、顺序按词表） */
+  tools: string[];
+  /** 最后一次变更时间（ISO） */
+  updatedAt?: string;
 }
 
 export interface RecipeListResponse {
