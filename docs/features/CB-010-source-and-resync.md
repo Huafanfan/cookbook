@@ -214,13 +214,20 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 | 写盘验证（同一临时目录） | `--apply --limit 5`：写入 5 道 — 4 道 `verified`（各带 `data/baselines/<id>.json`，`index.json` 4 条）+ 1 道 `matched`（**不给基线快照**，因为它证明不了）；真实 `data/` 零改动（`git status data/` 空、0 个 sourceRef、无 `data/baselines/`） |
 | 值得记的发现 | ① **21/25 能标 verified** 印证了字段所有权那条决定（tag/厨具不参与比较，否则全部会退化成 matched）；② `chen-pi-pai-gu-tang-2` 命中了上游**同一道菜的两份文件**（`soup/陈皮排骨汤.md` 与 `soup/陈皮排骨汤/陈皮排骨汤.md`）→ 脚本列为"匹配不唯一"**不猜**，正是设计要的行为 |
 
-### 尚未实现（本规格剩余部分）
+### 已完成部分：三方比较与同步/提案脚本（2026-09-21）
 
-- 三方比较四档（不调 LLM 的部分）与报告脚本
-- 三方比较四档（不调 LLM 的部分）与报告
-- LLM 提案生成 + 人工逐项审阅 + `--apply`
-- 真实克隆 + 真实 `gpt-5.6-luna` 跑通一次
-- 因此规格仍为 `accepted`，**不得**称 `implemented`/`verified`
+| 项目 | 证据 |
+| --- | --- |
+| 实现路径 | `scripts/lib/sync-merge.ts`（四档分类 + 逐字段机械合并 + 冲突清单 + "只出现在提案里"的可疑值）；`scripts/lib/llm-merge.ts`（LLM 客户端：只发三方内容、`gpt-5.6-luna`+`low`、档位被拒=配置阻断、输出过 zod、拒绝改 id、0 冲突不调用）；`scripts/sync-howtocook.ts`（报告 / `--apply-upstream` / `--propose` / `--apply <proposalId>`；写盘一律走 `RecipeRepository.saveRecipe` → 与网页保存同一条路径：校验 → 历史快照 → 原子替换） |
+| 自动化测试 | `test/sync-merge.test.ts` **12 例**：四档分类、tag/厨具不参与、只有上游改→采用上游、两边同字段改→冲突且保留本地、数组两边都动→冲突、可疑值清单、配置读取、请求体只含三方内容（不含密钥）、档位被拒→阻断不降级、输出结构不合法/改 id → 拒绝、**0 冲突不调 LLM** |
+| 真实运行（临时目录 + 真实克隆） | ① 都没变 / 只有本地变 / 只有上游变（用 `--ref <旧提交>`）三档判定正确；② `--apply-upstream` 落地：内容换成上游版本、`sourceRef.commit` 更新、历史 2 条快照；③ 未解决冲突时 `--apply` 被拒（退出码 1） |
+| 修掉的两个真 bug | ① 两边改的是不同字段（0 冲突）时仍调用 LLM → 改为**机械合并即可、根本不调用**；② 提示词没写清输出必须带 `recipe` → 模型只回 `explanation`、解析失败 → 已在提示词里写明 JSON 形状 |
+
+### 仍未做（因此不得称 `verified`）
+
+- **真实 `gpt-5.6-luna` 的冲突合并 + 提案落地全流程**：修复上面两个 bug 后没再跑一次
+- 上游真的更新时的实战（当前上游 HEAD 与导入时是同一个提交 `c2063eb7`）
+- npm script 别名（现在用 `npx tsx scripts/sync-howtocook.ts`）
 
 ## 12. 复核记录
 
