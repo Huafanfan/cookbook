@@ -208,8 +208,8 @@ export async function scanRecipeImages(
 export interface SaveRecipeInput {
   /** URL 里的 id；**必须与 recipe.id 一致**（不能靠改 id 另存一道菜） */
   id: string;
-  /** 客户端提交的整份菜谱（未校验） */
-  recipe: Record<string, unknown>;
+  /** 客户端/脚本提交的整份菜谱（未校验）；用 `Recipe` 或普通对象都行 */
+  recipe: Record<string, unknown> | Recipe;
   /** 客户端加载时拿到的 revision（并发守卫） */
   baseRevision: string;
   /** 修改来源（默认 manual） */

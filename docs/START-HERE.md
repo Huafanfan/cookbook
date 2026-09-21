@@ -20,7 +20,7 @@
 - **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **261**（含图片路由/降级、厨具服务端并发时序与 schema 校验的用例）
 - 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；真机顺便看图片（滚动是否卡）与双设备厨具同步 ｜ M4 图片（[CB-007](features/CB-007-images.md)）与厨具改服务端（[CB-008](features/CB-008-kitchen-tools-server.md)）均已实现 → 之后才是部署（T3，需授权）
 - **编辑菜谱 + 修改记录已完成（2026-09-21）**：[CB-009](features/CB-009-edit-mode.md) + [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)，`implemented`：详情页有「✎ 编辑」「🕘 修改记录」；保存前留历史快照、版本守卫 409 不静默覆盖、可恢复旧版；导入器改为默认拒绝覆盖。验收记录 [verification/CB-009/CHECK.md](verification/CB-009/CHECK.md)（**待真机**）
-- 待做：**来源基线 + LLM 辅助重新同步**（[CB-010](features/CB-010-source-and-resync.md) + [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md)，已 `accepted`，排在 CB-009 之后）；预实现复核的 9 条阻断项见 [verification/current-review/PRE-REVIEW-CB-009-010.md](verification/current-review/PRE-REVIEW-CB-009-010.md)
+- **来源与重新同步已落地（2026-09-21）**：[CB-010](features/CB-010-source-and-resync.md) + [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md)，`implemented`：真实数据回填 367 道（335 verified / 32 matched）+ 335 份基线快照；`scripts/sync-howtocook.ts` 三方比较四档 + `--apply-upstream` + LLM 提案（**只出提案，人审后 `--apply`**）；验收记录 [verification/CB-010/CHECK.md](verification/CB-010/CHECK.md)——**真实 luna 的冲突合并路径未跑通**，规格不得称 `verified`
 
 ## 新 session 的阅读路径
 
