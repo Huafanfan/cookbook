@@ -215,7 +215,7 @@ Mac:  cp 照片.jpg ~/Workspace/cookbook/data/images/<recipe-id>/cover.jpg
 | 生产构建 | `npm run build` → exit 0；`npm start` 实测：日志 `图片扫描完成：179/371 道菜有封面，0 张步骤图` |
 | 真实运行（本机） | 手机视口 390×844 与桌面 1280×800，浏览器 Headless Chrome 153：179 个 `<img>` / 0 破图 / 懒加载 18→22→37；详情头图 201px、菜名与食材首屏可见；图片 200 + `no-cache` + ETag → 条件请求 304（浏览器实测 15 次）；白名单外与穿越请求均不返回数据目录内容。逐条记录与截图：[verification/CB-007/CHECK.md](../verification/CB-007/CHECK.md) |
 | **真机** | **未做**（iPhone Safari / Android Chrome 的懒加载与滚动流畅度待确认）；做菜场景的图片干扰需试做反馈 |
-| 已知限制或未验证假设 | 首版无缩略图（全量滚动约 56 MiB，待真机判定）；真实数据无步骤图，步骤图用临时 fixture 验证；失效符号链接不在启动扫描时检测（前端兜底成占位）；服务器部署未做（T3 待授权） |
+| 已知限制或未验证假设 | 首版无缩略图（全量滚动约 56 MiB，待真机判定）；真实数据无步骤图，步骤图用临时 fixture 验证；失效符号链接不在启动扫描时检测（前端兜底成占位）；当前服务器部署见 [DEPLOYMENT](../DEPLOYMENT.md)，真机性能仍待确认 |
 
 ## 12. 复核记录
 

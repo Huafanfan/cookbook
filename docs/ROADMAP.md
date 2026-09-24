@@ -21,14 +21,16 @@
 | M3++ 厨具匹配 | ✅ 已完成，待真机验收 | [CB-002](features/CB-002-kitchen-tools.md)（`implemented`）：厨具受控词表、勾选我的厨具、缺件标记、替代方案 |
 | 组件层测试基础设施 | ✅ 已完成 | jsdom + Testing Library；20 个组件测试覆盖到点提醒、索引清洗、保存失败、词表未载入 |
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
-| 丰富菜单（导入） | ✅ 已完成 | [CB-003](features/CB-003-howtocook-import.md)：从公有领域的 HowToCook 导入 **371 道**（解析 371/371 成功） |
-| 份量档位 | ✅ 已完成 | [CB-004](features/CB-004-serving-scale.md)（`implemented`）：多一人多 0.5 倍 |
+| 丰富菜单（导入） | ✅ 已完成 | [CB-003](features/CB-003-howtocook-import.md)：总计 371 道，其中从公有领域 HowToCook 导入 **369 道** |
+| 份量档位 | 已撤回 | [CB-004](features/CB-004-serving-scale.md) 已 `superseded`；详情页按菜谱原文显示，不做换算 |
 | 点赞/收藏/排序 | ✅ 已完成 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)：服务端共享、失败回滚；待双设备验收 |
 | tag 词表与分类 | ✅ 已完成 | [CB-006](features/CB-006-tags.md)：14 个受控 tag，LLM 逐道分类 371/371 |
 | 厨具改存服务端 | ✅ 已完成（待真机双设备） | [CB-008](features/CB-008-kitchen-tools-server.md)：`data/user-state.json` 新增 `kitchen` 字段 + `POST /api/kitchen`；旧浏览器本地值自动迁移；验收记录 [verification/CB-008/CHECK.md](verification/CB-008/CHECK.md) |
 | 导入内容的时间提取 | ✅ 已完成 | 36 条交 LLM 判定：填入 34、判定不填 2；内容警告从 52 条降到 19 条 |
 | M4 图片 | ✅ 已完成（待真机） | [CB-007](features/CB-007-images.md)（`implemented`）+ [ADR-0004](decisions/ADR-0004-image-static-hosting.md)：封面/头图/步骤图，服务端扫描 + `/images/*` 白名单托管；验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md) |
-| M5 增值 | ⬜ 待做（规格未写） | 网页录入属 T2，需 ADR |
+| CB-009 编辑与历史 | ✅ 已实现，待真机 | [CB-009](features/CB-009-edit-mode.md)：编辑、历史快照、恢复与 409 版本守卫；验收记录 [verification/CB-009/CHECK.md](verification/CB-009/CHECK.md) |
+| CB-010 来源与重新同步 | ✅ 已实现，待真实上游更新演练 | [CB-010](features/CB-010-source-and-resync.md)：来源基线、三方比较、同步和 LLM 提案；真实模型冲突流程已验证 |
+| M5 后续候选 | ⬜ 按需选做 | 见下方列表；每个新写操作仍需单独规格与 ADR |
 
 已跑通的验证命令（截至 2026-09-19）：
 
@@ -151,15 +153,14 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 
 ## M5 · 增值（按需选做）
 
-> 网页录入/上传会引入写操作，改变 [ADR-0002](decisions/ADR-0002-json-files-as-source-of-truth.md) "只有一个写者"的前提，属 T2：
-> 必须写 ADR + 规格——[ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md) / [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md) 均已接受，[CB-009](features/CB-009-edit-mode.md) 先做（预实现复核已过）。
+> CB-009 编辑与 CB-010 来源同步已按各自 ADR/规格实现。新增网页写入口（例如上传图片）仍会改变 [ADR-0002](decisions/ADR-0002-json-files-as-source-of-truth.md) 的写入边界，需先立 ADR 与功能规格。
 
 | 优先级 | 功能 | 说明 |
 | --- | --- | --- |
 | ~~撤销~~ | ~~份量换算~~ | **2026-09-20 撤销**：两人份是家庭基准，不是缩放授权；且与步骤文案矛盾。要重启先立规格（见 [OPEN_QUESTIONS](OPEN_QUESTIONS.md) Q10） |
-| 高 | 最近浏览 / 收藏 | 首页顶部一行"常做的菜"（浏览器本地存储） |
+| 低 | 最近浏览 | 收藏已由 CB-005 实现；最近浏览可按实际使用频率决定 |
 | 中 | **编辑菜谱 + 修改记录** | ✅ [`CB-009`](features/CB-009-edit-mode.md)（`implemented`，待真机）：编辑页 + 修改记录 + 恢复 + 409 冲突 UI；后端写入协议（串行队列 / 重读重比 / 历史快照 / 原子替换 / 导入器默认拒绝覆盖）；31 例测试 + 隔离实例浏览器验收（[CHECK](verification/CB-009/CHECK.md)） |
-| 中 | **来源基线与重新同步** | ✅ 已立项 [`CB-010`](features/CB-010-source-and-resync.md)（`accepted`，排在 CB-009 后）：`sourceRef` + 基线快照 + 三方合并，LLM 只出提案（本地脚本，应用运行时不调 LLM） |
+| 中 | **来源基线与重新同步** | ✅ [`CB-010`](features/CB-010-source-and-resync.md)（`implemented`）：`sourceRef` + 基线快照 + 三方合并；真实模型冲突流程已验，真实上游更新场景待演练 |
 | 中 | 上传图片 | 网页上传并自动压缩到 `data/images/` |
 | 低 | 购物清单 | 多选菜谱合并食材，可勾选 |
 | 低 | PWA | 加到手机桌面，像 App 一样打开 |

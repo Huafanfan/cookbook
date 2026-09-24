@@ -5,7 +5,7 @@
 | 字段 | 内容 |
 | --- | --- |
 | 编号 | `CB-010` |
-| 状态 | `implemented`（回填 + 三方比较 + 同步/提案脚本已落地；确定性路径端到端验证过，**真实 `gpt-5.6-luna` 的冲突合并路径未跑通**——见 [verification/CB-010/CHECK.md](../verification/CB-010/CHECK.md)） |
+| 状态 | `implemented`（回填 + 三方比较 + 同步/提案脚本已落地；确定性路径和真实 `gpt-5.6-luna` 冲突提案路径均已验证；真实上游新增提交场景仍待演练——见 [verification/CB-010/CHECK.md](../verification/CB-010/CHECK.md)） |
 | 变更等级 | `T2`（新增数据字段 `sourceRef`、新增提案目录；工具链首次引入**外网 LLM 依赖** → [ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)） |
 | 创建日期 | 2026-09-21 |
 | 最后文档复核 | 2026-09-21 |
@@ -223,11 +223,9 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 | 真实运行（临时目录 + 真实克隆） | ① 都没变 / 只有本地变 / 只有上游变（用 `--ref <旧提交>`）三档判定正确；② `--apply-upstream` 落地：内容换成上游版本、`sourceRef.commit` 更新、历史 2 条快照；③ 未解决冲突时 `--apply` 被拒（退出码 1） |
 | 修掉的两个真 bug | ① 两边改的是不同字段（0 冲突）时仍调用 LLM → 改为**机械合并即可、根本不调用**；② 提示词没写清输出必须带 `recipe` → 模型只回 `explanation`、解析失败 → 已在提示词里写明 JSON 形状 |
 
-### 仍未做（因此不得称 `verified`）
+### 尚未完成的验收（因此状态保持 `implemented`）
 
-- ~~真实 `gpt-5.6-luna` 的冲突合并 + 提案落地全流程~~ → **2026-09-21 已补验**（人工构造冲突：基线 3 / 上游 1 / 本地 9；模型选择保留家里值并标"待人工决定"、可疑值为空；未解决冲突与重复落地都被拒；人工决定后落地并写出 2 条历史）
-- 上游真的更新时的实战（当前上游 HEAD 与导入时是同一个提交 `c2063eb7`；真实模型路径已用人工构造的冲突补验）
-- npm script 别名（现在用 `npx tsx scripts/sync-howtocook.ts`）
+- 真实上游新增提交时的实战：最近一次记录中，上游 HEAD 与导入时相同，因此尚未在包含真实上游变更的提交上演练。真实模型冲突路径已在[验收记录 §1b](../verification/CB-010/CHECK.md)补验，CLI 别名为 `npm run sync:recipes`。
 
 ## 12. 复核记录
 
@@ -236,4 +234,5 @@ data/sync-proposals/<id>.raw.txt    # 仅当 LLM 输出不合法时保留（已�
 | 2026-09-21 | 建立规格（用户要求来源、编辑、记录、LLM 整合；ADR-0006 同批新立） | START-HERE、AGENTS、DATA_MODEL、ARCHITECTURE、ADR-0002/0005、CB-003 | `draft`（待批准） |
 | 2026-09-21 | 用户批准方向（两份规格 + 先做 CB-009）；**预实现复核（Astra）提出 4 条阻断项** → 本规格按意见修订：**基线快照落盘**（不再靠克隆现场重算）、区分"来源已匹配"与"基线已验证"、原始字节哈希与语义哈希分开、移除一键绕过冲突、提案加元数据与 `proposalId`、数组按内容对齐、默认 dry-run 单菜、`reasoning_effort` 被拒=配置阻断、最小化数据外发 | 本规格 §3/§4/§5/§6/§7、[ADR-0006](../decisions/ADR-0006-source-baseline-and-llm-resync.md)、[预实现复核](../verification/current-review/PRE-REVIEW-CB-009-010.md) | 仍为 `draft`（**待复核项修完后才改 accepted**） |
 | 2026-09-21 | CB-009 完成后开工：**先做不依赖 LLM 的基础件**——`sourceRef` 类型与校验、**语义投影/哈希**（字段所有权落成 `recipe-canonical.ts`：tag/厨具/来源/时间戳不参与，否则 369 道菜全会被判"本地改过"）；上游克隆改为**完整克隆** `~/Workspace/HowToCook` | 本规格 §4/§11、ADR-0006 §2b、[DEPLOYMENT](../DEPLOYMENT.md) | `accepted`（基础件已实现，回填/三方比较/LLM 待做） |
-| 2026-09-21 | 回填脚本 + 三方比较 + 同步/提案脚本；真实数据回填 367 道（335 verified / 32 matched）；临时目录验证四档与 `--apply-upstream`；修掉 0 冲突仍调 LLM、提示词缺输出契约两个 bug；**真实 luna 冲突路径未跑通** | 本规格 §11、[verification/CB-010/CHECK.md](../verification/CB-010/CHECK.md) | `implemented`（**LLM 路径待验证**） |
+| 2026-09-21 | 回填脚本 + 三方比较 + 同步/提案脚本；真实数据回填 367 道（335 verified / 32 matched）；临时目录验证四档与 `--apply-upstream`；修掉 0 冲突仍调 LLM、提示词缺输出契约两个 bug；**此记录写入时真实 luna 冲突路径未跑通，随后于当日补验** | 本规格 §11、[verification/CB-010/CHECK.md](../verification/CB-010/CHECK.md) | `implemented`（真实上游新增提交仍待演练） |
+| 2026-09-24 | 对齐当前规格状态与运行数据；确认冲突提案证据及 `sync:recipes` 别名；记录真实上游更新场景仍未演练 | 本规格 §11、[verification/CB-010/CHECK.md](../verification/CB-010/CHECK.md)、[DEPLOYMENT](../DEPLOYMENT.md) | `implemented` |

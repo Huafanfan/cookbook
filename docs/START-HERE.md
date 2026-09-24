@@ -1,26 +1,16 @@
 # 从这里开始
 
-最后更新：2026-09-19 ｜ 这份文件的职责是**当前状态与阅读路径**，不重复其他文档的细节。
+最后更新：2026-09-24 ｜ 这份文件的职责是**当前状态与阅读路径**，不重复其他文档的细节。
 
 ## 当前状态
 
-**M0–M4 与 CB-001…CB-008 已完成**（做菜顺手、厨具匹配、导入、份量档位、点赞收藏、tag、图片、厨具改服务端），本机浏览器（手机视口 + 桌面）实测通过，**尚未真机验收**，**尚未部署到服务器**。
+**应用已部署在 iStoreOS `192.168.1.2:18081`。** 2026-09-24 现场检查容器为 `healthy`，健康接口返回 371 道菜；部署细节与检查边界见[部署状态](DEPLOYMENT.md)。
 
-- 能用的：浏览、搜索（菜名/别名/食材/标签）、分类与标签筛选、详情页（食材分组、**厨具匹配与缺件标记**、步骤打勾、一键计时与到点提醒、吸顶回位、字号调节、屏幕常亮）、**图片（列表封面、详情头图、步骤配图；无图不破图）**；份量按原文显示，不做换算
-- **我的厨具存服务端**（[CB-008](features/CB-008-kitchen-tools-server.md) `implemented`）：与点赞/收藏同一份 `data/user-state.json`，两口子共用一份；升级时会把浏览器里的旧值自动上传一次（走 `POST /api/kitchen/init`，服务端原子判定）。独立复核后已修掉并发保存与迁移竞态，见 [verification/current-review/REVIEW.md](verification/current-review/REVIEW.md)
-- 数据：**371 道菜**（自建 2 + 从 HowToCook 导入 369）+ `data/equipment.json`（厨具权威词表 13 件）；179 道有成品图（`data/images/`，56MB，不进 git）
-- **内容来源**：HowToCook 为 Unlicense（公有领域）可自由使用；老乡鸡的 CookLikeHOC **无 LICENSE** 故不使用其内容。见 [DATA_MODEL §8](DATA_MODEL.md)
-- **独立复核已完成（2026-09-20）**：[overall-review/AUDIT.md](verification/overall-review/AUDIT.md) —— 结论 `OK with notes`：**P0 无、P1 × 7、P2 × 12**；CB-001/CB-002 的验收清单**全未勾选**，故两份规格保持 `implemented`，**不得称 `verified`**
-- **稳定化第一轮已完成（2026-09-20）**：[FIXES.md](verification/overall-review/FIXES.md) —— P1 × 7 全部修完并逐条实测，P2 × 12 修完 12 条；两份规格仍为 `implemented`
-- **点赞/收藏已完成（2026-09-20）**：[CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md) —— 本项目**第一个写操作**（服务端共享、原子替换、失败回滚）；排序＝收藏优先→点赞降序（无搜索词时）
-- **tag 与时间提取已完成（2026-09-20）**：[CB-006](features/CB-006-tags.md) —— 14 个受控 tag（`data/tags.json`）+ LLM 逐道分类 371/371，筛选栏每个 tag 都有菜；36 条"多个时间"由 LLM 判定补 `minutes`（内容警告 52→19）
-- **份量档位已实现（2026-09-20）**：[CB-004](features/CB-004-serving-scale.md) —— 多一人多 0.5 倍（2/3/4/5 人），非基准档位时提示"步骤用量按基准写"
-- **菜单已丰富（2026-09-20）**：从 HowToCook 导入 369 道菜，菜单从 2 道扩到 371 道（[CB-003](features/CB-003-howtocook-import.md)，`implemented`）；解析器 33 个单测
-- **图片已完成（2026-09-20）**：[CB-007](features/CB-007-images.md) + [ADR-0004](decisions/ADR-0004-image-static-hosting.md)，`implemented`：启动扫描 `data/images/<id>/`（179/371 道菜有封面）、`/images/*` 只提供扫描认下的文件、`no-cache` + ETag；列表懒加载、详情限高头图、步骤图在完成按钮之外。验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md)（**待真机**）；首版**不做缩略图**（已批准）
-- **组件层测试已建立（2026-09-20）**：jsdom + Testing Library，新增 20 个组件测试（计时到点提醒、完成索引清洗、面板保存失败、词表未载入的三态与标记）→ 测试总数 **261**（含图片路由/降级、厨具服务端并发时序与 schema 校验的用例）
-- 下一步：**真机试做**并回填[试做反馈](features/CB-001-cooking-feedback.md) → 才能谈 `verified`；真机顺便看图片（滚动是否卡）与双设备厨具同步 ｜ M4 图片（[CB-007](features/CB-007-images.md)）与厨具改服务端（[CB-008](features/CB-008-kitchen-tools-server.md)）均已实现 → 之后才是部署（T3，需授权）
-- **编辑菜谱 + 修改记录已完成（2026-09-21）**：[CB-009](features/CB-009-edit-mode.md) + [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)，`implemented`：详情页有「✎ 编辑」「🕘 修改记录」；保存前留历史快照、版本守卫 409 不静默覆盖、可恢复旧版；导入器改为默认拒绝覆盖。验收记录 [verification/CB-009/CHECK.md](verification/CB-009/CHECK.md)（**待真机**）
-- **来源与重新同步已落地（2026-09-21）**：[CB-010](features/CB-010-source-and-resync.md) + [ADR-0006](decisions/ADR-0006-source-baseline-and-llm-resync.md)，`implemented`：真实数据回填 367 道（335 verified / 32 matched）+ 335 份基线快照；`scripts/sync-howtocook.ts` 三方比较四档 + `--apply-upstream` + LLM 提案（**只出提案，人审后 `--apply`**）；验收记录 [verification/CB-010/CHECK.md](verification/CB-010/CHECK.md)——**真实 luna 的冲突合并路径未跑通**，规格不得称 `verified`
+- 能用的：浏览、搜索、分类与标签筛选、菜谱详情、图片、步骤勾选与计时、到点提醒、吸顶回位、字号和屏幕常亮；厨具匹配、点赞/收藏、编辑与历史恢复也已实现。份量只按菜谱原文显示，不自动换算。
+- 数据：**371 道菜**（自建 2 + 从 HowToCook 导入 369）、13 件厨具词表、14 个标签；179 道有成品图。菜谱内容与许可说明见[数据模型](DATA_MODEL.md)。
+- **当前功能状态以[功能索引](features/README.md)为准**：CB-001、CB-002、CB-003、CB-005 至 CB-010 为 `implemented`；CB-004 已 `superseded`，份量缩放已撤回。`implemented` 表示代码已落地，不代表所有真实设备验收已完成。
+- 待做验收：CB-001 做菜试用及反馈、CB-002/CB-007 真机检查、CB-003 菜单质量复核、CB-008 双设备同步、CB-009 真机编辑与并发场景。见各规格的验收记录。
+- **CB-010** 的真实模型冲突提案和人工解决路径已验证；真实上游更新尚未在更新后的 HowToCook 提交上演练。来源覆盖与限制见 [CB-010 验收记录](verification/CB-010/CHECK.md)。
 
 ## 新 session 的阅读路径
 
