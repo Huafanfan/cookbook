@@ -2,6 +2,8 @@
 
 存放**真实运行**留下的证据，用来把功能规格从 `implemented` 推到 `verified`。文档写得好不等于验证过——这里放的是"确实跑过/确实用过"的记录。
 
+用户对当前版本的接受决定单独记在[用户验收记录](OWNER-ACCEPTANCE.md)。用户验收完成不代表其中列出的专项检查已经执行。
+
 ## 放什么
 
 - 真机截图（手机竖屏、做菜模式、计时中、到点提示……）
@@ -13,6 +15,8 @@
 
 ```text
 docs/verification/
+├── OWNER-ACCEPTANCE.md
+│                         # 用户验收决定（与专项测试证据分开）
 ├── CB-001/
 │   ├── iphone-cooking-mode.png
 │   ├── android-timer.png

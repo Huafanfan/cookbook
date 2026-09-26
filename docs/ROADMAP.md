@@ -17,19 +17,19 @@
 | M1 列表页 | ✅ 完成 | 生产构建下 2 道样例菜正常展示 |
 | M2 搜索筛选 | ✅ 完成 | 菜名/别名/食材/标签命中、叠加筛选均实测通过 |
 | M3 详情页 | ✅ 完成 | 食材分组、步骤打勾、进度条、字号调节均实测通过 |
-| M3+ 做菜顺手 | ✅ 已完成，待真机试做 | [CB-001](features/CB-001-cooking-mode.md)（`implemented`）：一键计时与到点提醒、吸顶回位、屏幕常亮；折叠与份量换算均按反馈**移除** |
-| M3++ 厨具匹配 | ✅ 已完成，待真机验收 | [CB-002](features/CB-002-kitchen-tools.md)（`implemented`）：厨具受控词表、勾选我的厨具、缺件标记、替代方案 |
+| M3+ 做菜顺手 | ✅ 用户验收 done | [CB-001](features/CB-001-cooking-mode.md)（`implemented`）：一键计时与到点提醒、吸顶回位、屏幕常亮；折叠与份量换算均按反馈**移除** |
+| M3++ 厨具匹配 | ✅ 用户验收 done | [CB-002](features/CB-002-kitchen-tools.md)（`implemented`）：厨具受控词表、勾选我的厨具、缺件标记、替代方案 |
 | 组件层测试基础设施 | ✅ 已完成 | jsdom + Testing Library；20 个组件测试覆盖到点提醒、索引清洗、保存失败、词表未载入 |
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
 | 丰富菜单（导入） | ✅ 已完成 | [CB-003](features/CB-003-howtocook-import.md)：总计 371 道，其中从公有领域 HowToCook 导入 **369 道** |
 | 份量档位 | 已撤回 | [CB-004](features/CB-004-serving-scale.md) 已 `superseded`；详情页按菜谱原文显示，不做换算 |
-| 点赞/收藏/排序 | ✅ 已完成 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)：服务端共享、失败回滚；待双设备验收 |
+| 点赞/收藏/排序 | ✅ 已完成 | [CB-005](features/CB-005-likes-favorites.md) + [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)：服务端共享、失败回滚 |
 | tag 词表与分类 | ✅ 已完成 | [CB-006](features/CB-006-tags.md)：14 个受控 tag，LLM 逐道分类 371/371 |
-| 厨具改存服务端 | ✅ 已完成（待真机双设备） | [CB-008](features/CB-008-kitchen-tools-server.md)：`data/user-state.json` 新增 `kitchen` 字段 + `POST /api/kitchen`；旧浏览器本地值自动迁移；验收记录 [verification/CB-008/CHECK.md](verification/CB-008/CHECK.md) |
+| 厨具改存服务端 | ✅ 用户验收 done | [CB-008](features/CB-008-kitchen-tools-server.md)：`data/user-state.json` 新增 `kitchen` 字段 + `POST /api/kitchen`；旧浏览器本地值自动迁移；专项检查状态见 [verification/CB-008/CHECK.md](verification/CB-008/CHECK.md) |
 | 导入内容的时间提取 | ✅ 已完成 | 36 条交 LLM 判定：填入 34、判定不填 2；内容警告从 52 条降到 19 条 |
-| M4 图片 | ✅ 已完成（待真机） | [CB-007](features/CB-007-images.md)（`implemented`）+ [ADR-0004](decisions/ADR-0004-image-static-hosting.md)：封面/头图/步骤图，服务端扫描 + `/images/*` 白名单托管；验收记录 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md) |
-| CB-009 编辑与历史 | ✅ 已实现，待真机 | [CB-009](features/CB-009-edit-mode.md)：编辑、历史快照、恢复与 409 版本守卫；验收记录 [verification/CB-009/CHECK.md](verification/CB-009/CHECK.md) |
-| CB-010 来源与重新同步 | ✅ 已实现，待真实上游更新演练 | [CB-010](features/CB-010-source-and-resync.md)：来源基线、三方比较、同步和 LLM 提案；真实模型冲突流程已验证 |
+| M4 图片 | ✅ 用户验收 done | [CB-007](features/CB-007-images.md)（`implemented`）+ [ADR-0004](decisions/ADR-0004-image-static-hosting.md)：封面/头图/步骤图，服务端扫描 + `/images/*` 白名单托管；专项检查状态见 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md) |
+| CB-009 编辑与历史 | ✅ 用户验收 done | [CB-009](features/CB-009-edit-mode.md)：编辑、历史快照、恢复与 409 版本守卫；专项检查状态见 [verification/CB-009/CHECK.md](verification/CB-009/CHECK.md) |
+| CB-010 来源与重新同步 | ✅ 用户验收 done | [CB-010](features/CB-010-source-and-resync.md)：来源基线、三方比较、同步和 LLM 提案；真实上游更新演练尚未执行，见用户[验收记录](verification/OWNER-ACCEPTANCE.md) |
 | M5 后续候选 | ⬜ 按需选做 | 见下方列表；每个新写操作仍需单独规格与 ADR |
 
 已跑通的验证命令（截至 2026-09-19）：
@@ -134,11 +134,11 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 > 到这里，`REQUIREMENTS.md` 的 F1–F6 全部完成，第一期可交付并部署。
 >
 > 后续增强不再在本文件里描述细节：厨具匹配见 [CB-002](features/CB-002-kitchen-tools.md)，做菜顺手（计时/吸顶/常亮）见
-> [CB-001](features/CB-001-cooking-mode.md)。两者均为 `implemented`，待真机试做验收。
+> [CB-001](features/CB-001-cooking-mode.md)。两者均为 `implemented`；当前版本已由用户验收，见[用户验收记录](verification/OWNER-ACCEPTANCE.md)。
 
 ---
 
-## M4 · 图片（约 2–3 小时）✅ 已完成（本机验收，待真机）
+## M4 · 图片（约 2–3 小时）✅ 已实现，用户验收 done
 
 | 产物 | 状态 |
 | --- | --- |
@@ -159,8 +159,8 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 | --- | --- | --- |
 | ~~撤销~~ | ~~份量换算~~ | **2026-09-20 撤销**：两人份是家庭基准，不是缩放授权；且与步骤文案矛盾。要重启先立规格（见 [OPEN_QUESTIONS](OPEN_QUESTIONS.md) Q10） |
 | 低 | 最近浏览 | 收藏已由 CB-005 实现；最近浏览可按实际使用频率决定 |
-| 中 | **编辑菜谱 + 修改记录** | ✅ [`CB-009`](features/CB-009-edit-mode.md)（`implemented`，待真机）：编辑页 + 修改记录 + 恢复 + 409 冲突 UI；后端写入协议（串行队列 / 重读重比 / 历史快照 / 原子替换 / 导入器默认拒绝覆盖）；31 例测试 + 隔离实例浏览器验收（[CHECK](verification/CB-009/CHECK.md)） |
-| 中 | **来源基线与重新同步** | ✅ [`CB-010`](features/CB-010-source-and-resync.md)（`implemented`）：`sourceRef` + 基线快照 + 三方合并；真实模型冲突流程已验，真实上游更新场景待演练 |
+| 中 | **编辑菜谱 + 修改记录** | ✅ [`CB-009`](features/CB-009-edit-mode.md)（`implemented`，用户验收 done）：编辑页 + 修改记录 + 恢复 + 409 冲突 UI；后端写入协议与专项检查记录见 [CHECK](verification/CB-009/CHECK.md) |
+| 中 | **来源基线与重新同步** | ✅ [`CB-010`](features/CB-010-source-and-resync.md)（`implemented`，用户验收 done）：`sourceRef` + 基线快照 + 三方合并；真实模型冲突流程已验，真实上游更新场景未实际演练 |
 | 中 | 上传图片 | 网页上传并自动压缩到 `data/images/` |
 | 低 | 购物清单 | 多选菜谱合并食材，可勾选 |
 | 低 | PWA | 加到手机桌面，像 App 一样打开 |

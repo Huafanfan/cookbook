@@ -101,7 +101,9 @@ GET /images/ke-le-ji-chi/step-1.jpg  →  200 image/jpeg，内容 = 目录外那
 | `cover-fallback-mobile.png` | 拦截封面 404：卡片退回首字色块（整页 0 张破图） |
 | `desktop-list.png` | 1280×800：每行 3 列，封面尺寸不变 |
 
-## 5. 未验证 / 待做
+## 5. 未执行的专项检查
+
+本功能的用户验收已由用户标记为 `done`，见 [OWNER-ACCEPTANCE](../OWNER-ACCEPTANCE.md)。下表只记录尚未实际执行的设备与性能检查。
 
 | 项 | 现状 |
 | --- | --- |
