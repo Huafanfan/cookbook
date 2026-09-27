@@ -27,7 +27,7 @@
 | tag 词表与分类 | ✅ 已完成 | [CB-006](features/CB-006-tags.md)：受控 tag 词表与逐道分类；当前覆盖与空标签说明见规格 §6b |
 | 厨具改存服务端 | ✅ 用户验收 done | [CB-008](features/CB-008-kitchen-tools-server.md)：`data/user-state.json` 新增 `kitchen` 字段 + `POST /api/kitchen`；旧浏览器本地值自动迁移；专项检查状态见 [verification/CB-008/CHECK.md](verification/CB-008/CHECK.md) |
 | 导入内容的时间提取 | ✅ 已完成 | 36 条交 LLM 判定：填入 34、判定不填 2；内容警告从 52 条降到 19 条 |
-| 导入内容逐项复核 | ✅ 本地校验通过 | [2026-09-27 内容复核](verification/CB-003/CONTENT-REVIEW-2026-09-27.md)：10 道菜的 19 条提示逐项对照原文处理，现 0 条警告；真机试做仍待反馈 |
+| 导入内容逐项复核 | ✅ 已部署，试做待反馈 | [2026-09-27 内容复核](verification/CB-003/CONTENT-REVIEW-2026-09-27.md)：10 道菜的 19 条提示逐项对照原文处理，现 0 条警告；部署实测见 [DEPLOYMENT §0c](DEPLOYMENT.md#0c-内容修订部署2026-09-27) |
 | M4 图片 | ✅ 用户验收 done | [CB-007](features/CB-007-images.md)（`implemented`）+ [ADR-0004](decisions/ADR-0004-image-static-hosting.md)：封面/头图/步骤图，服务端扫描 + `/images/*` 白名单托管；专项检查状态见 [verification/CB-007/CHECK.md](verification/CB-007/CHECK.md) |
 | CB-009 编辑与历史 | ✅ 用户验收 done | [CB-009](features/CB-009-edit-mode.md)：编辑、历史快照、恢复与 409 版本守卫；专项检查状态见 [verification/CB-009/CHECK.md](verification/CB-009/CHECK.md) |
 | CB-010 来源与重新同步 | ✅ 用户验收 done | [CB-010](features/CB-010-source-and-resync.md)：来源基线、三方比较、同步和 LLM 提案；真实上游更新演练尚未执行，见用户[验收记录](verification/OWNER-ACCEPTANCE.md) |
