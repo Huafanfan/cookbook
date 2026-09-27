@@ -11,49 +11,57 @@
   "servings": 2,
   "ingredients": [
     {
-      "name": "草莓糖浆"
-    },
-    {
       "name": "草莓",
       "amount": 500,
-      "unit": "克"
+      "unit": "克",
+      "group": "草莓糖浆"
     },
     {
       "name": "白砂糖",
       "amount": 45,
-      "unit": "克"
+      "unit": "克",
+      "group": "草莓糖浆"
     },
     {
       "name": "香草精",
       "amount": 1,
-      "unit": "克"
+      "unit": "克",
+      "group": "草莓糖浆"
     },
     {
       "name": "食盐",
       "amount": 1,
-      "unit": "克"
-    },
-    {
-      "name": "冰淇淋底料"
+      "unit": "克",
+      "group": "草莓糖浆"
     },
     {
       "name": "香草精",
       "amount": 5,
-      "unit": "克"
+      "unit": "克",
+      "group": "冰淇淋底料"
+    },
+    {
+      "name": "食盐",
+      "amount": 1,
+      "unit": "克",
+      "group": "冰淇淋底料"
     },
     {
       "name": "重奶油",
       "amount": 6,
-      "unit": "克"
+      "unit": "克",
+      "group": "冰淇淋底料"
     },
     {
       "name": "加糖炼乳",
       "amount": 400,
-      "unit": "克"
+      "unit": "克",
+      "group": "冰淇淋底料"
     },
     {
       "name": "冰淇淋模具",
-      "note": "可选"
+      "note": "可选",
+      "group": "所需工具"
     }
   ],
   "steps": [

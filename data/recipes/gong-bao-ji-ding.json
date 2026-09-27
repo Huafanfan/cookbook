@@ -12,117 +12,128 @@
   "servings": 2,
   "ingredients": [
     {
-      "name": "必须配料"
-    },
-    {
-      "name": "- 手枪腿",
+      "name": "手枪腿",
       "amount": 1,
       "unit": "支",
-      "note": "或者鸡胸脯肉；约 350g"
+      "note": "或者鸡胸脯肉；约 350g",
+      "group": "必须配料"
     },
     {
-      "name": "- 大葱",
+      "name": "大葱",
       "amount": 1,
       "unit": "根",
-      "note": "约 180g"
+      "note": "约 180g",
+      "group": "必须配料"
     },
     {
-      "name": "- 熟花生",
+      "name": "熟花生",
       "amount": 150,
-      "unit": "g"
+      "unit": "g",
+      "group": "必须配料"
     },
     {
-      "name": "- 姜片",
-      "amount": 10,
-      "unit": "g"
-    },
-    {
-      "name": "- 干辣椒",
+      "name": "姜片",
       "amount": 10,
       "unit": "g",
-      "note": "或者二荆条；若选择二荆条，则需要大约 4 支"
+      "group": "必须配料"
     },
     {
-      "name": "- 生抽酱油",
+      "name": "干辣椒",
       "amount": 10,
-      "unit": "g"
+      "unit": "g",
+      "note": "或者二荆条；若选择二荆条，则需要大约 4 支",
+      "group": "必须配料"
     },
     {
-      "name": "- 白糖",
+      "name": "生抽酱油",
+      "amount": 10,
+      "unit": "g",
+      "group": "必须配料"
+    },
+    {
+      "name": "白糖",
       "amount": 2,
-      "unit": "g"
+      "unit": "g",
+      "group": "必须配料"
     },
     {
-      "name": "- 盐",
+      "name": "盐",
       "amount": 2,
-      "unit": "g"
+      "unit": "g",
+      "group": "必须配料"
     },
     {
-      "name": "- 植物油",
+      "name": "植物油",
       "amount": 20,
-      "unit": "g"
+      "unit": "g",
+      "group": "必须配料"
     },
     {
-      "name": "- 淀粉",
+      "name": "淀粉",
       "amount": 15,
-      "unit": "g"
+      "unit": "g",
+      "group": "必须配料"
     },
     {
-      "name": "- 料酒",
+      "name": "料酒",
       "amount": 15,
-      "unit": "g"
+      "unit": "g",
+      "group": "必须配料"
     },
     {
-      "name": "进阶配料"
-    },
-    {
-      "name": "- 老抽酱油",
+      "name": "老抽酱油",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "进阶配料"
     },
     {
-      "name": "- 花椒",
+      "name": "花椒",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "进阶配料"
     },
     {
-      "name": "- 香醋",
+      "name": "香醋",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "进阶配料"
     },
     {
-      "name": "- 鸡精",
+      "name": "鸡精",
       "amount": 2,
-      "unit": "g"
+      "unit": "g",
+      "group": "进阶配料"
     },
     {
-      "name": "- 芝麻油",
-      "amount": 10,
-      "unit": "g"
-    },
-    {
-      "name": "- 淀粉",
+      "name": "芝麻油",
       "amount": 10,
       "unit": "g",
-      "note": "用以勾芡"
+      "group": "进阶配料"
     },
     {
-      "name": "- 豆瓣酱",
+      "name": "淀粉",
       "amount": 10,
-      "unit": "g"
+      "unit": "g",
+      "note": "用以勾芡",
+      "group": "进阶配料"
     },
     {
-      "name": "可选配料"
+      "name": "豆瓣酱",
+      "amount": 10,
+      "unit": "g",
+      "group": "进阶配料"
     },
     {
-      "name": "- 莴笋 = 约",
+      "name": "莴笋",
       "amount": 250,
-      "unit": "g"
+      "unit": "g",
+      "group": "可选配料"
     },
     {
-      "name": "- 油泼辣子",
+      "name": "油泼辣子",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "可选配料"
     },
     {
       "name": "生花生",

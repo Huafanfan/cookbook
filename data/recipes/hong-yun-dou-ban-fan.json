@@ -22,96 +22,114 @@
       "name": "干红芸豆",
       "amount": 200,
       "unit": "g",
-      "note": "提前浸泡 8 小时"
+      "note": "提前浸泡 8 小时",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "洋葱",
       "amount": 2,
       "unit": "个",
-      "note": "，切碎；约 200g"
+      "note": "，切碎；约 200g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "番茄",
       "amount": 3,
       "unit": "个",
-      "note": "，切碎；约 300g；或番茄酱 30ml"
+      "note": "，切碎；约 300g；或番茄酱 30ml",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "生姜",
       "amount": 10,
-      "unit": "g，磨碎"
+      "unit": "g，磨碎",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "大蒜",
       "amount": 4,
       "unit": "瓣",
-      "note": "，磨碎；约 12g"
+      "note": "，磨碎；约 12g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "青辣椒",
       "amount": 1,
-      "unit": "根，切缝"
+      "unit": "根，切缝",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "食用油",
       "amount": 30,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "月桂叶",
       "amount": 2,
-      "unit": "片"
+      "unit": "片",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "姜黄粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "红辣椒粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "香菜粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "孜然粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "印度综合香料粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "盐",
       "amount": 6,
-      "unit": "g"
+      "unit": "g",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "水",
       "amount": 600,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "香菜叶",
       "amount": 15,
       "unit": "g",
-      "note": "装饰用"
+      "note": "装饰用",
+      "group": "红芸豆咖喱"
     },
     {
       "name": "大米",
       "amount": 200,
-      "unit": "g"
+      "unit": "g",
+      "group": "米饭"
     },
     {
       "name": "水",
       "amount": 400,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "米饭"
     }
   ],
   "steps": [

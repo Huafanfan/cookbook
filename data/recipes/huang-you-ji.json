@@ -18,125 +18,163 @@
       "name": "鸡腿肉",
       "amount": 500,
       "unit": "g",
-      "note": "去骨，切大块"
+      "note": "去骨，切大块",
+      "group": "腌鸡"
     },
     {
       "name": "酸奶",
       "amount": 80,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "腌鸡"
     },
     {
       "name": "生姜",
       "amount": 10,
-      "unit": "g，磨碎"
+      "unit": "g，磨碎",
+      "group": "腌鸡"
     },
     {
       "name": "大蒜",
       "amount": 4,
       "unit": "瓣",
-      "note": "，磨碎；约 12g"
+      "note": "，磨碎；约 12g",
+      "group": "腌鸡"
     },
     {
       "name": "红辣椒粉",
       "amount": 5,
       "unit": "g",
-      "note": "Kashmiri 红辣椒粉最佳"
+      "note": "Kashmiri 红辣椒粉最佳",
+      "group": "腌鸡"
     },
     {
       "name": "姜黄粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "腌鸡"
     },
     {
       "name": "盐",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "腌鸡"
     },
     {
       "name": "柠檬汁",
       "amount": 15,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "腌鸡"
     },
     {
       "name": "食用油",
       "amount": 15,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "腌鸡"
     },
     {
       "name": "番茄",
       "amount": 5,
       "unit": "个",
-      "note": "，切块；约 500g"
+      "note": "，切块；约 500g",
+      "group": "酱汁"
     },
     {
       "name": "洋葱",
       "amount": 1,
       "unit": "个",
-      "note": "，切块；约 100g"
+      "note": "，切块；约 100g",
+      "group": "酱汁"
     },
     {
       "name": "腰果",
       "amount": 30,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "生姜",
       "amount": 10,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
+    },
+    {
+      "name": "大蒜",
+      "amount": 4,
+      "unit": "瓣",
+      "group": "酱汁",
+      "note": "约 12g"
     },
     {
       "name": "黄油",
       "amount": 50,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "淡奶油",
       "amount": 100,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "酱汁"
+    },
+    {
+      "name": "红辣椒粉",
+      "amount": 5,
+      "unit": "g",
+      "group": "酱汁",
+      "note": "Kashmiri 红辣椒粉最佳"
     },
     {
       "name": "香菜粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "孜然粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "印度综合香料粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "小豆蔻粉",
       "amount": 2,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "干葫芦巴叶",
       "amount": 3,
       "unit": "g",
-      "note": "用手搓碎"
+      "note": "用手搓碎",
+      "group": "酱汁"
     },
     {
       "name": "糖",
       "amount": 10,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "盐",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "水",
       "amount": 100,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "酱汁"
     },
     {
-      "name": "搅拌机/料理机"
+      "name": "搅拌机/料理机",
+      "group": "所需工具"
     }
   ],
   "steps": [

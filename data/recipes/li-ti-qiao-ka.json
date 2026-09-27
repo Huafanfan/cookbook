@@ -17,119 +17,147 @@
     {
       "name": "全麦面粉",
       "amount": 200,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "烤鹰嘴豆粉",
       "amount": 120,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "洋葱",
       "amount": 1,
       "unit": "个",
-      "note": "，切极细碎；约 80g"
+      "note": "，切极细碎；约 80g",
+      "group": "利提（面球）"
     },
     {
       "name": "青辣椒",
       "amount": 2,
-      "unit": "根，切极细碎"
+      "unit": "根，切极细碎",
+      "group": "利提（面球）"
     },
     {
       "name": "生姜",
       "amount": 5,
-      "unit": "g，磨碎"
+      "unit": "g，磨碎",
+      "group": "利提（面球）"
     },
     {
       "name": "芥末油",
       "amount": 15,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "利提（面球）"
     },
     {
       "name": "柠檬汁",
       "amount": 10,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "利提（面球）"
     },
     {
       "name": "香菜叶",
       "amount": 10,
-      "unit": "g，切碎"
+      "unit": "g，切碎",
+      "group": "利提（面球）"
     },
     {
       "name": "孜然籽",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "芝麻",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "红辣椒粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "印度黑盐",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "盐",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "利提（面球）"
     },
     {
       "name": "温水 约",
       "amount": 100,
       "unit": "ml",
-      "note": "用于和面"
+      "note": "用于和面",
+      "group": "利提（面球）"
     },
     {
       "name": "酥油",
       "amount": 30,
       "unit": "g",
-      "note": "烤好后涂抹用"
+      "note": "烤好后涂抹用",
+      "group": "利提（面球）"
     },
     {
       "name": "茄子",
       "amount": 1,
       "unit": "个",
-      "note": "约 250g"
+      "note": "约 250g",
+      "group": "巧卡（蔬菜泥）"
     },
     {
       "name": "番茄",
       "amount": 2,
       "unit": "个",
-      "note": "约 180g"
+      "note": "约 180g",
+      "group": "巧卡（蔬菜泥）"
     },
     {
       "name": "土豆",
       "amount": 2,
       "unit": "个",
-      "note": "约 240g"
+      "note": "约 240g",
+      "group": "巧卡（蔬菜泥）"
     },
     {
       "name": "大蒜",
       "amount": 4,
       "unit": "瓣",
-      "note": "约 12g"
+      "note": "约 12g",
+      "group": "巧卡（蔬菜泥）"
     },
     {
       "name": "青辣椒",
       "amount": 1,
-      "unit": "根"
+      "unit": "根",
+      "group": "巧卡（蔬菜泥）"
+    },
+    {
+      "name": "芥末油",
+      "amount": 15,
+      "unit": "ml",
+      "group": "巧卡（蔬菜泥）"
     },
     {
       "name": "盐",
       "amount": 4,
-      "unit": "g"
+      "unit": "g",
+      "group": "巧卡（蔬菜泥）"
     },
     {
       "name": "香菜叶",
       "amount": 10,
-      "unit": "g"
+      "unit": "g",
+      "group": "巧卡（蔬菜泥）"
     }
   ],
   "steps": [

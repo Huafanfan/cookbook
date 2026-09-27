@@ -18,107 +18,127 @@
       "name": "瓠瓜",
       "amount": 1,
       "unit": "根",
-      "note": "葫芦；约 400g"
+      "note": "葫芦；约 400g",
+      "group": "丸子"
     },
     {
       "name": "鹰嘴豆粉",
       "amount": 80,
-      "unit": "g"
+      "unit": "g",
+      "group": "丸子"
     },
     {
       "name": "盐",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "丸子"
     },
     {
       "name": "红辣椒粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "丸子"
     },
     {
       "name": "香菜粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "丸子"
     },
     {
       "name": "食用油",
       "amount": 500,
       "unit": "ml",
-      "note": "炸丸子用"
+      "note": "炸丸子用",
+      "group": "丸子"
     },
     {
       "name": "洋葱",
       "amount": 2,
       "unit": "个",
-      "note": "，切碎；约 200g"
+      "note": "，切碎；约 200g",
+      "group": "酱汁"
     },
     {
       "name": "番茄",
       "amount": 3,
       "unit": "个",
-      "note": "，切碎；约 300g"
+      "note": "，切碎；约 300g",
+      "group": "酱汁"
     },
     {
       "name": "生姜",
       "amount": 10,
-      "unit": "g，磨碎"
+      "unit": "g，磨碎",
+      "group": "酱汁"
     },
     {
       "name": "大蒜",
       "amount": 4,
       "unit": "瓣",
-      "note": "，磨碎；约 12g"
+      "note": "，磨碎；约 12g",
+      "group": "酱汁"
     },
     {
       "name": "青辣椒",
       "amount": 1,
-      "unit": "根，切碎"
+      "unit": "根，切碎",
+      "group": "酱汁"
     },
     {
       "name": "食用油",
       "amount": 30,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "酱汁"
     },
     {
       "name": "姜黄粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "红辣椒粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "香菜粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "孜然粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "印度综合香料粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "盐",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "酱汁"
     },
     {
       "name": "水",
       "amount": 200,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "酱汁"
     },
     {
       "name": "香菜叶",
       "amount": 10,
       "unit": "g",
-      "note": "装饰用"
+      "note": "装饰用",
+      "group": "酱汁"
     }
   ],
   "steps": [

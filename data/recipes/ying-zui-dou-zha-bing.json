@@ -15,127 +15,151 @@
       "name": "干鹰嘴豆",
       "amount": 200,
       "unit": "g",
-      "note": "提前浸泡 8 小时"
+      "note": "提前浸泡 8 小时",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "洋葱",
       "amount": 2,
       "unit": "个",
-      "note": "，切碎；约 200g"
+      "note": "，切碎；约 200g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "番茄",
       "amount": 3,
       "unit": "个",
-      "note": "，切碎；约 300g"
+      "note": "，切碎；约 300g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "生姜",
       "amount": 10,
-      "unit": "g，磨碎"
+      "unit": "g，磨碎",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "大蒜",
       "amount": 4,
       "unit": "瓣",
-      "note": "，磨碎；约 12g"
+      "note": "，磨碎；约 12g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "青辣椒",
       "amount": 2,
-      "unit": "根，切缝"
+      "unit": "根，切缝",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "食用油",
       "amount": 30,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "红茶包",
       "amount": 1,
-      "unit": "个"
+      "unit": "个",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "姜黄粉",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "红辣椒粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "香菜粉",
       "amount": 8,
-      "unit": "g"
+      "unit": "g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "孜然粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "印度综合香料粉",
       "amount": 5,
-      "unit": "g"
+      "unit": "g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "石榴粉",
       "amount": 3,
       "unit": "g",
-      "note": "或柠檬汁 15ml"
+      "note": "或柠檬汁 15ml",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "盐",
       "amount": 6,
-      "unit": "g"
+      "unit": "g",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "水",
       "amount": 500,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "鹰嘴豆咖喱"
     },
     {
       "name": "中筋面粉",
       "amount": 250,
-      "unit": "g"
+      "unit": "g",
+      "group": "炸饼（和面）"
     },
     {
       "name": "酸奶",
       "amount": 60,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "炸饼（和面）"
     },
     {
       "name": "食用油",
       "amount": 15,
       "unit": "ml",
-      "note": "和面用"
+      "note": "和面用",
+      "group": "炸饼（和面）"
     },
     {
       "name": "小苏打",
       "amount": 2,
-      "unit": "g"
+      "unit": "g",
+      "group": "炸饼（和面）"
     },
     {
       "name": "盐",
       "amount": 3,
-      "unit": "g"
+      "unit": "g",
+      "group": "炸饼（和面）"
     },
     {
       "name": "温水 约",
       "amount": 60,
-      "unit": "ml"
+      "unit": "ml",
+      "group": "炸饼（和面）"
     },
     {
       "name": "食用油",
       "amount": 500,
       "unit": "ml",
-      "note": "炸饼用"
+      "note": "炸饼用",
+      "group": "炸饼（油炸）"
     },
     {
       "name": "深锅",
-      "note": "炸饼用"
+      "note": "炸饼用",
+      "group": "所需工具"
     }
   ],
   "steps": [
