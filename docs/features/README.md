@@ -13,7 +13,7 @@
 | CB-003 | [从 HowToCook 导入菜谱](CB-003-howtocook-import.md) | `implemented` | **done** | 共 371 道（自建 2 + HowToCook 369）；含来源与许可裁定、解析缺口修复 |
 | CB-004 | [份量档位（按人数线性缩放）](CB-004-serving-scale.md) | `superseded` | 不适用 | 缩放实现已撤回；当前按菜谱原文显示份量，规则见 [CB-001 §3.2](CB-001-cooking-mode.md) |
 | CB-005 | [点赞、收藏与排序](CB-005-likes-favorites.md) | `implemented` | **done** | 服务端存储（两人共享）、收藏优先排序；**本项目第一个写操作** → [ADR-0003](../decisions/ADR-0003-write-operations-user-state.md) |
-| CB-006 | [tag 受控词表与逐道分类](CB-006-tags.md) | `implemented` | **done** | 14 个受控 tag（`data/tags.json`）+ LLM 逐道判定，**371/371 全覆盖** |
+| CB-006 | [tag 受控词表与逐道分类](CB-006-tags.md) | `implemented` | **done** | 受控 tag 词表 + LLM 逐道判定；当前覆盖与空标签说明见 [CB-006 §6b](CB-006-tags.md#6b-用户反馈后的一次修正2026-09-20) |
 | CB-007 | [图片展示（封面、头图、步骤配图）](CB-007-images.md) | `implemented` | **done** | 服务端扫描与白名单托管；首版不做缩略图或上传（[CHECK](../verification/CB-007/CHECK.md) 记录专项检查状态） |
 | CB-008 | [「我的厨具」改存服务端](CB-008-kitchen-tools-server.md) | `implemented` | **done** | `user-state.json` 保存共享厨具设置，旧浏览器值可自动迁移（专项检查见 [CHECK](../verification/CB-008/CHECK.md)） |
 | CB-009 | [编辑模式与修改记录](CB-009-edit-mode.md) | `implemented` | **done** | 浏览器内编辑、历史快照、恢复与 409 版本守卫；专项检查见 [CHECK](../verification/CB-009/CHECK.md) |

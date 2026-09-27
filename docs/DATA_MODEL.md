@@ -156,7 +156,7 @@ data/history/recipes/<recipe-id>/<historyId>-<source>.json
 | 待定项 | 权威位置 |
 | --- | --- |
 | 分类（`category`）允许值清单 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) Q3 |
-| tag 词表（14 个受控值） | [`data/tags.json`](../../data/tags.json) + [CB-006](features/CB-006-tags.md) |
+| tag 词表与取值 | [`data/tags.json`](../data/tags.json) + [CB-006](features/CB-006-tags.md) |
 | `unit` 是否做成枚举 | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) Q2 |
 | 别名是否支持拼音搜索 | [ROADMAP.md](ROADMAP.md) M5 |
 | 份量缩放（暂不做，要做得先立规格） | [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md) |
@@ -181,7 +181,9 @@ data/history/recipes/<recipe-id>/<historyId>-<source>.json
 | 8 | 不需要计时的步骤不硬填 `minutes` | 没有计时入口比给个假时长更好 |
 
 > 自动化的边界：`content-lint.ts` 能查 #2（以及食材重复），其余 #1、#3–#6 是语义判断，**只能人工过**。
-> 服务启动时会把内容问题打成 `warn` 日志，`npm run check:data` 会**以非零退出**拦住它们。
+> 服务启动时会把内容问题打成 `warn` 日志。`npm run check:data` 只在字段校验失败或出现**错误级**内容问题时以非零退出；**警告级**内容问题会列出供人工复核，不阻止通过。
+
+同组重名食材可能是分阶段使用；单步出现多个时间而未填 `minutes`，表示该步没有一键计时入口。处理警告前先对照来源和实际做法，确认重复或计时起点确实有问题，再改菜谱内容。
 
 ## 8. 内容来源与许可
 
