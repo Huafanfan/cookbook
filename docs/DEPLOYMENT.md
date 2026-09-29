@@ -1,6 +1,6 @@
 # 部署与运行
 
-状态：本项目已部署。2026-09-27 的内容修订部署与当前运行检查见 §0c；2026-09-24 的只读现场复核保留在 §0b。
+状态：本项目已部署。2026-09-29 的界面改版部署与当前运行检查见 §0d；更早的内容部署与现场复核分别保留在 §0c / §0b。
 目标：`http://192.168.1.2:18081` 局域网可访问，容器重建不丢数据
 
 ---
@@ -58,6 +58,27 @@
 回滚仅恢复本次 10 份菜谱，不覆盖其他菜或后续用户状态：`ssh root@192.168.1.2 'sh /srv/backup/cookbook-content-20260927-185419/rollback.sh'`。脚本已通过 `sh -n`，权限 `0700`，如果这 10 道菜在部署后再次被修改，会先拒绝回滚，避免覆盖新编辑。完整数据备份仍保留在上述归档中。
 
 这些检查验证了数据已上线和接口可读；**基础牛奶面包、牛奶燕麦的真机试做仍未执行**，反馈入口见[CB-001 试做记录](features/CB-001-cooking-feedback.md)。10 道菜的原文核对与本地检查见[内容复核记录](verification/CB-003/CONTENT-REVIEW-2026-09-27.md)。
+
+## 0d. PC / 手机界面改版部署（2026-09-29）
+
+用户确认 [CB-011](features/CB-011-visual-redesign.md) 并明确要求完成部署、推送。代码提交 `d22b8a5` 只改前端、测试和文档；`data/` 未改。部署沿用现有 Compose、`192.168.1.2:18081 → 8080` 与 `/srv/data/cookbook → /data`，只重建 `cookbook` 服务。
+
+| 项 | 现场结果 |
+| --- | --- |
+| 部署前 | `cookbook` 健康，旧镜像 `sha256:852bc2695c82fb00525856c4a140f1b1e8c01354fba17ef59195ec92c8a207aa`；服务器运行源码与改版前 Git 基线一致，仅有几份旧 AppleDouble 元数据文件；`/srv`、源码、数据和 Docker root 均在本地 ext4，剩余约 880.9G、空闲 inode 62,225,915 |
+| 备份 | `/srv/backup/cookbook-ui-20260929-173501/`：源码 `source.tar.gz`、完整数据 `data.tar.gz`、旧镜像 ID、归档校验和及受保护的 `rollback.sh`；两份 gzip 校验通过；备份目录仅 root 可访问 |
+| 构建 | Git 提交 `d22b8a5` 的源码经 `git archive` 传到原构建目录；关键文件 SHA-256 与提交版一致，Compose 配置校验通过。新 Node 基础层拉取极慢，改用服务器已缓存的 `linux/amd64` Node 22.23.2 基础镜像完成构建；运行镜像为 `sha256:d284709059bc67d1ad4f552b144d91697d1c7cc05bf917911816dd4380aa80c0` |
+| 容器与数据 | `running / healthy`、`unless-stopped`；仅 `192.168.1.2:18081` → `8080/tcp`；数据仍挂载 `/srv/data/cookbook`。部署前后 `user-state.json` SHA-256 均为 `5ccd9ccd62f9be1b0cb01acf4032efe0f38185523a3d4044731246053071684a` |
+| 应用与独立客户端 | 启动日志显示成功载入 371 道、跳过 0 个文件，179 道有封面；服务器 `/api/health` 返回 `{"status":"ok","recipes":371}`；Mac 浏览器打开线上首页与详情，取到新资源 `index-BksQc-vg.css` / `index-CoeGtRpG.js`，手机尺寸和桌面尺寸的新布局可见，320px 无横向溢出，详情无份量换算档位 |
+| 管理与其他服务 | 部署前后 iStoreOS HTTP/HTTPS 管理页均为 200，SSH 22 与 LAN 18081 监听不变；其他三个容器未重启 |
+
+回滚只还原代码与旧镜像，**不覆盖任何菜谱或用户状态**：
+
+```bash
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-ui-20260929-173501/rollback.sh'
+```
+
+脚本已通过 `sh -n` 和 `--check`；运行前会核对当前镜像与已部署 CSS 哈希，若之后有更新则拒绝回滚，防止覆盖新代码。**真实手机和厨房试做仍待用户验证**，因此 CB-011 状态保持 `implemented`，不是 `verified`。
 
 ---
 
