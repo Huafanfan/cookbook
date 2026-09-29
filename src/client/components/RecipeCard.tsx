@@ -1,5 +1,5 @@
 import type { RecipeSummary } from "../../shared/types";
-import { difficultyStars, difficultyText } from "../lib/format";
+import { difficultyText } from "../lib/format";
 import { Highlight } from "../lib/highlight";
 import { checkEquipment, kitchenVerdict, shortEquipmentLabel } from "../lib/kitchen";
 import { navigate } from "../lib/router";
@@ -13,13 +13,15 @@ interface RecipeCardProps {
   myTools: string[];
   /** 厨具词表是否已载入；未载入时不给标记（避免假结论） */
   catalogReady: boolean;
+  variant?: "default" | "featured";
 }
 
 export function RecipeCard({
   recipe,
   keyword,
   myTools,
-  catalogReady
+  catalogReady,
+  variant = "default"
 }: RecipeCardProps): React.JSX.Element {
   const open = (): void => {
     // 记住列表页的位置与搜索条件，返回时原样恢复
@@ -32,14 +34,24 @@ export function RecipeCard({
   const verdict = kitchenVerdict(check);
   const kitchenLabel = catalogReady && myTools.length > 0 ? shortEquipmentLabel(check) : null;
 
+  if (variant === "featured") {
+    return (
+      <li className="featured-item">
+        <button type="button" className="featured-card" onClick={open}>
+          <RecipeCover src={recipe.coverImage} name={recipe.name} className="featured-cover" />
+          <span className="featured-caption">
+            <strong>{recipe.name}</strong>
+            <span>{recipe.totalMinutes ? `${recipe.totalMinutes} 分钟` : recipe.category}</span>
+          </span>
+        </button>
+      </li>
+    );
+  }
+
   return (
     <li className="recipe-card">
       <button type="button" className="recipe-card-button" onClick={open}>
-        <RecipeCover
-          src={recipe.coverImage}
-          name={recipe.name}
-          className="recipe-card-cover"
-        />
+        <RecipeCover src={recipe.coverImage} name={recipe.name} className="recipe-card-cover" />
 
         <span className="recipe-card-body">
           <span className="recipe-card-name">
@@ -49,25 +61,17 @@ export function RecipeCard({
           {recipe.summary && <span className="recipe-card-summary">{recipe.summary}</span>}
 
           <span className="recipe-card-meta">
-            <span className="badge badge-category">{recipe.category}</span>
-            {/* 只在"已收藏 / 有点赞"时显示，不制造噪音 */}
-            {recipe.favorite && <span className="badge badge-favorite">★ 已收藏</span>}
-            {recipe.likes > 0 && <span className="badge">👍 {recipe.likes}</span>}
+            <span>{recipe.category}</span>
+            {recipe.favorite && <span className="card-favorite">★ 已收藏</span>}
             {kitchenLabel && (
-              <span className={`badge badge-kitchen badge-kitchen-${verdict}`}>{kitchenLabel}</span>
+              <span className={`badge-kitchen card-kitchen badge-kitchen-${verdict}`}>{kitchenLabel}</span>
             )}
-            {recipe.tags.map((tag) => (
-              <span key={tag} className="badge">
-                {tag}
-              </span>
-            ))}
+            {recipe.tags[0] && <span>{recipe.tags[0]}</span>}
           </span>
 
           <span className="recipe-card-foot">
-            <span>{recipe.totalMinutes ? `${recipe.totalMinutes} 分钟` : "—"}</span>
-            <span title={`难度：${difficultyText(recipe.difficulty)}`}>
-              {difficultyStars(recipe.difficulty)} {difficultyText(recipe.difficulty)}
-            </span>
+            <span>{recipe.totalMinutes ? `${recipe.totalMinutes} 分钟` : "耗时未标注"}</span>
+            <span>{difficultyText(recipe.difficulty)}</span>
           </span>
         </span>
       </button>

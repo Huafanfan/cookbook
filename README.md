@@ -164,7 +164,7 @@ cookbook/
 │   │   ├── pages/         #   HomePage 列表+搜索、RecipePage 详情
 │   │   ├── components/    #   RecipeCard / RecipeCover / SearchBar / FilterBar / IngredientList / StepList
 │   │   ├── lib/           #   api、router、format、highlight、storage
-│   │   └── styles/        #   global.css（手机优先，含深色模式）
+│   │   └── styles/        #   global.css（手机优先，固定明亮主题）
 │   ├── server/            # 后端（Fastify）
 │   │   ├── main.ts        #   入口
 │   │   ├── index.ts       #   组装应用：路由 + 静态资源 + SPA 兜底

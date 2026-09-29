@@ -11,7 +11,7 @@ export function SearchBar({ value, onChange }: SearchBarProps): React.JSX.Elemen
         type="search"
         inputMode="search"
         enterKeyHint="search"
-        placeholder="搜菜名、食材，如「西红柿」「鸡蛋」"
+        placeholder="搜菜名或食材"
         aria-label="搜索菜谱"
         value={value}
         onChange={(event) => onChange(event.target.value)}

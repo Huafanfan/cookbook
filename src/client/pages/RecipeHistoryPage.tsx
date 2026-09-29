@@ -52,7 +52,7 @@ export function RecipeHistoryPage({ id }: { id: string }): React.JSX.Element {
   }, [id]);
 
   return (
-    <div className="page">
+    <div className="page history-page">
       <div className="recipe-topbar">
         <button type="button" className="link-button" onClick={() => navigate(`/recipe/${id}`)}>
           ← 返回这道菜
@@ -173,7 +173,7 @@ export function RecipeHistoryVersionPage({
   const before = record?.beforeRecipe;
 
   return (
-    <div className="page">
+    <div className="page history-page">
       <div className="recipe-topbar">
         <button type="button" className="link-button" onClick={() => navigate(`/recipe/${id}/history`)}>
           ← 修改记录

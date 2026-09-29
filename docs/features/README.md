@@ -18,7 +18,7 @@
 | CB-008 | [「我的厨具」改存服务端](CB-008-kitchen-tools-server.md) | `implemented` | **done** | `user-state.json` 保存共享厨具设置，旧浏览器值可自动迁移（专项检查见 [CHECK](../verification/CB-008/CHECK.md)） |
 | CB-009 | [编辑模式与修改记录](CB-009-edit-mode.md) | `implemented` | **done** | 浏览器内编辑、历史快照、恢复与 409 版本守卫；专项检查见 [CHECK](../verification/CB-009/CHECK.md) |
 | CB-010 | [来源、基线与 LLM 辅助重新同步](CB-010-source-and-resync.md) | `implemented` | **done** | 367 道有 `sourceRef`；三方比较、同步和提案脚本已实现；专项检查见 [CHECK](../verification/CB-010/CHECK.md) |
-| CB-011 | [明亮、好找、想做的菜谱界面](CB-011-visual-redesign.md) | `draft` | 待确认 | PC 与手机的整体视觉和布局改版，方向确认后实现 |
+| CB-011 | [明亮、好找、想做的菜谱界面](CB-011-visual-redesign.md) | `implemented` | 待真机试做 | PC 与手机的整体视觉和布局改版；本机浏览器验证见规格 §11 |
 
 ## 后续候选
 

@@ -9,11 +9,9 @@ import { StepList } from "../components/StepList";
 import { ApiError, fetchRecipe } from "../lib/api";
 import { difficultyText, minutesText } from "../lib/format";
 import { navigate } from "../lib/router";
-import { servingNotice } from "../lib/scale";
 import {
   readFlag,
   readStored,
-  removeStored,
   STORAGE_KEYS,
   writeStored
 } from "../lib/storage";
@@ -65,8 +63,6 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
   );
   const [hint, setHint] = useState<string | null>(null);
   const [kitchenPanelOpen, setKitchenPanelOpen] = useState(false);
-  /** 人数档位；null = 用菜谱基准份量 */
-  const [servingsChoice, setServingsChoice] = useState<number | null>(null);
   const { meta, failed: metaFailed } = useMeta();
 
   // 点赞/收藏：hooks 必须在提前 return 之前调用（id 来自 props，始终可用）
@@ -106,13 +102,6 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
   useEffect(() => {
     writeStored(STORAGE_KEYS.fontScale, String(FONT_SCALES[fontIndex]));
   }, [fontIndex]);
-
-  // 人数档位按菜谱记住
-  useEffect(() => {
-    if (!recipe) return;
-    const stored = Number(readStored(STORAGE_KEYS.servings(recipe.id)) ?? "");
-    setServingsChoice(Number.isFinite(stored) && stored > 0 ? stored : null);
-  }, [recipe]);
 
   // 只要开着常亮且能力不可用，就给出原因；状态一变就更新（避免"第一次点没反应"）
   useEffect(() => {
@@ -156,7 +145,6 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
     );
   }
 
-  const servings = servingsChoice ?? recipe.servings;
   const state = userStateOf(map, recipe.id);
   const timeText = minutesText(recipe.prepMinutes, recipe.cookMinutes);
 
@@ -287,36 +275,13 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
           )}
         </div>
 
-        <div className="action-row">
-          <button type="button" className="chip" onClick={() => navigate(`/recipe/${recipe.id}/edit`)}>
-            ✎ 编辑
-          </button>
-          <button type="button" className="chip" onClick={() => navigate(`/recipe/${recipe.id}/history`)}>
-            🕘 修改记录
-          </button>
-        </div>
-
         {actionError && <p className="notice notice-error">{actionError}</p>}
       </header>
 
-      <IngredientList
-        ingredients={recipe.ingredients}
-        baseServings={recipe.servings}
-        servings={servings}
-        onServingsChange={(next) => {
-          setServingsChoice(next === recipe.servings ? null : next);
-          // 切回基准档位就清掉记录，不留"等于基准的选择"
-          if (next === recipe.servings) removeStored(STORAGE_KEYS.servings(recipe.id));
-          else writeStored(STORAGE_KEYS.servings(recipe.id), String(next));
-        }}
-      />
-
-      <StepList
-        recipeId={recipe.id}
-        steps={recipe.steps}
-        stepImages={recipe.stepImages}
-        portionNotice={servingNotice(recipe.servings, servings)}
-      />
+      <div className="recipe-main">
+        <IngredientList ingredients={recipe.ingredients} servings={recipe.servings} />
+        <StepList recipeId={recipe.id} steps={recipe.steps} stepImages={recipe.stepImages} />
+      </div>
 
       {recipe.tips && recipe.tips.length > 0 && (
         <section className="section" aria-labelledby="tips-title">
@@ -332,6 +297,15 @@ export function RecipePage({ id }: { id: string }): React.JSX.Element {
       )}
 
       {recipe.source && <p className="recipe-source">来源：{recipe.source}</p>}
+
+      <div className="recipe-utilities" aria-label="菜谱管理">
+        <button type="button" className="link-button" onClick={() => navigate(`/recipe/${recipe.id}/edit`)}>
+          编辑菜谱
+        </button>
+        <button type="button" className="link-button" onClick={() => navigate(`/recipe/${recipe.id}/history`)}>
+          修改记录
+        </button>
+      </div>
     </div>
   );
 }

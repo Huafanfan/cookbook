@@ -11,8 +11,6 @@ interface StepListProps {
   steps: Step[];
   /** 步骤配图（CB-007）：与 steps 等长，无图那项为 null；缺省视为全无图 */
   stepImages?: (string | null)[];
-  /** 非基准份量时的提示（步骤文案里的用量是按基准写的） */
-  portionNotice?: string | null;
 }
 
 /**
@@ -41,8 +39,7 @@ function readDoneSteps(recipeId: string, stepCount: number): number[] {
 export function StepList({
   recipeId,
   steps,
-  stepImages,
-  portionNotice
+  stepImages
 }: StepListProps): React.JSX.Element {
   const [done, setDone] = useState<number[]>(() => readDoneSteps(recipeId, steps.length));
   const [timer, setTimer] = useState<RunningTimer | null>(null);
@@ -129,8 +126,6 @@ export function StepList({
           已完成 {done.length}/{steps.length}
         </span>
       </h2>
-
-      {portionNotice && <p className="notice notice-warn portion-notice">{portionNotice}</p>}
 
       {/* 吸顶：滚过头也能一键回到当前步 */}
       <div className="step-sticky">

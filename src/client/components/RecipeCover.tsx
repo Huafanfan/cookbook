@@ -51,6 +51,7 @@ export function RecipeCover({
       <span className="cover-letter" aria-hidden="true">
         {name.slice(0, 1)}
       </span>
+      <span className="cover-empty" aria-hidden="true">暂无成品图</span>
       {src && !failed && (
         <img
           className="cover-image"

@@ -31,11 +31,6 @@ export const STORAGE_KEYS = {
     key: `cookbook:steps:${recipeId}`,
     kind: "session"
   }),
-  /** 某道菜选定的人数档位（长期；未设置=用菜谱基准份量） */
-  servings: (recipeId: string): StorageSlot => ({
-    key: `cookbook:servings:${recipeId}`,
-    kind: "local"
-  }),
   /** 编辑页草稿（长期：刷新/误触返回后能接着改；存 `{recipeId, baseRevision, draft, savedAt}`） */
   editDraft: (recipeId: string): StorageSlot => ({
     key: `cookbook:edit-draft:${recipeId}`,

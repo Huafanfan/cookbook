@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import type { RecipeListResponse, SearchParams } from "../../shared/types";
+import type { RecipeListResponse, RecipeSummary, SearchParams } from "../../shared/types";
 import { FilterBar } from "../components/FilterBar";
 import { KitchenToolsPanel } from "../components/KitchenToolsPanel";
 import { RecipeCard } from "../components/RecipeCard";
@@ -13,6 +13,8 @@ import { useMyKitchen } from "../lib/use-kitchen";
 
 /** 稳定的空数组，避免每次渲染都换引用 */
 const NO_TOOLS: string[] = [];
+/** 只选仓库里已有成品图的菜；失效时自动略过，不造图。 */
+const FEATURED_IDS = ["you-men-da-xia", "gan-guo-hua-cai", "yu-xiang-qie-zi"];
 
 function readInitialParams(): SearchParams {
   const search = new URLSearchParams(window.location.search);
@@ -85,18 +87,21 @@ export function HomePage(): React.JSX.Element {
   const catalogReady = Boolean(meta?.equipment.length);
   const items = data?.items ?? [];
   const hasQuery = Boolean(params.q || params.category || params.tag);
+  const featured: RecipeSummary[] = hasQuery
+    ? []
+    : FEATURED_IDS.flatMap((id) => {
+        const item = items.find((recipe) => recipe.id === id);
+        return item?.coverImage ? [item] : [];
+      });
 
   return (
-    <div className="page">
-      <header className="page-header">
-        <h1 className="page-title">菜谱</h1>
-        <p className="page-subtitle">
-          {data ? `共 ${data.total} 道菜` : "正在载入…"}
-          {params.q ? ` · 搜索「${params.q}」` : ""}
-        </p>
+    <div className="page home-page">
+      <header className="home-header">
+        <h1 className="home-brand">今天吃什么</h1>
+        <SearchBar value={keyword} onChange={setKeyword} />
         <button
           type="button"
-          className="chip chip-small"
+          className="home-kitchen-button"
           aria-expanded={kitchenPanelOpen}
           onClick={() => setKitchenPanelOpen((open) => !open)}
         >
@@ -118,62 +123,79 @@ export function HomePage(): React.JSX.Element {
         />
       )}
 
-      <SearchBar value={keyword} onChange={setKeyword} />
-
-      <FilterBar
-        meta={meta}
-        category={params.category}
-        tag={params.tag}
-        onSelectCategory={(category) => setParams((previous) => ({ ...previous, category }))}
-        onSelectTag={(tag) => setParams((previous) => ({ ...previous, tag }))}
-      />
-
-      {data && data.skipped.length > 0 && (
-        <p className="notice notice-warn">
-          有 {data.skipped.length} 个菜谱文件未载入：{data.skipped.join("、")}
-        </p>
+      {featured.length > 0 && (
+        <section className="featured-section" aria-labelledby="featured-title">
+          <h2 id="featured-title">今晚，做点好吃的</h2>
+          <ul className="featured-list">
+            {featured.map((item) => (
+              <RecipeCard
+                key={item.id}
+                recipe={item}
+                variant="featured"
+                myTools={kitchen.tools}
+                catalogReady={catalogReady}
+              />
+            ))}
+          </ul>
+        </section>
       )}
 
-      {error && <p className="notice notice-error">{error}</p>}
-
-      {loading && !data && <p className="notice">正在载入…</p>}
-
-      {data && items.length === 0 && (
-        <div className="empty">
-          <p className="empty-title">没有找到符合条件的菜</p>
-          <p className="empty-hint">
-            {hasQuery ? "试试搜食材名（比如「鸡蛋」），或清空筛选条件" : "先去 data/recipes/ 放一个菜谱文件"}
-          </p>
-          {hasQuery && (
-            <button
-              type="button"
-              className="button"
-              onClick={() => {
-                setKeyword("");
-                setParams({});
-              }}
-            >
-              清空搜索与筛选
-            </button>
-          )}
+      <section className="browse-section" aria-labelledby="browse-title">
+        <div className="browse-heading">
+          <h2 id="browse-title">{hasQuery ? "找到的菜" : "家常菜谱"}</h2>
+          <p>{data ? `共 ${data.total} 道` : "正在载入…"}</p>
         </div>
-      )}
+        <FilterBar
+          meta={meta}
+          category={params.category}
+          tag={params.tag}
+          onSelectCategory={(category) => setParams((previous) => ({ ...previous, category }))}
+          onSelectTag={(tag) => setParams((previous) => ({ ...previous, tag }))}
+        />
 
-      <ul className="recipe-grid">
-        {items.map((item) => (
-          <RecipeCard
-            key={item.id}
-            recipe={item}
-            keyword={params.q}
-            myTools={kitchen.tools}
-            catalogReady={catalogReady}
-          />
-        ))}
-      </ul>
+        {data && data.skipped.length > 0 && (
+          <p className="notice notice-warn">
+            有 {data.skipped.length} 个菜谱文件未载入：{data.skipped.join("、")}
+          </p>
+        )}
 
-      <footer className="page-footer">
-        <span>局域网自用菜谱 · 数据在 data/recipes/</span>
-      </footer>
+        {error && <p className="notice notice-error">{error}</p>}
+
+        {loading && !data && <p className="notice">正在载入…</p>}
+
+        {data && items.length === 0 && (
+          <div className="empty">
+            <p className="empty-title">没有找到符合条件的菜</p>
+            <p className="empty-hint">
+              {hasQuery ? "试试搜食材名（比如「鸡蛋」），或清空筛选条件" : "还没有菜谱，稍后再来看看"}
+            </p>
+            {hasQuery && (
+              <button
+                type="button"
+                className="button"
+                onClick={() => {
+                  setKeyword("");
+                  setParams({});
+                }}
+              >
+                清空搜索与筛选
+              </button>
+            )}
+          </div>
+        )}
+
+        <ul className="recipe-grid">
+          {items.map((item) => (
+            <RecipeCard
+              key={item.id}
+              recipe={item}
+              keyword={params.q}
+              myTools={kitchen.tools}
+              catalogReady={catalogReady}
+            />
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }

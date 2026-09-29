@@ -19,6 +19,7 @@
 | M3 详情页 | ✅ 完成 | 食材分组、步骤打勾、进度条、字号调节均实测通过 |
 | M3+ 做菜顺手 | ✅ 用户验收 done | [CB-001](features/CB-001-cooking-mode.md)（`implemented`）：一键计时与到点提醒、吸顶回位、屏幕常亮；折叠与份量换算均按反馈**移除** |
 | M3++ 厨具匹配 | ✅ 用户验收 done | [CB-002](features/CB-002-kitchen-tools.md)（`implemented`）：厨具受控词表、勾选我的厨具、缺件标记、替代方案 |
+| PC / 手机视觉改版 | ✅ 本机实现，待真机试做 | [CB-011](features/CB-011-visual-redesign.md)（`implemented`）：明亮主题、真实封面精选、分类/标签分层、详情阅读优化；验证见规格 §11 |
 | 组件层测试基础设施 | ✅ 已完成 | jsdom + Testing Library；20 个组件测试覆盖到点提醒、索引清洗、保存失败、词表未载入 |
 | 稳定化（独立复核后） | ✅ 已完成第一轮 | [overall-review/FIXES.md](verification/overall-review/FIXES.md)：P1 × 7 已修（假承诺、词表两洞、保存失败、44px、到点提醒） |
 | 丰富菜单（导入） | ✅ 已完成 | [CB-003](features/CB-003-howtocook-import.md)：总计 371 道，其中从公有领域 HowToCook 导入 **369 道** |

@@ -8,6 +8,8 @@ docs
 test
 scripts
 *.log
+._*
+**/._*
 .env
 .env.*
 !.env.server.example

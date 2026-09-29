@@ -1,16 +1,13 @@
 import type { Ingredient } from "../../shared/types";
-import { ingredientAmountText, scaleFactor, servingOptions } from "../lib/scale";
+import { ingredientAmountText } from "../lib/ingredient-amount";
 
 // 按做菜顺序排列：先主料，再腌料，最后调味
 const GROUP_ORDER = ["主料", "腌料", "调料", "汤底"];
 
 interface IngredientListProps {
   ingredients: Ingredient[];
-  /** 菜谱写明的基准份量（缩放以此为起点） */
-  baseServings: number;
-  /** 当前选中的人数 */
+  /** 菜谱写明的原始份量；不做换算 */
   servings: number;
-  onServingsChange: (servings: number) => void;
 }
 
 function groupIngredients(ingredients: Ingredient[]): [string, Ingredient[]][] {
@@ -32,40 +29,23 @@ function groupIngredients(ingredients: Ingredient[]): [string, Ingredient[]][] {
 
 export function IngredientList({
   ingredients,
-  baseServings,
-  servings,
-  onServingsChange
+  servings
 }: IngredientListProps): React.JSX.Element {
-  const factor = scaleFactor(servings, baseServings);
-
   return (
     <section className="section" aria-labelledby="ingredients-title">
       <h2 className="section-title" id="ingredients-title">
         食材
-        <span className="section-note">
-          {servingOptions(baseServings).map((option) => (
-            <button
-              key={option}
-              type="button"
-              className={`chip chip-small${option === servings ? " chip-active" : ""}`}
-              aria-pressed={option === servings}
-              onClick={() => onServingsChange(option)}
-            >
-              {option} 人
-            </button>
-          ))}
-        </span>
+        <span className="section-note">{servings} 人份</span>
       </h2>
 
       {groupIngredients(ingredients).map(([group, items]) => (
         <div className="ingredient-group" key={group}>
           <h3 className="ingredient-group-title">{group}</h3>
-          {/* key 让份量变化时重新挂载，触发一次高亮提示"用量变了" */}
-          <ul className="ingredient-list" data-scaled={factor === 1 ? "false" : "true"} key={servings}>
+          <ul className="ingredient-list">
             {items.map((ingredient) => (
               <li className="ingredient-item" key={`${group}-${ingredient.name}`}>
                 <span className="ingredient-name">{ingredient.name}</span>
-                <span className="ingredient-amount">{ingredientAmountText(ingredient, factor).text}</span>
+                <span className="ingredient-amount">{ingredientAmountText(ingredient)}</span>
                 {ingredient.note && <span className="ingredient-note">{ingredient.note}</span>}
               </li>
             ))}

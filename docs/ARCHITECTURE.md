@@ -63,7 +63,7 @@ src/
 │   ├── pages/                 #   HomePage（列表+搜索+筛选）、RecipePage（详情）
 │   ├── components/            #   RecipeCard / SearchBar / FilterBar / IngredientList / StepList
 │   ├── lib/                   #   api.ts、router.tsx、format.ts、highlight.tsx、storage.ts
-│   └── styles/global.css      #   全局样式（手机优先 + 深色模式）
+│   └── styles/global.css      #   全局样式（手机优先 + 固定明亮主题）
 ├── server/                    # 后端（tsc 构建，产物 dist/server）
 │   ├── main.ts                #   进程入口（唯一的非纯函数入口）
 │   ├── index.ts               #   组装应用：路由 + 静态托管 + SPA 兜底 + 优雅退出
