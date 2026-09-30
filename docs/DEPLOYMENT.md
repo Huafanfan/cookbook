@@ -82,6 +82,34 @@ ssh root@192.168.1.2 'sh /srv/backup/cookbook-ui-20260929-173501/rollback.sh'
 
 ---
 
+## 0e. 封面补全与署名页部署（2026-09-30）
+
+用户明确要求“部署加推送”。本次沿用现有 Compose、LAN 监听与数据挂载，将 CB-012 的4张封面、CB-013 两批45张真实照片、来源署名页及长用量换行修正部署到现有 cookbook。运行源码来自提交 `78f6006`（实现提交 `1f1d3f3`），`git archive` 排除 `data/` 与本地环境文件；图片由独立归档追加，不在 Git 中。
+
+| 项 | 现场结果 |
+| --- | --- |
+| 部署前 | `x86_64`、Docker 27.3.1；源码、数据与 Docker root 均在 `/srv` 本地 ext4，剩余约880.5G、空闲 inode 62,208,805。旧容器健康、179张封面；49个新封面位置均为空，已有封面与本地字节一致 |
+| 备份 | `/srv/backup/cookbook-covers-20260930-115626/`：`source-before.tar.gz`、停服后一致快照 `data-before.tar.gz`、前后镜像 ID、文件摘要、构建日志及 `rollback.sh`。目录700、配置600、脚本700；gzip和归档摘要校验通过 |
+| 构建与实现 | 使用服务器已缓存 Node 基础镜像构建 `linux/amd64`，镜像 `sha256:8bacc07c07dfdc0e9d07bfc0ff853987cb3cab997eb598c7048cab28b729d884`。Compose校验通过，Dockerfile、Compose、最终CSS和署名页的服务器SHA-256均与本地一致。构建成功后仅停止、更新和启动 cookbook app |
+| 数据保护 | 49张封面逐一确认空缺后追加，属主1000:1000、文件644；原有890个文件（含菜谱、历史、用户状态及图片）SHA-256逐个复核通过。没有覆盖线上 JSON 或旧图片 |
+| 容器基线 | `healthy`、`unless-stopped`、用户node；端口仍为 `192.168.1.2:18081 → 8080/tcp`，挂载仍为 `/srv/data/cookbook → /data`。只读根目录、cap_drop ALL、no-new-privileges、256MiB、pids128和16MiB tmpfs保持不变 |
+| 自动化检查 | 复用最终实现提交的有效证据：typecheck、check:data、build通过，26个测试文件共280项测试通过；本次随后仅改部署文档，`git diff --check`另行通过 |
+| 真实运行与独立客户端 | 启动日志载入371道、跳过0文件、228/371有封面；服务器与Mac局域网客户端健康接口均正常。Mac核对49张线上JPEG与本地字节一致，线上署名页与源文件完全一致、45条记录。1440px和390px浏览器各8条卡片进入详情路径、署名页往返、图片解码、控制台及横向溢出检查通过；手机长用量正常换行，AI标签仍清晰可见 |
+| 管理与其他服务 | iStoreOS HTTP/HTTPS仍均200，22/80/443与LAN18081监听不变；pt-media-assistant、prowlarr、lan-smoke-test的启动时间前后逐项一致。服务仅面向现有192.168.1.0/24物理LAN；VPN与Docker虚拟网段未新增绑定 |
+
+受保护回滚入口：
+
+```bash
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-covers-20260930-115626/rollback.sh --check'
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-covers-20260930-115626/rollback.sh'
+```
+
+`sh -n`与`--check`均通过，未实际执行回滚。脚本先核对运行镜像、全部源文件摘要、新图片摘要及备份；后续更新会拒绝回退。执行回退时保留当前源码和49张新增图片到备份目录，恢复旧源码和旧镜像，保留当时最新的菜谱、历史与用户状态。真实手机、用户对新图片的观感及厨房试做仍未验证，相关规格保持 `implemented`。
+
+本次推送采用 origin/main 正常快进；部署记录提交与远端一致性的确认见本次交付结果，运行镜像对应的源码提交仍为上面的 `78f6006`。
+
+---
+
 ## 1. 本地开发（Mac）
 
 ```bash
