@@ -19,6 +19,7 @@
 | CB-009 | [编辑模式与修改记录](CB-009-edit-mode.md) | `implemented` | **done** | 浏览器内编辑、历史快照、恢复与 409 版本守卫；专项检查见 [CHECK](../verification/CB-009/CHECK.md) |
 | CB-010 | [来源、基线与 LLM 辅助重新同步](CB-010-source-and-resync.md) | `implemented` | **done** | 367 道有 `sourceRef`；三方比较、同步和提案脚本已实现；专项检查见 [CHECK](../verification/CB-010/CHECK.md) |
 | CB-011 | [明亮、好找、想做的菜谱界面](CB-011-visual-redesign.md) | `implemented` | 待真机试做 | PC 与手机的整体视觉和布局改版；本机浏览器验证见规格 §11 |
+| CB-012 | [缺图菜谱的小批封面补齐](CB-012-cover-backfill.md) | `implemented` | 待图片观感确认 | 本地四张封面已补；来源、提示词、哈希与运行证据见 [CHECK](../verification/CB-012/CHECK.md) |
 
 ## 后续候选
 
