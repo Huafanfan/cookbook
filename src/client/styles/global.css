@@ -802,7 +802,9 @@ textarea:focus-visible {
 .ingredient-amount {
   color: var(--color-accent);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+  /* 长用量自然换行，并为食材名称保留空间，避免手机页面被撑宽。 */
+  max-width: 20ch;
+  white-space: normal;
 }
 
 .ingredient-note {
