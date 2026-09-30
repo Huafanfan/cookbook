@@ -235,3 +235,4 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 - **图片不进 git**：约 60MB 二进制；数据备份靠打包 `data/`（见 DEPLOYMENT），不靠版本控制。
 - 导入器只认**能确定**的成品图：markdown 里引用的第一张图，或「菜名.后缀」/目录里唯一的一张图；一张目录里有多张（`1.jpeg`、`2.jpeg` 这类步骤图）时**不猜**（首次导入 371 道菜里 179 道有封面）。
 - 后续人工补图与 AI 示意图的来源审核和标识策略见 [ADR-0007](decisions/ADR-0007-reviewed-cover-sources.md)；本批逐张来源、提示词和素材哈希见 [CB-012 CHECK](verification/CB-012/CHECK.md)。目录和派生字段沿用 §4。
+- 其他开放许可照片的采用与署名方式见 [ADR-0008](decisions/ADR-0008-open-photo-attribution.md)；作者、文件页与许可由 [图片署名页](../public/image-credits.html) 维护；逐张审图和素材身份见 [CB-013 CHECK](verification/CB-013/CHECK.md)。这不会改写菜谱内容的 `source` 或 `sourceRef`。

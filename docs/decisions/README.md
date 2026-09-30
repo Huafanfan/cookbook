@@ -11,6 +11,7 @@
 | [ADR-0005](ADR-0005-editable-recipes-and-history.md) | 菜谱内容变为可写（编辑模式 + 修改记录） | 已接受 |
 | [ADR-0006](ADR-0006-source-baseline-and-llm-resync.md) | 来源基线与 LLM 辅助的重新同步 | 已接受 |
 | [ADR-0007](ADR-0007-reviewed-cover-sources.md) | 逐张审核封面来源与 AI 示意图 | 已接受 |
+| [ADR-0008](ADR-0008-open-photo-attribution.md) | 其他开放许可图片与本地署名页 | 已接受 |
 
 ## 什么时候要写 ADR
 

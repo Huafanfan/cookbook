@@ -10,6 +10,7 @@ RUN npm ci
 
 COPY index.html tsconfig.json tsconfig.server.json tsconfig.test.json vite.config.ts ./
 COPY src ./src
+COPY public ./public
 RUN npm run build && npm prune --omit=dev
 
 # ---------- 运行阶段 ----------

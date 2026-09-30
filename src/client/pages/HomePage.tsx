@@ -196,6 +196,9 @@ export function HomePage(): React.JSX.Element {
           ))}
         </ul>
       </section>
+      <footer className="image-credits-footer">
+        <a href="/image-credits.html">图片来源与许可</a>
+      </footer>
     </div>
   );
 }
