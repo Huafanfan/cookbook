@@ -20,7 +20,7 @@
 | CB-010 | [来源、基线与 LLM 辅助重新同步](CB-010-source-and-resync.md) | `implemented` | **done** | 367 道有 `sourceRef`；三方比较、同步和提案脚本已实现；专项检查见 [CHECK](../verification/CB-010/CHECK.md) |
 | CB-011 | [明亮、好找、想做的菜谱界面](CB-011-visual-redesign.md) | `implemented` | 待真机试做 | PC 与手机的整体视觉和布局改版；本机浏览器验证见规格 §11 |
 | CB-012 | [缺图菜谱的小批封面补齐](CB-012-cover-backfill.md) | `implemented` | 待图片观感确认 | 本地四张封面已补；来源、提示词、哈希与运行证据见 [CHECK](../verification/CB-012/CHECK.md) |
-| CB-013 | [优先检索开放许可照片补图](CB-013-open-license-cover-batch.md) | `implemented` | 待图片观感确认 | 三批真实照片与署名页；证据见 [首批](../verification/CB-013/CHECK.md)、[第二批](../verification/CB-013/CHECK-BATCH-2.md)、[第三批](../verification/CB-013/CHECK-BATCH-3.md)，线上状态见部署记录 |
+| CB-013 | [优先检索开放许可照片补图](CB-013-open-license-cover-batch.md) | `implemented` | 待图片观感确认 | 四批补图与署名页；证据见 [首批](../verification/CB-013/CHECK.md)、[第二批](../verification/CB-013/CHECK-BATCH-2.md)、[第三批](../verification/CB-013/CHECK-BATCH-3.md)、[第四批50个](../verification/CB-013/CHECK-BATCH-4.md)，线上状态见部署记录 |
 
 ## 后续候选
 
