@@ -5,7 +5,7 @@
 | 字段 | 内容 |
 | --- | --- |
 | 编号 | `CB-014` |
-| 状态 | `draft`（本次只调研；尚未批准实施，未改应用或服务器） |
+| 状态 | `accepted`（2026-10-01 用户要求开始实施、持续更新文档并提交推送；完成可 review 的界面后部署） |
 | 变更等级 | `T2`（新增来源提取、服务端 DS 调用、素材上传与新建写路径）；实际部署另属 `T3` |
 | 创建日期 | 2026-10-01 |
 | 最后文档复核 | 2026-10-01 |
@@ -14,7 +14,7 @@
 | 预计实现路径 | 新增 `src/client/pages/WorkshopPage.tsx`、`src/client/components/RecipeForm.tsx`、`src/server/routes/workshop.ts`、`src/server/services/workshop-service.ts`、`src/server/lib/source-extractor.ts`、`src/server/lib/workshop-llm.ts`、`src/server/lib/workshop-image.ts`；修改 `src/server/services/recipe-repository.ts`、`src/server/lib/config.ts`、`src/server/lib/schema.ts`、`src/shared/types.ts`、客户端 API/router/入口和样式；具体职责见 ADR |
 | 验收负责人 | 主代理负责技术验证；用户确认常用来源样例、手机实际录入体验与新菜试做效果 |
 
-> 本文的输入范围、交互与验收是权威位置；架构、草稿持久化和新建提交协议见 ADR-0009。附录 A 保留调研依据。这里的首版范围是建议，不能当作已接受需求或已实现功能。
+> 本文的输入范围、交互与验收是权威位置；架构、草稿持久化和新建提交协议见 ADR-0009。附录 A 保留调研依据。用户已批准首版范围；后续扩展方向不包含在本轮实施中。
 
 ## 1. 目标与非目标
 
@@ -237,10 +237,10 @@
 - [x] 已阅读 REQUIREMENTS、ARCHITECTURE、DATA_MODEL、ROADMAP、CB-007/009/010、ADR-0002/0003/0005/0006/0007/0008 的相关约束。
 - [x] 已明确需要扩展的边界：CB-009 不包含新建，CB-007 不包含上传，CB-010 的 LLM 只在同步脚本中；AGENTS 默认不引入外网依赖，而用户本次明确指定 DS。由提议中的 ADR-0009 限定新的网页流程与必要出站访问，不静默改写旧 ADR。
 - [x] 权威位置：范围、交互、验收及调研证据 → 本文；架构、持久化、来源外联和创建协议 → ADR-0009；正式 Recipe 字段仍 → DATA_MODEL。
-- [ ] 本规格与 ADR 已获用户批准、达到 `accepted`，可以开始实现。
+- [x] 本规格与 ADR 已获用户批准、达到 `accepted`，可以开始实现（2026-10-01：“开始做。注意要随时更新文档，提交推送代码。如果需要我review效果，就部署好。”）。
 - [ ] 实现时同步 DATA_MODEL（工坊记录与 API 字段的正式定义）、ARCHITECTURE（新模块和写/读边界）、REQUIREMENTS（新能力）、README、DEPLOYMENT（DS 注入与备份）、ROADMAP、索引；CB-007/009/010 只添加扩展引用，不重写原范围。
 
-本次文档登记不等于功能实施授权。实施前迁移草案中的记录字段到 DATA_MODEL 的权威定义，本文和 ADR 改为引用，避免两份字段说明长期维护。
+已获本轮首版实施、提交推送与 review 部署授权。工坊记录字段的权威定义进入 DATA_MODEL，本文和 ADR 使用链接引用。
 
 ## 11. 实现与验证证据（实现后填写）
 
@@ -259,6 +259,7 @@
 | 日期 | 变更 | 阅读和复核的文档 | 结论 |
 | --- | --- | --- | --- |
 | 2026-10-01 | 根据用户“调研各种方式录入新菜、网站 LLM 用 env 中 DS”的要求建立建议范围与失败/验收规则；完成官方资料与本地 API 兼容性调研 | START-HERE、需求/架构/数据模型、CB-007/009/010、关联 ADR、附录 A 官方来源 | `draft`；未实现、未部署，首版建议待批准 |
+| 2026-10-01 | 用户批准开始首版实施，并授权提交推送与部署供 review；实施前冻结 API、草稿与排他新建协议 | 本规格、ADR-0009、DATA_MODEL、ARCHITECTURE | `accepted`；实现与验收证据逐步回填 |
 
 ## 附录 A：调研依据与结论（2026-10-01）
 

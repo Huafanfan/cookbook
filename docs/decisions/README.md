@@ -12,7 +12,7 @@
 | [ADR-0006](ADR-0006-source-baseline-and-llm-resync.md) | 来源基线与 LLM 辅助的重新同步 | 已接受 |
 | [ADR-0007](ADR-0007-reviewed-cover-sources.md) | 逐张审核封面来源与 AI 示意图 | 已接受 |
 | [ADR-0008](ADR-0008-open-photo-attribution.md) | 其他开放许可图片与本地署名页 | 已接受 |
-| [ADR-0009](ADR-0009-recipe-workshop.md) | 创意工坊：本地草稿、DS 整理与受控新建 | 提议中 |
+| [ADR-0009](ADR-0009-recipe-workshop.md) | 创意工坊：本地草稿、DS 整理与受控新建 | 已接受 |
 
 ## 什么时候要写 ADR
 

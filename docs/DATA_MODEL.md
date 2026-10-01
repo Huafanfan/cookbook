@@ -236,3 +236,27 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 - 导入器只认**能确定**的成品图：markdown 里引用的第一张图，或「菜名.后缀」/目录里唯一的一张图；一张目录里有多张（`1.jpeg`、`2.jpeg` 这类步骤图）时**不猜**（首次导入 371 道菜里 179 道有封面）。
 - 后续人工补图与 AI 示意图的来源审核和标识策略见 [ADR-0007](decisions/ADR-0007-reviewed-cover-sources.md)；本批逐张来源、提示词和素材哈希见 [CB-012 CHECK](verification/CB-012/CHECK.md)。目录和派生字段沿用 §4。
 - 其他开放许可照片的采用与署名方式见 [ADR-0008](decisions/ADR-0008-open-photo-attribution.md)；作者、文件页与许可由 [图片署名页](../public/image-credits.html) 维护；逐张审图和素材身份见 [CB-013 CHECK](verification/CB-013/CHECK.md)。这不会改写菜谱内容的 `source` 或 `sourceRef`。
+
+## 9. 创意工坊草稿与新建（CB-014）
+
+2026-10-01 已接受、实施中；用户交互与验收见 [CB-014](features/CB-014-recipe-workshop.md)，写入与恢复策略见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)。正式 `Recipe` 字段不变，旧菜谱无需迁移。工坊记录不进 Git，随 `data/` 备份。
+
+| 字段 | 含义 |
+| --- | --- |
+| `version: 1`、`draftId`、`createdAt`、`updatedAt` | 草稿格式版本与系统元数据；ID 为 `w-` 加 24 位十六进制随机数 |
+| `revision` | draft.json 文件字节的 SHA-256，API 派生值，不写进 JSON；所有用户写入回传 `baseRevision` |
+| `inputVersion` | 用户修改材料/候选时递增，机器任务进度不递增；防止旧分析覆盖新输入 |
+| `sources` | 材料 ID（`s-` 加 24 位随机数）、类型 `link/text/image/json`、名称、顺序、selected、处理状态、文本/公开 URL/作者、哈希和大小；图片记录真实 MIME、尺寸与归一化字节数 |
+| `instructions` | 用户对本次材料的补充或更正，最多 4000 字符 |
+| `candidate`、`hasUserEdits` | 不含 id/sourceRef/时间戳的部分 Recipe；未知必填字段可暂缺。用户改动后的再次整理保存在 suggestion，不直接覆盖 |
+| `alternatives`、`suggestion` | 多菜候选和再次整理的提案；一次只提交一道菜。每个候选有 key、recipe、evidence、unresolved |
+| `evidence`、`unresolved` | 字段路径、状态 `source/user/suggested/unknown`、材料 ID 与可选原文片段；未决项为 field/message；不以引用存在证明数字正确 |
+| `reviewed` | 用户明确完成审阅；材料/候选变动会失效，正式保存还须完整 schema/词表/内容检查 |
+| `images` | 可选 coverSourceId、与步骤位置对应的 stepSourceIds；只允许本草稿已接收的图片材料，须人工确认自有照片 |
+| `generation` | taskId、state、inputVersion、fingerprint、开始/结束时间、model/promptVersion、受控错误与 token 用量；状态 queued/extracting/analyzing/complete/failed/interrupted |
+| `creation` | 创建幂等键、服务端新菜 ID、冻结的正式 recipe 与哈希、图片清单、prepared/committed 阶段；回执异常时据此恢复 |
+| `savedRecipeId` | 已创建菜谱的关联 ID，不允许在重试中产生第二道或改写第一道 |
+
+目录：`data/workshop/drafts/<draftId>/draft.json`；图片材料原件为 `sources/<sourceId>.<实际格式>`，DS/正式配图用 `sources/<sourceId>.normalized.jpg`。只有用户确认采用的图片进入已有 `data/images/<recipeId>/cover.jpg`、`step-N.jpg`。工坊素材路由只按受控 ID 查记录，不托管任意目录。
+
+新增 API 形状以共享类型和 schema 为实现约束：capabilities、drafts 列表、create/read/PUT、POST sources/analyze/commit 与只读素材 GET，具体交互见 [CB-014 §4](features/CB-014-recipe-workshop.md#4-数据与接口变化)。`commit` 输入为 `{baseRevision, creationKey}`，返回 `{recipe, draft, warnings}`；并发守卫或新 ID 冲突 → 409，格式/内容错误 → 400，素材超限 → 413。

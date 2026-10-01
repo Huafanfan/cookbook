@@ -163,7 +163,7 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 | 低 | 最近浏览 | 收藏已由 CB-005 实现；最近浏览可按实际使用频率决定 |
 | 中 | **编辑菜谱 + 修改记录** | ✅ [`CB-009`](features/CB-009-edit-mode.md)（`implemented`，用户验收 done）：编辑页 + 修改记录 + 恢复 + 409 冲突 UI；后端写入协议与专项检查记录见 [CHECK](verification/CB-009/CHECK.md) |
 | 中 | **来源基线与重新同步** | ✅ [`CB-010`](features/CB-010-source-and-resync.md)（`implemented`，用户验收 done）：`sourceRef` + 基线快照 + 三方合并；真实模型冲突流程已验，真实上游更新场景未实际演练 |
-| 待批准 | **创意工坊录入新菜** | 调研与首版建议见 [`CB-014`](features/CB-014-recipe-workshop.md)，架构提案见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)；未实现或部署 |
+| 当前 | **创意工坊录入新菜** | [`CB-014`](features/CB-014-recipe-workshop.md) 已接受、实施中；架构见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)，证据随实现更新 |
 | 中 | 已有菜谱上传/换图片 | 网页上传并自动压缩到 `data/images/`；新菜工坊配图的建议范围见 [CB-014](features/CB-014-recipe-workshop.md) |
 | 低 | 购物清单 | 多选菜谱合并食材，可勾选 |
 | 低 | PWA | 加到手机桌面，像 App 一样打开 |
