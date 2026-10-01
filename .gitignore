@@ -30,6 +30,9 @@ data/user-state.json
 data/user-state.json.tmp
 data/user-state.json.broken
 
+# 创意工坊草稿与原材料是本地资产，随 data/ 备份，不能提交到 Git。
+data/workshop/
+
 # 编辑器
 .vscode/
 .idea/

@@ -275,6 +275,22 @@ curl -sI http://192.168.1.2:18081/assets/index-xxxx.js | grep -i cache-control  
 > 注意：查 SPA 兜底路径要用 **GET**（`curl -s -D -`），`curl -I` 发的是 HEAD。
 > 兜底现在同时接受 GET 与 HEAD（原先只接受 GET，会出现"HEAD 404 而 GET 200"的不一致）。
 
+## 2c. 创意工坊 DS 配置与备份（CB-014）
+
+本功能新增必要出站范围，以 [ADR-0009](decisions/ADR-0009-recipe-workshop.md) 为准；LAN 监听和数据挂载继续沿用现有配置。
+
+- 实际 DS 密钥放 `/srv/app/cookbook/.env.ds`，权限 `0600`，与 `.env.server` 一样不进 Git、源码归档或镜像。字段为 `DS_BASE_URL`、`DS_AUTH_TOKEN`、`DS_MODEL`；当前已验证 `deepseek-flash`。只通过受保护 stdin/文件注入，不在命令参数、日志或文档写值。
+- Compose 同时读取原服务配置和 DS 文件；检查用 `config --quiet`，避免输出展开后的密钥。
+- 没有可用 DS 配置时保留手动及标准 JSON 录入；不切到别的云供应商。Mac 测通不等于容器测通，发布时必须验证容器能力与隔离实测。
+- `/srv/data/cookbook/workshop/` 包含草稿、原始素材与创建依据，随完整数据备份；正式新菜仍在 `recipes/`，采用的照片在 `images/`。不得漏备 workshop，不因回滚代码删除新菜或草稿。
+- 代码回滚恢复旧源码、镜像及启动环境，保留当前全部数据。新功能写边界与故障恢复见 ADR-0009，不用旧整库备份自动覆盖新增用户资产。
+
+```bash
+cd /srv/app/cookbook/source
+docker compose --env-file .env.server --env-file ../.env.ds config --quiet
+docker compose --env-file .env.server --env-file ../.env.ds up -d --no-deps app
+```
+
 ## 3. 局域网访问验证
 
 | # | 检查 | 预期 |
@@ -368,4 +384,4 @@ ssh root@192.168.1.2 "tar xzf /srv/backup/cookbook-2026-09-19.tar.gz -C /srv/dat
 - `cap_drop: ALL`、`no-new-privileges: true`
 - `pids_limit`、`mem_limit`、日志轮转
 - 仅在**局域网地址**上暴露端口：`ports: ["192.168.1.2:18081:8080"]`，不监听 `0.0.0.0`
-- 无外网依赖，无第三方 API 调用，无遥测
+- 浏览与做菜没有外网依赖；CB-014 的公开来源提取和用户指定 DS 调用按 ADR-0009 限定，密钥只在服务端；无遥测

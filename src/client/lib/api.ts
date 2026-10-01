@@ -8,7 +8,14 @@ import type {
   RecipeMetaResponse,
   RecipeUserState,
   SearchParams,
-  UserStateResponse
+  UserStateResponse,
+  WorkshopCapabilities,
+  WorkshopCommitInput,
+  WorkshopCommitResult,
+  WorkshopDraft,
+  WorkshopDraftPatch,
+  WorkshopDraftSummary,
+  WorkshopSourceInput
 } from "../../shared/types";
 
 /** 带 HTTP 状态码与服务端错误体的错误，便于页面区分 404 / 400 / 409 等 */
@@ -159,4 +166,74 @@ export function initKitchen(
   tools: string[]
 ): Promise<{ kitchen: KitchenState; created: boolean }> {
   return postJson<{ kitchen: KitchenState; created: boolean }>("/api/kitchen/init", { tools });
+}
+
+/** 创意工坊可用能力与输入上限。 */
+export function fetchWorkshopCapabilities(signal?: AbortSignal): Promise<WorkshopCapabilities> {
+  return getJson<WorkshopCapabilities>("/api/workshop/capabilities", signal);
+}
+
+/** 跨设备可继续的草稿列表。 */
+export function fetchWorkshopDrafts(
+  signal?: AbortSignal
+): Promise<{ items: WorkshopDraftSummary[] }> {
+  return getJson<{ items: WorkshopDraftSummary[] }>("/api/workshop/drafts", signal);
+}
+
+/** 新建一份空白草稿。 */
+export function createWorkshopDraft(): Promise<WorkshopDraft> {
+  return postJson<WorkshopDraft>("/api/workshop/drafts", {});
+}
+
+export function fetchWorkshopDraft(id: string, signal?: AbortSignal): Promise<WorkshopDraft> {
+  return getJson<WorkshopDraft>(`/api/workshop/drafts/${encodeURIComponent(id)}`, signal);
+}
+
+export function addWorkshopSource(
+  id: string,
+  input: WorkshopSourceInput
+): Promise<WorkshopDraft> {
+  return postJson<WorkshopDraft>(
+    `/api/workshop/drafts/${encodeURIComponent(id)}/sources`,
+    input
+  );
+}
+
+export async function updateWorkshopDraft(
+  id: string,
+  patch: WorkshopDraftPatch
+): Promise<WorkshopDraft> {
+  const response = await fetch(`/api/workshop/drafts/${encodeURIComponent(id)}`, {
+    method: "PUT",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(patch)
+  });
+
+  if (!response.ok) throw await failure(response);
+  return (await response.json()) as WorkshopDraft;
+}
+
+export function analyzeWorkshopDraft(
+  id: string,
+  baseRevision: string
+): Promise<WorkshopDraft> {
+  return postJson<WorkshopDraft>(
+    `/api/workshop/drafts/${encodeURIComponent(id)}/analyze`,
+    { baseRevision }
+  );
+}
+
+export function commitWorkshopDraft(
+  id: string,
+  input: WorkshopCommitInput
+): Promise<WorkshopCommitResult> {
+  return postJson<WorkshopCommitResult>(
+    `/api/workshop/drafts/${encodeURIComponent(id)}/commit`,
+    input
+  );
+}
+
+/** 原始图片只读预览；图片字节始终由服务端按草稿素材记录提供。 */
+export function workshopSourceUrl(draftId: string, sourceId: string): string {
+  return `/api/workshop/drafts/${encodeURIComponent(draftId)}/sources/${encodeURIComponent(sourceId)}`;
 }

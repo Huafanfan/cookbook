@@ -8,11 +8,14 @@ import { loadConfig, type CookbookConfig } from "./lib/config.js";
 import { isImageRequest, registerImageRoutes } from "./routes/images.js";
 import { registerRecipeRoutes } from "./routes/recipes.js";
 import { registerUserStateRoutes } from "./routes/user-state.js";
+import { registerWorkshopRoutes } from "./routes/workshop.js";
+import { WorkshopService } from "./services/workshop-service.js";
+import type { WorkshopServiceOptions } from "../shared/types.js";
 import { RecipeRepository } from "./services/recipe-repository.js";
 import { UserStateStore } from "./services/user-state-store.js";
 
 /** 组装应用（不监听端口），便于测试与复用 */
-export async function createApp(config: CookbookConfig): Promise<FastifyInstance> {
+export async function createApp(config: CookbookConfig, workshopOptions: WorkshopServiceOptions = {}): Promise<FastifyInstance> {
   const app = Fastify({
     logger: {
       level: process.env.COOKBOOK_LOG_LEVEL ?? "info"
@@ -40,6 +43,9 @@ export async function createApp(config: CookbookConfig): Promise<FastifyInstance
 
   registerRecipeRoutes(app, repository, userState);
   registerUserStateRoutes(app, repository, userState);
+  const workshop = new WorkshopService(repository, workshopOptions);
+  registerWorkshopRoutes(app, repository, workshop);
+  app.addHook("onClose", async () => workshop.close());
   await registerImageRoutes(app, config.dataDir, repository.admittedImages());
 
   const recipes = repository.list();

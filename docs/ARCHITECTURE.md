@@ -1,7 +1,7 @@
 # 技术方案
 
 状态：**已实现**（M0–M3 + CB-001/CB-002 均按本文件的技术选型落地）
-日期：2026-09-19（2026-09-20 复核后更新状态）
+日期：2026-09-19（2026-10-01 增补 CB-014 创意工坊）
 
 ## 1. 结论先行
 
@@ -15,7 +15,7 @@
 | 部署 | **Docker（linux/amd64）+ docker compose**，绑定 `192.168.1.2:18081` | 与 iStoreOS 服务器现有部署方式一致 |
 | 图片 | 静态文件放 `data/images/`，由后端 `@fastify/static` 提供（**已实现**，CB-007：文件名白名单 + `no-cache`，见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md)） | 图片不进镜像、不进 Git，可单独备份 |
 
-一句话：**一个 Node 服务 = 前端静态页 + 后端 API + 图片托管**，单容器，无外部依赖。
+一个 Node 服务提供前端静态页、后端 API 与图片托管。创意工坊的公开来源提取和用户指定的 DS 整理按需出站；本地浏览、做菜与手动录入独立于这些请求，边界见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)。
 
 ## 2. 数据源：JSON 文件而非数据库
 
@@ -86,11 +86,25 @@ src/
    `server/lib/equipment.ts`（读厨具词表）、`server/lib/config.ts`（探测构建产物目录）、`server/index.ts`（读 index.html 做 SPA 兜底）。
    外加第 5 处：`server/services/user-state-store.ts`（用户状态的读写，见 ADR-0003）。
    **不得新增第 6 处**；菜谱数据读取一律经 repository。
-   图片**字节**不经过我们的模块：由 `@fastify/static` 插件按 `routes/images.ts` 给出的白名单与缓存头提供。
+   正式图片由 `@fastify/static` 按白名单提供；工坊原始素材按草稿记录定位，通过 repository 读取字节，不开放目录静态托管。
 2b. **写操作只有两处**：`user-state-store` 写 `data/user-state.json`（点赞/收藏/厨具；原子替换 + 串行队列）；
-   `recipe-repository` 写**菜谱内容**与 `data/history/recipes/` 下的修改记录（CB-009：同一套原子替换 + **每道菜一条串行队列** + 失败回滚）。
+   `recipe-repository` 写**菜谱内容**、`data/history/recipes/`，以及 CB-014 草稿、来源资产和人工采用的新菜图片。CB-009 原子编辑协议与 CB-014 排他新建协议分别见关联 ADR。
    菜谱写入前必须过 zod + 内容检查，并用文件字节的 `revision` 做版本守卫（不一致 → 409）。
 3. **类型**的唯一来源是 `src/shared/types.ts`，**运行时校验**的唯一来源是 `src/server/lib/schema.ts`（zod）。两边字段必须同步，改一处就要改另一处。
+
+## 4b. 创意工坊模块（CB-014）
+
+| 模块 | 职责 |
+| --- | --- |
+| `client/pages/WorkshopPage.tsx`、`components/WorkshopRecipeForm.tsx` | 草稿列表、混合材料、手机视图切换、自动保存、版本冲突、候选校对和明确提交 |
+| `server/routes/workshop.ts` | 同源写守卫、专用来源上传上限、草稿/任务/素材/提交 API；契约见 [DATA_MODEL §9](DATA_MODEL.md#9-创意工坊草稿与新建cb-014) |
+| `server/services/workshop-service.ts` | 有界任务队列、材料提取、确定性导入或 DS、内容指纹缓存与过期结果隔离 |
+| `server/lib/source-extractor.ts` | 公开 URL 校验、逐跳 DNS 固定、受限抓取、JSON-LD/Markdown/正文提取；不执行页面脚本 |
+| `server/lib/workshop-image.ts` | 内存解码、格式/像素预算、旋转和规范化；串行处理、禁用 sharp 缓存 |
+| `server/lib/workshop-llm.ts` | 服务端 DS 请求、取消/重试预算、结果归一化、schema/词表/引用与数字核对，不读写文件 |
+| `server/services/recipe-repository.ts` | 集中资产 I/O、草稿 revision、来源字节、排他新建、持久化意图与回执恢复 |
+
+草稿不是正式 Recipe，最后经完整校验和用户确认创建一个新 JSON 文件。新建结果即时进入既有索引；所有已有菜谱与编辑协议保持兼容。选型、出站和故障协议的权威说明见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)，部署环境与备份见 DEPLOYMENT。
 
 ## 5. 备选方案与取舍
 
@@ -109,9 +123,10 @@ src/
 | D1 | 数据源 = JSON 文件，非数据库（[ADR-0002](decisions/ADR-0002-json-files-as-source-of-truth.md)） | 换库时只需重写 repository 层 |
 | D2 | 前端构建产物由后端托管 | 单容器、单端口；不需要反向代理 |
 | D3 | 端口使用高位端口（`18081`，已确认服务器上空闲） | 避开路由器管理页 80/443 与已占用端口 |
-| D4 | 容器 `read_only: true`；数据目录可写，但只允许应用写 `user-state.json` | 其余内容（菜谱、图片）运行期只读；写操作边界见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)，图片托管见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md) |
+| D4 | 容器根文件系统 `read_only: true`；持久化数据挂载可写 | 用户状态见 [ADR-0003](decisions/ADR-0003-write-operations-user-state.md)，编辑见 ADR-0005，工坊草稿/素材/新建见 ADR-0009；正式图片托管见 ADR-0004 |
 | D5 | 镜像**在服务器上**构建（x86_64） | `docker compose up -d --build` 在服务器执行，不需要 buildx |
 | D7 | 菜谱内容可写（CB-009）：写路径仍在 repository，**每道菜一条串行队列** + 原子替换 + 版本守卫（409） + 历史快照 | 界面编辑与脚本导入共用同一写入口；外部编辑器无锁（TOCTOU，见 [ADR-0005](decisions/ADR-0005-editable-recipes-and-history.md)） |
+| D8 | 创意工坊：本地草稿、服务端 DS、受控排他新建 | 详见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)；不增加数据库或第二个数据写模块 |
 
 ## 7. 风险与应对
 

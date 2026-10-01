@@ -65,6 +65,84 @@ const baseRecipeSchema = z.object({
   updatedAt: z.string().min(1).optional()
 });
 
+/** 工坊候选不能携带系统 ID、来源基线或文件路径，未知字段从候选剔除。 */
+export const workshopRecipeSchema = baseRecipeSchema
+  .omit({ id: true, sourceRef: true, createdAt: true, updatedAt: true })
+  .partial()
+  .extend({
+    name: z.string().max(300).optional(), category: z.string().max(200).optional(), summary: z.string().max(4000).optional(), source: z.string().max(6000).optional(),
+    ingredients: z.array(z.object({ name: z.string().max(300), amount: z.union([z.number(), z.string().max(300)]).optional(), unit: z.string().max(100).optional(), group: z.string().max(100).optional(), note: z.string().max(1000).optional() })).max(100).optional(),
+    steps: z.array(z.object({ text: z.string().max(4000), title: z.string().max(300).optional(), minutes: z.number().nonnegative().optional(), heat: z.string().max(100).optional(), tip: z.string().max(1000).optional() })).max(100).optional(),
+    tips: z.array(z.string().max(2000)).max(40).optional(), aliases: z.array(z.string().max(200)).max(40).optional(),
+    tags: z.array(z.string().max(100)).max(30).optional(), equipment: z.array(z.string().max(100)).max(40).optional(),
+    equipmentAlternatives: z.array(z.array(z.string().max(100)).max(20)).max(30).optional()
+  });
+
+const workshopEvidenceSchema = z.object({
+  field: z.string().min(1).max(180),
+  status: z.enum(["source", "user", "suggested", "unknown"]),
+  sourceIds: z.array(z.string().max(80)).max(20),
+  excerpt: z.string().max(2000).optional()
+});
+const workshopIssueSchema = z.object({ field: z.string().max(180), message: z.string().min(1).max(2000) });
+const workshopCandidateSchema = z.object({
+  key: z.string().min(1).max(100),
+  recipe: workshopRecipeSchema,
+  evidence: z.array(workshopEvidenceSchema).max(200).default([]),
+  unresolved: z.array(workshopIssueSchema).max(100).default([])
+});
+export const workshopAnalysisSchema = z.object({
+  candidates: z.array(workshopCandidateSchema).min(1).max(8),
+  explanation: z.string().max(4000).default(""),
+  usage: z.object({ promptTokens: z.number().nonnegative(), completionTokens: z.number().nonnegative(), totalTokens: z.number().nonnegative() }).optional()
+});
+
+const workshopRevisionSchema = z.string().regex(/^sha256:[a-f0-9]{64}$/);
+const workshopSourceIdSchema = z.string().regex(/^s-[a-f0-9]{24}$/);
+export const workshopIdSchema = z.string().regex(/^w-[a-f0-9]{24}$/);
+export const workshopSourceInputSchema = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("link"), baseRevision: workshopRevisionSchema, name: z.string().max(200).optional(), url: z.string().min(1).max(8192) }),
+  z.object({ kind: z.literal("text"), baseRevision: workshopRevisionSchema, name: z.string().max(200).optional(), text: z.string().min(1).max(40000) }),
+  z.object({ kind: z.literal("json"), baseRevision: workshopRevisionSchema, name: z.string().max(200).optional(), text: z.string().min(1).max(40000) }),
+  z.object({ kind: z.literal("image"), baseRevision: workshopRevisionSchema, name: z.string().max(200).optional(), mimeType: z.string().max(100).optional(), dataBase64: z.string().min(1).max(14 * 1024 * 1024) })
+]);
+const workshopImageSelectionSchema = z.object({
+  coverSourceId: workshopSourceIdSchema.optional(),
+  stepSourceIds: z.array(workshopSourceIdSchema.nullable()).max(100)
+});
+export const workshopDraftPatchSchema = z.object({
+  baseRevision: workshopRevisionSchema,
+  candidate: workshopRecipeSchema.optional(),
+  instructions: z.string().max(4000).optional(),
+  reviewed: z.boolean().optional(),
+  sources: z.array(z.object({ id: workshopSourceIdSchema, selected: z.boolean() })).max(40).optional(),
+  sourceOrder: z.array(workshopSourceIdSchema).max(40).optional(),
+  images: workshopImageSelectionSchema.optional()
+});
+export const workshopAnalyzeInputSchema = z.object({ baseRevision: workshopRevisionSchema });
+export const workshopCommitInputSchema = z.object({
+  baseRevision: workshopRevisionSchema,
+  creationKey: z.string().regex(/^[a-zA-Z0-9-]{8,100}$/)
+});
+
+/** 草稿落盘校验与请求校验同在本文件，坏草稿只跳过，不阻止服务启动。 */
+export const workshopDraftSchema = z.object({
+  version: z.literal(1), draftId: workshopIdSchema,
+  inputVersion: z.number().int().nonnegative(), createdAt: z.string(), updatedAt: z.string(),
+  sources: z.array(z.object({
+    id: workshopSourceIdSchema, kind: z.enum(["link", "text", "image", "json"]), name: z.string(), selected: z.boolean(),
+    status: z.enum(["pending", "ready", "error"]), url: z.string().optional(), text: z.string().max(40000).optional(), author: z.string().optional(), problem: z.string().optional(),
+    sha256: z.string(), byteSize: z.number().nonnegative(), mimeType: z.enum(["image/jpeg", "image/png", "image/webp"]).optional(),
+    width: z.number().optional(), height: z.number().optional(), normalizedByteSize: z.number().optional()
+  })).max(40),
+  instructions: z.string().max(4000), candidate: workshopRecipeSchema, hasUserEdits: z.boolean(),
+  alternatives: z.array(workshopCandidateSchema).max(8), analysis: workshopAnalysisSchema.optional(), suggestion: workshopAnalysisSchema.optional(),
+  evidence: z.array(workshopEvidenceSchema), unresolved: z.array(workshopIssueSchema), reviewed: z.boolean(), images: workshopImageSelectionSchema,
+  generation: z.object({ taskId: z.string(), state: z.enum(["queued", "extracting", "analyzing", "complete", "failed", "interrupted"]), inputVersion: z.number(), fingerprint: z.string(), startedAt: z.string(), finishedAt: z.string().optional(), model: z.string(), promptVersion: z.string(), problem: z.string().optional(), usage: workshopAnalysisSchema.shape.usage }).nullable(),
+  creation: z.object({ key: z.string(), recipeId: z.string().regex(/^[a-z0-9][a-z0-9-]*$/), recipe: baseRecipeSchema, recipeHash: z.string(), phase: z.enum(["prepared", "committed"]), images: z.array(z.object({ sourceId: workshopSourceIdSchema, fileName: z.string().regex(/^(cover|step-[1-9][0-9]*)\.jpg$/), sha256: z.string() })) }).nullable(),
+  savedRecipeId: z.string().regex(/^[a-z0-9][a-z0-9-]*$/).optional()
+});
+
 export type RecipeInput = z.infer<typeof baseRecipeSchema>;
 
 export interface RecipeSchemaOptions {

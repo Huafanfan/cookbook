@@ -5,9 +5,14 @@ export type Route =
   | { name: "recipe"; id: string }
   | { name: "edit"; id: string }
   | { name: "history"; id: string }
-  | { name: "historyVersion"; id: string; historyId: string };
+  | { name: "historyVersion"; id: string; historyId: string }
+  | { name: "workshop"; draftId?: string };
 
 export function parseRoute(pathname: string): Route {
+  const workshopDraft = /^\/workshop\/([^/]+)\/?$/.exec(pathname);
+  if (workshopDraft) return { name: "workshop", draftId: decodeURIComponent(workshopDraft[1]) };
+  if (/^\/workshop\/?$/.test(pathname)) return { name: "workshop" };
+
   // 从最具体的开始匹配（编辑页 / 修改记录 / 菜品详情）
   const edit = /^\/recipe\/([^/]+)\/edit\/?$/.exec(pathname);
   if (edit) return { name: "edit", id: decodeURIComponent(edit[1]) };

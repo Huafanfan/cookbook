@@ -21,10 +21,11 @@
 | CB-011 | [明亮、好找、想做的菜谱界面](CB-011-visual-redesign.md) | `implemented` | 待真机试做 | PC 与手机的整体视觉和布局改版；本机浏览器验证见规格 §11 |
 | CB-012 | [缺图菜谱的小批封面补齐](CB-012-cover-backfill.md) | `implemented` | 待图片观感确认 | 本地四张封面已补；来源、提示词、哈希与运行证据见 [CHECK](../verification/CB-012/CHECK.md) |
 | CB-013 | [优先检索开放许可照片补图](CB-013-open-license-cover-batch.md) | `implemented` | 待图片观感确认 | 五批补图，本地全部371道有封面；证据见 [首批](../verification/CB-013/CHECK.md)、[第二批](../verification/CB-013/CHECK-BATCH-2.md)、[第三批](../verification/CB-013/CHECK-BATCH-3.md)、[第四批50个](../verification/CB-013/CHECK-BATCH-4.md)、[第五批全部剩余75个](../verification/CB-013/CHECK-BATCH-5.md)，线上状态见部署记录 |
+| CB-014 | [创意工坊：多种材料录入新菜](CB-014-recipe-workshop.md) | `implemented` | 待真机与常用来源反馈 | 链接、文字、多图、JSON、混合材料及手动录入；真实 DS 与技术验证见 [CHECK](../verification/CB-014/CHECK.md)，部署见 DEPLOYMENT |
 
 ## 后续候选
 
-新功能实施：[CB-014 创意工坊](CB-014-recipe-workshop.md) 为 `accepted`，实施中；架构决策见 [ADR-0009](../decisions/ADR-0009-recipe-workshop.md)。
+创意工坊后续输入扩展见 [CB-014](CB-014-recipe-workshop.md)；架构决策见 [ADR-0009](../decisions/ADR-0009-recipe-workshop.md)。
 
 CB-009 编辑与历史、CB-010 来源同步均已实现。其他候选与优先级统一见 [ROADMAP](../ROADMAP.md)；工坊的新建与上传不会静默扩大 CB-007/009 的原规格范围。
 

@@ -221,3 +221,233 @@ export interface SearchParams {
   category?: string;
   tag?: string;
 }
+
+/* ---------- 创意工坊（CB-014）：草稿允许缺项，正式 Recipe 不变 ---------- */
+
+export type WorkshopRecipeInput = Partial<Omit<Recipe, "id" | "sourceRef" | "createdAt" | "updatedAt">>;
+export type WorkshopSourceKind = "link" | "text" | "image" | "json";
+export type WorkshopTaskState = "queued" | "extracting" | "analyzing" | "complete" | "failed" | "interrupted";
+
+export interface WorkshopSource {
+  id: string;
+  kind: WorkshopSourceKind;
+  name: string;
+  selected: boolean;
+  status: "pending" | "ready" | "error";
+  url?: string;
+  text?: string;
+  author?: string;
+  problem?: string;
+  sha256: string;
+  byteSize: number;
+  mimeType?: "image/jpeg" | "image/png" | "image/webp";
+  width?: number;
+  height?: number;
+  normalizedByteSize?: number;
+}
+
+export interface WorkshopEvidence {
+  field: string;
+  status: "source" | "user" | "suggested" | "unknown";
+  sourceIds: string[];
+  excerpt?: string;
+}
+
+export interface WorkshopIssue {
+  field: string;
+  message: string;
+}
+
+export interface WorkshopCandidate {
+  key: string;
+  recipe: WorkshopRecipeInput;
+  evidence: WorkshopEvidence[];
+  unresolved: WorkshopIssue[];
+}
+
+export interface WorkshopAnalysisResult {
+  candidates: WorkshopCandidate[];
+  explanation: string;
+  usage?: { promptTokens: number; completionTokens: number; totalTokens: number };
+}
+
+export interface WorkshopGeneration {
+  taskId: string;
+  state: WorkshopTaskState;
+  inputVersion: number;
+  fingerprint: string;
+  startedAt: string;
+  finishedAt?: string;
+  model: string;
+  promptVersion: string;
+  problem?: string;
+  usage?: WorkshopAnalysisResult["usage"];
+}
+
+export interface WorkshopImageSelection {
+  coverSourceId?: string;
+  stepSourceIds: (string | null)[];
+}
+
+export interface WorkshopCreation {
+  key: string;
+  recipeId: string;
+  recipe: Recipe;
+  recipeHash: string;
+  phase: "prepared" | "committed";
+  images: { sourceId: string; fileName: string; sha256: string }[];
+}
+
+export interface WorkshopDraft {
+  version: 1;
+  draftId: string;
+  /** 文件字节 SHA-256，派生值，不写进 draft.json */
+  revision: string;
+  inputVersion: number;
+  createdAt: string;
+  updatedAt: string;
+  sources: WorkshopSource[];
+  instructions: string;
+  candidate: WorkshopRecipeInput;
+  hasUserEdits: boolean;
+  alternatives: WorkshopCandidate[];
+  /** 最近一次已校验的整理结果，独立于用户编辑的 candidate，用于可靠复用。 */
+  analysis?: WorkshopAnalysisResult;
+  suggestion?: WorkshopAnalysisResult;
+  evidence: WorkshopEvidence[];
+  unresolved: WorkshopIssue[];
+  reviewed: boolean;
+  images: WorkshopImageSelection;
+  generation: WorkshopGeneration | null;
+  creation: WorkshopCreation | null;
+  savedRecipeId?: string;
+}
+
+export interface WorkshopDraftSummary {
+  draftId: string;
+  name: string;
+  updatedAt: string;
+  sourceCount: number;
+  state: WorkshopTaskState | "collecting" | "saved";
+  savedRecipeId?: string;
+}
+
+export interface WorkshopCapabilities {
+  llmAvailable: boolean;
+  llmProblem: string | null;
+  model: string;
+  imageTypes: string[];
+  limits: { links: number; images: number; imageBytes: number; totalSourceBytes: number; textCharacters: number };
+  /** 完整受控词表，区别于首页 meta 中只列已使用的筛选项。 */
+  vocabulary?: { tags: string[]; equipment: string[] };
+}
+
+export interface WorkshopSourceInput {
+  baseRevision: string;
+  kind: WorkshopSourceKind;
+  name?: string;
+  url?: string;
+  text?: string;
+  mimeType?: string;
+  dataBase64?: string;
+}
+
+export interface WorkshopDraftPatch {
+  baseRevision: string;
+  candidate?: WorkshopRecipeInput;
+  instructions?: string;
+  reviewed?: boolean;
+  sources?: { id: string; selected: boolean }[];
+  sourceOrder?: string[];
+  images?: WorkshopImageSelection;
+}
+
+export interface WorkshopCommitInput {
+  baseRevision: string;
+  creationKey: string;
+}
+
+export interface WorkshopCommitResult {
+  recipe: RecipeDetail;
+  draft: WorkshopDraft;
+  warnings: string[];
+}
+
+/** 纯材料适配器：字节由 repository 读取，客户端不持有此接口。 */
+export interface WorkshopMaterial {
+  source: WorkshopSource;
+  text?: string;
+  image?: { mimeType: "image/jpeg"; base64: string };
+}
+
+export interface WorkshopExtractResult {
+  url: string;
+  title: string;
+  author?: string;
+  text: string;
+  candidates?: WorkshopCandidate[];
+}
+
+export interface WorkshopImageResult {
+  bytes: Uint8Array;
+  mimeType: "image/jpeg" | "image/png" | "image/webp";
+  normalized: Uint8Array;
+  width: number;
+  height: number;
+}
+
+export interface WorkshopLlmConfig {
+  baseUrl: string;
+  token: string;
+  model: string;
+}
+
+export interface WorkshopLlmInput {
+  materials: WorkshopMaterial[];
+  instructions: string;
+  currentCandidate: WorkshopRecipeInput;
+  allowedTools: string[];
+  allowedTags: string[];
+}
+
+export interface WorkshopLlmOptions {
+  fetchImpl?: typeof fetch;
+  signal?: AbortSignal;
+  timeoutMs?: number;
+}
+
+export interface WorkshopExtractOptions {
+  signal?: AbortSignal;
+  resolveHost?: (hostname: string) => Promise<{ address: string; family: number }[]>;
+  requestPage?: (url: URL, address: { address: string; family: number }, signal?: AbortSignal) => Promise<{
+    status: number;
+    headers: Record<string, string>;
+    body: string;
+  }>;
+}
+
+export interface WorkshopServiceOptions {
+  config?: WorkshopLlmConfig | null;
+  analyze?: (input: WorkshopLlmInput, config: WorkshopLlmConfig, options?: WorkshopLlmOptions) => Promise<WorkshopAnalysisResult>;
+  extract?: (url: string, options?: WorkshopExtractOptions) => Promise<WorkshopExtractResult>;
+}
+
+/** 适配器内部类型仍集中定义，模块不各自维护另一套契约。 */
+export interface WorkshopResolvedAddress { address: string; family: number }
+export interface WorkshopPageResponse { status: number; headers: Record<string, string>; body: string }
+export type WorkshopJsonRecord = Record<string, unknown>;
+export type WorkshopChatContentBlock =
+  | { type: "text"; text: string }
+  | { type: "image_url"; image_url: { url: string; detail: "original" } };
+export interface WorkshopChatMessage { role: "system" | "user" | "assistant"; content: string | WorkshopChatContentBlock[] }
+export type WorkshopSaveState = "saved" | "dirty" | "saving" | "failed";
+export type WorkshopMobileView = "sources" | "recipe";
+export type WorkshopSourceDraftInput = Omit<WorkshopSourceInput, "baseRevision">;
+export interface WorkshopRecipeFormProps {
+  candidate: WorkshopRecipeInput;
+  meta: RecipeMetaResponse | null;
+  evidence: WorkshopEvidence[];
+  stepSourceIds: (string | null)[];
+  photos: WorkshopSource[];
+  onChange: (candidate: WorkshopRecipeInput, stepSourceIds?: (string | null)[]) => void;
+}

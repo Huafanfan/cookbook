@@ -11,7 +11,7 @@
 - **当前功能状态以[功能索引](features/README.md)为准**：CB-001、CB-002、CB-003、CB-005 至 CB-013 为 `implemented`；CB-004 已 `superseded`，份量缩放已撤回。2026-09-26 的用户验收 `done` 仅对应当时版本，见[用户验收记录](verification/OWNER-ACCEPTANCE.md)；CB-011 的真机厨房试做和新补图的观感确认仍待进行。
 - 尚未实际执行的真机、厨房、双设备、菜单逐道复核和真实上游更新检查仍记录在各自 CHECK/规格中；它们不再阻塞当前版本的用户验收。后续使用反馈进入迭代。
 - **CB-010** 的真实模型冲突提案和人工解决路径已验证；真实上游更新场景尚未实际演练，但用户已接受当前版本。来源覆盖与验证记录见 [CB-010 验收记录](verification/CB-010/CHECK.md)。
-- 新功能实施入口：[CB-014 创意工坊](features/CB-014-recipe-workshop.md)（已接受、实施中）与 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)；当前应用能力以已实现规格为准。
+- 新功能：[CB-014 创意工坊](features/CB-014-recipe-workshop.md) 为 `implemented`，真实 DS 多图、手动新建和桌面/手机尺寸浏览器验证通过，真机及常用平台待反馈；技术证据见 [CHECK](verification/CB-014/CHECK.md)，上线状态见 [DEPLOYMENT](DEPLOYMENT.md)。架构见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)。
 
 ## 新 session 的阅读路径
 

@@ -18,10 +18,14 @@ services:
       COOKBOOK_HOST: 0.0.0.0
       COOKBOOK_PORT: "${COOKBOOK_INTERNAL_PORT:-8080}"
       COOKBOOK_DATA_DIR: /data
+      # 密钥只在服务器受保护的环境文件中配置，前端构建不读取。
+      DS_BASE_URL: "${DS_BASE_URL:-https://api.deepseek.com}"
+      DS_AUTH_TOKEN: "${DS_AUTH_TOKEN:-}"
+      DS_MODEL: "${DS_MODEL:-deepseek-flash}"
     volumes:
       # 数据目录**需要可写**：用户状态（点赞/收藏）由应用运行期写入
       # `data/user-state.json`（见 docs/decisions/ADR-0003-write-operations-user-state.md）。
-      # 菜谱内容运行期仍只读（应用不会改写 recipes/），容器根文件系统也仍是 read_only。
+      # 编辑、历史与创意工坊新建同样写入 /data；容器根文件系统仍是 read_only。
       - type: bind
         source: "${COOKBOOK_DATA_DIR:-/srv/data/cookbook}"
         target: /data

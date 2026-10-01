@@ -3,6 +3,7 @@ import { EditRecipePage } from "./pages/EditRecipePage";
 import { HomePage } from "./pages/HomePage";
 import { RecipeHistoryPage, RecipeHistoryVersionPage } from "./pages/RecipeHistoryPage";
 import { RecipePage } from "./pages/RecipePage";
+import { WorkshopPage } from "./pages/WorkshopPage";
 
 export function App(): React.JSX.Element {
   const route = useRoute();
@@ -16,6 +17,8 @@ export function App(): React.JSX.Element {
       return <RecipeHistoryPage id={route.id} />;
     case "historyVersion":
       return <RecipeHistoryVersionPage id={route.id} historyId={route.historyId} />;
+    case "workshop":
+      return <WorkshopPage draftId={route.draftId} />;
     default:
       return <HomePage />;
   }

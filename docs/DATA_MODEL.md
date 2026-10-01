@@ -249,7 +249,7 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 | `sources` | 材料 ID（`s-` 加 24 位随机数）、类型 `link/text/image/json`、名称、顺序、selected、处理状态、文本/公开 URL/作者、哈希和大小；图片记录真实 MIME、尺寸与归一化字节数 |
 | `instructions` | 用户对本次材料的补充或更正，最多 4000 字符 |
 | `candidate`、`hasUserEdits` | 不含 id/sourceRef/时间戳的部分 Recipe；未知必填字段可暂缺。用户改动后的再次整理保存在 suggestion，不直接覆盖 |
-| `alternatives`、`suggestion` | 多菜候选和再次整理的提案；一次只提交一道菜。每个候选有 key、recipe、evidence、unresolved |
+| `analysis`、`alternatives`、`suggestion` | analysis 为最近一次已校验的整理结果，独立于用户编辑用于可靠复用；alternatives 为多菜候选，suggestion 为再次整理提案。一次只提交一道菜，每个候选有 key、recipe、evidence、unresolved；旧草稿缺 analysis 时重新整理，不错误复用被用户清空的候选 |
 | `evidence`、`unresolved` | 字段路径、状态 `source/user/suggested/unknown`、材料 ID 与可选原文片段；未决项为 field/message；不以引用存在证明数字正确 |
 | `reviewed` | 用户明确完成审阅；材料/候选变动会失效，正式保存还须完整 schema/词表/内容检查 |
 | `images` | 可选 coverSourceId、与步骤位置对应的 stepSourceIds；只允许本草稿已接收的图片材料，须人工确认自有照片 |
@@ -259,4 +259,4 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 
 目录：`data/workshop/drafts/<draftId>/draft.json`；图片材料原件为 `sources/<sourceId>.<实际格式>`，DS/正式配图用 `sources/<sourceId>.normalized.jpg`。只有用户确认采用的图片进入已有 `data/images/<recipeId>/cover.jpg`、`step-N.jpg`。工坊素材路由只按受控 ID 查记录，不托管任意目录。
 
-新增 API 形状以共享类型和 schema 为实现约束：capabilities、drafts 列表、create/read/PUT、POST sources/analyze/commit 与只读素材 GET，具体交互见 [CB-014 §4](features/CB-014-recipe-workshop.md#4-数据与接口变化)。`commit` 输入为 `{baseRevision, creationKey}`，返回 `{recipe, draft, warnings}`；并发守卫或新 ID 冲突 → 409，格式/内容错误 → 400，素材超限 → 413。
+新增 API 形状以共享类型和 schema 为实现约束：capabilities、drafts 列表、create/read/PUT、POST sources/analyze/commit 与只读素材 GET，具体交互见 [CB-014 §4](features/CB-014-recipe-workshop.md#4-数据与接口变化)。capabilities 的可选 `vocabulary` 提供完整 tags/equipment 词表，区别于首页 `meta.tags` 已使用的筛选项。`commit` 输入为 `{baseRevision, creationKey}`，返回 `{recipe, draft, warnings}`；并发守卫或新 ID 冲突 → 409，格式/内容错误 → 400，素材超限 → 413。

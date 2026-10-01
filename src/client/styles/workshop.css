@@ -1,0 +1,491 @@
+.workshop-page {
+  max-width: 1060px;
+  padding-top: 14px;
+  color: #29392e;
+  --workshop-green: #276543;
+  --workshop-ink: #20352a;
+  --workshop-muted: #6f7d72;
+  --workshop-line: #e2e8dc;
+  --workshop-paper: #fffdf7;
+  --workshop-lime: #e8efc8;
+  --workshop-sun: #f4cc64;
+  --workshop-coral: #d77751;
+}
+
+.workshop-page button { font: inherit; }
+.workshop-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  margin-bottom: 16px;
+}
+.workshop-text-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--workshop-green);
+  font-size: 14px;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+.workshop-text-button:hover { background: #edf3e7; }
+.workshop-brand-mark {
+  color: var(--workshop-muted);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+.workshop-save-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--workshop-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.workshop-save-dot { width: 8px; height: 8px; border-radius: 50%; background: #70a27b; }
+.workshop-save-dot.save-dirty { background: var(--workshop-sun); }
+.workshop-save-dot.save-saving { background: #d59533; animation: workshop-pulse 1s infinite alternate; }
+.workshop-save-dot.save-failed { background: #bd5442; }
+@keyframes workshop-pulse { to { opacity: .35; } }
+
+.workshop-index-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 22px 28px;
+  min-height: 258px;
+  margin: 10px 0 22px;
+  padding: clamp(22px, 5vw, 44px);
+  overflow: hidden;
+  border: 1px solid #e4e8cf;
+  border-radius: 26px;
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(244, 204, 100, .30), transparent 32%),
+    linear-gradient(125deg, #f6f6e9 0%, #f9f2dc 55%, #f4e8cb 100%);
+  box-shadow: 0 12px 34px rgba(68, 74, 43, .08);
+}
+.workshop-index-copy { position: relative; z-index: 1; max-width: 620px; }
+.workshop-eyebrow {
+  margin: 0 0 8px;
+  color: #8d7951;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.workshop-index-copy h1,
+.workshop-editor-hero h1 {
+  margin: 0;
+  color: var(--workshop-ink);
+  font-size: clamp(32px, 5vw, 50px);
+  line-height: 1.1;
+  letter-spacing: -.055em;
+}
+.workshop-index-copy > p:last-child,
+.workshop-editor-hero p:last-child {
+  max-width: 53ch;
+  margin: 13px 0 0;
+  color: #56685b;
+  font-size: 15px;
+}
+.workshop-hero-art { position: relative; min-height: 140px; }
+.workshop-art-plate {
+  position: absolute;
+  top: 9px;
+  right: -3px;
+  display: grid;
+  place-items: center;
+  width: 158px;
+  aspect-ratio: 1;
+  border: 9px solid rgba(255,255,255,.9);
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 37%, #f7d879 0 11%, #e8aa5d 12% 25%, #79a76b 26% 33%, #e5c486 34% 47%, #fff9e9 48% 53%, #e9e4c9 54% 100%);
+  box-shadow: 0 12px 24px rgba(108, 77, 39, .15), inset 0 0 0 1px rgba(105, 104, 72, .15);
+  transform: rotate(-10deg);
+}
+.workshop-art-plate span {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+  background: #fffaf0;
+  color: var(--workshop-coral);
+  font-size: 25px;
+  font-weight: 300;
+}
+.workshop-art-leaf { position: absolute; top: 0; right: 137px; color: #72894e; font-size: 37px; transform: rotate(-18deg); }
+.workshop-art-spark { position: absolute; right: 12px; bottom: 4px; color: #d48a54; font-size: 66px; line-height: 1; }
+.workshop-index-actions { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 11px 16px; }
+.workshop-index-actions p { margin: 0; color: #687267; font-size: 13px; }
+
+.workshop-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 46px;
+  max-width: 100%;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.workshop-button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 5px 14px rgba(34, 75, 47, .12); }
+.workshop-button:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; transform: none; }
+.workshop-button-primary { background: var(--workshop-green); color: #fff; }
+.workshop-button-light { border-color: #dce5d5; background: #fff; color: var(--workshop-green); }
+.workshop-index-actions .workshop-button { min-width: 176px; min-height: 50px; }
+
+.home-workshop-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: -12px 0 30px;
+  padding: 14px 18px;
+  border: 1px solid #e4e9d7;
+  border-radius: 16px;
+  background: linear-gradient(100deg, #f5f7eb, #fff9e9);
+}
+.home-workshop-entry > div { display: grid; min-width: 0; gap: 2px; }
+.home-workshop-kicker { color: #9b7c3c; font-size: 10px; font-weight: 750; letter-spacing: .1em; }
+.home-workshop-entry strong { color: #35543c; font-size: 14px; }
+.home-workshop-entry > div > span:last-child { color: #788376; font-size: 12px; }
+.home-workshop-entry button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #d5e0ce;
+  border-radius: 999px;
+  background: #fff;
+  color: #28613f;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.workshop-capability { display: flex; align-items: flex-start; gap: 8px; margin: 14px 2px 28px; color: var(--workshop-muted); font-size: 13px; }
+.workshop-capability.is-ready { color: #3a7749; }
+.workshop-capability.is-limited { color: #8c7141; }
+.workshop-draft-list { margin: 28px 0 70px; }
+.workshop-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 17px; }
+.workshop-section-heading h2,
+.workshop-draft-list h2 { margin: 0; color: var(--workshop-ink); font-size: clamp(21px, 3vw, 27px); line-height: 1.2; letter-spacing: -.035em; }
+.workshop-count { flex: none; padding: 5px 10px; border-radius: 999px; background: #eef1df; color: #697558; font-size: 12px; }
+.workshop-summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+.workshop-draft-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  min-height: 78px;
+  padding: 13px 15px;
+  border: 1px solid var(--workshop-line);
+  border-radius: 17px;
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.workshop-draft-card:hover { border-color: #bdcfb5; background: #fcfdf8; }
+.workshop-draft-card-icon { display: grid; flex: none; place-items: center; width: 38px; height: 38px; border-radius: 13px; background: #f4e8cb; color: #a8753c; font-size: 22px; }
+.workshop-draft-card-copy { display: grid; flex: 1; min-width: 0; gap: 3px; }
+.workshop-draft-card-copy strong { overflow-wrap: anywhere; color: var(--workshop-ink); font-size: 15px; }
+.workshop-draft-card-copy span { color: var(--workshop-muted); font-size: 12px; }
+.workshop-draft-arrow { flex: none; color: var(--workshop-green); font-size: 20px; }
+.workshop-empty-state { padding: 20px; border: 1px dashed #d9e0d3; border-radius: 16px; color: var(--workshop-muted); text-align: center; }
+
+.workshop-editor-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 18px;
+  padding: 24px clamp(18px, 4vw, 34px);
+  border-radius: 22px;
+  background: linear-gradient(110deg, #f4f5e8, #f8efd9 78%, #f2e6cb);
+}
+.workshop-editor-hero h1 { font-size: clamp(29px, 4vw, 39px); overflow-wrap: anywhere; }
+.workshop-editor-hero p:last-child { margin-top: 8px; font-size: 14px; }
+.workshop-editor-state { flex: none; padding: 7px 11px; border: 1px solid rgba(111, 125, 93, .2); border-radius: 999px; background: rgba(255,255,255,.56); color: #66744f; font-size: 12px; }
+
+.workshop-alert { margin: 12px 0; padding: 12px 15px; border: 1px solid transparent; border-radius: 13px; font-size: 14px; overflow-wrap: anywhere; }
+.workshop-alert p { margin: 0 0 3px; }
+.workshop-alert-warm { border-color: #eadca9; background: #fcf7e6; color: #735e2e; }
+.workshop-alert-error { border-color: #edc6bd; background: #fff2ee; color: #9c4636; white-space: pre-line; }
+.workshop-alert-success { border-color: #cfe2d0; background: #edf7ec; color: #386d40; }
+.workshop-conflict { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 14px 0; padding: 16px; border: 1px solid #e8c9a6; border-radius: 15px; background: #fff8ed; }
+.workshop-conflict h2 { margin: 0; color: #714e2c; font-size: 17px; }
+.workshop-conflict p { margin: 5px 0 0; color: #79664e; font-size: 13px; }
+.workshop-conflict .workshop-button { flex: none; }
+.workshop-mobile-tabs { display: none; }
+.workshop-workspace { min-width: 0; margin: 0; padding: 0; border: 0; }
+.workshop-workspace:disabled { opacity: .78; }
+.workshop-workspace:disabled .workshop-card { filter: saturate(.9); }
+.workshop-card {
+  min-width: 0;
+  margin: 15px 0;
+  padding: clamp(16px, 3.3vw, 25px);
+  border: 1px solid var(--workshop-line);
+  border-radius: 21px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(34, 67, 45, .035);
+}
+.workshop-card .workshop-eyebrow { margin-bottom: 5px; }
+.workshop-card h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.workshop-field-status { display: inline-block; padding: 3px 7px; border-radius: 999px; background: #eef3e6; color: #61744c; font-size: 10px; font-weight: 650; vertical-align: middle; }
+.workshop-field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; min-width: 0; }
+.workshop-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; color: #5f7063; font-size: 13px; font-weight: 600; }
+.workshop-field > span { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; min-height: 20px; }
+.workshop-field input,
+.workshop-field textarea,
+.workshop-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #dfe6db;
+  border-radius: 11px;
+  background: #fffefa;
+  color: var(--workshop-ink);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.45;
+}
+.workshop-field textarea { resize: vertical; }
+.workshop-field input::placeholder,
+.workshop-field textarea::placeholder { color: #a4aea2; }
+.workshop-field input:focus,
+.workshop-field textarea:focus,
+.workshop-field select:focus { border-color: #88a987; outline: 3px solid rgba(119, 158, 109, .2); }
+.workshop-field small { color: #7b887c; font-size: 11px; font-weight: 400; line-height: 1.45; }
+.workshop-field-wide { grid-column: 1 / -1; }
+.workshop-form { display: grid; gap: 0; }
+.workshop-form .workshop-card { box-shadow: none; }
+.workshop-form .workshop-section-heading { align-items: flex-end; }
+.workshop-section-heading > .workshop-button { flex: none; }
+.workshop-empty-inline { margin: 0; padding: 14px; border-radius: 12px; background: #fafbf6; color: #7a877b; font-size: 13px; }
+.workshop-rows { display: grid; gap: 11px; }
+.workshop-ingredient-row { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: start; gap: 10px; padding: 13px; border: 1px solid #edf0e9; border-radius: 15px; background: #fdfdf9; }
+.workshop-row-index { display: grid; flex: none; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: #eaf0d9; color: #64764b; font-size: 12px; font-weight: 750; }
+.workshop-ingredient-fields { grid-template-columns: minmax(0, 1.2fr) minmax(72px, .7fr) minmax(70px, .65fr); gap: 10px; }
+.workshop-icon-button { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 7px 9px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: #68796b; font-size: 12px; cursor: pointer; }
+.workshop-icon-button:hover:not(:disabled) { border-color: #e2e8dc; background: #f4f7f0; color: var(--workshop-green); }
+.workshop-icon-button:disabled { opacity: .35; cursor: not-allowed; }
+.workshop-step-row { padding: 14px; border: 1px solid #e8eddf; border-radius: 16px; background: #fcfdf8; }
+.workshop-step-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.workshop-order-controls { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px; }
+.workshop-vocabulary-group { margin: 16px 0; }
+.workshop-vocabulary-group h3,
+.workshop-alternatives h3,
+.workshop-unresolved h3 { margin: 0 0 10px; color: #4c604f; font-size: 14px; }
+.workshop-choice-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.workshop-choice { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 7px 11px; border: 1px solid #e2e9dc; border-radius: 999px; background: #fafcf7; color: #536556; font-size: 13px; cursor: pointer; }
+.workshop-choice input,
+.workshop-source-select input,
+.workshop-review-check input { width: 19px; height: 19px; accent-color: var(--workshop-green); }
+.workshop-choice:has(input:checked) { border-color: #9dbb8a; background: #edf4e2; color: #355f3e; }
+.workshop-choice:has(input:disabled) { opacity: .58; cursor: not-allowed; }
+.workshop-choice.is-out-of-vocabulary { border-color: #e5c78e; background: #fff8e9; color: #715c37; }
+.workshop-choice-warning { color: #9a7138; font-size: 10px; font-weight: 600; white-space: nowrap; }
+.workshop-hint { margin: 6px 0; color: var(--workshop-muted); font-size: 12px; }
+.workshop-inline-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.workshop-source-list { display: grid; gap: 9px; margin-top: 15px; }
+.workshop-source {
+  display: grid;
+  grid-template-columns: 32px 70px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e6ecdf;
+  border-radius: 15px;
+  background: #fcfdf9;
+}
+.workshop-source.source-error { border-color: #edc9bd; background: #fff8f4; }
+.workshop-source-order { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 9px; background: #f3e7cb; color: #897041; font-size: 11px; font-weight: 750; }
+.workshop-source-thumb { display: block; width: 70px; height: 70px; border-radius: 11px; background: #f2f1e9; object-fit: cover; }
+.workshop-source-main { display: grid; min-width: 0; gap: 4px; }
+.workshop-source-title { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 5px 8px; min-width: 0; }
+.workshop-source-title strong { min-width: 0; color: #344c39; font-size: 13px; overflow-wrap: anywhere; }
+.workshop-source-kind { flex: none; padding: 2px 6px; border-radius: 6px; background: #edf1e2; color: #69764f; font-size: 10px; }
+.workshop-source-link { display: block; max-width: 100%; color: #41754a; font-size: 11px; overflow-wrap: anywhere; }
+.workshop-source-excerpt { margin: 0; color: #758075; font-size: 12px; line-height: 1.45; }
+.workshop-source-problem { margin: 0; color: #a44d3a; font-size: 12px; }
+.workshop-source-status { width: fit-content; padding: 2px 7px; border-radius: 999px; background: #edf5ea; color: #538051; font-size: 10px; }
+.workshop-source-status.status-pending { background: #f8f1dc; color: #88713b; }
+.workshop-source-status.status-error { background: #ffebe5; color: #a34837; }
+.workshop-source-controls { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 1px; }
+.workshop-source-select { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 5px 7px; border-radius: 10px; color: #48654c; font-size: 11px; white-space: nowrap; cursor: pointer; }
+.workshop-expand-source { width: fit-content; min-height: 36px; font-size: 12px; }
+.workshop-source-fulltext { max-height: 220px; overflow: auto; margin: 4px 0; padding: 10px; border-radius: 9px; background: #f4f5ef; color: #566458; font: inherit; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.workshop-photo-note { margin: 11px 0 0; color: #856942; font-size: 12px; }
+.workshop-add-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.workshop-add-box { display: flex; flex-direction: column; align-items: stretch; gap: 9px; min-width: 0; padding: 13px; border: 1px solid #e7ecdf; border-radius: 15px; background: #fcfdf8; }
+.workshop-add-box .workshop-button { width: 100%; min-height: 44px; }
+.workshop-file-box p { margin: 0; color: #69786b; font-size: 12px; }
+.workshop-file-box small { color: #7e8b7e; font-size: 11px; line-height: 1.45; }
+.workshop-camera-button,
+.workshop-camera-note { display: none; }
+.workshop-file-heading { color: #536656; font-size: 13px; font-weight: 650; }
+.workshop-instructions { margin-top: 15px; }
+.workshop-generation { display: flex; align-items: center; gap: 11px; margin-top: 14px; padding: 13px; border-radius: 13px; background: #f5f3e7; color: #6f633f; }
+.workshop-generation > div { display: grid; gap: 2px; }
+.workshop-generation strong { font-size: 13px; }
+.workshop-generation span:not(.workshop-loader) { font-size: 12px; }
+.workshop-loader { width: 20px; height: 20px; border: 2px solid #e6dcae; border-top-color: #a68b42; border-radius: 50%; animation: workshop-spin .8s linear infinite; }
+@keyframes workshop-spin { to { transform: rotate(360deg); } }
+.workshop-analyze-row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-top: 15px; }
+.workshop-analyze-row > span { color: var(--workshop-muted); font-size: 12px; }
+.workshop-review-count { flex: none; padding: 6px 9px; border-radius: 999px; font-size: 11px; }
+.workshop-review-count.needs-work { background: #fbf1d9; color: #8b6b31; }
+.workshop-review-count.ready { background: #e8f3e7; color: #4f794c; }
+.workshop-alternatives { margin: 0 0 16px; padding: 14px; border-radius: 14px; background: #f7f8ef; }
+.workshop-alternative-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.workshop-alternative { display: grid; gap: 3px; min-height: 54px; padding: 9px 13px; border: 1px solid #dce6d4; border-radius: 12px; background: #fff; color: #405b43; text-align: left; cursor: pointer; }
+.workshop-alternative span { color: #778573; font-size: 11px; }
+.workshop-suggestion { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; padding: 14px; border: 1px solid #edddb0; border-radius: 14px; background: #fffae9; }
+.workshop-suggestion > div { flex: 1 1 220px; }
+.workshop-suggestion-label { color: #926a2e; font-size: 13px; font-weight: 750; }
+.workshop-suggestion p { margin: 3px 0 0; color: #7e7051; font-size: 12px; }
+.workshop-evidence-details { margin: 0 0 15px; padding: 12px 14px; border-radius: 12px; background: #f8faf5; color: #5e705f; font-size: 13px; }
+.workshop-evidence-details summary { min-height: 28px; color: #46684c; font-weight: 650; cursor: pointer; }
+.workshop-evidence-details ul,
+.workshop-unresolved ul { margin: 9px 0 0; padding-left: 20px; }
+.workshop-evidence-details li { margin-top: 7px; }
+.workshop-evidence-details li > strong { margin-right: 8px; color: #435b46; }
+.workshop-evidence-details li > span { color: #778671; font-size: 11px; }
+.workshop-evidence-details blockquote { margin: 5px 0; padding: 6px 10px; border-left: 2px solid #b7c79f; background: #fff; color: #68746a; overflow-wrap: anywhere; }
+.workshop-unresolved { margin: 0 0 16px; padding: 13px 15px; border: 1px solid #eadca9; border-radius: 13px; background: #fff9e8; color: #776338; font-size: 13px; }
+.workshop-unresolved h3 { color: #806a37; }
+.workshop-unresolved li + li { margin-top: 6px; }
+.workshop-cover-choice { display: grid; grid-template-columns: minmax(0, 1fr) 150px; align-items: end; gap: 15px; margin-top: 20px; padding-top: 18px; border-top: 1px solid #edf0e8; }
+.workshop-cover-preview { width: 150px; height: 105px; border-radius: 12px; background: #f1f2eb; object-fit: cover; }
+.workshop-review-check { display: flex; align-items: flex-start; gap: 10px; min-height: 54px; margin-top: 20px; padding: 13px 14px; border: 1px solid #dce8d6; border-radius: 13px; background: #f6faf2; color: #405b43; font-size: 14px; font-weight: 650; line-height: 1.45; cursor: pointer; }
+.workshop-review-check input { flex: none; margin: 0; }
+.workshop-commit-row { display: flex; align-items: center; flex-wrap: wrap; gap: 11px 14px; margin-top: 14px; }
+.workshop-save-recipe { min-width: 180px; min-height: 50px; }
+.workshop-commit-row > span { flex: 1 1 230px; color: #798579; font-size: 12px; }
+.workshop-busy-note { position: sticky; z-index: 2; bottom: 10px; width: fit-content; max-width: 100%; margin: 10px auto 0; padding: 9px 14px; border: 1px solid #d6e0cc; border-radius: 999px; background: #f6faef; color: #49664a; font-size: 12px; box-shadow: 0 5px 18px rgba(40, 70, 43, .11); }
+.workshop-sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+
+@media (max-width: 760px) {
+  .workshop-add-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .workshop-file-box { grid-column: 1 / -1; }
+  .workshop-source { grid-template-columns: 27px 58px minmax(0, 1fr); }
+  .workshop-source-thumb { width: 58px; height: 58px; }
+  .workshop-source-controls { grid-column: 2 / -1; justify-content: flex-start; border-top: 1px solid #edf0e9; padding-top: 5px; }
+}
+
+@media (max-width: 900px) {
+  .workshop-mobile-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    margin: 0 0 12px;
+    padding: 4px;
+    border: 1px solid #e2e8dc;
+    border-radius: 14px;
+    background: #f3f6ed;
+  }
+  .workshop-mobile-tabs button {
+    min-width: 0;
+    min-height: 46px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #68776a;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+  .workshop-mobile-tabs button[aria-pressed="true"] {
+    background: #fff;
+    color: #2f6743;
+    box-shadow: 0 2px 7px rgba(38, 72, 43, .09);
+  }
+  .workshop-workspace[data-mobile-view="sources"] .workshop-review-card { display: none; }
+  .workshop-workspace[data-mobile-view="recipe"] .workshop-material-card { display: none; }
+  .workshop-camera-button,
+  .workshop-camera-note { display: inline-flex; }
+}
+
+@media (max-width: 560px) {
+  .workshop-page { padding-right: 14px; padding-left: 14px; }
+  .workshop-topbar { margin-bottom: 12px; }
+  .home-workshop-entry { align-items: flex-start; flex-direction: column; margin-top: -7px; padding: 14px; }
+  .home-workshop-entry button { width: 100%; }
+  .workshop-brand-mark { display: none; }
+  .workshop-index-hero { grid-template-columns: minmax(0, 1fr); min-height: auto; padding: 24px 20px; }
+  .workshop-hero-art { position: absolute; top: 28px; right: 4px; width: 112px; min-height: 112px; opacity: .72; transform: scale(.64); transform-origin: top right; }
+  .workshop-index-copy { padding-right: 52px; }
+  .workshop-index-copy > p:last-child { font-size: 14px; }
+  .workshop-index-actions { grid-column: 1; align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .workshop-index-actions .workshop-button { width: 100%; }
+  .workshop-summary-grid { grid-template-columns: minmax(0, 1fr); }
+  .workshop-editor-hero { align-items: flex-start; flex-direction: column; padding: 20px 17px; }
+  .workshop-editor-state { align-self: flex-start; }
+  .workshop-conflict { align-items: flex-start; flex-direction: column; }
+  .workshop-conflict .workshop-button { width: 100%; }
+  .workshop-card { margin: 12px 0; padding: 16px 13px; border-radius: 17px; }
+  .workshop-field-grid { grid-template-columns: minmax(0, 1fr); gap: 11px; }
+  .workshop-field-wide { grid-column: 1; }
+  .workshop-ingredient-row { grid-template-columns: 26px minmax(0, 1fr); gap: 8px; padding: 10px; }
+  .workshop-ingredient-row > .workshop-icon-button { grid-column: 2; justify-self: end; }
+  .workshop-ingredient-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .workshop-ingredient-fields .workshop-field-wide { grid-column: 1 / -1; }
+  .workshop-add-grid { grid-template-columns: minmax(0, 1fr); }
+  .workshop-file-box { grid-column: 1; }
+  .workshop-source { grid-template-columns: 25px 52px minmax(0, 1fr); gap: 8px; padding: 9px; }
+  .workshop-source-thumb { width: 52px; height: 52px; }
+  .workshop-source-controls { grid-column: 1 / -1; flex-wrap: nowrap; justify-content: space-between; gap: 2px; }
+  .workshop-source-select { margin-left: auto; }
+  .workshop-source-title { gap: 4px; }
+  .workshop-source-title strong { font-size: 12px; }
+  .workshop-cover-choice { grid-template-columns: minmax(0, 1fr) 90px; gap: 10px; }
+  .workshop-cover-preview { width: 90px; height: 78px; }
+  .workshop-commit-row { align-items: stretch; flex-direction: column; }
+  .workshop-save-recipe { width: 100%; }
+  .workshop-suggestion { align-items: stretch; flex-direction: column; }
+  .workshop-suggestion .workshop-button { width: 100%; }
+  .workshop-analyze-row .workshop-button { width: 100%; }
+}
+
+@media (max-width: 350px) {
+  .workshop-page { padding-right: 11px; padding-left: 11px; }
+  .workshop-card { padding-right: 11px; padding-left: 11px; }
+  .workshop-index-copy { padding-right: 30px; }
+  .workshop-index-hero { padding-right: 16px; padding-left: 16px; }
+  .workshop-hero-art { right: -3px; opacity: .5; }
+  .workshop-source { grid-template-columns: 22px 44px minmax(0, 1fr); gap: 6px; padding: 8px; }
+  .workshop-source-thumb { width: 44px; height: 44px; }
+  .workshop-order-controls { gap: 0; }
+  .workshop-icon-button { padding-right: 6px; padding-left: 6px; }
+  .workshop-choice { padding-right: 9px; padding-left: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workshop-button { transition: none; }
+  .workshop-loader, .workshop-save-dot.save-saving { animation: none; }
+}

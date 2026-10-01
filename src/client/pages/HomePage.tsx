@@ -6,7 +6,7 @@ import { KitchenToolsPanel } from "../components/KitchenToolsPanel";
 import { RecipeCard } from "../components/RecipeCard";
 import { SearchBar } from "../components/SearchBar";
 import { buildQuery, fetchRecipes } from "../lib/api";
-import { replaceQuery } from "../lib/router";
+import { navigate, replaceQuery } from "../lib/router";
 import { readStored, STORAGE_KEYS } from "../lib/storage";
 import { useMeta } from "../lib/use-meta";
 import { useMyKitchen } from "../lib/use-kitchen";
@@ -122,6 +122,15 @@ export function HomePage(): React.JSX.Element {
           apply={kitchen.apply}
         />
       )}
+
+      <section className="home-workshop-entry" aria-label="创意工坊">
+        <div>
+          <span className="home-workshop-kicker">新菜灵感</span>
+          <strong>把链接、截图和笔记放在一起</strong>
+          <span>先整理成草稿，核对后再保存</span>
+        </div>
+        <button type="button" onClick={() => navigate("/workshop")}>打开创意工坊 <span aria-hidden="true">→</span></button>
+      </section>
 
       {featured.length > 0 && (
         <section className="featured-section" aria-labelledby="featured-title">

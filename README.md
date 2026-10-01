@@ -10,6 +10,7 @@
 > **「我的厨具」存服务端**（跟点赞、收藏一起，两口子共用一份；换网址/换手机/清缓存都在，[CB-008](docs/features/CB-008-kitchen-tools-server.md)）。
 > 验收状态：当前版本的用户验收已完成。后续使用中遇到不顺手的地方，可记入[试做反馈](docs/features/CB-001-cooking-feedback.md)或直接提出，作为迭代输入；CB-009 编辑/历史与 CB-010 来源同步均已实现。
 > 入口：[`docs/START-HERE.md`](docs/START-HERE.md)（当前状态与阅读路径）。
+> 新菜录入：主页的**创意工坊**支持链接、文字、多张图片、JSON、混合材料与手动填写；整理成可编辑草稿，核对后保存。范围与验证见 [CB-014](docs/features/CB-014-recipe-workshop.md)。
 
 ## 目标（一句话）
 
@@ -70,6 +71,12 @@ npm run check:data   # 校验 data/recipes/*.json
 > ⚠️ **默认不会覆盖已存在的菜谱**（自从可以在网页上编辑后，直接覆盖会吃掉你的修改）；确实要覆盖就加 `--overwrite-existing`，并**先停服务**。
 
 ## 怎么加一道菜
+
+在首页打开“创意工坊”（`/workshop`）→ 新建草稿 → 加入链接、文字或图片 → 点“整理成菜谱” → 校对用量、步骤和待确认项 → 保存为新菜。也可以直接从空表单手动填写。草稿自动保存在服务器，换设备可继续；受限链接可补截图/文字。手机可选相册或拍照，支持的格式与限制见 [CB-014](docs/features/CB-014-recipe-workshop.md)。
+
+AI 整理只使用服务端进程的 `DS_BASE_URL`、`DS_AUTH_TOKEN` 和 `DS_MODEL`（当前验证模型为 `deepseek-flash`）；不在前端配置密钥。没有密钥时可手动填写或导入合规 JSON。服务器受保护环境文件与启动命令见 [部署说明](docs/DEPLOYMENT.md#2c-创意工坊-ds-配置与备份cb-014)。
+
+手工文件录入仍然可用：
 
 在 `data/recipes/` 新建一个 JSON 文件（文件名必须等于 `id`），照抄现有样例的字段即可：
 
@@ -200,3 +207,4 @@ cookbook/
 | POST | `/api/recipes/:id/like` | 点赞 `{ delta: 1 \| -1 }`（**写操作**） |
 | POST | `/api/recipes/:id/favorite` | 收藏 `{ favorite: boolean }`（**写操作**） |
 | POST | `/api/kitchen` | 保存「我的厨具」`{ tools: string[] }`（**写操作**；只收词表里的值） |
+| GET/POST/PUT | `/api/workshop/*` | 工坊能力、草稿、材料、异步整理与确认新建；完整路径/版本/提交契约见 [DATA_MODEL §9](docs/DATA_MODEL.md#9-创意工坊草稿与新建cb-014) |

@@ -1,5 +1,7 @@
 import type { Dirent } from "node:fs";
-import { mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
+import { link, mkdir, open, readFile, readdir, rename, unlink, writeFile } from "node:fs/promises";
+import { constants as fsConstants } from "node:fs";
+import { randomBytes } from "node:crypto";
 import { join } from "node:path";
 
 import type {
@@ -9,7 +11,15 @@ import type {
   RecipeHistoryRecord,
   RecipeHistorySource,
   RecipeMedia,
-  RecipeMetaResponse
+  RecipeMetaResponse,
+  WorkshopDraft,
+  WorkshopDraftSummary,
+  WorkshopDraftPatch,
+  WorkshopSourceInput,
+  WorkshopSource,
+  WorkshopImageResult,
+  WorkshopCommitInput,
+  WorkshopCommitResult
 } from "../../shared/types.js";
 import { formatContentIssues, hasBlockingIssues, lintRecipeContent } from "../lib/content-lint.js";
 import { loadEquipmentList, type EquipmentList } from "../lib/equipment.js";
@@ -22,7 +32,8 @@ import {
   serializeRecipe
 } from "../lib/recipe-revision.js";
 import { loadTagVocabulary, EMPTY_TAG_VOCABULARY, type TagVocabulary } from "../lib/tags.js";
-import { createRecipeSchema, formatIssueList, formatIssues } from "../lib/schema.js";
+import { createRecipeSchema, formatIssueList, formatIssues, workshopDraftSchema, workshopDraftPatchSchema, workshopIdSchema, workshopSourceInputSchema } from "../lib/schema.js";
+import { WorkshopError } from "../lib/workshop-errors.js";
 
 export interface LoadFailure {
   /** 文件名，例如 `bad-recipe.json` */
@@ -189,7 +200,7 @@ export async function scanRecipeImages(
 
     // 符号链接也收（指向图片的链接是合理用法）；链接失效由前端降级成占位图
     const names = files
-      .filter((file) => file.isFile() || file.isSymbolicLink())
+      .filter((file) => !file.name.startsWith(".") && (file.isFile() || file.isSymbolicLink()))
       .map((file) => file.name);
 
     const built = buildMedia(entry.name, matchImageFiles(names), recipe.steps.length);
@@ -269,6 +280,17 @@ function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+/** 叶字段编辑是用户依据；数组增删/重排同时使该数组原位置的引用失效。 */
+function changedWorkshopFields(before: unknown, after: unknown, path = ""): string[] {
+  if (JSON.stringify(before) === JSON.stringify(after)) return [];
+  if (Array.isArray(before) || Array.isArray(after)) return path ? [path] : [];
+  if (before && after && typeof before === "object" && typeof after === "object") {
+    const old = before as Record<string, unknown>, next = after as Record<string, unknown>;
+    return [...new Set([...Object.keys(old), ...Object.keys(next)])].flatMap(key => changedWorkshopFields(old[key], next[key], path ? `${path}.${key}` : key));
+  }
+  return path ? [path] : [];
+}
+
 /** 唯一的数据访问入口：其他模块不直接读文件（见 docs/ARCHITECTURE.md） */
 export class RecipeRepository {
   readonly #recipes: Recipe[];
@@ -284,6 +306,7 @@ export class RecipeRepository {
   readonly #recipesDir: string;
   readonly #historyDir: string;
   readonly #imagesDir: string;
+  readonly #workshopDir: string;
   /** 每道菜一条保存队列：应用内对同一道菜的写入不会交错（ADR-0005 §1） */
   readonly #writeChains = new Map<string, Promise<unknown>>();
 
@@ -310,6 +333,7 @@ export class RecipeRepository {
     this.#recipesDir = paths.recipesDir;
     this.#historyDir = join(paths.dataDir, "history", "recipes");
     this.#imagesDir = join(paths.dataDir, "images");
+    this.#workshopDir = join(paths.dataDir, "workshop", "drafts");
   }
 
   static async load(dataDir: string): Promise<RecipeRepository> {
@@ -324,10 +348,12 @@ export class RecipeRepository {
     );
     // 图片扫描在菜谱载入之后：只需要给已载入的菜谱找图（CB-007）
     const images = await scanRecipeImages(join(dataDir, "images"), recipes);
-    return new RecipeRepository(recipes, failures, equipment, tagVocabulary, images, revisions, {
+    const repository = new RecipeRepository(recipes, failures, equipment, tagVocabulary, images, revisions, {
       recipesDir,
       dataDir
     });
+    await repository.#recoverWorkshop();
+    return repository;
   }
 
   /** 仅供测试：用内存数据构造仓库 */
@@ -627,7 +653,7 @@ export class RecipeRepository {
     }
 
     const names = files
-      .filter((file) => file.isFile() || file.isSymbolicLink())
+      .filter((file) => !file.name.startsWith(".") && (file.isFile() || file.isSymbolicLink()))
       .map((file) => file.name);
     const built = buildMedia(id, matchImageFiles(names), stepCount);
 
@@ -683,6 +709,371 @@ export class RecipeRepository {
     if (!raw) return null;
     const parsed = this.#recipeSchema.safeParse(raw);
     return parsed.success ? parsed.data : null;
+  }
+
+  /* ---------- 创意工坊持久化（CB-014）：唯一资产读写入口 ---------- */
+
+  async createWorkshopDraft(): Promise<WorkshopDraft> {
+    const draftId = `w-${randomBytes(12).toString("hex")}`;
+    const now = new Date().toISOString();
+    const draft: WorkshopDraft = {
+      version: 1, draftId, revision: "", inputVersion: 0, createdAt: now, updatedAt: now,
+      sources: [], instructions: "", candidate: {}, hasUserEdits: false, alternatives: [],
+      evidence: [], unresolved: [], reviewed: false, images: { stepSourceIds: [] },
+      generation: null, creation: null
+    };
+    await mkdir(join(this.#workshopDir, draftId), { recursive: true });
+    return this.#persistWorkshopDraft(draft);
+  }
+
+  async readWorkshopDraft(id: string): Promise<WorkshopDraft | null> {
+    if (!workshopIdSchema.safeParse(id).success) return null;
+    let bytes: Buffer;
+    try { bytes = await readFile(join(this.#workshopDir, id, "draft.json")); }
+    catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
+      throw new WorkshopError(503, "draft_unavailable", "草稿暂时无法读取，请稍后重试。");
+    }
+    try {
+      const parsed = workshopDraftSchema.safeParse(JSON.parse(bytes.toString("utf8")));
+      if (!parsed.success || parsed.data.draftId !== id) return null;
+      return { ...parsed.data, revision: revisionOfBytes(bytes) };
+    } catch { return null; }
+  }
+
+  async listWorkshopDrafts(): Promise<WorkshopDraftSummary[]> {
+    let entries: Dirent[];
+    try { entries = await readdir(this.#workshopDir, { withFileTypes: true }); }
+    catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+      throw new WorkshopError(503, "drafts_unavailable", "草稿列表暂时无法读取。");
+    }
+    const items: WorkshopDraftSummary[] = [];
+    for (const entry of entries) {
+      if (!entry.isDirectory() || !workshopIdSchema.safeParse(entry.name).success) continue;
+      const draft = await this.readWorkshopDraft(entry.name);
+      if (!draft) continue;
+      items.push({
+        draftId: draft.draftId, name: draft.candidate.name?.trim() || draft.sources[0]?.name || "未命名的新菜",
+        updatedAt: draft.updatedAt, sourceCount: draft.sources.filter(source => source.selected).length,
+        state: draft.savedRecipeId ? "saved" : draft.generation?.state ?? "collecting",
+        ...(draft.savedRecipeId ? { savedRecipeId: draft.savedRecipeId } : {})
+      });
+    }
+    return items.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  }
+
+  /** 机器进度亦走同一队列，但不改变 inputVersion；调用方自行核对任务版本。 */
+  transformWorkshopDraft(id: string, change: (draft: WorkshopDraft) => boolean | void | Promise<boolean | void>): Promise<WorkshopDraft> {
+    return this.#enqueueWrite(`workshop:${id}`, async () => {
+      const draft = await this.#requireWorkshopDraft(id);
+      if (await change(draft) === false) return draft;
+      return this.#persistWorkshopDraft(draft);
+    });
+  }
+
+  updateWorkshopDraft(id: string, input: WorkshopDraftPatch): Promise<WorkshopDraft> {
+    const parsed = workshopDraftPatchSchema.safeParse(input);
+    if (!parsed.success) throw new WorkshopError(400, "invalid_draft", "请检查草稿内容。", formatIssueList(parsed.error));
+    return this.#enqueueWrite(`workshop:${id}`, async () => {
+      const draft = await this.#requireWorkshopDraft(id);
+      this.#checkWorkshopRevision(draft, parsed.data.baseRevision);
+      if (draft.creation) throw new WorkshopError(409, "creation_frozen", "保存已开始，请先核实保存结果；已保存的新菜请在详情页编辑。", undefined, draft);
+      const patch = parsed.data;
+      const before = JSON.stringify([draft.candidate, draft.instructions, draft.sources.map(s => [s.id, s.selected]), draft.images]);
+      if (patch.candidate !== undefined) {
+        const changed = changedWorkshopFields(draft.candidate, patch.candidate);
+        if (JSON.stringify(patch.candidate) !== JSON.stringify(draft.candidate)) draft.hasUserEdits = true;
+        draft.candidate = patch.candidate;
+        const adopted = [...draft.alternatives, ...(draft.suggestion?.candidates ?? [])].find(item => JSON.stringify(item.recipe) === JSON.stringify(patch.candidate));
+        if (adopted) { draft.evidence = adopted.evidence; draft.unresolved = adopted.unresolved; }
+        else if (changed.length) {
+          draft.evidence = draft.evidence.filter(item => !changed.some(field => item.field === field || item.field.startsWith(`${field}.`) || item.field.startsWith(`${field}[`) || field.startsWith(`${item.field}.`) || field.startsWith(`${item.field}[`)));
+          draft.evidence.push(...changed.map(field => ({ field, status: "user" as const, sourceIds: [], excerpt: "用户在草稿中编辑此项。" })));
+        }
+      }
+      if (patch.instructions !== undefined) draft.instructions = patch.instructions;
+      if (patch.sources) {
+        const ids = new Set(patch.sources.map(s => s.id));
+        if (ids.size !== patch.sources.length || patch.sources.some(s => !draft.sources.some(old => old.id === s.id))) {
+          throw new WorkshopError(400, "unknown_source", "材料选择包含不存在或重复的材料。");
+        }
+        for (const selection of patch.sources) {
+          const source = draft.sources.find(s => s.id === selection.id);
+          if (source) source.selected = selection.selected;
+        }
+      }
+      if (patch.sourceOrder) {
+        if (new Set(patch.sourceOrder).size !== draft.sources.length || patch.sourceOrder.length !== draft.sources.length || patch.sourceOrder.some(sourceId => !draft.sources.some(s => s.id === sourceId))) {
+          throw new WorkshopError(400, "invalid_source_order", "材料顺序必须包含每份材料一次。");
+        }
+        draft.sources = patch.sourceOrder.map(sourceId => draft.sources.find(s => s.id === sourceId)!);
+      }
+      if (patch.images) {
+        for (const sourceId of [patch.images.coverSourceId, ...patch.images.stepSourceIds]) {
+          if (sourceId && !draft.sources.some(s => s.id === sourceId && s.kind === "image")) {
+            throw new WorkshopError(400, "unknown_image", "只能选择本草稿中已接收的图片。");
+          }
+        }
+        if (patch.images.stepSourceIds.slice(draft.candidate.steps?.length ?? 0).some(Boolean)) {
+          throw new WorkshopError(400, "invalid_step_image", "步骤图对应的步骤不存在。");
+        }
+        draft.images = patch.images;
+      }
+      const after = JSON.stringify([draft.candidate, draft.instructions, draft.sources.map(s => [s.id, s.selected]), draft.images]);
+      if (before !== after) this.#invalidateWorkshopInput(draft);
+      draft.reviewed = patch.reviewed ?? draft.reviewed;
+      return this.#persistWorkshopDraft(draft);
+    });
+  }
+
+  addWorkshopSource(id: string, input: WorkshopSourceInput, image?: WorkshopImageResult): Promise<WorkshopDraft> {
+    const parsed = workshopSourceInputSchema.safeParse(input);
+    if (!parsed.success) throw new WorkshopError(400, "invalid_source", "请检查材料格式。", formatIssueList(parsed.error));
+    return this.#enqueueWrite(`workshop:${id}`, async () => {
+      const draft = await this.#requireWorkshopDraft(id);
+      this.#checkWorkshopRevision(draft, parsed.data.baseRevision);
+      if (draft.creation) throw new WorkshopError(409, "creation_frozen", "保存已经开始，材料暂时不能更改。", undefined, draft);
+      if (draft.sources.length >= 40) throw new WorkshopError(413, "source_limit", "一份草稿最多接收 40 份材料，请另建草稿。");
+      const value = parsed.data;
+      if (value.kind === "image" && draft.sources.filter(s => s.kind === "image").length >= 12) throw new WorkshopError(413, "image_limit", "一份草稿最多接收 12 张图片。");
+      if (value.kind === "link" && draft.sources.filter(s => s.kind === "link").length >= 5) throw new WorkshopError(413, "link_limit", "一份草稿最多接收 5 个链接。");
+      const sourceId = `s-${randomBytes(12).toString("hex")}`;
+      let source: WorkshopSource;
+      if (value.kind === "image") {
+        if (!image) throw new WorkshopError(415, "invalid_image", "图片尚未通过实际解码检查。");
+        source = { id: sourceId, kind: "image", name: value.name || "图片材料", selected: true, status: "ready", sha256: revisionOfBytes(Buffer.from(image.bytes)), byteSize: image.bytes.byteLength, mimeType: image.mimeType, width: image.width, height: image.height, normalizedByteSize: image.normalized.byteLength };
+      } else {
+        const text = value.kind === "link" ? value.url : value.text;
+        if (!text?.trim()) throw new WorkshopError(400, "empty_source", "材料没有可读取的内容。");
+        source = { id: sourceId, kind: value.kind, name: value.name || (value.kind === "link" ? "网页链接" : value.kind === "json" ? "菜谱文件" : "文字材料"), selected: true, status: value.kind === "link" ? "pending" : "ready", sha256: revisionOfBytes(Buffer.from(text)), byteSize: Buffer.byteLength(text), ...(value.kind === "link" ? { url: text } : { text }) };
+      }
+      if (draft.sources.reduce((total, s) => total + s.byteSize, source.byteSize) > 30 * 1024 * 1024) throw new WorkshopError(413, "source_bytes_limit", "这份草稿材料总量超过 30 MiB，请另建草稿或压缩图片。");
+      if (draft.sources.reduce((total, s) => total + (s.text?.length ?? 0), source.text?.length ?? 0) > 40000) throw new WorkshopError(413, "text_limit", "材料文字合计超过 4 万字符，请拆成独立草稿。");
+      if (image) {
+        const dir = join(this.#workshopDir, id, "sources");
+        await mkdir(dir, { recursive: true });
+        const extension = image.mimeType === "image/png" ? "png" : image.mimeType === "image/webp" ? "webp" : "jpg";
+        await writeFile(join(dir, `${sourceId}.${extension}`), image.bytes, { flag: "wx", mode: 0o600 });
+        await writeFile(join(dir, `${sourceId}.normalized.jpg`), image.normalized, { flag: "wx", mode: 0o600 });
+      }
+      draft.sources.push(source);
+      this.#invalidateWorkshopInput(draft);
+      return this.#persistWorkshopDraft(draft);
+    });
+  }
+
+  async readWorkshopSource(id: string, sourceId: string, normalized = false): Promise<{ bytes: Buffer; mimeType: string }> {
+    const draft = await this.#requireWorkshopDraft(id);
+    const source = draft.sources.find(s => s.id === sourceId);
+    if (!source) throw new WorkshopError(404, "source_not_found", "没有找到这份材料。");
+    if (source.kind !== "image") return { bytes: Buffer.from(source.text ?? source.url ?? ""), mimeType: "text/plain; charset=utf-8" };
+    const extension = normalized ? "normalized.jpg" : source.mimeType === "image/png" ? "png" : source.mimeType === "image/webp" ? "webp" : "jpg";
+    const file = join(this.#workshopDir, id, "sources", `${source.id}.${extension}`);
+    const handle = await open(file, fsConstants.O_RDONLY | fsConstants.O_NOFOLLOW);
+    try {
+      const stat = await handle.stat();
+      const expected = normalized ? source.normalizedByteSize : source.byteSize;
+      if (!stat.isFile() || stat.size > 10 * 1024 * 1024 || stat.size !== expected) throw new WorkshopError(503, "source_changed", "图片材料字节已变化，请重新添加材料。");
+      const bytes = await handle.readFile();
+      if (!normalized && revisionOfBytes(bytes) !== source.sha256) throw new WorkshopError(503, "source_changed", "图片材料已变化，请重新添加材料。");
+      return { bytes, mimeType: normalized ? "image/jpeg" : source.mimeType ?? "image/jpeg" };
+    } finally { await handle.close(); }
+  }
+
+  commitWorkshopDraft(id: string, input: WorkshopCommitInput): Promise<WorkshopCommitResult> {
+    return this.#enqueueWrite(`workshop:${id}`, async () => {
+      const draft = await this.#requireWorkshopDraft(id);
+      if (draft.creation) {
+        if (draft.creation.key !== input.creationKey) throw new WorkshopError(409, "creation_key_conflict", "已有一次保存正在核实，请重用原保存动作。", undefined, draft);
+        if (draft.savedRecipeId && draft.creation.phase === "committed") {
+          const recipe = this.detail(draft.savedRecipeId);
+          if (!recipe) throw new WorkshopError(503, "saved_recipe_unavailable", "这道菜已保存，但当前无法读取，请核实原文件。", undefined, draft);
+          return { recipe, draft, warnings: [] };
+        }
+        return this.#enqueueWrite(draft.creation.recipeId, () => this.#finishWorkshopCreation(draft));
+      }
+      this.#checkWorkshopRevision(draft, input.baseRevision);
+      if (!draft.reviewed) throw new WorkshopError(400, "review_required", "请先核对材料和待确认项，再确认保存。");
+      if (draft.generation && ["queued", "extracting", "analyzing"].includes(draft.generation.state)) throw new WorkshopError(409, "analysis_running", "材料仍在整理，请完成后再保存。");
+      if (!this.#equipment.tools.length || !this.#tagVocabulary.names.length) throw new WorkshopError(503, "vocabulary_unavailable", "厨具或标签词表尚未载入，暂时不能保存。");
+      const recipeId = `workshop-${today().replaceAll("-", "")}-${randomBytes(6).toString("hex")}`;
+      const candidate = structuredClone(draft.candidate);
+      // 空白可选项表示没填；必填的空食材/步骤仍交正式校验定位。
+      for (const key of ["summary", "source"] as const) if (!candidate[key]?.trim()) delete candidate[key];
+      for (const key of ["tips", "aliases", "tags", "equipment"] as const) if (candidate[key]) candidate[key] = candidate[key]?.filter(s => s.trim());
+      for (const item of candidate.ingredients ?? []) {
+        for (const key of ["unit", "group", "note"] as const) if (!item[key]?.trim()) delete item[key];
+        if (typeof item.amount === "string" && !item.amount.trim()) delete item.amount;
+      }
+      for (const step of candidate.steps ?? []) for (const key of ["title", "heat", "tip"] as const) if (!step[key]?.trim()) delete step[key];
+      const origins = draft.sources.filter(s => s.selected).map(s => [s.author, s.name, s.url].filter(Boolean).join(" · "));
+      const parsed = this.#recipeSchema.safeParse({
+        ...candidate, id: recipeId, createdAt: today(), updatedAt: today(),
+        source: candidate.source || `${origins.length ? origins.join("；") : "用户自建做法"}；创意工坊整理，已人工确认`
+      });
+      if (!parsed.success) throw new WorkshopError(400, "invalid_recipe", "请补齐或修正菜谱内容。", formatIssueList(parsed.error));
+      const issues = lintRecipeContent(parsed.data);
+      if (hasBlockingIssues(issues)) throw new WorkshopError(400, "invalid_recipe", "菜谱内容尚有需要修正的地方。", formatContentIssues(recipeId, issues));
+      const images: NonNullable<WorkshopDraft["creation"]>["images"] = [];
+      const selections = [
+        ...(draft.images.coverSourceId ? [{ sourceId: draft.images.coverSourceId, fileName: "cover.jpg" }] : []),
+        ...draft.images.stepSourceIds.flatMap((sourceId, index) => sourceId ? [{ sourceId, fileName: `step-${index + 1}.jpg` }] : [])
+      ];
+      for (const selection of selections) {
+        if (selection.fileName.startsWith("step-") && Number(selection.fileName.match(/\d+/)?.[0]) > parsed.data.steps.length) throw new WorkshopError(400, "invalid_step_image", "配图对应的步骤不存在。");
+        const source = draft.sources.find(s => s.id === selection.sourceId && s.kind === "image");
+        if (!source) throw new WorkshopError(400, "unknown_image", "选用的图片不存在。");
+        const normalized = await this.readWorkshopSource(id, source.id, true);
+        images.push({ ...selection, sha256: revisionOfBytes(normalized.bytes) });
+      }
+      draft.creation = { key: input.creationKey, recipeId, recipe: parsed.data, recipeHash: revisionOfBytes(Buffer.from(serializeRecipe(parsed.data))), images, phase: "prepared" };
+      await this.#persistWorkshopDraft(draft);
+      return this.#enqueueWrite(recipeId, () => this.#finishWorkshopCreation(draft));
+    });
+  }
+
+  async #finishWorkshopCreation(draft: WorkshopDraft): Promise<WorkshopCommitResult> {
+    const creation = draft.creation!;
+    const file = join(this.#recipesDir, `${creation.recipeId}.json`);
+    let existing: Buffer | null = null;
+    try { existing = await readFile(file); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error; }
+    const warnings: string[] = [];
+    if (existing && revisionOfBytes(existing) !== creation.recipeHash) throw new WorkshopError(409, "recipe_exists", "目标菜谱已经存在且内容不同，保存没有覆盖它。", undefined, draft);
+    if (!existing) {
+      const checked = this.#recipeSchema.safeParse(creation.recipe);
+      if (!checked.success || checked.data.id !== creation.recipeId || hasBlockingIssues(lintRecipeContent(checked.data))) throw new WorkshopError(400, "invalid_creation", "冻结的创建内容校验失败，请核实草稿。");
+      if (revisionOfBytes(Buffer.from(serializeRecipe(checked.data))) !== creation.recipeHash) throw new WorkshopError(409, "creation_changed", "创建记录内容发生变化，保存已停止。");
+      if (creation.images.length) await this.#prepareWorkshopImages(draft);
+      await mkdir(this.#recipesDir, { recursive: true });
+      const temp = `${file}.${randomBytes(8).toString("hex")}.tmp`;
+      try {
+        await writeFile(temp, serializeRecipe(creation.recipe), { flag: "wx", mode: 0o644 });
+        await link(temp, file); // 排他提交点：EEXIST 不覆盖，不使用可覆盖的 rename。
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === "EEXIST") throw new WorkshopError(409, "recipe_exists", "目标菜谱已存在，保存没有覆盖它。", undefined, draft);
+        throw error;
+      } finally { await unlink(temp).catch(() => undefined); }
+    } else {
+      // 提交后响应/回执丢失：只验证既有配图，不把丢失图片偷偷重写成成功。
+      for (const image of creation.images) {
+        let bytes: Buffer;
+        try { bytes = await readFile(join(this.#imagesDir, creation.recipeId, image.fileName)); }
+        catch { throw new WorkshopError(503, "committed_image_missing", "菜谱已保存，选用配图需要核实；请保留此草稿。", undefined, draft); }
+        if (revisionOfBytes(bytes) !== image.sha256) throw new WorkshopError(409, "committed_image_changed", "菜谱已保存，配图内容已变化，请核实。", undefined, draft);
+      }
+    }
+    this.#replaceInMemory(creation.recipeId, creation.recipe, creation.recipeHash);
+    warnings.push(...await this.#recomputeMedia(creation.recipeId, creation.recipe.steps.length));
+    creation.phase = "committed";
+    draft.savedRecipeId = creation.recipeId;
+    draft.reviewed = true;
+    let saved: WorkshopDraft;
+    try { saved = await this.#persistWorkshopDraft(draft); }
+    catch {
+      // 正文已提交：保留内存结果和创建意图，下一次读/重启补回执，不返回“没有保存”。
+      saved = { ...draft };
+      warnings.push("菜谱已保存，草稿回执稍后核实即可；重复保存会返回同一道菜。");
+    }
+    return { recipe: this.detail(creation.recipeId)!, draft: saved, warnings };
+  }
+
+  async #prepareWorkshopImages(draft: WorkshopDraft): Promise<void> {
+    const creation = draft.creation!;
+    const dir = join(this.#imagesDir, creation.recipeId);
+    const marker = join(dir, ".workshop-origin.json");
+    const markerBytes = Buffer.from(JSON.stringify({ draftId: draft.draftId, key: creation.key }));
+    await mkdir(this.#imagesDir, { recursive: true });
+    try {
+      await mkdir(dir);
+      await writeFile(marker, markerBytes, { flag: "wx", mode: 0o600 });
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error;
+      let owner: Buffer;
+      try { owner = await readFile(marker); }
+      catch { throw new WorkshopError(409, "image_directory_exists", "目标图片目录已存在，保存没有覆盖它。"); }
+      if (!owner.equals(markerBytes)) throw new WorkshopError(409, "image_directory_exists", "目标图片目录属于其他记录，保存已停止。");
+    }
+    for (const image of creation.images) {
+      const target = join(dir, image.fileName);
+      let existing: Buffer | null = null;
+      try { existing = await readFile(target); }
+      catch (error) { if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error; }
+      if (existing) {
+        if (revisionOfBytes(existing) !== image.sha256) throw new WorkshopError(409, "image_exists", "选用图片目标已有不同内容，保存没有覆盖它。");
+        continue;
+      }
+      const source = await this.readWorkshopSource(draft.draftId, image.sourceId, true);
+      if (revisionOfBytes(source.bytes) !== image.sha256) throw new WorkshopError(409, "source_changed", "选用图片材料已变化，保存已停止。");
+      await writeFile(target, source.bytes, { flag: "wx", mode: 0o644 });
+    }
+  }
+
+  async #requireWorkshopDraft(id: string): Promise<WorkshopDraft> {
+    const draft = await this.readWorkshopDraft(id);
+    if (!draft) throw new WorkshopError(404, "draft_not_found", "没有找到这份草稿。");
+    return draft;
+  }
+
+  /** 只补已提交文件的回执，绝不通过 GET 完成尚未提交的新建。 */
+  async recoverWorkshopDraft(id: string): Promise<WorkshopDraft | null> {
+    const draft = await this.readWorkshopDraft(id);
+    if (!draft?.creation || draft.creation.phase !== "prepared") return draft;
+    const bytes = await readFile(join(this.#recipesDir, `${draft.creation.recipeId}.json`)).catch(() => null);
+    if (!bytes || revisionOfBytes(bytes) !== draft.creation.recipeHash) return draft;
+    return (await this.commitWorkshopDraft(id, { baseRevision: draft.revision, creationKey: draft.creation.key })).draft;
+  }
+
+  #checkWorkshopRevision(draft: WorkshopDraft, revision: string): void {
+    if (draft.revision !== revision) throw new WorkshopError(409, "draft_revision_conflict", "草稿已在其他页面更新，请重新载入后继续。", undefined, draft);
+  }
+
+  #invalidateWorkshopInput(draft: WorkshopDraft): void {
+    draft.inputVersion += 1;
+    draft.reviewed = false;
+    if (draft.generation && ["queued", "extracting", "analyzing"].includes(draft.generation.state)) {
+      draft.generation.state = "interrupted";
+      draft.generation.problem = "材料或编辑已更新，请重新整理。";
+    }
+  }
+
+  async #persistWorkshopDraft(draft: WorkshopDraft): Promise<WorkshopDraft> {
+    const { revision: omitted, ...stored } = { ...draft, updatedAt: new Date().toISOString() };
+    void omitted;
+    const checked = workshopDraftSchema.safeParse(stored);
+    if (!checked.success) throw new WorkshopError(400, "invalid_draft", "草稿数据没有通过校验。", formatIssueList(checked.error));
+    const bytes = Buffer.from(`${JSON.stringify(checked.data, null, 2)}\n`);
+    const file = join(this.#workshopDir, draft.draftId, "draft.json");
+    const temp = `${file}.${randomBytes(8).toString("hex")}.tmp`;
+    await mkdir(join(this.#workshopDir, draft.draftId), { recursive: true });
+    try {
+      await writeFile(temp, bytes, { flag: "wx", mode: 0o600 });
+      await rename(temp, file);
+    } finally { await unlink(temp).catch(() => undefined); }
+    return { ...checked.data, revision: revisionOfBytes(bytes) };
+  }
+
+  async #recoverWorkshop(): Promise<void> {
+    // 读目录失败不让已有菜谱不可用；工坊接口会返回具体不可用状态。
+    let entries: Dirent[];
+    try { entries = await readdir(this.#workshopDir, { withFileTypes: true }); }
+    catch { return; }
+    for (const entry of entries) {
+      if (!entry.isDirectory() || !workshopIdSchema.safeParse(entry.name).success) continue;
+      try {
+        const draft = await this.readWorkshopDraft(entry.name);
+        if (!draft) continue;
+        if (draft.creation) {
+          const bytes = await readFile(join(this.#recipesDir, `${draft.creation.recipeId}.json`)).catch(() => null);
+          if (bytes && revisionOfBytes(bytes) === draft.creation.recipeHash) await this.#finishWorkshopCreation(draft);
+        } else if (draft.generation && ["queued", "extracting", "analyzing"].includes(draft.generation.state)) {
+          draft.generation.state = "interrupted";
+          draft.generation.problem = "服务重启中断了整理；材料已保留，可重新尝试。";
+          await this.#persistWorkshopDraft(draft);
+        }
+      } catch { /* 坏草稿、配图或回执失败只影响这一条，原记录保留供核实。 */ }
+    }
   }
 
   failures(): LoadFailure[] {
