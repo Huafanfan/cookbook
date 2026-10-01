@@ -201,24 +201,30 @@ async function resolveAddresses(hostname: string): Promise<Address[]> {
   return lookup(hostname, { all: true, verbatim: true });
 }
 
-function requestOnePage(url: URL, address: Address, signal: AbortSignal): Promise<PageResponse> {
+/** Node HTTP transport；调用方必须先完成公网地址校验，测试用本机 server 验证其 lookup 行为。 */
+export function requestOnePage(url: URL, address: Address, signal: AbortSignal): Promise<PageResponse> {
   return new Promise((resolve, reject) => {
     const client = url.protocol === "https:" ? https : http;
     const chunks: Buffer[] = [];
     let bytes = 0;
+    // Node 22 运行时会把该 Socket 选项透传给 net.connect；当前 @types/node 的
+    // http.RequestOptions 尚未声明此字段，因此在这里仅扩展运行时实际接收的选项。
+    const requestOptions = {
+      method: "GET",
+      agent: false,
+      family: address.family,
+      autoSelectFamily: false,
+      signal,
+      headers: {
+        accept: "text/html, text/markdown, text/plain, application/ld+json, application/json;q=0.9, */*;q=0.1",
+        "accept-encoding": "identity",
+        "user-agent": "CookbookWorkshop/1.0"
+      },
+      lookup: (_hostname, _options, callback) => callback(null, address.address, address.family)
+    } as http.RequestOptions & { autoSelectFamily: boolean };
     const request = client.request(
       url,
-      {
-        method: "GET",
-        agent: false,
-        signal,
-        headers: {
-          accept: "text/html, text/markdown, text/plain, application/ld+json, application/json;q=0.9, */*;q=0.1",
-          "accept-encoding": "identity",
-          "user-agent": "CookbookWorkshop/1.0"
-        },
-        lookup: (_hostname, _options, callback) => callback(null, address.address, address.family)
-      },
+      requestOptions,
       (response) => {
         const responseHeaders: Record<string, string> = {};
         for (const [name, value] of Object.entries(response.headers)) {

@@ -1,3 +1,5 @@
+import * as http from "node:http";
+
 import { describe, expect, it, vi } from "vitest";
 
 import type { WorkshopExtractOptions } from "../src/shared/types.js";
@@ -6,7 +8,8 @@ import {
   extractWorkshopLink,
   isPublicWorkshopAddress,
   normalizeWorkshopUrl,
-  parseWorkshopRecipeJson
+  parseWorkshopRecipeJson,
+  requestOnePage
 } from "../src/server/lib/source-extractor.js";
 
 const publicAddress = { address: "93.184.216.34", family: 4 };
@@ -133,6 +136,34 @@ describe("workshop source URL and network bounds", () => {
     );
     expect(requestPage).toHaveBeenCalledWith(expect.any(URL), publicAddress, expect.any(AbortSignal));
     expect(result.text).toContain("土豆加水煮熟");
+  });
+
+  it("uses a pinned Node TCP family against a local server and keeps the original Host", async () => {
+    let observedHost = "";
+    const server = http.createServer((request, response) => {
+      observedHost = request.headers.host ?? "";
+      response.setHeader("content-type", "text/plain; charset=utf-8");
+      response.end("transport-ok");
+    });
+    await new Promise<void>((resolve, reject) => {
+      server.once("error", reject);
+      server.listen(0, "127.0.0.1", resolve);
+    });
+    try {
+      const address = server.address();
+      if (!address || typeof address === "string") throw new Error("local test server did not bind");
+      const url = new URL("http://recipes.example:" + address.port + "/article");
+      const result = await requestOnePage(
+        url,
+        { address: "127.0.0.1", family: 4 },
+        AbortSignal.timeout(2000)
+      );
+      expect(result.status).toBe(200);
+      expect(result.body).toBe("transport-ok");
+      expect(observedHost).toBe("recipes.example:" + address.port);
+    } finally {
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+    }
   });
 
   it("rejects a page body above 2 MiB instead of silently truncating it", async () => {
