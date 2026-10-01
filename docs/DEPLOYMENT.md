@@ -139,6 +139,40 @@ ssh root@192.168.1.2 'sh /srv/backup/cookbook-complete-20260930-191857/rollback.
 
 ---
 
+## 0g. 创意工坊上线供 review（2026-10-01）
+
+用户明确要求开始实施、持续更新文档、提交推送，并部署可 review 的效果。运行源码为 `codex/recipe-workshop` 的 `4768c2df0f96a511251722a11441351888f61de0`（首版 `8af0fe4`，目标 Node 22 兼容性修复 `4768c2d`）。代码推到独立功能分支；远程默认分支未改。发布只更新 cookbook app，数据不迁移，未触碰其他服务、路由、DNS 或防火墙。
+
+| 项目 | 实测结果 |
+| --- | --- |
+| 上线时间 | 2026-10-01 17:20:59（Asia/Shanghai）启动，随后 healthy |
+| URL | `http://192.168.1.2:18081/workshop`；首页“打开创意工坊”可进入 |
+| 平台 / 依赖 | x86_64 / linux/amd64；缓存 Node `22.23.2`；生产镜像内 jsdom/Readability/sharp 导入与图片规范化通过 |
+| 不可变镜像 | `sha256:75fbc808ef701eb2af81153dd266aa2009ada32109edd8fe728a462bbd99f54a`；307541728 字节，标签 `cookbook:workshop-4768c2d` / `cookbook:server` |
+| 当前容器 | `7d29c669be3aa1a323943932361dd5753b850099dd096de923ffcd614850c8f1`，名称 `cookbook`；healthy，restart `unless-stopped` |
+| 安全配置 | `node`、只读根文件系统、`cap_drop: ALL`、非 privileged、256 MiB；原 LAN `192.168.1.2:18081 → 8080` 与 `/srv/data/cookbook → /data` RW 保持；稳态内存一次采样 73.45 MiB |
+| 公开链接复验 | 最终镜像通过 HowToCook 公开番茄牛肉蛋花汤 Markdown 的真实 DNS/HTTPS 提取，正文 612 字符。首次发现 Node 默认自动选址与单地址回调不兼容，修复后实际提取成功；原主机名/TLS 与 SSRF 防护保留 |
+| DS 与图片 | `.env.ds` 服务端配置可用，模型 `deepseek-flash`，文件 `0600`、不进镜像。256 MiB 隔离容器内真实两张截图 + 更正文字 → DS → JPEG 配图 → 正式保存/同键重试通过，3212 tokens，RSS 峰值 194228 KiB。临时测试数据位于 tmpfs，没有生产数据挂载 |
+| 数据保全 | 上线前停止 app 后备份完整数据；上线后 1082 个既有文件 SHA256 校验全部通过。Mac 独立客户端 `/health`、meta 和列表均为 371 道，371/371 有封面，示例图片 HTTP/JPEG 字节通过；线上未新建测试草稿/菜谱 |
+| 其他服务 / 管理 | Prowlarr、lan-smoke-test 的 ID/启动时间/状态与发布前完全一致；iStoreOS HTTP/HTTPS 均 200，22/80/443 与 app 监听清单不变 |
+| 浏览器 | Mac 原生 Chrome：首页入口、工坊加载、1280/390/320 像素无水平溢出，控制台错误 0；只读浏览，不写线上测试数据 |
+| 日志 | 无启动 error/fatal，未发现 DS 密钥；没有输出完整环境或提供方请求/响应内容 |
+
+本次使用新的暂存镜像完成隔离验收后才停止旧 app；沿用现有 ext4 上的 `/srv/app/cookbook/source`、`/srv/data/cookbook`、`/srv/docker`，无需安装宿主机依赖。构建上下文来自已提交文件归档，排除 `data/`、`.git`、本地依赖和秘密；新 DS 密钥通过 SSH stdin 传输，置于构建上下文外。
+
+备份：`/srv/backup/cookbook-workshop-20261001-170000/`（`0700`）。含旧源码/环境、旧容器配置、持久化数据、哈希清单、构建日志与隔离验收脚本；旧镜像保留为 `cookbook:rollback-workshop-20261001-170000`。一致数据归档为 `data.tar.gz`，113025037 字节，SHA256 `b41e2e53776b8e7c62b5489da6ea6a5f526e0a2aa4907693d4e37a7ea3c26a7b`；归档目录清单读取通过。
+
+回滚脚本只恢复旧源码、镜像与配置，**保留当前全部菜谱、配图、草稿和来源资产**。有当前镜像及 Compose 哈希守卫。`--check` 已通过；未实际执行恢复演练，不将预检写成恢复成功。
+
+```bash
+# 只读预检；实际回滚需明确决定执行，不能还原旧整库数据覆盖新菜。
+/srv/backup/cookbook-workshop-20261001-170000/rollback.sh --check
+# 如需回滚代码：
+/srv/backup/cookbook-workshop-20261001-170000/rollback.sh
+```
+
+静态检查、345 项测试和实际浏览器/DS 材料断言见 [CB-014 CHECK](verification/CB-014/CHECK.md)。此版本供用户实际 review；真实手机相册/拍照、手写、常用平台链接、最大负载与试做仍待反馈，规格保留 `implemented`。
+
 ## 1. 本地开发（Mac）
 
 ```bash
