@@ -15,7 +15,7 @@
 | 部署 | **Docker（linux/amd64）+ docker compose**，绑定 `192.168.1.2:18081` | 与 iStoreOS 服务器现有部署方式一致 |
 | 图片 | 静态文件放 `data/images/`，由后端 `@fastify/static` 提供（**已实现**，CB-007：文件名白名单 + `no-cache`，见 [ADR-0004](decisions/ADR-0004-image-static-hosting.md)） | 图片不进镜像、不进 Git，可单独备份 |
 
-一个 Node 服务提供前端静态页、后端 API 与图片托管。创意工坊的公开来源提取和用户指定的 DS 整理按需出站；本地浏览、做菜与手动录入独立于这些请求，边界见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)。
+一个 Node 服务提供前端静态页、后端 API 与图片托管。创意工坊的公开来源提取和用户指定的 DS 整理按需出站；每日菜单按 [ADR-0010](decisions/ADR-0010-daily-menu.md) 每个北京日期最多一次DS请求。本地浏览、做菜与手动录入独立于这些请求，工坊边界见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)。
 
 ## 2. 数据源：JSON 文件而非数据库
 
@@ -88,7 +88,7 @@ src/
    **不得新增第 6 处**；菜谱数据读取一律经 repository。
    正式图片由 `@fastify/static` 按白名单提供；工坊原始素材按草稿记录定位，通过 repository 读取字节，不开放目录静态托管。
 2b. **写操作只有两处**：`user-state-store` 写 `data/user-state.json`（点赞/收藏/厨具；原子替换 + 串行队列）；
-   `recipe-repository` 写**菜谱内容**、`data/history/recipes/`，以及 CB-014 草稿、来源资产和人工采用的新菜图片。CB-009 原子编辑协议与 CB-014 排他新建协议分别见关联 ADR。
+   `recipe-repository` 写**菜谱内容**、`data/history/recipes/`，以及 CB-014 草稿、来源资产和人工采用的新菜图片、CB-015独立菜单缓存。写入协议分别见关联 ADR。
    菜谱写入前必须过 zod + 内容检查，并用文件字节的 `revision` 做版本守卫（不一致 → 409）。
 3. **类型**的唯一来源是 `src/shared/types.ts`，**运行时校验**的唯一来源是 `src/server/lib/schema.ts`（zod）。两边字段必须同步，改一处就要改另一处。
 
@@ -105,6 +105,18 @@ src/
 | `server/services/recipe-repository.ts` | 集中资产 I/O、草稿 revision、来源字节、排他新建、持久化意图与回执恢复 |
 
 草稿不是正式 Recipe，最后经完整校验和用户确认创建一个新 JSON 文件。新建结果即时进入既有索引；所有已有菜谱与编辑协议保持兼容。选型、出站和故障协议的权威说明见 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)，部署环境与备份见 DEPLOYMENT。
+
+## 4c. 每日菜单模块（CB-015）
+
+| 模块 | 职责 |
+| --- | --- |
+| `client/pages/HomePage.tsx`、`components/RecipeCard.tsx` | 厨具图标、完整三菜、只读获取与更新中短暂轮询 |
+| `server/routes/daily-menu.ts` | 只读菜单API，不触发模型 |
+| `server/services/daily-menu-service.ts` | 北京日期日程、候选与降级、并发预算；onListen启动、onClose取消 |
+| `server/lib/daily-menu-llm.ts` | 有界单次DS请求、JSON/schema与候选ID白名单，不读写文件 |
+| `server/services/recipe-repository.ts` | 独立缓存的串行认领与原子保存，坏缓存保留 |
+
+字段见 [DATA_MODEL §10](DATA_MODEL.md#10-每日菜单与请求预算cb-015)，单副本前提及故障决策见 [ADR-0010](decisions/ADR-0010-daily-menu.md)。
 
 ## 5. 备选方案与取舍
 

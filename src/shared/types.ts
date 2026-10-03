@@ -451,3 +451,71 @@ export interface WorkshopRecipeFormProps {
   photos: WorkshopSource[];
   onChange: (candidate: WorkshopRecipeInput, stepSourceIds?: (string | null)[]) => void;
 }
+
+/** 两人的每日家常菜单：模型只选择既有菜谱ID，原菜谱用量不变。 */
+export type DailyMenuRole = "main" | "vegetable" | "soup";
+export interface DailyMenuPick { role: DailyMenuRole; recipeId: string }
+export interface DailyMenuUsage { promptTokens: number; completionTokens: number; totalTokens: number }
+export interface DailyMenuSelection {
+  picks: DailyMenuPick[];
+  reason: string;
+  usage?: DailyMenuUsage;
+}
+export type DailyMenuErrorCode = "provider" | "timeout" | "invalid-result" | "interrupted" | "no-candidates";
+export interface DailyMenuRecord {
+  date: string;
+  attemptedAt: string;
+  status: "generating" | "ready" | "failed";
+  model: "deepseek-flash";
+  promptVersion: string;
+  generatedAt?: string;
+  picks?: DailyMenuPick[];
+  reason?: string;
+  usage?: DailyMenuUsage;
+  errorCode?: DailyMenuErrorCode;
+}
+export interface DailyMenuStore { version: 1; records: Record<string, DailyMenuRecord> }
+export interface DailyMenuItem { role: DailyMenuRole; recipe: RecipeSummary }
+export interface DailyMenuResponse {
+  date: string;
+  menuDate?: string;
+  people: 2;
+  source: "llm" | "fallback";
+  status: "ready" | "updating" | "stale" | "fallback";
+  items: DailyMenuItem[];
+  reason?: string;
+  generatedAt?: string;
+}
+export interface DailyMenuCandidate {
+  id: string;
+  name: string;
+  category: string;
+  servings: number;
+  difficulty: Difficulty;
+  ingredients: string[];
+  equipment: string[];
+  equipmentAlternatives: string[][];
+  tags: string[];
+  totalMinutes?: number;
+}
+export interface DailyMenuLlmInput {
+  date: string;
+  people: 2;
+  candidates: DailyMenuCandidate[];
+  ownedTools: string[];
+  recentRecipeIds: string[];
+}
+export interface DailyMenuServiceOptions {
+  config?: WorkshopLlmConfig | null;
+  generate?: (input: DailyMenuLlmInput, config: WorkshopLlmConfig, options?: WorkshopLlmOptions) => Promise<DailyMenuSelection>;
+  now?: () => Date;
+  warn?: (code: string) => void;
+}
+export interface RecipeCardProps {
+  recipe: RecipeSummary;
+  keyword?: string;
+  myTools: string[];
+  catalogReady: boolean;
+  variant?: "default" | "featured" | "daily";
+  dailyRole?: DailyMenuRole;
+}

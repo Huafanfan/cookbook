@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-import type { RecipeListResponse, RecipeSummary, SearchParams } from "../../shared/types";
+import type { DailyMenuResponse, RecipeListResponse, SearchParams } from "../../shared/types";
 import { FilterBar } from "../components/FilterBar";
 import { KitchenToolsPanel } from "../components/KitchenToolsPanel";
 import { RecipeCard } from "../components/RecipeCard";
 import { SearchBar } from "../components/SearchBar";
-import { buildQuery, fetchRecipes } from "../lib/api";
+import { buildQuery, fetchDailyMenu, fetchRecipes } from "../lib/api";
 import { navigate, replaceQuery } from "../lib/router";
 import { readStored, STORAGE_KEYS } from "../lib/storage";
 import { useMeta } from "../lib/use-meta";
@@ -13,8 +13,6 @@ import { useMyKitchen } from "../lib/use-kitchen";
 
 /** 稳定的空数组，避免每次渲染都换引用 */
 const NO_TOOLS: string[] = [];
-/** 只选仓库里已有成品图的菜；失效时自动略过，不造图。 */
-const FEATURED_IDS = ["you-men-da-xia", "gan-guo-hua-cai", "yu-xiang-qie-zi"];
 
 function readInitialParams(): SearchParams {
   const search = new URLSearchParams(window.location.search);
@@ -34,11 +32,46 @@ export function HomePage(): React.JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [kitchenPanelOpen, setKitchenPanelOpen] = useState(false);
+  const [dailyMenu, setDailyMenu] = useState<DailyMenuResponse | null>(null);
+  const [menuFailed, setMenuFailed] = useState(false);
   const kitchen = useMyKitchen({
     available: meta?.equipment ?? NO_TOOLS,
     defaultOwned: meta?.defaultOwned ?? NO_TOOLS
   });
   const restoredScroll = useRef(false);
+
+  // 菜单接口只读；更新中短暂轮询，回到页面时读取服务端的新菜单。
+  useEffect(() => {
+    const controller = new AbortController();
+    let timer: number | undefined;
+    let pending = false;
+    const load = async (): Promise<void> => {
+      if (pending || controller.signal.aborted) return;
+      window.clearTimeout(timer);
+      pending = true;
+      try {
+        const response = await fetchDailyMenu(controller.signal);
+        if (controller.signal.aborted) return;
+        setDailyMenu(response);
+        setMenuFailed(false);
+        if (response.status === "updating") timer = window.setTimeout(() => { void load(); }, 2500);
+      } catch {
+        if (!controller.signal.aborted) setMenuFailed(true);
+      } finally {
+        pending = false;
+      }
+    };
+    const onVisible = (): void => { if (!document.hidden) void load(); };
+    void load();
+    window.addEventListener("focus", onVisible);
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      controller.abort();
+      window.clearTimeout(timer);
+      window.removeEventListener("focus", onVisible);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, []);
 
   // 输入防抖 150ms 后再发起搜索
   useEffect(() => {
@@ -87,12 +120,9 @@ export function HomePage(): React.JSX.Element {
   const catalogReady = Boolean(meta?.equipment.length);
   const items = data?.items ?? [];
   const hasQuery = Boolean(params.q || params.category || params.tag);
-  const featured: RecipeSummary[] = hasQuery
-    ? []
-    : FEATURED_IDS.flatMap((id) => {
-        const item = items.find((recipe) => recipe.id === id);
-        return item?.coverImage ? [item] : [];
-      });
+  const menuItems = dailyMenu?.items ?? [];
+  const menuDate = dailyMenu?.menuDate;
+  const menuDateLabel = menuDate ? `${Number(menuDate.slice(5, 7))}月${Number(menuDate.slice(8, 10))}日` : "家常搭配";
 
   return (
     <div className="page home-page">
@@ -102,15 +132,22 @@ export function HomePage(): React.JSX.Element {
         <div className="home-header-actions">
           <button
             type="button"
-            className="home-kitchen-button"
+            className="home-icon-button home-kitchen-button"
+            aria-label="我的厨具"
             aria-expanded={kitchenPanelOpen}
             onClick={() => setKitchenPanelOpen((open) => !open)}
           >
-            我的厨具
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+              <g stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m8 5 4 4M5 8l4 4M6.5 6.5l5 5M12 9l-3 3c-1.1 1.1-2.9 1.1-4 0L3 10M10.5 10.5 25 25" />
+                <path d="M22 4c-3 1-5.3 4.4-4.5 6.7.4 1.1 1.7 1.8 2.8 1.7 1.4-.1 3.2-1.8 4.8-4.1C26.8 5.9 25 3 22 4ZM19 12 6 25" />
+              </g>
+            </svg>
+            <span className="home-icon-tooltip" aria-hidden="true">我的厨具</span>
           </button>
           <button
             type="button"
-            className="home-workshop-button"
+            className="home-icon-button home-workshop-button"
             aria-label="创意工坊"
             onClick={() => navigate("/workshop")}
           >
@@ -124,7 +161,7 @@ export function HomePage(): React.JSX.Element {
                 fill="#d3a330"
               />
             </svg>
-            <span className="home-workshop-tooltip" aria-hidden="true">创意工坊</span>
+            <span className="home-icon-tooltip" aria-hidden="true">创意工坊</span>
           </button>
         </div>
       </header>
@@ -143,15 +180,21 @@ export function HomePage(): React.JSX.Element {
         />
       )}
 
-      {featured.length > 0 && (
-        <section className="featured-section" aria-labelledby="featured-title">
-          <h2 id="featured-title">今晚，做点好吃的</h2>
-          <ul className="featured-list">
-            {featured.map((item) => (
+      {!hasQuery && (
+        <section className="featured-section daily-menu-section" aria-labelledby="featured-title">
+          <div className="daily-menu-heading">
+            <h2 id="featured-title">今晚，做点好吃的</h2>
+            {menuItems.length > 0 && <p>{menuDateLabel} · 2人餐</p>}
+          </div>
+          {dailyMenu?.status === "updating" && <p className="daily-menu-notice" role="status">今日搭配准备中</p>}
+          {menuItems.length === 0 && <p className="daily-menu-notice">{menuFailed ? "今日搭配暂时没准备好，先逛逛菜谱吧。" : dailyMenu ? "再添些家常菜，就能配齐一桌。" : "正在准备搭配…"}</p>}
+          <ul className="daily-menu-list">
+            {menuItems.map((item) => (
               <RecipeCard
-                key={item.id}
-                recipe={item}
-                variant="featured"
+                key={item.recipe.id}
+                recipe={item.recipe}
+                variant="daily"
+                dailyRole={item.role}
                 myTools={kitchen.tools}
                 catalogReady={catalogReady}
               />

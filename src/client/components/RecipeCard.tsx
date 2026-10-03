@@ -1,4 +1,4 @@
-import type { RecipeSummary } from "../../shared/types";
+import type { DailyMenuRole, RecipeCardProps } from "../../shared/types";
 import { difficultyText } from "../lib/format";
 import { Highlight } from "../lib/highlight";
 import { checkEquipment, kitchenVerdict, shortEquipmentLabel } from "../lib/kitchen";
@@ -6,22 +6,15 @@ import { navigate } from "../lib/router";
 import { STORAGE_KEYS, writeStored } from "../lib/storage";
 import { RecipeCover } from "./RecipeCover";
 
-interface RecipeCardProps {
-  recipe: RecipeSummary;
-  keyword?: string;
-  /** 我有的厨具；用于标记"缺厨具 / 可用替代" */
-  myTools: string[];
-  /** 厨具词表是否已载入；未载入时不给标记（避免假结论） */
-  catalogReady: boolean;
-  variant?: "default" | "featured";
-}
+const DAILY_ROLES: Record<DailyMenuRole, string> = { main: "荤菜", vegetable: "素菜", soup: "汤羹" };
 
 export function RecipeCard({
   recipe,
   keyword,
   myTools,
   catalogReady,
-  variant = "default"
+  variant = "default",
+  dailyRole
 }: RecipeCardProps): React.JSX.Element {
   const open = (): void => {
     // 记住列表页的位置与搜索条件，返回时原样恢复
@@ -32,7 +25,28 @@ export function RecipeCard({
 
   const check = checkEquipment(recipe.equipment, recipe.equipmentAlternatives, myTools);
   const verdict = kitchenVerdict(check);
-  const kitchenLabel = catalogReady && myTools.length > 0 ? shortEquipmentLabel(check) : null;
+  const kitchenLabel = catalogReady && (myTools.length > 0 || variant === "daily") ? shortEquipmentLabel(check) : null;
+
+  if (variant === "daily") {
+    const roleLabel = dailyRole ? DAILY_ROLES[dailyRole] : recipe.category;
+    return (
+      <li className="daily-menu-item">
+        <button type="button" className="daily-menu-card" aria-label={`${roleLabel}：${recipe.name}`} onClick={open}>
+          <span className="daily-menu-photo">
+            <RecipeCover src={recipe.coverImage} name={recipe.name} className="daily-menu-cover" />
+            <span className="daily-menu-role">{roleLabel}</span>
+          </span>
+          <span className="daily-menu-caption">
+            <strong>{recipe.name}</strong>
+            <span className="daily-menu-card-meta">
+              {recipe.totalMinutes ? <span>{recipe.totalMinutes} 分钟</span> : null}
+              {kitchenLabel && <span className={`daily-menu-equipment badge-kitchen-${verdict}`}>{kitchenLabel}</span>}
+            </span>
+          </span>
+        </button>
+      </li>
+    );
+  }
 
   if (variant === "featured") {
     return (

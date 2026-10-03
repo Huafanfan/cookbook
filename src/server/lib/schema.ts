@@ -274,3 +274,54 @@ export const kitchenStateSchema = z.object({
 export const kitchenWriteBodySchema = z.strictObject({
   tools: z.array(z.string())
 });
+
+/* ---------- 每日菜单缓存与模型输出（CB-015） ---------- */
+const dailyMenuDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(value => {
+  const time = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(time.getTime()) && time.toISOString().slice(0, 10) === value;
+}, "必须是真实日期");
+const dailyMenuUsageSchema = z.strictObject({
+  promptTokens: z.number().int().nonnegative(),
+  completionTokens: z.number().int().nonnegative(),
+  totalTokens: z.number().int().nonnegative()
+});
+const dailyMenuPicksSchema = z.array(z.strictObject({
+  role: z.enum(["main", "vegetable", "soup"]),
+  recipeId: z.string().regex(/^[a-z0-9][a-z0-9-]*$/).max(160)
+})).length(3).refine(picks => new Set(picks.map(pick => pick.role)).size === 3
+  && new Set(picks.map(pick => pick.recipeId)).size === 3, "三种角色与菜谱ID不得重复");
+export const dailyMenuSelectionSchema = z.strictObject({
+  picks: dailyMenuPicksSchema,
+  reason: z.string().min(1).max(120),
+  usage: dailyMenuUsageSchema.optional()
+});
+export const dailyMenuRecordSchema = z.strictObject({
+  date: dailyMenuDateSchema,
+  attemptedAt: z.string().datetime(),
+  status: z.enum(["generating", "ready", "failed"]),
+  model: z.literal("deepseek-flash"),
+  promptVersion: z.string().min(1).max(100),
+  generatedAt: z.string().datetime().optional(),
+  picks: dailyMenuPicksSchema.optional(),
+  reason: z.string().min(1).max(120).optional(),
+  usage: dailyMenuUsageSchema.optional(),
+  errorCode: z.enum(["provider", "timeout", "invalid-result", "interrupted", "no-candidates"]).optional()
+}).superRefine((record, context) => {
+  if (record.status === "ready" && (!record.generatedAt || !record.picks || !record.reason || record.errorCode)) {
+    context.addIssue({ code: "custom", message: "ready必须包含完整菜单且没有错误码" });
+  }
+  if (record.status !== "ready" && (record.picks || record.reason || record.generatedAt)) {
+    context.addIssue({ code: "custom", message: "未成功记录不能包含菜单" });
+  }
+  if ((record.status === "failed") !== Boolean(record.errorCode)) {
+    context.addIssue({ code: "custom", message: "仅failed必须包含错误码" });
+  }
+});
+export const dailyMenuStoreSchema = z.strictObject({
+  version: z.literal(1),
+  records: z.record(dailyMenuDateSchema, dailyMenuRecordSchema)
+}).superRefine((store, context) => {
+  for (const [date, record] of Object.entries(store.records)) {
+    if (record.date !== date) context.addIssue({ code: "custom", path: ["records", date], message: "日期键与记录必须一致" });
+  }
+});

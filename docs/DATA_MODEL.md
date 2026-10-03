@@ -260,3 +260,22 @@ HowToCook 的份量与模板约定并不统一，导入器按以下规则逐文�
 目录：`data/workshop/drafts/<draftId>/draft.json`；图片材料原件为 `sources/<sourceId>.<实际格式>`，DS/正式配图用 `sources/<sourceId>.normalized.jpg`。只有用户确认采用的图片进入已有 `data/images/<recipeId>/cover.jpg`、`step-N.jpg`。工坊素材路由只按受控 ID 查记录，不托管任意目录。
 
 新增 API 形状以共享类型和 schema 为实现约束：capabilities、drafts 列表、create/read/PUT、POST sources/analyze/commit 与只读素材 GET，具体交互见 [CB-014 §4](features/CB-014-recipe-workshop.md#4-数据与接口变化)。capabilities 的可选 `vocabulary` 提供完整 tags/equipment 词表，区别于首页 `meta.tags` 已使用的筛选项。`commit` 输入为 `{baseRevision, creationKey}`，返回 `{recipe, draft, warnings}`；并发守卫或新 ID 冲突 → 409，格式/内容错误 → 400，素材超限 → 413。
+
+## 10. 每日菜单与请求预算（CB-015）
+
+2026-10-03 已接受；交互见 [CB-015](features/CB-015-daily-home-menu.md)，调度与故障策略见 [ADR-0010](decisions/ADR-0010-daily-menu.md)。这是独立派生缓存，不改 Recipe、图片或用户状态。
+
+文件为 `data/recommendations/daily-menu.json`，格式 `{version: 1, records: {"YYYY-MM-DD": record}}`。日期按 Asia/Shanghai；日期键必须等于记录的 `date`，记录无自动清理。不存在时为空；结构损坏时保留原文件并停止模型调用，以普通搭配降级。
+
+| 字段 | 含义 |
+| --- | --- |
+| `date`、`attemptedAt` | 北京日期与认领时的 ISO 时间；任何同日记录都消耗该日尝试预算 |
+| `status` | `generating / ready / failed`；先原子落盘 generating，再发请求 |
+| `model`、`promptVersion` | 固定 `deepseek-flash` 与提示词版本；不含密钥或完整提示词 |
+| `generatedAt`、`picks`、`reason` | ready 必填；picks 恰好三项 `{role, recipeId}`，角色 `main / vegetable / soup` 各一个且 ID 不重复；reason 最多120字符 |
+| `errorCode` | failed 的受控错误码，不保存提供方响应、URL或异常全文 |
+| `usage` | 可选 promptTokens/completionTokens/totalTokens，用于真实用量核验 |
+
+`GET /api/daily-menu` 只读，返回 `{date, menuDate?, people: 2, source, status, items, reason?, generatedAt?}`。`date` 是请求时北京日期；`menuDate` 为真正缓存菜单日期。`source` 为 `llm / fallback`；`status` 为 `ready / updating / stale / fallback`。每项为 `{role, recipe: RecipeSummary}`，实时关联已有菜谱及用户厨具/收藏展示；旧ID失效则寻找最近有效菜单或普通搭配。无完整组合时 items 为空，不制造菜谱。
+
+服务端只向模型发送候选摘要：id、name、category、servings、difficulty、食材名、厨具/替代组、tags和可用时间；不发送来源链接、完整步骤、图片、草稿或用户历史。人数固定2，原用量不变。

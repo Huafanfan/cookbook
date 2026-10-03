@@ -138,18 +138,7 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
-.home-kitchen-button {
-  min-height: var(--tap);
-  padding: 5px 0;
-  border: 0;
-  background: transparent;
-  color: var(--color-accent);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.home-workshop-button {
+.home-icon-button {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -166,19 +155,20 @@ textarea:focus-visible {
   transition: background 150ms ease, border-color 150ms ease;
 }
 
-.home-workshop-button:hover,
-.home-workshop-button:focus-visible {
+.home-icon-button:hover,
+.home-icon-button:focus-visible,
+.home-icon-button[aria-expanded="true"] {
   border-color: #bed4c4;
   background: #eaf2e5;
 }
 
-.home-workshop-button svg {
+.home-icon-button svg {
   display: block;
   width: 30px;
   height: 30px;
 }
 
-.home-workshop-tooltip {
+.home-icon-tooltip {
   position: absolute;
   z-index: 6;
   top: calc(100% + 8px);
@@ -194,8 +184,8 @@ textarea:focus-visible {
   pointer-events: none;
 }
 
-.home-workshop-button:hover .home-workshop-tooltip,
-.home-workshop-button:focus-visible .home-workshop-tooltip {
+.home-icon-button:hover .home-icon-tooltip,
+.home-icon-button:focus-visible .home-icon-tooltip {
   visibility: visible;
 }
 
@@ -260,6 +250,60 @@ textarea:focus-visible {
   line-height: 1.25;
 }
 .featured-caption span { white-space: nowrap; }
+
+/* 一桌三菜保持完整，手机不会隐藏后两道。 */
+.daily-menu-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.daily-menu-heading p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.daily-menu-notice { margin: 10px 0 0; color: var(--color-muted); font-size: 13px; }
+.daily-menu-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.daily-menu-item { min-width: 0; }
+.daily-menu-card {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.daily-menu-photo { display: block; position: relative; overflow: hidden; border-radius: 14px; }
+.daily-menu-cover { display: block; width: 100%; aspect-ratio: 16 / 10; background: #edf2ed; }
+.daily-menu-cover .cover-image { object-fit: cover; transition: transform 180ms ease; }
+.daily-menu-card:hover .cover-image { transform: scale(1.025); }
+.daily-menu-role {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fffffff2;
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+.daily-menu-caption { display: block; padding: 11px 2px 0; }
+.daily-menu-caption strong { display: block; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.35; }
+.daily-menu-card-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 5px; color: var(--color-muted); font-size: 12px; }
+.daily-menu-equipment { font-size: 12px; }
 
 .browse-heading {
   display: flex;
@@ -1537,13 +1581,22 @@ textarea:focus-visible {
   }
   .home-brand { font-size: 27px; }
   .home-header-actions { grid-column: 2; grid-row: 1; gap: 10px; }
-  .home-kitchen-button { font-size: 13px; }
   .home-header .search-bar { grid-column: 1 / -1; grid-row: 2; }
   .featured-section { margin-bottom: 28px; }
   .featured-section h2 { font-size: 24px; }
   .featured-list { grid-template-columns: 1fr; margin-top: 14px; }
   .featured-item:nth-child(n + 2) { display: none; }
   .featured-cover { aspect-ratio: 16 / 9; }
+  .daily-menu-heading { display: block; }
+  .daily-menu-heading p { margin-top: 7px; font-size: 12px; }
+  .daily-menu-list { gap: 9px; margin-top: 14px; }
+  .daily-menu-cover { aspect-ratio: 1; }
+  .daily-menu-photo { border-radius: 10px; }
+  .daily-menu-role { bottom: 6px; left: 6px; padding: 2px 7px; font-size: 11px; }
+  .daily-menu-caption { padding-top: 8px; }
+  .daily-menu-caption strong { font-size: 14px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .daily-menu-card-meta { font-size: 11px; gap: 4px; }
+  .daily-menu-equipment { font-size: 11px; }
   .browse-heading h2 { font-size: 25px; }
   .filter-row-categories {
     flex-wrap: wrap;

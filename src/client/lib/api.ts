@@ -1,4 +1,5 @@
 import type {
+  DailyMenuResponse,
   KitchenState,
   Recipe,
   RecipeDetail,
@@ -71,6 +72,10 @@ export function fetchRecipes(
   signal?: AbortSignal
 ): Promise<RecipeListResponse> {
   return getJson<RecipeListResponse>(`/api/recipes${buildQuery(params)}`, signal);
+}
+
+export function fetchDailyMenu(signal?: AbortSignal): Promise<DailyMenuResponse> {
+  return getJson<DailyMenuResponse>("/api/daily-menu", signal);
 }
 
 /** 详情 = 菜谱文件字段 + 图片信息（CB-007） */

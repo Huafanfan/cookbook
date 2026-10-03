@@ -22,6 +22,7 @@
 | CB-012 | [缺图菜谱的小批封面补齐](CB-012-cover-backfill.md) | `implemented` | 待图片观感确认 | 本地四张封面已补；来源、提示词、哈希与运行证据见 [CHECK](../verification/CB-012/CHECK.md) |
 | CB-013 | [优先检索开放许可照片补图](CB-013-open-license-cover-batch.md) | `implemented` | 待图片观感确认 | 五批补图，本地全部371道有封面；证据见 [首批](../verification/CB-013/CHECK.md)、[第二批](../verification/CB-013/CHECK-BATCH-2.md)、[第三批](../verification/CB-013/CHECK-BATCH-3.md)、[第四批50个](../verification/CB-013/CHECK-BATCH-4.md)、[第五批全部剩余75个](../verification/CB-013/CHECK-BATCH-5.md)，线上状态见部署记录 |
 | CB-014 | [创意工坊：多种材料录入新菜](CB-014-recipe-workshop.md) | `implemented` | 待真机与常用来源反馈 | 链接、文字、多图、JSON、混合材料及手动录入；真实 DS 与技术验证见 [CHECK](../verification/CB-014/CHECK.md)，部署见 DEPLOYMENT |
+| CB-015 | [两人的每日家常菜单与厨具图标](CB-015-daily-home-menu.md) | `implemented` | 待实际搭配反馈 | DS4.1每日从现有菜谱选一荤一素一汤；真实DS/浏览器与365项测试见 [CHECK](../verification/CB-015/CHECK.md)，发布见DEPLOYMENT |
 
 ## 后续候选
 

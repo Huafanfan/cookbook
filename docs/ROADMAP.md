@@ -165,6 +165,7 @@ A+ 字号 → 步骤正文 16px→17.92px（16×1.12）并持久化；
 | 中 | **来源基线与重新同步** | ✅ [`CB-010`](features/CB-010-source-and-resync.md)（`implemented`，用户验收 done）：`sourceRef` + 基线快照 + 三方合并；真实模型冲突流程已验，真实上游更新场景未实际演练 |
 | 当前 | **创意工坊录入新菜** | [`CB-014`](features/CB-014-recipe-workshop.md) 已实现；345 项测试、真实 DS 多图和桌面/手机尺寸验证通过，见 [CHECK](verification/CB-014/CHECK.md)。部署见 DEPLOYMENT；等待常用来源与真机使用反馈 |
 | 中 | 已有菜谱上传/换图片 | 网页上传并自动压缩到 `data/images/`；新菜工坊配图的建议范围见 [CB-014](features/CB-014-recipe-workshop.md) |
+| 当前 | **两人每日家常菜单与厨具图标** | [CB-015](features/CB-015-daily-home-menu.md) implemented；静态/365项测试与真实DS/浏览器证据见 [CHECK](verification/CB-015/CHECK.md)，实际搭配反馈待试用 |
 | 低 | 购物清单 | 多选菜谱合并食材，可勾选 |
 | 低 | PWA | 加到手机桌面，像 App 一样打开 |
 | 低 | 模糊/拼音搜索 | 引入 Fuse.js 或加拼音索引 |

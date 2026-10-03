@@ -5,6 +5,8 @@ import { randomBytes } from "node:crypto";
 import { join } from "node:path";
 
 import type {
+  DailyMenuStore,
+  DailyMenuRecord,
   Recipe,
   RecipeDetail,
   RecipeHistoryEntry,
@@ -32,7 +34,7 @@ import {
   serializeRecipe
 } from "../lib/recipe-revision.js";
 import { loadTagVocabulary, EMPTY_TAG_VOCABULARY, type TagVocabulary } from "../lib/tags.js";
-import { createRecipeSchema, formatIssueList, formatIssues, workshopDraftSchema, workshopDraftPatchSchema, workshopIdSchema, workshopSourceInputSchema } from "../lib/schema.js";
+import { createRecipeSchema, dailyMenuRecordSchema, dailyMenuStoreSchema, formatIssueList, formatIssues, workshopDraftSchema, workshopDraftPatchSchema, workshopIdSchema, workshopSourceInputSchema } from "../lib/schema.js";
 import { WorkshopError } from "../lib/workshop-errors.js";
 
 export interface LoadFailure {
@@ -307,6 +309,8 @@ export class RecipeRepository {
   readonly #historyDir: string;
   readonly #imagesDir: string;
   readonly #workshopDir: string;
+  readonly #dailyMenuFile: string;
+  #dailyMenuChain: Promise<unknown> = Promise.resolve();
   /** 每道菜一条保存队列：应用内对同一道菜的写入不会交错（ADR-0005 §1） */
   readonly #writeChains = new Map<string, Promise<unknown>>();
 
@@ -334,6 +338,7 @@ export class RecipeRepository {
     this.#historyDir = join(paths.dataDir, "history", "recipes");
     this.#imagesDir = join(paths.dataDir, "images");
     this.#workshopDir = join(paths.dataDir, "workshop", "drafts");
+    this.#dailyMenuFile = join(paths.dataDir, "recommendations", "daily-menu.json");
   }
 
   static async load(dataDir: string): Promise<RecipeRepository> {
@@ -424,6 +429,66 @@ export class RecipeRepository {
   /** `data/images/` 是否存在（不存在只是“还没有图片”，不是错误） */
   imagesMissing(): boolean {
     return this.#images.missing;
+  }
+
+  /** 每日派生缓存损坏时抛受控错误，调用方降级；不能覆盖原文件。 */
+  async readDailyMenus(): Promise<DailyMenuStore> {
+    try {
+      const content = await readFile(this.#dailyMenuFile, "utf8");
+      const parsed = dailyMenuStoreSchema.safeParse(JSON.parse(content));
+      if (!parsed.success) throw new Error("invalid-daily-menu-cache");
+      return parsed.data;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") return { version: 1, records: {} };
+      throw new Error("daily-menu-cache-unavailable");
+    }
+  }
+
+  /** 同repository串行认领：真实请求必须在此返回true之后才能开始。 */
+  claimDailyMenu(record: DailyMenuRecord): Promise<boolean> {
+    return this.#enqueueDailyMenu(async () => {
+      const valid = dailyMenuRecordSchema.parse(record);
+      if (valid.status !== "generating") throw new Error("invalid-daily-menu-claim");
+      const store = await this.readDailyMenus();
+      if (store.records[valid.date]) return false;
+      store.records[valid.date] = valid;
+      await this.#writeDailyMenus(store);
+      return true;
+    });
+  }
+
+  /** 只完成本次认领，拒绝覆盖已经结束或不属于本任务的日期。 */
+  finishDailyMenu(record: DailyMenuRecord): Promise<void> {
+    return this.#enqueueDailyMenu(async () => {
+      const valid = dailyMenuRecordSchema.parse(record);
+      const store = await this.readDailyMenus();
+      const claim = store.records[valid.date];
+      if (valid.status === "generating" || claim?.status !== "generating"
+        || claim.attemptedAt !== valid.attemptedAt || claim.promptVersion !== valid.promptVersion) {
+        throw new Error("invalid-daily-menu-completion");
+      }
+      store.records[valid.date] = valid;
+      await this.#writeDailyMenus(store);
+    });
+  }
+
+  #enqueueDailyMenu<T>(task: () => Promise<T>): Promise<T> {
+    const run = this.#dailyMenuChain.then(task, task);
+    this.#dailyMenuChain = run.then(() => undefined, () => undefined);
+    return run;
+  }
+
+  async #writeDailyMenus(store: DailyMenuStore): Promise<void> {
+    const valid = dailyMenuStoreSchema.parse(store);
+    const dir = join(this.#dailyMenuFile, "..");
+    await mkdir(dir, { recursive: true });
+    const temporary = `${this.#dailyMenuFile}.${randomBytes(8).toString("hex")}.tmp`;
+    try {
+      await writeFile(temporary, `${JSON.stringify(valid, null, 2)}\n`, { flag: "wx", mode: 0o600 });
+      await rename(temporary, this.#dailyMenuFile);
+    } finally {
+      await unlink(temporary).catch(() => undefined);
+    }
   }
 
   /* ---------- 写入协议（CB-009，见 ADR-0005） ---------- */

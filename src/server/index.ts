@@ -9,13 +9,15 @@ import { isImageRequest, registerImageRoutes } from "./routes/images.js";
 import { registerRecipeRoutes } from "./routes/recipes.js";
 import { registerUserStateRoutes } from "./routes/user-state.js";
 import { registerWorkshopRoutes } from "./routes/workshop.js";
+import { registerDailyMenuRoutes } from "./routes/daily-menu.js";
+import { DailyMenuService } from "./services/daily-menu-service.js";
 import { WorkshopService } from "./services/workshop-service.js";
-import type { WorkshopServiceOptions } from "../shared/types.js";
+import type { DailyMenuServiceOptions, WorkshopServiceOptions } from "../shared/types.js";
 import { RecipeRepository } from "./services/recipe-repository.js";
 import { UserStateStore } from "./services/user-state-store.js";
 
 /** 组装应用（不监听端口），便于测试与复用 */
-export async function createApp(config: CookbookConfig, workshopOptions: WorkshopServiceOptions = {}): Promise<FastifyInstance> {
+export async function createApp(config: CookbookConfig, workshopOptions: WorkshopServiceOptions = {}, dailyMenuOptions: DailyMenuServiceOptions = {}): Promise<FastifyInstance> {
   const app = Fastify({
     logger: {
       level: process.env.COOKBOOK_LOG_LEVEL ?? "info"
@@ -46,6 +48,14 @@ export async function createApp(config: CookbookConfig, workshopOptions: Worksho
   const workshop = new WorkshopService(repository, workshopOptions);
   registerWorkshopRoutes(app, repository, workshop);
   app.addHook("onClose", async () => workshop.close());
+  const dailyMenu = new DailyMenuService(repository, userState, {
+    warn: code => app.log.warn(`每日菜单：${code}`),
+    ...dailyMenuOptions
+  });
+  registerDailyMenuRoutes(app, dailyMenu);
+  // inject/ready只读组装应用；只有真实监听才启动每日模型任务。
+  app.addHook("onListen", async () => { dailyMenu.start(); });
+  app.addHook("onClose", async () => dailyMenu.close());
   await registerImageRoutes(app, config.dataDir, repository.admittedImages());
 
   const recipes = repository.list();
