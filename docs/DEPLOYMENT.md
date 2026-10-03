@@ -1,6 +1,6 @@
 # 部署与运行
 
-状态：本项目已部署。2026-10-03 首页图标入口与 JSON 导入修复已上线，当前运行与回滚证据见 §0h；此前创意工坊、封面、界面和内容发布记录保留在 §0g / §0f / §0e / §0d / §0c / §0b。
+状态：本项目已部署。2026-10-03 两人每日菜单与厨具图标已上线，当前运行与回滚证据见 §0i；首页工坊图标与JSON导入修复在 §0h，此前发布记录保留在 §0g / §0f / §0e / §0d / §0c / §0b。
 目标：`http://192.168.1.2:18081` 局域网可访问，容器重建不丢数据
 
 ---
@@ -208,6 +208,35 @@ ssh root@192.168.1.2 'sh /srv/backup/cookbook-workshop-entry-20261003-210137/rol
 ```
 
 规格保持 `implemented`。真实手机、常用平台、手写/长图、厨房试做与本轮真实DS生成未复验；范围见 [CB-014 CHECK](verification/CB-014/CHECK.md)。
+
+## 0i. 两人每日菜单与厨具图标部署（2026-10-03）
+
+用户要求厨具图标与DS4.1每日选两人家常餐桌，按本会话明确部署授权发布到同一cookbook服务；功能见 [CB-015](features/CB-015-daily-home-menu.md)，架构与预算见 [ADR-0010](decisions/ADR-0010-daily-menu.md)。源码提交为 `f358ed19a497b5aa29b1f26f585fd4af5d10ca54`，发布前完成本地检查、真实DS与浏览器验证，未推送Git远端。
+
+| 项目 | 现场结果 |
+| --- | --- |
+| 上线与重启 | 2026-10-03 23:00:31（Asia/Shanghai）启动并healthy；23:05:12实际重启后仍healthy，今日缓存逐字节一致 |
+| 镜像 | `sha256:a24c99a65b907f038a7c64b882276dcbf26dd7ec251ed91aeca8db3968158016`，linux/amd64、Node22.23.2，307608306字节；Dockerfile/Compose未改，data与密钥不进镜像 |
+| 服务基线 | 仅192.168.1.2:18081→8080；node用户、unless-stopped、只读根目录、ALL cap drop、no-new-privileges、256MiB、pids128与16MiB tmpfs保持；容器ID `06b84a4be005e7050b2e0fa308c3c6a135e889495189a1a50208acef65dfc0de` |
+| 菜谱与菜单 | 健康/列表/meta接口200，371道菜、跳过0、371封面；GET daily-menu返回ready/llm、2026-10-03、2人，蒜苔炒肉末/蒜蓉西兰花/西红柿鸡蛋汤，原谱均2人份；示例封面200 image/jpeg |
+| 请求复用 | 真实DS只调用1次，结果先在隔离数据副本验证，再以同一缓存发布；Mac与服务器DS地址/密钥/模型只做布尔比较，全部相同。正式启动和实际重启保留同一attemptedAt/generatedAt与菜单文件SHA256，不重复生成 |
+| 数据保护 | 停服后一致快照，原有1083文件的SHA256全部通过；只新增recommendations/daily-menu.json（1000:1000、600），SHA256 `a1a7c59bf55eef4b0773a58dc4d191c801e0f74db5d5ea734ca8f6127226b270`。菜谱、图片、草稿、用户状态与来源资产不改 |
+| 镜像隔离验证 | 无网络、只读正式数据挂载、临时3菜；ready/inject无模型调用，onListen只生成1次，重建应用读取缓存；已验证菜单schema和线上ID全部有效，实际密钥未出现在前端产物 |
+| 线上浏览器 | Chrome1280×900与390×844可见完整三菜，图片解码成功、无横向溢出；两图标44×44，厨具面板可开关，控制台warn/error为空。截图见 [桌面](verification/CB-015/screenshots/2026-10-03-live-home-desktop.jpg)、[手机](verification/CB-015/screenshots/2026-10-03-live-home-mobile.jpg) |
+| 其他服务与配置 | 其他容器ID/启动时间/状态不变；22/80/443/LAN18081监听不变，管理HTTP/HTTPS200；两份受保护env字节不变，工坊llmAvailable=true；启动error/fatal数0 |
+| 本地验证 | 复用最终代码的typecheck、37文件/365测试、371/0数据校验与build证据；随后仅更新上线文档/截图，git diff --check通过 |
+
+完整备份 `/srv/backup/cookbook-daily-menu-20261003-2238/`（700）含旧源码/配置/镜像信息、原源码目录、完整data-before.tar.gz、前后摘要、构建/隔离验证记录与已验证菜单。数据归档113027475字节，SHA256 `b8b0ee9836117f2c635656ef8d0e87547ccc74735047f43c593a401ca89290b2`；gzip与归档清单读取通过。旧镜像保留为 `cookbook:rollback-daily-menu-20261003-2238`。
+
+回滚脚本具有当前镜像、源码与配置守卫，仅恢复代码/配置并保留全部当前数据，包括新菜单缓存；语法与--check通过，未实际执行恢复演练。
+
+```bash
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-daily-menu-20261003-2238/rollback.sh --check'
+# 明确决定回滚代码时执行，保留用户资产与当日预算。
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-daily-menu-20261003-2238/rollback.sh'
+```
+
+跨夜00:05与真实厨房试做尚未现场观察，边界与已有自动化证据见 [CHECK](verification/CB-015/CHECK.md)。
 
 ## 1. 本地开发（Mac）
 

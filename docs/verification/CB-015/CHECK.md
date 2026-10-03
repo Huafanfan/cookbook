@@ -23,7 +23,9 @@ Chrome真实渲染，1280×900、390×844、320×740无横向溢出；顶部两�
 
 厨具图标打开原面板，砂锅取消/勾选与Enter收起可用；搜索西兰花时推荐区隐藏、显示2条结果，清空后恢复。三菜均实际点击进入原详情并返回，份量仍2人份。控制台warn/error为空。
 
-截图：[桌面](screenshots/2026-10-03-home-desktop.jpg)、[手机](screenshots/2026-10-03-home-mobile.jpg)、[320px](screenshots/2026-10-03-home-narrow.jpg)。生产浏览器与Docker证据待发布后补齐。
+截图：[本地桌面](screenshots/2026-10-03-home-desktop.jpg)、[本地手机](screenshots/2026-10-03-home-mobile.jpg)、[320px](screenshots/2026-10-03-home-narrow.jpg)、[线上桌面](screenshots/2026-10-03-live-home-desktop.jpg)、[线上手机](screenshots/2026-10-03-live-home-mobile.jpg)。
+
+Docker新镜像已在无网络临时容器实测：onReady只读、onListen生成一次、重建应用复用cache，前端无实际密钥。线上1280/390px完整三菜、44px图标、面板开关、图片与控制台均通过；实际进程重启healthy，缓存SHA不变。部署与备份现场事实见 [DEPLOYMENT §0i](../../DEPLOYMENT.md#0i-两人每日菜单与厨具图标部署2026-10-03)。
 
 ## 尚未验证
 
