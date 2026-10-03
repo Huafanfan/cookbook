@@ -99,14 +99,34 @@ export function HomePage(): React.JSX.Element {
       <header className="home-header">
         <h1 className="home-brand">今天吃什么</h1>
         <SearchBar value={keyword} onChange={setKeyword} />
-        <button
-          type="button"
-          className="home-kitchen-button"
-          aria-expanded={kitchenPanelOpen}
-          onClick={() => setKitchenPanelOpen((open) => !open)}
-        >
-          我的厨具
-        </button>
+        <div className="home-header-actions">
+          <button
+            type="button"
+            className="home-kitchen-button"
+            aria-expanded={kitchenPanelOpen}
+            onClick={() => setKitchenPanelOpen((open) => !open)}
+          >
+            我的厨具
+          </button>
+          <button
+            type="button"
+            className="home-workshop-button"
+            aria-label="创意工坊"
+            onClick={() => navigate("/workshop")}
+          >
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+              <g stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17h18l-1.1 7.1a3 3 0 0 1-3 2.5h-9.8a3 3 0 0 1-3-2.5L7 17Z" />
+                <path d="M4 18.5h3.2M24.8 18.5H28M8.5 13.8h15M13 13.8v-1.2a3 3 0 0 1 6 0v1.2M10.5 6.5v2" />
+              </g>
+              <path
+                d="m24 3 .9 2.7 2.6.8-2.6.9L24 10l-.9-2.6-2.6-.9 2.6-.8L24 3Z"
+                fill="#d3a330"
+              />
+            </svg>
+            <span className="home-workshop-tooltip" aria-hidden="true">创意工坊</span>
+          </button>
+        </div>
       </header>
 
       {kitchenPanelOpen && (
@@ -122,15 +142,6 @@ export function HomePage(): React.JSX.Element {
           apply={kitchen.apply}
         />
       )}
-
-      <section className="home-workshop-entry" aria-label="创意工坊">
-        <div>
-          <span className="home-workshop-kicker">新菜灵感</span>
-          <strong>把链接、截图和笔记放在一起</strong>
-          <span>先整理成草稿，核对后再保存</span>
-        </div>
-        <button type="button" onClick={() => navigate("/workshop")}>打开创意工坊 <span aria-hidden="true">→</span></button>
-      </section>
 
       {featured.length > 0 && (
         <section className="featured-section" aria-labelledby="featured-title">

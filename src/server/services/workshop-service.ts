@@ -160,12 +160,12 @@ export class WorkshopService {
       draft = await change(current => { current.generation!.state = "analyzing"; current.generation!.fingerprint = fingerprint; });
       if (controller.signal.aborted || draft.inputVersion !== inputVersion || draft.generation?.taskId !== taskId) return;
       let result: WorkshopAnalysisResult;
-      if (previous.generation?.state === "complete" && previous.generation.fingerprint === fingerprint && previous.analysis) {
-        result = previous.analysis;
-        result = { ...result, usage: { promptTokens: 0, completionTokens: 0, totalTokens: 0 } };
-      } else if (allStructured && deterministic.length && !draft.instructions.trim()) {
+      if (allStructured && deterministic.length && !draft.instructions.trim()) {
         result = { candidates: deterministic.map((candidate, index) => ({ ...candidate, key: `candidate-${index + 1}` })), explanation: "已读取结构化菜谱，无需调用模型。" };
         await change(current => { current.generation!.model = "deterministic"; });
+      } else if (previous.generation?.state === "complete" && previous.generation.fingerprint === fingerprint && previous.analysis) {
+        result = previous.analysis;
+        result = { ...result, usage: { promptTokens: 0, completionTokens: 0, totalTokens: 0 } };
       } else {
         if (!this.#config) throw new WorkshopError(503, "llm_unavailable", "DS 尚未配置，材料已保留；可手动填写或导入菜谱 JSON。");
         const meta = this.repository.meta();

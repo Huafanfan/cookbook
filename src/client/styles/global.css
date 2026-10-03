@@ -101,7 +101,7 @@ textarea:focus-visible {
 
 .home-header {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(280px, 600px) minmax(130px, 1fr);
+  grid-template-columns: minmax(180px, 1fr) minmax(240px, 600px) minmax(140px, 1fr);
   align-items: center;
   gap: 24px;
   min-height: 70px;
@@ -130,16 +130,73 @@ textarea:focus-visible {
   transform: rotate(28deg);
 }
 
-.home-kitchen-button {
+.home-header-actions {
+  display: flex;
+  align-items: center;
   justify-self: end;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.home-kitchen-button {
   min-height: var(--tap);
-  padding: 5px 0 5px 12px;
+  padding: 5px 0;
   border: 0;
   background: transparent;
   color: var(--color-accent);
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.home-workshop-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--tap);
+  width: var(--tap);
+  height: var(--tap);
+  padding: 6px;
+  border: 1px solid #dce8df;
+  border-radius: 14px;
+  background: #f3f7f0;
+  color: var(--color-accent);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.home-workshop-button:hover,
+.home-workshop-button:focus-visible {
+  border-color: #bed4c4;
+  background: #eaf2e5;
+}
+
+.home-workshop-button svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.home-workshop-tooltip {
+  position: absolute;
+  z-index: 6;
+  top: calc(100% + 8px);
+  right: 0;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.home-workshop-button:hover .home-workshop-tooltip,
+.home-workshop-button:focus-visible .home-workshop-tooltip {
+  visibility: visible;
 }
 
 .featured-section { margin: 2px 0 38px; }
@@ -1479,7 +1536,8 @@ textarea:focus-visible {
     margin-bottom: 26px;
   }
   .home-brand { font-size: 27px; }
-  .home-kitchen-button { grid-column: 2; grid-row: 1; font-size: 13px; }
+  .home-header-actions { grid-column: 2; grid-row: 1; gap: 10px; }
+  .home-kitchen-button { font-size: 13px; }
   .home-header .search-bar { grid-column: 1 / -1; grid-row: 2; }
   .featured-section { margin-bottom: 28px; }
   .featured-section h2 { font-size: 24px; }

@@ -318,6 +318,69 @@ describe("创意工坊 HTTP 流程（CB-014）", () => {
     expect(analyze).not.toHaveBeenCalled();
   });
 
+  it("再次整理时重解析缺少步骤时长的旧 JSON 缓存，且不调用模型", async () => {
+    const analyze = vi.fn<NonNullable<WorkshopServiceOptions["analyze"]>>();
+    const dataDir = await makeDataDir();
+    const app = await startApp(dataDir, { config: null, analyze });
+    let draft = await createDraft(app);
+    const sourceResponse = await app.inject({
+      method: "POST",
+      url: `/api/workshop/drafts/${draft.draftId}/sources`,
+      payload: {
+        baseRevision: draft.revision,
+        kind: "json",
+        name: "番茄汤.json",
+        text: JSON.stringify({
+          id: "original-tomato-soup",
+          name: "番茄汤",
+          category: "汤",
+          difficulty: 1,
+          servings: 2,
+          ingredients: [{ name: "番茄", amount: 2, unit: "个" }],
+          steps: [{ text: "番茄切块，加水煮 3 分钟。", minutes: 3 }]
+        })
+      }
+    });
+    expect([200, 201]).toContain(sourceResponse.statusCode);
+    draft = sourceResponse.json<WorkshopDraft>();
+
+    const initialAnalysis = await app.inject({
+      method: "POST",
+      url: `/api/workshop/drafts/${draft.draftId}/analyze`,
+      payload: { baseRevision: draft.revision }
+    });
+    expect(initialAnalysis.statusCode).toBe(202);
+    draft = await waitForDraft(app, draft.draftId, (current) => current.generation?.state === "complete");
+    expect(draft.candidate.steps?.[0]?.minutes).toBe(3);
+    expect(analyze).not.toHaveBeenCalled();
+
+    const draftPath = join(dataDir, "workshop", "drafts", draft.draftId, "draft.json");
+    const persisted = JSON.parse(await readFile(draftPath, "utf8")) as WorkshopDraft;
+    const cachedStep = persisted.analysis?.candidates[0]?.recipe.steps?.[0];
+    const candidateStep = persisted.candidate.steps?.[0];
+    expect(cachedStep?.minutes).toBe(3);
+    expect(candidateStep?.minutes).toBe(3);
+    if (!cachedStep || !candidateStep) throw new Error("fixture is missing its recipe step");
+    delete cachedStep.minutes;
+    delete candidateStep.minutes;
+    await writeFile(draftPath, `${JSON.stringify(persisted, null, 2)}\n`);
+    await closeApp(app);
+
+    const restarted = await startApp(dataDir, { config: null, analyze });
+    draft = await getDraft(restarted, draft.draftId);
+    expect(draft.candidate.steps?.[0]?.minutes).toBeUndefined();
+    const retry = await restarted.inject({
+      method: "POST",
+      url: `/api/workshop/drafts/${draft.draftId}/analyze`,
+      payload: { baseRevision: draft.revision }
+    });
+    expect(retry.statusCode).toBe(202);
+    const reparsed = await waitForDraft(restarted, draft.draftId, (current) => current.generation?.state === "complete");
+
+    expect(reparsed.candidate.steps?.[0]?.minutes).toBe(3);
+    expect(analyze).not.toHaveBeenCalled();
+  });
+
   it("重复整理复用一个任务；用户改过候选后，新结果作为 suggestion", async () => {
     let finishFirst!: (result: WorkshopAnalysisResult) => void;
     const firstResult = new Promise<WorkshopAnalysisResult>((resolve) => {

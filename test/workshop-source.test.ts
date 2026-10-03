@@ -235,6 +235,58 @@ describe("workshop recipe extraction", () => {
     expect(result.candidates?.[1].recipe.name).toBe("凉拌黄瓜");
   });
 
+  it("保留现有 Recipe JSON 的可编辑字段，且只保留显式提供的时间", () => {
+    const result = parseWorkshopRecipeJson(JSON.stringify({
+      id: "original-recipe-id",
+      sourceRef: { repo: "https://example.com/recipes", path: "soup.json", baselineStatus: "matched" },
+      createdAt: "2020-01-01",
+      updatedAt: "2020-01-02",
+      name: "番茄土豆汤",
+      aliases: ["番茄汤"],
+      category: "汤",
+      tags: ["下饭"],
+      summary: "清爽的家常汤。",
+      difficulty: 2,
+      servings: 2,
+      prepMinutes: 5,
+      cookMinutes: 0,
+      equipment: ["炒锅"],
+      equipmentAlternatives: [["炒锅", "砂锅"]],
+      ingredients: [{ name: "番茄", amount: 2, unit: "个", group: "汤底", note: "切块", ignored: true }],
+      steps: [
+        { title: "备料", text: "番茄切块。", minutes: 3, heat: "中火", tip: "先烧热锅。", ignored: true },
+        { text: "加水煮至入味。" },
+        { title: "调味", text: "加入盐。", minutes: 0 }
+      ],
+      tips: ["趁热食用。"],
+      source: "家庭记录",
+      ignored: "unknown field"
+    }));
+    const recipe = result.candidates[0].recipe as Record<string, unknown>;
+
+    expect(recipe).toEqual({
+      name: "番茄土豆汤",
+      aliases: ["番茄汤"],
+      category: "汤",
+      tags: ["下饭"],
+      summary: "清爽的家常汤。",
+      difficulty: 2,
+      servings: 2,
+      prepMinutes: 5,
+      cookMinutes: 0,
+      equipment: ["炒锅"],
+      equipmentAlternatives: [["炒锅", "砂锅"]],
+      ingredients: [{ name: "番茄", amount: 2, unit: "个", group: "汤底", note: "切块" }],
+      steps: [
+        { title: "备料", text: "番茄切块。", minutes: 3, heat: "中火", tip: "先烧热锅。" },
+        { text: "加水煮至入味。" },
+        { title: "调味", text: "加入盐。", minutes: 0 }
+      ],
+      tips: ["趁热食用。"],
+      source: "家庭记录"
+    });
+  });
+
   it("keeps a range or vague recipe yield unknown and strips protected Recipe fields", () => {
     const result = parseWorkshopRecipeJson(JSON.stringify({
       id: "original-recipe-id",

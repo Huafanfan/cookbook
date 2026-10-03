@@ -150,36 +150,6 @@
 .workshop-button-light { border-color: #dce5d5; background: #fff; color: var(--workshop-green); }
 .workshop-index-actions .workshop-button { min-width: 176px; min-height: 50px; }
 
-.home-workshop-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin: -12px 0 30px;
-  padding: 14px 18px;
-  border: 1px solid #e4e9d7;
-  border-radius: 16px;
-  background: linear-gradient(100deg, #f5f7eb, #fff9e9);
-}
-.home-workshop-entry > div { display: grid; min-width: 0; gap: 2px; }
-.home-workshop-kicker { color: #9b7c3c; font-size: 10px; font-weight: 750; letter-spacing: .1em; }
-.home-workshop-entry strong { color: #35543c; font-size: 14px; }
-.home-workshop-entry > div > span:last-child { color: #788376; font-size: 12px; }
-.home-workshop-entry button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  gap: 8px;
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid #d5e0ce;
-  border-radius: 999px;
-  background: #fff;
-  color: #28613f;
-  font-weight: 700;
-  cursor: pointer;
-}
 
 .workshop-capability { display: flex; align-items: flex-start; gap: 8px; margin: 14px 2px 28px; color: var(--workshop-muted); font-size: 13px; }
 .workshop-capability.is-ready { color: #3a7749; }
@@ -434,8 +404,6 @@
 @media (max-width: 560px) {
   .workshop-page { padding-right: 14px; padding-left: 14px; }
   .workshop-topbar { margin-bottom: 12px; }
-  .home-workshop-entry { align-items: flex-start; flex-direction: column; margin-top: -7px; padding: 14px; }
-  .home-workshop-entry button { width: 100%; }
   .workshop-brand-mark { display: none; }
   .workshop-index-hero { grid-template-columns: minmax(0, 1fr); min-height: auto; padding: 24px 20px; }
   .workshop-hero-art { position: absolute; top: 28px; right: 4px; width: 112px; min-height: 112px; opacity: .72; transform: scale(.64); transform-origin: top right; }

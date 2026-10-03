@@ -463,8 +463,39 @@ function authorValue(value: unknown): string | undefined {
 function candidateFromRecipe(
   node: Record<string, unknown>,
   index: number,
-  sourceId?: string
+  sourceId?: string,
+  preserveNativeRecipe = false
 ): WorkshopCandidate {
+  const nativeIngredients = node.ingredients;
+  const nativeSteps = node.steps;
+  const isNativeRecipe = preserveNativeRecipe
+    && !node["@type"]
+    && !node.type
+    && Array.isArray(nativeIngredients)
+    && Array.isArray(nativeSteps)
+    && nativeIngredients.every(item => {
+      const ingredient = record(item);
+      return !!ingredient && typeof ingredient.name === "string";
+    })
+    && nativeSteps.every(item => {
+      const step = record(item);
+      return !!step && typeof step.text === "string";
+    });
+  if (isNativeRecipe) {
+    const protectedFields = new Set(["id", "sourceRef", "createdAt", "updatedAt"]);
+    const editable = Object.fromEntries(Object.entries(node).filter(([key]) => !protectedFields.has(key)));
+    const parsed = workshopRecipeSchema.safeParse(editable);
+    if (parsed.success) {
+      const recipe = parsed.data as WorkshopRecipeInput;
+      return {
+        key: "recipe-" + index,
+        recipe,
+        evidence: Object.keys(recipe).map(field => ({ field, status: "source", sourceIds: sourceId ? [sourceId] : [] })),
+        unresolved: []
+      };
+    }
+  }
+
   const recipe: Record<string, unknown> = {};
   const name = stringValue(node.name) ?? stringValue(node.headline);
   if (name) recipe.name = name;
@@ -512,8 +543,8 @@ function candidateFromRecipe(
   };
 }
 
-function analysisFromNodes(nodes: Record<string, unknown>[], sourceId?: string): WorkshopAnalysisResult {
-  const candidates = nodes.map((node, index) => candidateFromRecipe(node, index + 1, sourceId));
+function analysisFromNodes(nodes: Record<string, unknown>[], sourceId?: string, preserveNativeRecipe = false): WorkshopAnalysisResult {
+  const candidates = nodes.map((node, index) => candidateFromRecipe(node, index + 1, sourceId, preserveNativeRecipe));
   if (!candidates.length) return { candidates: [], explanation: "" };
   const analysis = workshopAnalysisSchema.parse({ candidates, explanation: "" });
   if (JSON.stringify(analysis).length > MAX_PAGE_TEXT) {
@@ -532,7 +563,7 @@ export function parseWorkshopRecipeJson(text: string, sourceId?: string): Worksh
   }
   const nodes = collectRecipeNodes(value);
   if (!nodes.length) return fail(400, "workshop_json_not_recipe", "JSON 中没有可识别的菜谱");
-  const analysis = analysisFromNodes(nodes, sourceId);
+  const analysis = analysisFromNodes(nodes, sourceId, true);
   if (!analysis.candidates.length) return fail(400, "workshop_json_not_recipe", "JSON 中没有可识别的菜谱");
   return analysis;
 }
