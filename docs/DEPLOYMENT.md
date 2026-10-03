@@ -1,6 +1,6 @@
 # 部署与运行
 
-状态：本项目已部署。2026-09-30 已补齐全部371道封面，当前运行与回滚证据见 §0f；此前封面、界面和内容部署记录保留在 §0e / §0d / §0c / §0b。
+状态：本项目已部署。2026-10-03 首页图标入口与 JSON 导入修复已上线，当前运行与回滚证据见 §0h；此前创意工坊、封面、界面和内容发布记录保留在 §0g / §0f / §0e / §0d / §0c / §0b。
 目标：`http://192.168.1.2:18081` 局域网可访问，容器重建不丢数据
 
 ---
@@ -172,6 +172,42 @@ ssh root@192.168.1.2 'sh /srv/backup/cookbook-complete-20260930-191857/rollback.
 ```
 
 静态检查、345 项测试和实际浏览器/DS 材料断言见 [CB-014 CHECK](verification/CB-014/CHECK.md)。此版本供用户实际 review；真实手机相册/拍照、手写、常用平台链接、最大负载与试做仍待反馈，规格保留 `implemented`。
+
+## 0h. 首页图标入口与 JSON 导入修复部署（2026-10-03）
+
+用户授权部署本次修订，并要求继续完成。功能与交互以 [CB-014 §3](features/CB-014-recipe-workshop.md#3-交互细节与状态) 为准；沿用 [ADR-0009](decisions/ADR-0009-recipe-workshop.md)，本次仅更新 cookbook app，不迁移或覆盖数据，不推送代码。
+
+运行源码为 `5eea574695ac4538b7df2e9c60d7246e002a4f07`。从已提交文件制作发布归档，排除 `data/`、Git、本机依赖和环境文件；新版本先在暂存目录构建与隔离验证，成功后才短暂停服、备份完整数据并切换。
+
+| 项目 | 实测结果 |
+| --- | --- |
+| 上线时间 / URL | 2026-10-03 21:23:19（Asia/Shanghai）启动，随后 healthy；`http://192.168.1.2:18081/`，顶部图标进入 `/workshop` |
+| 预检 | x86_64、Docker 27.3.1；源码、数据与 Docker root 都在 `/srv` 本地 ext4，剩余876.3G；BusyBox inode 查询不支持。部署前 app 健康，原源码的已有文件与 `4768c2d` 一致，两个已废弃测试文件随旧源码保留到备份 |
+| 镜像 / 构建 | 使用已缓存的 amd64 Node 22.23.2，未改 Dockerfile；`sha256:f0e1c1648b05ad44f5519df5963ba15345014562f3357f7c10a92e4ac341d3b4`，307544799字节；标签 `cookbook:workshop-entry-5eea574` / `cookbook:server` |
+| 新容器 | `4512d31c178d0d8d6c3b679575243292cda298a1a98ffc931c6cb498430c8e1a`，名称 `cookbook`，healthy；仅通过 `up -d --no-deps app` 重建 |
+| 运行配置 | `node`、`unless-stopped`、只读根文件系统、`cap_drop: ALL`、`no-new-privileges`、256MiB、pids128保持；仅 `192.168.1.2:18081 → 8080/tcp`，`/srv/data/cookbook → /data` RW保持 |
+| 目标平台隔离验收 | 新镜像内 Node 22.23.2、无网络、无正式数据挂载，仅用 tmpfs：现有格式 JSON 的步骤标题/3分钟/火候/提醒、整道菜时间和厨具替代组保留，系统ID/来源基线/时间戳及未知字段剔除；确定性整理、确认保存和索引通过，基准菜字节不变。此验收没有调用 DS |
+| 数据保全 | 停服后完整数据归档包含 `workshop/`；上线后发布前1083个文件逐一 SHA256 校验通过。原371道菜、全部371张封面及1份既有草稿保留，没有向正式数据写测试菜或素材 |
+| 独立 LAN 客户端 | Mac `192.168.1.4` 使用无代理直连：health HTTP200、371道；列表371项、跳过0、371张封面，meta371；示例封面 HTTP200 / `image/jpeg`。目标只有现有 `192.168.1.0/24` 物理 LAN，未新增其他网段绑定 |
+| DS 与秘密 | 原 `.env.ds`、`.env.server` SHA校验通过，保护权限保持；容器与Mac capabilities 均为 `llmAvailable: true`、`deepseek-flash`。前端产物按实际密钥检查，无匹配；未输出密钥或完整展开配置，未重新调用收费模型 |
+| 浏览器 | Chrome实际线上首页：1280×800、390×844、320×700均无横向溢出，图标44×44px，介绍横幅已移除，点击进入工坊、返回首页通过；控制台error/warn为0。主代理用 `view_image` 检查[线上桌面](verification/CB-014/screenshots/2026-10-03-live-home-desktop.jpg)及[线上手机尺寸](verification/CB-014/screenshots/2026-10-03-live-home-mobile.jpg)，与接受规格一致 |
+| 其他服务 / 管理 | 其他三个容器ID、启动时间及运行状态与发布前一致（PT app原先已退出，本轮未处理）；iStoreOS HTTP/HTTPS均200，22/80/443及LAN18081监听保持 |
+| 源码 / 日志 | Dockerfile、Compose、前端入口/样式、两处服务端修复与lockfile的服务器SHA256均与发布版一致；启动error/fatal数为0 |
+| 本地检查 | 复用本次实现的有效证据：三套typecheck、32个测试文件/347项、371个数据校验及完整build均通过；本轮随后只更新文档与线上截图，另跑 `git diff --check` |
+
+全量监听比较中，一条宿主机 dnsmasq 的 link-local DNS地址随 Docker veth 重建而变化；现场核对为虚拟网口 `veth3180ae8`，没有修改DNS或网络配置，管理与应用监听地址未变。
+
+备份：`/srv/backup/cookbook-workshop-entry-20261003-210137/`（0700）。含旧源码归档、配置、镜像信息、原源码目录、完整 `data-before.tar.gz`、前后文件摘要、构建和验收记录。数据归档113027475字节，SHA256为 `b8b0ee9836117f2c635656ef8d0e87547ccc74735047f43c593a401ca89290b2`；gzip和归档清单读取通过。旧镜像保留为 `cookbook:rollback-workshop-entry-20261003-210137`。
+
+回滚脚本有当前镜像、源码和环境文件摘要守卫，只恢复代码、镜像与启动配置，保留当前所有菜谱、图片、草稿和来源。语法与 `--check` 均通过，未执行真实恢复演练。
+
+```bash
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-workshop-entry-20261003-210137/rollback.sh --check'
+# 明确决定回滚代码时执行；不使用旧数据归档覆盖新增资产。
+ssh root@192.168.1.2 'sh /srv/backup/cookbook-workshop-entry-20261003-210137/rollback.sh'
+```
+
+规格保持 `implemented`。真实手机、常用平台、手写/长图、厨房试做与本轮真实DS生成未复验；范围见 [CB-014 CHECK](verification/CB-014/CHECK.md)。
 
 ## 1. 本地开发（Mac）
 

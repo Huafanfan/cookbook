@@ -73,4 +73,6 @@ IAB 访问 LAN 地址返回 `ERR_ADDRESS_UNREACHABLE`；同机 HTTP 探测为 20
 
 ### 本轮仍未验证
 
-真实 DS 的新生成结果沿用 2026-10-01 证据；本轮仅只读确认 LAN capabilities 为 `llmAvailable: true`、模型 `deepseek-flash`。真实手机相册/拍照/粘贴、手写/长图、常用平台链接和厨房试做没有执行；规格总体仍为 `implemented`，尚未部署这次修订。
+真实 DS 的新生成结果沿用 2026-10-01 证据；本轮只读确认 LAN capabilities 为 `llmAvailable: true`、模型 `deepseek-flash`。真实手机相册/拍照/粘贴、手写/长图、常用平台链接和厨房试做没有执行；规格总体仍为 `implemented`。
+
+用户随后授权部署。目标amd64镜像隔离验收、数据保全、线上浏览器和Mac独立客户端事实统一见 [DEPLOYMENT §0h](../../DEPLOYMENT.md#0h-首页图标入口与-json-导入修复部署2026-10-03)；不把服务器隔离的确定性JSON验收称为真实DS生成或真机验收。
